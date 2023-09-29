@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CEAB83D-D470-4CE8-AE2D-C99263F26522}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CRS_NEG</RootNamespace>
+    <AssemblyName>CRS_NEG</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CRS_PRE\bin\Debug\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADP\adp010.cs" />
+    <Compile Include="ADP\adp012.cs" />
+    <Compile Include="ADP\adp016.cs" />
+    <Compile Include="ADP\adp013.cs" />
+    <Compile Include="ADP\adp005.cs" />
+    <Compile Include="ADP\adp008.cs" />
+    <Compile Include="ADP\adp006.cs" />
+    <Compile Include="ADP\adp009.cs" />
+    <Compile Include="ADP\adp015.cs" />
+    <Compile Include="ADP\adp014.cs" />
+    <Compile Include="ADP\adp018.cs" />
+    <Compile Include="ADP\adp017.cs" />
+    <Compile Include="ADS\ads011.cs" />
+    <Compile Include="ADS\ads025.cs" />
+    <Compile Include="ADS\ads026.cs" />
+    <Compile Include="ADS\ads010.cs" />
+    <Compile Include="ADP\adp007.cs" />
+    <Compile Include="ADP\adp004.cs" />
+    <Compile Include="ADP\adp003.cs" />
+    <Compile Include="ADS\ads006.cs" />
+    <Compile Include="ADS\ads002.cs" />
+    <Compile Include="ADS\ads005.cs" />
+    <Compile Include="ADS\ads004.cs" />
+    <Compile Include="ADS\ads012.cs" />
+    <Compile Include="ADS\ads024.cs" />
+    <Compile Include="ADS\ads009.cs" />
+    <Compile Include="ADS\ads008.cs" />
+    <Compile Include="ADS\ads017.cs" />
+    <Compile Include="ADS\ads007.cs" />
+    <Compile Include="ADS\ads001.cs" />
+    <Compile Include="ADS\ads013.cs" />
+    <Compile Include="ADS\ads003.cs" />
+    <Compile Include="ADS\ads016.cs" />
+    <Compile Include="ADS\ads022.cs" />
+    <Compile Include="CMR\cmr003.cs" />
+    <Compile Include="CMR\cmr016.cs" />
+    <Compile Include="CMR\cmr017.cs" />
+    <Compile Include="CMR\cmr013.cs" />
+    <Compile Include="CMR\cmr008.cs" />
+    <Compile Include="CMR\cmr007.cs" />
+    <Compile Include="CMR\cmr005.cs" />
+    <Compile Include="CMR\cmr006.cs" />
+    <Compile Include="CMR\res004.cs" />
+    <Compile Include="CMR\cmr004.cs" />
+    <Compile Include="ADP\adp001.cs" />
+    <Compile Include="CMR\cmr014.cs" />
+    <Compile Include="CMR\cmr015.cs" />
+    <Compile Include="CMR\cmr002.cs" />
+    <Compile Include="CMR\cmr001.cs" />
+    <Compile Include="ADP\adp002.cs" />
+    <Compile Include="CTB\ctb006.cs" />
+    <Compile Include="CTB\ctb007.cs" />
+    <Compile Include="ECP\ecp003.cs" />
+    <Compile Include="ECP\ecp002.cs" />
+    <Compile Include="ECP\ecp001.cs" />
+    <Compile Include="General.cs" />
+    <Compile Include="INV\inv008.cs" />
+    <Compile Include="INV\inv005.cs" />
+    <Compile Include="INV\inv007.cs" />
+    <Compile Include="INV\inv006.cs" />
+    <Compile Include="INV\inv002.cs" />
+    <Compile Include="RES\res002.cs" />
+    <Compile Include="RES\res001.cs" />
+    <Compile Include="INV\inv004.cs" />
+    <Compile Include="INV\inv003.cs" />
+    <Compile Include="INV\inv001.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CRS_DAT\CRS_DAT.csproj">
+      <Project>{ee8fcda7-bddc-4e62-8cfc-832ced0cc05e}</Project>
+      <Name>CRS_DAT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ADP\ADP.txt" />
+    <Content Include="ADS\ADS.txt" />
+    <Content Include="CMR\CMR.txt" />
+    <Content Include="CTB\CTB.txt" />
+    <Content Include="ECP\ECP.txt" />
+    <Content Include="INV\INV.txt" />
+    <Content Include="RES\RES.txt" />
+    <Content Include="TES\TES.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

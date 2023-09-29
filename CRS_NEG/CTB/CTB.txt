@@ -1,0 +1,18 @@
+**********************************************************************
+****                    TABLAS DEL SISTEMA                        ****
+****  INDENTIFICADOR :  CTM                                       ****
+****          MODULO :  CONTABILIDAD                              ****
+**********************************************************************
+
+Nombre   Descripcion                                             Autor
+**********************************************************************
+ctb001 = Regional                                                 CHL
+ctb002 = Capitulo/Agrupador                                       CHL
+ctb003 = Centro de Costo                                          CHL
+ctb004 = Plan de Cuentas                                          CHL
+ctb005 = 
+ctb006 = Leyenda                                                  CHL
+ctb007 = Dosificación                                             CHL
+ctb008 = Debito Fiscal                                            CHL
+ctb009 = Credito Fiscal                                           CHL
+

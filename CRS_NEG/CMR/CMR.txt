@@ -1,0 +1,26 @@
+**********************************************************************
+****                    TABLAS DEL SISTEMA                        ****
+****  INDENTIFICADOR :  CMR                                       ****
+****          MODULO :  COMERCIALIZACIÓN                          ****
+**********************************************************************
+
+Nombre   Descripcion                                             Autor
+**********************************************************************
+cmr001 = Lista de precios                                         CHL
+cmr002 = Detalle de precios                                       CHL
+cmr003 = Sucursal                                                 CHL
+cmr004 = Plantilla de ventas                                      CHL          
+cmr005 = Nota de Venta                                            CHL
+cmr006 = Detalle de Nota de Venta                                 CHL
+cmr006tmp = Temporal Detalle de Nota Vta/Proforma/Pedido/Factura  CHL
+cmr007 = Pedido                                                   CHL
+cmr008 = Detalle pedido                                           CHL
+cmr009 = Proforma                                                 CHL
+cmr010 = Detalle de proforma                                      CHL
+cmr011 = 
+cmr012 = 
+cmr013 = Registro de Nit                                          CHL
+cmr014 = Vendedor/Cobrador **                                     CHL
+cmr015 = Delivery                                                 CHL
+cmr016 = Actividad Economica **                                   CHL
+cmr017 = Detalle de Comision Vendedor **                          CHL

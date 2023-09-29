@@ -1,0 +1,18 @@
+**********************************************************************
+****                    TABLAS DEL SISTEMA                        ****
+****  INDENTIFICADOR :  INV                                       ****
+****          MODULO :  INVENTARIO                                ****
+**********************************************************************
+
+Nombre   Descripcion                                             Autor
+**********************************************************************
+inv001 = Grupo Bodega                                             CHL
+inv002 = Bodega                                                   CHL
+inv003 = Familia de Producto                                      CHL
+inv004 = Producto                                                 CHL
+inv005 = Unidad de Medida                                         CHL
+inv006 = Marcas de Producto                                       CHL
+inv007 = Encabezado Compras                                       CHL
+inv008 = Existencia de Productos                                  CHL
+inv009 = Datos productos Vademecum (farmacia)                     CHL
+inv010 = Productos sustitutos				                      CHL
