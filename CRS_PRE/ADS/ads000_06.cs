@@ -142,6 +142,14 @@ namespace CRS_PRE
             ps_usr_adm.Visible = false;
             ps_pas_adm.Visible = false;
         }
+
+        // Evento KeyPress : Contraseña Administrador
+        private void tb_pas_adm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+                Fi_gra_reg();
+        }
+
         // Evento KeyDown : ID. Usuario
         private void tb_ide_usr_KeyDown(object sender, KeyEventArgs e)
         {
@@ -165,8 +173,7 @@ namespace CRS_PRE
             }
 
             // Valida que el campo la Contraseña Administrador NO este vacio
-            if (tb_pas_adm.Text.Trim() == "" || tb_pas_adm.Text.Trim() == "Contraseña")
-            {
+            if (tb_pas_adm.Text.Trim() == "" || tb_pas_adm.Text.Trim() == "Contraseña"){
                 tb_pas_adm.Focus();
                 return "DEBE proporcionar la Contraseña del del Usuario Administrador";
             }
@@ -211,28 +218,32 @@ namespace CRS_PRE
             return "OK";
         }
 
-        // Evento Click : Button Aceptar
-        private void bt_ace_pta_Click(object sender, EventArgs e)
-        {
+        // Graba Registro
+        private void Fi_gra_reg() {
             try
             {
                 // funcion para validar datos
                 string msg_val = Fi_val_dat();
-                if (msg_val != "OK"){
+                if (msg_val != "OK")
+                {
                     MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                     return;
-                }                
+                }
                 // Devuelve Estado de Resultado
                 DialogResult = DialogResult.OK;
-                // Inicializa Campos
-                Fi_lim_pia();
                 // Cierra Formulario
                 cl_glo_frm.Cerrar(this);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }              
+            }
+        }
+
+        // Evento Click : Button Aceptar
+        private void bt_ace_pta_Click(object sender, EventArgs e)
+        {
+            Fi_gra_reg();
         }
         // Evento Click : Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
@@ -241,6 +252,6 @@ namespace CRS_PRE
             DialogResult = DialogResult.Cancel;
             // Cierra Formulario
             cl_glo_frm.Cerrar(this);
-        }      
+        }        
     }
 }

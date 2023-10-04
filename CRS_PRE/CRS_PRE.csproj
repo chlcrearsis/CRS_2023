@@ -82,7 +82,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PictureBoxAbouAmmar">
-      <HintPath>..\X_EMPRESAS\PictureBoxAbouAmmar.dll</HintPath>
+      <HintPath>..\CRS_DOC\LIB\PictureBoxAbouAmmar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

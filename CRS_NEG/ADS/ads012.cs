@@ -1,78 +1,34 @@
 ﻿using CRS_DAT;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CRS_NEG
 {
+    //######################################################################
+    //##       Tabla: ads010                                              ##
+    //##      Nombre: Autorixación del Menú p/Usuario                     ##
+    //## Descripcion: Autorixación del Menú p/Usuario                     ##         
+    //##       Autor: EJER - (30-09-2023)                                 ##
+    //######################################################################
     public class ads012
     {
-        //######################################################################
-        //##       Tabla: ads012                                              ##
-        //##      Nombre: GLOBALES                                            ##
-        //## Descripcion:                                                     ##         
-        //##       Autor: CHL  - (01-04-2020)                                 ##
-        //######################################################################
         conexion_a ob_con_ecA = new conexion_a();
-
-        public string va_ser_bda;//= ob_con_ecA.va_ins_bda;
-
-        public string va_ins_bda;// = ob_con_ecA.va_ins_bda;
-        public string va_nom_bda;//= ob_con_ecA.va_nom_bda;
-        public string va_ide_usr;//= ob_con_ecA.va_ide_usr;
-        public string va_pas_usr;//= ob_con_ecA.va_pas_usr;
-
-        string cadena = "";
-
-
-
-        public ads012()
-        {
-            va_ser_bda = ob_con_ecA.va_ser_bda;
-            va_ins_bda = ob_con_ecA.va_ins_bda;
-            va_nom_bda = ob_con_ecA.va_nom_bda;
-            va_ide_usr = ob_con_ecA.va_ide_usr;
-            va_pas_usr = ob_con_ecA.va_pas_usr;
-        }
-
+        StringBuilder cadena;
+       
         /// <summary>
-        /// Funcion "BUSCAR RESTRICCIONES DEL MENU P/USUARIO"
+        /// Funcion "Registrar Autorización del Menu p/Usuario"
         /// </summary>
-        /// <param name="ide_usr">Codigo de usuario</param>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <param name="nom_frm">Nombre Formulario</param>
+        /// <param name="ide_men">ID. Menu Formulario</param>
         /// <returns></returns>
-        public DataTable _01(string ide_usr)
+        public void Fe_nue_reg(string ide_usr, string nom_frm, string ide_men)
         {
             try
             {
-                cadena = "";
-                cadena += " SELECT * FROM ads012   ";
-                cadena += " WHERE va_ide_usr ='" + ide_usr + "' ";
-
-                return ob_con_ecA.fe_exe_sql(cadena.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        /// <summary>
-        /// Funcion "Registrar RESTRICCION DEL MENU P/USUARIO"
-        /// </summary>
-        /// <param name="ide_usr">Codigo de usuario</param>
-        /// <param name="cod_win">Codigo de la aplicacion</param>
-        /// <param name="ide_mnu"></param>
-        /// <returns></returns>
-        public void _02(string ide_usr, string cod_win, string ide_mnu)
-        {
-            try
-            {
-                cadena = "";
-                cadena += " INSERT INTO ads012 VALUES ";
-                cadena += " ('" + ide_usr + "','" + cod_win + "','" + ide_mnu + "' )";
-
+                cadena = new StringBuilder();
+                cadena.AppendLine("INSERT INTO ads012 VALUES ('" + ide_usr + "', '" + nom_frm + "', '" + ide_men + "')");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -80,45 +36,22 @@ namespace CRS_NEG
                 throw ex;
             }
         }
+
         /// <summary>
-        /// Funcion consultar "MENUS AUTORIZADOS/RESTRINGIDOS P/USUARIO"
+        /// Funcion "Elimina Autorización del Menu p/Usuario"
         /// </summary>
-        /// <param name="ide_usr">Codigo de usuario</param>
-        /// <param name="cod_win">codigo de la aplicacion</param>
-        /// <param name="ide_mnu"></param>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <param name="nom_frm">Nombre Formulario</param>
+        /// <param name="ide_men">ID. Menu Formulario</param>
         /// <returns></returns>
-        public DataTable _05(string ide_usr, string cod_win, string ide_mnu)
+        public void Fe_eli_min(string ide_usr, string nom_frm, string ide_men)
         {
             try
             {
-                cadena = "";
-                cadena += " SELECT * FROM ads012   ";
-                cadena += " WHERE va_ide_usr ='" + ide_usr + "' AND va_nom_frm ='" + cod_win + "' ";
-                cadena += " AND va_ide_men ='" + ide_mnu + "'";
-
-                return ob_con_ecA.fe_exe_sql(cadena.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        /// <summary>
-        ///  Funcion "Elimina OPCION DEL MENU P/USUARIO (otorga permiso)"
-        /// </summary>
-        /// <param name="ide_usr">Codigo de usuario</param>
-        /// <param name="cod_win">Codigo de la aplicacion</param>
-        /// <param name="ide_mnu"></param>
-        /// <returns></returns>
-        public void _06(string ide_usr, string cod_win, string ide_mnu)
-        {
-            try
-            {
-                cadena = "";
-                cadena += " DELETE ads012 ";
-                cadena += " WHERE va_ide_usr ='" + ide_usr + "' AND va_ide_apl ='" + cod_win + "' ";
-                cadena += " AND va_ide_mnu ='" + ide_mnu + "'";
-
+                cadena = new StringBuilder();
+                cadena.AppendLine("DELETE ads012 WHERE va_ide_usr = '" + ide_usr + "'");
+                cadena.AppendLine("                AND va_nom_frm = '" + nom_frm + "'");
+                cadena.AppendLine("                AND va_ide_men = '" + ide_men + "'");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -126,5 +59,74 @@ namespace CRS_NEG
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Funcion "CONSULTA AUTORIZACIÓN DEL MENU P/USUARIO"
+        /// </summary>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <returns></returns>
+        public DataTable Fe_aut_men(string ide_usr)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT va_ide_usr, va_nom_frm, va_ide_men");
+                cadena.AppendLine("  FROM ads012");
+                cadena.AppendLine(" WHERE va_ide_usr = '" + ide_usr + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "CONSULTA AUTORIZACIÓN DEL MENU P/USUARIO"
+        /// </summary>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <param name="nom_frm">Nombre Formulario</param>
+        /// <returns></returns>
+        public DataTable Fe_aut_men(string ide_usr, string nom_frm)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT va_ide_usr, va_nom_frm, va_ide_men");
+                cadena.AppendLine("  FROM ads012");
+                cadena.AppendLine(" WHERE va_ide_usr = '" + ide_usr + "'");
+                cadena.AppendLine("   AND va_nom_frm = '" + nom_frm + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "CONSULTA AUTORIZACIÓN DEL MENU P/USUARIO"
+        /// </summary>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <param name="nom_frm">Nombre Formulario</param>
+        /// <param name="ide_men">ID. Menu Formulario</param>
+        /// <returns></returns>
+        public DataTable Fe_aut_men(string ide_usr, string nom_frm, string ide_men)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT va_ide_usr, va_nom_frm, va_ide_men");
+                cadena.AppendLine("  FROM ads012");
+                cadena.AppendLine(" WHERE va_ide_usr = '" + ide_usr + "'");
+                cadena.AppendLine("   AND va_nom_frm = '" + nom_frm + "'");
+                cadena.AppendLine("   AND va_ide_men = '" + ide_men + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }                       
     }
 }

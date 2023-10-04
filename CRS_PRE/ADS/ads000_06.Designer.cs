@@ -80,6 +80,7 @@
             this.tb_pas_adm.Text = "Contraseña";
             this.tb_pas_adm.UseSystemPasswordChar = true;
             this.tb_pas_adm.Enter += new System.EventHandler(this.tb_pas_adm_Enter);
+            this.tb_pas_adm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_pas_adm_KeyPress);
             this.tb_pas_adm.Validated += new System.EventHandler(this.tb_pas_adm_Validated);
             // 
             // pn_pas_adm

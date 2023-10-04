@@ -31,33 +31,33 @@
             this.m_mod_ulo = new System.Windows.Forms.MenuStrip();
             this.mn_usu_ari = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_ges_tio = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_doc_ume = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_tal_ona = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_num_era = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_ctr_doc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_def_doc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_tal_doc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_num_tal = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_inf_bit = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_bit_ope = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_bit_doc = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_reg_ini = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_bit_ses = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_def_par = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_par_inv = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_gru_bod = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_bod_ega = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_fam_pro = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_pro_duc = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_mar_ca = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_und_med = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_com_erc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_mar_pro = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_uni_med = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_par_com = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_suc_urs = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lis_pre = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_pre_cio = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_def_pre = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_del_ive = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_ven_ded = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_cob_rad = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_reg_ven = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_reg_cob = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_pla_vta = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_per_son = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_per_son1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_par_per = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_gru_per = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_reg_per = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_tip_atr = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_def_atr = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -67,16 +67,18 @@
             this.mn_rel_con = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mn_val_reg = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_con_tab = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_par_con = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_dos_ifi = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_act_eco = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_ley_end = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lib_ret = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_pla_pgo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_tip_bus = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_par_ame = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_tas_cam = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_par_adm = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_mod_ulo = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_apl_ica = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lic_aut = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mn_tip_ima = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_cer_rar = new System.Windows.Forms.ToolStripMenuItem();
             this.m_frm_hja = new System.Windows.Forms.MenuStrip();
@@ -90,8 +92,6 @@
             this.ts_ide_app = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ts_rut_app = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mn_lic_aut = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.m_mod_ulo.SuspendLayout();
             this.st_bar_pie.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +102,7 @@
             this.m_mod_ulo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_usu_ari,
             this.mn_ges_tio,
-            this.controlToolStripMenuItem,
+            this.mn_ctr_doc,
             this.mn_inf_bit,
             this.mn_def_par,
             this.mn_cer_rar});
@@ -112,13 +112,13 @@
             this.m_mod_ulo.Size = new System.Drawing.Size(1329, 24);
             this.m_mod_ulo.TabIndex = 2;
             this.m_mod_ulo.Text = "menuStrip1";
-            this.m_mod_ulo.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.M_ads100_ItemClicked);
             // 
             // mn_usu_ari
             // 
             this.mn_usu_ari.Name = "mn_usu_ari";
             this.mn_usu_ari.Size = new System.Drawing.Size(59, 22);
             this.mn_usu_ari.Text = "Usuario";
+            this.mn_usu_ari.Click += new System.EventHandler(this.mn_usu_ari_Click);
             // 
             // mn_ges_tio
             // 
@@ -127,43 +127,43 @@
             this.mn_ges_tio.Text = "Gestion";
             this.mn_ges_tio.Click += new System.EventHandler(this.mn_ges_tio_Click);
             // 
-            // controlToolStripMenuItem
+            // mn_ctr_doc
             // 
-            this.controlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mn_doc_ume,
-            this.mn_tal_ona,
-            this.mn_num_era});
-            this.controlToolStripMenuItem.Name = "controlToolStripMenuItem";
-            this.controlToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.controlToolStripMenuItem.Text = "Control Documento";
+            this.mn_ctr_doc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_def_doc,
+            this.mn_tal_doc,
+            this.mn_num_tal});
+            this.mn_ctr_doc.Name = "mn_ctr_doc";
+            this.mn_ctr_doc.Size = new System.Drawing.Size(125, 22);
+            this.mn_ctr_doc.Text = "Control Documento";
             // 
-            // mn_doc_ume
+            // mn_def_doc
             // 
-            this.mn_doc_ume.Name = "mn_doc_ume";
-            this.mn_doc_ume.Size = new System.Drawing.Size(140, 22);
-            this.mn_doc_ume.Text = "Documento";
-            this.mn_doc_ume.Click += new System.EventHandler(this.Mn_doc_ume_Click);
+            this.mn_def_doc.Name = "mn_def_doc";
+            this.mn_def_doc.Size = new System.Drawing.Size(140, 22);
+            this.mn_def_doc.Text = "Documento";
+            this.mn_def_doc.Click += new System.EventHandler(this.mn_def_doc_Click);
             // 
-            // mn_tal_ona
+            // mn_tal_doc
             // 
-            this.mn_tal_ona.Name = "mn_tal_ona";
-            this.mn_tal_ona.Size = new System.Drawing.Size(140, 22);
-            this.mn_tal_ona.Text = "Talonario";
-            this.mn_tal_ona.Click += new System.EventHandler(this.TalonarioToolStripMenuItem_Click);
+            this.mn_tal_doc.Name = "mn_tal_doc";
+            this.mn_tal_doc.Size = new System.Drawing.Size(140, 22);
+            this.mn_tal_doc.Text = "Talonario";
+            this.mn_tal_doc.Click += new System.EventHandler(this.mn_tal_doc_Click);
             // 
-            // mn_num_era
+            // mn_num_tal
             // 
-            this.mn_num_era.Name = "mn_num_era";
-            this.mn_num_era.Size = new System.Drawing.Size(140, 22);
-            this.mn_num_era.Text = "Numeración";
-            this.mn_num_era.Click += new System.EventHandler(this.Mn_num_era_Click);
+            this.mn_num_tal.Name = "mn_num_tal";
+            this.mn_num_tal.Size = new System.Drawing.Size(140, 22);
+            this.mn_num_tal.Text = "Numeración";
+            this.mn_num_tal.Click += new System.EventHandler(this.mn_num_tal_Click);
             // 
             // mn_inf_bit
             // 
             this.mn_inf_bit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_bit_ope,
             this.mn_bit_doc,
-            this.mn_reg_ini});
+            this.mn_bit_ses});
             this.mn_inf_bit.Name = "mn_inf_bit";
             this.mn_inf_bit.Size = new System.Drawing.Size(62, 22);
             this.mn_inf_bit.Text = "&Bitácora";
@@ -172,32 +172,35 @@
             // 
             this.mn_bit_ope.Name = "mn_bit_ope";
             this.mn_bit_ope.Size = new System.Drawing.Size(218, 22);
-            this.mn_bit_ope.Text = "Bitacora de Operaciones";
+            this.mn_bit_ope.Tag = "Bitácora de Operaciones";
+            this.mn_bit_ope.Text = "Bitácora de Operaciones";
             this.mn_bit_ope.Click += new System.EventHandler(this.mn_bit_ope_Click);
             // 
             // mn_bit_doc
             // 
             this.mn_bit_doc.Name = "mn_bit_doc";
             this.mn_bit_doc.Size = new System.Drawing.Size(218, 22);
-            this.mn_bit_doc.Text = "Bitacora de Documento";
+            this.mn_bit_doc.Tag = "Bitácora de Documento";
+            this.mn_bit_doc.Text = "Bitácora de Documento";
             this.mn_bit_doc.Click += new System.EventHandler(this.mn_bit_doc_Click);
             // 
-            // mn_reg_ini
+            // mn_bit_ses
             // 
-            this.mn_reg_ini.Name = "mn_reg_ini";
-            this.mn_reg_ini.Size = new System.Drawing.Size(218, 22);
-            this.mn_reg_ini.Text = "Registro de Inicio de Sesión";
-            this.mn_reg_ini.Click += new System.EventHandler(this.mn_reg_ini_Click);
+            this.mn_bit_ses.Name = "mn_bit_ses";
+            this.mn_bit_ses.Size = new System.Drawing.Size(218, 22);
+            this.mn_bit_ses.Tag = "Bitácora de Inicio de Sesión";
+            this.mn_bit_ses.Text = "Bitácora de Inicio de Sesión";
+            this.mn_bit_ses.Click += new System.EventHandler(this.mn_bit_ses_Click);
             // 
             // mn_def_par
             // 
             this.mn_def_par.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_par_inv,
-            this.mn_com_erc,
-            this.mn_per_son,
-            this.mn_con_tab,
-            this.mn_tip_bus,
-            this.mn_par_ame});
+            this.mn_par_com,
+            this.mn_par_per,
+            this.mn_par_con,
+            this.mn_tas_cam,
+            this.mn_par_adm});
             this.mn_def_par.Name = "mn_def_par";
             this.mn_def_par.Size = new System.Drawing.Size(84, 22);
             this.mn_def_par.Text = "&Definiciones";
@@ -209,8 +212,8 @@
             this.mn_bod_ega,
             this.mn_fam_pro,
             this.mn_pro_duc,
-            this.mn_mar_ca,
-            this.mn_und_med});
+            this.mn_mar_pro,
+            this.mn_uni_med});
             this.mn_par_inv.Name = "mn_par_inv";
             this.mn_par_inv.Size = new System.Drawing.Size(180, 22);
             this.mn_par_inv.Text = "&Inventario";
@@ -243,33 +246,33 @@
             this.mn_pro_duc.Text = "&Productos";
             this.mn_pro_duc.Click += new System.EventHandler(this.mn_pro_duc_Click);
             // 
-            // mn_mar_ca
+            // mn_mar_pro
             // 
-            this.mn_mar_ca.Name = "mn_mar_ca";
-            this.mn_mar_ca.Size = new System.Drawing.Size(171, 22);
-            this.mn_mar_ca.Text = "&Marca";
-            this.mn_mar_ca.Click += new System.EventHandler(this.mn_mar_ca_Click);
+            this.mn_mar_pro.Name = "mn_mar_pro";
+            this.mn_mar_pro.Size = new System.Drawing.Size(171, 22);
+            this.mn_mar_pro.Text = "&Marca";
+            this.mn_mar_pro.Click += new System.EventHandler(this.mn_mar_pro_Click);
             // 
-            // mn_und_med
+            // mn_uni_med
             // 
-            this.mn_und_med.Name = "mn_und_med";
-            this.mn_und_med.Size = new System.Drawing.Size(171, 22);
-            this.mn_und_med.Text = "&Unidad de Medida";
-            this.mn_und_med.Click += new System.EventHandler(this.mn_und_med_Click);
+            this.mn_uni_med.Name = "mn_uni_med";
+            this.mn_uni_med.Size = new System.Drawing.Size(171, 22);
+            this.mn_uni_med.Text = "&Unidad de Medida";
+            this.mn_uni_med.Click += new System.EventHandler(this.mn_uni_med_Click);
             // 
-            // mn_com_erc
+            // mn_par_com
             // 
-            this.mn_com_erc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_par_com.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_suc_urs,
             this.mn_lis_pre,
-            this.mn_pre_cio,
+            this.mn_def_pre,
             this.mn_del_ive,
-            this.mn_ven_ded,
-            this.mn_cob_rad,
+            this.mn_reg_ven,
+            this.mn_reg_cob,
             this.mn_pla_vta});
-            this.mn_com_erc.Name = "mn_com_erc";
-            this.mn_com_erc.Size = new System.Drawing.Size(180, 22);
-            this.mn_com_erc.Text = "Comercializacion";
+            this.mn_par_com.Name = "mn_par_com";
+            this.mn_par_com.Size = new System.Drawing.Size(180, 22);
+            this.mn_par_com.Text = "Comercializacion";
             // 
             // mn_suc_urs
             // 
@@ -285,12 +288,12 @@
             this.mn_lis_pre.Text = "&Lista de Precios";
             this.mn_lis_pre.Click += new System.EventHandler(this.mn_lis_pre_Click);
             // 
-            // mn_pre_cio
+            // mn_def_pre
             // 
-            this.mn_pre_cio.Name = "mn_pre_cio";
-            this.mn_pre_cio.Size = new System.Drawing.Size(164, 22);
-            this.mn_pre_cio.Text = "&Precios";
-            this.mn_pre_cio.Click += new System.EventHandler(this.mn_pre_cio_Click);
+            this.mn_def_pre.Name = "mn_def_pre";
+            this.mn_def_pre.Size = new System.Drawing.Size(164, 22);
+            this.mn_def_pre.Text = "&Precios";
+            this.mn_def_pre.Click += new System.EventHandler(this.mn_def_pre_Click);
             // 
             // mn_del_ive
             // 
@@ -299,19 +302,19 @@
             this.mn_del_ive.Text = "&Delivery";
             this.mn_del_ive.Click += new System.EventHandler(this.mn_del_ive_Click);
             // 
-            // mn_ven_ded
+            // mn_reg_ven
             // 
-            this.mn_ven_ded.Name = "mn_ven_ded";
-            this.mn_ven_ded.Size = new System.Drawing.Size(164, 22);
-            this.mn_ven_ded.Text = "&Vendedor";
-            this.mn_ven_ded.Click += new System.EventHandler(this.mn_ven_ded_Click);
+            this.mn_reg_ven.Name = "mn_reg_ven";
+            this.mn_reg_ven.Size = new System.Drawing.Size(164, 22);
+            this.mn_reg_ven.Text = "&Vendedor";
+            this.mn_reg_ven.Click += new System.EventHandler(this.mn_reg_ven_Click);
             // 
-            // mn_cob_rad
+            // mn_reg_cob
             // 
-            this.mn_cob_rad.Name = "mn_cob_rad";
-            this.mn_cob_rad.Size = new System.Drawing.Size(164, 22);
-            this.mn_cob_rad.Text = "&Cobrador";
-            this.mn_cob_rad.Click += new System.EventHandler(this.mn_cob_rad_Click);
+            this.mn_reg_cob.Name = "mn_reg_cob";
+            this.mn_reg_cob.Size = new System.Drawing.Size(164, 22);
+            this.mn_reg_cob.Text = "&Cobrador";
+            this.mn_reg_cob.Click += new System.EventHandler(this.mn_reg_cob_Click);
             // 
             // mn_pla_vta
             // 
@@ -320,30 +323,23 @@
             this.mn_pla_vta.Text = "&Plantilla de venta";
             this.mn_pla_vta.Click += new System.EventHandler(this.mn_pla_vta_Click);
             // 
-            // mn_per_son
+            // mn_par_per
             // 
-            this.mn_per_son.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mn_per_son1,
+            this.mn_par_per.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_gru_per,
+            this.mn_reg_per,
             this.mn_tip_atr,
             this.mn_def_atr,
             this.toolStripSeparator1,
             this.mn_tip_doc,
             this.mn_gru_emp,
             this.mn_def_rut,
-            this.mn_rel_con,
             this.toolStripSeparator2,
+            this.mn_rel_con,
             this.mn_val_reg});
-            this.mn_per_son.Name = "mn_per_son";
-            this.mn_per_son.Size = new System.Drawing.Size(180, 22);
-            this.mn_per_son.Text = "&Persona";
-            // 
-            // mn_per_son1
-            // 
-            this.mn_per_son1.Name = "mn_per_son1";
-            this.mn_per_son1.Size = new System.Drawing.Size(216, 22);
-            this.mn_per_son1.Text = "&Persona";
-            this.mn_per_son1.Click += new System.EventHandler(this.mn_per_son1_Click);
+            this.mn_par_per.Name = "mn_par_per";
+            this.mn_par_per.Size = new System.Drawing.Size(180, 22);
+            this.mn_par_per.Text = "&Persona";
             // 
             // mn_gru_per
             // 
@@ -351,6 +347,13 @@
             this.mn_gru_per.Size = new System.Drawing.Size(216, 22);
             this.mn_gru_per.Text = "&Grupo de Persona";
             this.mn_gru_per.Click += new System.EventHandler(this.mn_gru_per_Click);
+            // 
+            // mn_reg_per
+            // 
+            this.mn_reg_per.Name = "mn_reg_per";
+            this.mn_reg_per.Size = new System.Drawing.Size(216, 22);
+            this.mn_reg_per.Text = "&Persona";
+            this.mn_reg_per.Click += new System.EventHandler(this.mn_reg_per_Click);
             // 
             // mn_tip_atr
             // 
@@ -375,7 +378,7 @@
             // 
             this.mn_tip_doc.Name = "mn_tip_doc";
             this.mn_tip_doc.Size = new System.Drawing.Size(216, 22);
-            this.mn_tip_doc.Text = "&Tipo Documento";
+            this.mn_tip_doc.Text = "&Tipo Documento Persona";
             this.mn_tip_doc.Click += new System.EventHandler(this.mn_tip_doc_Click);
             // 
             // mn_gru_emp
@@ -411,17 +414,17 @@
             this.mn_val_reg.Text = "&Valida Reg. Persona";
             this.mn_val_reg.Click += new System.EventHandler(this.mn_val_reg_Click);
             // 
-            // mn_con_tab
+            // mn_par_con
             // 
-            this.mn_con_tab.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_par_con.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_dos_ifi,
             this.mn_act_eco,
             this.mn_ley_end,
             this.mn_lib_ret,
             this.mn_pla_pgo});
-            this.mn_con_tab.Name = "mn_con_tab";
-            this.mn_con_tab.Size = new System.Drawing.Size(180, 22);
-            this.mn_con_tab.Text = "Con&tabilidad";
+            this.mn_par_con.Name = "mn_par_con";
+            this.mn_par_con.Size = new System.Drawing.Size(180, 22);
+            this.mn_par_con.Text = "Con&tabilidad";
             // 
             // mn_dos_ifi
             // 
@@ -458,43 +461,55 @@
             this.mn_pla_pgo.Text = "&Plan de Pago";
             this.mn_pla_pgo.Click += new System.EventHandler(this.mn_pla_pgo_Click);
             // 
-            // mn_tip_bus
+            // mn_tas_cam
             // 
-            this.mn_tip_bus.Name = "mn_tip_bus";
-            this.mn_tip_bus.Size = new System.Drawing.Size(180, 22);
-            this.mn_tip_bus.Text = "T.C. Bs/Us";
-            this.mn_tip_bus.Click += new System.EventHandler(this.mn_tip_bus_Click);
+            this.mn_tas_cam.Name = "mn_tas_cam";
+            this.mn_tas_cam.Size = new System.Drawing.Size(180, 22);
+            this.mn_tas_cam.Text = "T.C. Bs/Us";
+            this.mn_tas_cam.Click += new System.EventHandler(this.mn_tas_cam_Click);
             // 
-            // mn_par_ame
+            // mn_par_adm
             // 
-            this.mn_par_ame.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_par_adm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_mod_ulo,
             this.mn_apl_ica,
             this.mn_lic_aut,
             this.toolStripSeparator3,
             this.mn_tip_ima});
-            this.mn_par_ame.Name = "mn_par_ame";
-            this.mn_par_ame.Size = new System.Drawing.Size(180, 22);
-            this.mn_par_ame.Text = "&Parámetros";
+            this.mn_par_adm.Name = "mn_par_adm";
+            this.mn_par_adm.Size = new System.Drawing.Size(180, 22);
+            this.mn_par_adm.Text = "&Parámetros";
             // 
             // mn_mod_ulo
             // 
             this.mn_mod_ulo.Name = "mn_mod_ulo";
-            this.mn_mod_ulo.Size = new System.Drawing.Size(180, 22);
+            this.mn_mod_ulo.Size = new System.Drawing.Size(156, 22);
             this.mn_mod_ulo.Text = "&Módulo";
             this.mn_mod_ulo.Click += new System.EventHandler(this.mn_mod_ulo_Click);
             // 
             // mn_apl_ica
             // 
             this.mn_apl_ica.Name = "mn_apl_ica";
-            this.mn_apl_ica.Size = new System.Drawing.Size(180, 22);
+            this.mn_apl_ica.Size = new System.Drawing.Size(156, 22);
             this.mn_apl_ica.Text = "&Aplicación";
             this.mn_apl_ica.Click += new System.EventHandler(this.mn_apl_ica_Click);
+            // 
+            // mn_lic_aut
+            // 
+            this.mn_lic_aut.Name = "mn_lic_aut";
+            this.mn_lic_aut.Size = new System.Drawing.Size(180, 22);
+            this.mn_lic_aut.Text = "Licencia";
+            this.mn_lic_aut.Click += new System.EventHandler(this.mn_lic_aut_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(153, 6);
             // 
             // mn_tip_ima
             // 
             this.mn_tip_ima.Name = "mn_tip_ima";
-            this.mn_tip_ima.Size = new System.Drawing.Size(180, 22);
+            this.mn_tip_ima.Size = new System.Drawing.Size(156, 22);
             this.mn_tip_ima.Text = "Tipo de Imagen";
             this.mn_tip_ima.Click += new System.EventHandler(this.mn_tip_ima_Click);
             // 
@@ -511,7 +526,7 @@
             this.m_frm_hja.Location = new System.Drawing.Point(0, 0);
             this.m_frm_hja.Name = "m_frm_hja";
             this.m_frm_hja.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.m_frm_hja.Size = new System.Drawing.Size(886, 24);
+            this.m_frm_hja.Size = new System.Drawing.Size(1329, 24);
             this.m_frm_hja.TabIndex = 4;
             this.m_frm_hja.Text = "menuStrip1";
             this.m_frm_hja.Visible = false;
@@ -608,17 +623,6 @@
             this.ts_rut_app.Text = "...";
             this.ts_rut_app.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // mn_lic_aut
-            // 
-            this.mn_lic_aut.Name = "mn_lic_aut";
-            this.mn_lic_aut.Size = new System.Drawing.Size(180, 22);
-            this.mn_lic_aut.Text = "Licencia";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
-            // 
             // ads200
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,8 +637,8 @@
             this.Tag = "Administracion y Seguridad";
             this.Text = "Administracion y Seguridad";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Ads100_Load);
-            this.MdiChildActivate += new System.EventHandler(this.Ads100_MdiChildActivate);
+            this.Load += new System.EventHandler(this.ads200_Load);
+            this.MdiChildActivate += new System.EventHandler(this.ads200_MdiChildActivate);
             this.m_mod_ulo.ResumeLayout(false);
             this.m_mod_ulo.PerformLayout();
             this.st_bar_pie.ResumeLayout(false);
@@ -647,9 +651,9 @@
         #endregion
         private System.Windows.Forms.ToolStripMenuItem mn_usu_ari;
         private System.Windows.Forms.ToolStripMenuItem mn_ges_tio;
-        private System.Windows.Forms.ToolStripMenuItem controlToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mn_doc_ume;
-        private System.Windows.Forms.ToolStripMenuItem mn_tal_ona;
+        private System.Windows.Forms.ToolStripMenuItem mn_ctr_doc;
+        private System.Windows.Forms.ToolStripMenuItem mn_def_doc;
+        private System.Windows.Forms.ToolStripMenuItem mn_tal_doc;
         public System.Windows.Forms.MenuStrip m_mod_ulo;
         public System.Windows.Forms.MenuStrip m_frm_hja;
         private System.Windows.Forms.StatusStrip st_bar_pie;
@@ -662,26 +666,26 @@
         private System.Windows.Forms.ToolStripStatusLabel ts_ide_app;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel ts_rut_app;
-        private System.Windows.Forms.ToolStripMenuItem mn_num_era;
+        private System.Windows.Forms.ToolStripMenuItem mn_num_tal;
         private System.Windows.Forms.ToolStripMenuItem mn_def_par;
         private System.Windows.Forms.ToolStripMenuItem mn_par_inv;
         private System.Windows.Forms.ToolStripMenuItem mn_gru_bod;
         private System.Windows.Forms.ToolStripMenuItem mn_bod_ega;
         private System.Windows.Forms.ToolStripMenuItem mn_fam_pro;
         private System.Windows.Forms.ToolStripMenuItem mn_pro_duc;
-        private System.Windows.Forms.ToolStripMenuItem mn_com_erc;
+        private System.Windows.Forms.ToolStripMenuItem mn_par_com;
         private System.Windows.Forms.ToolStripMenuItem mn_lis_pre;
-        private System.Windows.Forms.ToolStripMenuItem mn_pre_cio;
+        private System.Windows.Forms.ToolStripMenuItem mn_def_pre;
         private System.Windows.Forms.ToolStripMenuItem mn_del_ive;
-        private System.Windows.Forms.ToolStripMenuItem mn_mar_ca;
-        private System.Windows.Forms.ToolStripMenuItem mn_und_med;
-        private System.Windows.Forms.ToolStripMenuItem mn_ven_ded;
-        private System.Windows.Forms.ToolStripMenuItem mn_per_son;
+        private System.Windows.Forms.ToolStripMenuItem mn_mar_pro;
+        private System.Windows.Forms.ToolStripMenuItem mn_uni_med;
+        private System.Windows.Forms.ToolStripMenuItem mn_reg_ven;
+        private System.Windows.Forms.ToolStripMenuItem mn_par_per;
         private System.Windows.Forms.ToolStripMenuItem mn_gru_per;
-        private System.Windows.Forms.ToolStripMenuItem mn_per_son1;
+        private System.Windows.Forms.ToolStripMenuItem mn_reg_per;
         private System.Windows.Forms.ToolStripMenuItem mn_pla_vta;
-        private System.Windows.Forms.ToolStripMenuItem mn_tip_bus;
-        private System.Windows.Forms.ToolStripMenuItem mn_par_ame;
+        private System.Windows.Forms.ToolStripMenuItem mn_tas_cam;
+        private System.Windows.Forms.ToolStripMenuItem mn_par_adm;
         private System.Windows.Forms.ToolStripMenuItem mn_mod_ulo;
         private System.Windows.Forms.ToolStripMenuItem mn_apl_ica;       
         private System.Windows.Forms.ToolStripMenuItem mn_tip_atr;
@@ -689,14 +693,14 @@
         private System.Windows.Forms.ToolStripMenuItem mn_inf_bit;
         private System.Windows.Forms.ToolStripMenuItem mn_bit_ope;
         private System.Windows.Forms.ToolStripMenuItem mn_bit_doc;
-        private System.Windows.Forms.ToolStripMenuItem mn_reg_ini;
+        private System.Windows.Forms.ToolStripMenuItem mn_bit_ses;
         private System.Windows.Forms.ToolStripMenuItem mn_def_rut;
         private System.Windows.Forms.ToolStripMenuItem mn_tip_ima;
-        private System.Windows.Forms.ToolStripMenuItem mn_con_tab;
+        private System.Windows.Forms.ToolStripMenuItem mn_par_con;
         private System.Windows.Forms.ToolStripMenuItem mn_dos_ifi;
         private System.Windows.Forms.ToolStripMenuItem mn_tip_doc;
         private System.Windows.Forms.ToolStripMenuItem mn_act_eco;
-        private System.Windows.Forms.ToolStripMenuItem mn_cob_rad;
+        private System.Windows.Forms.ToolStripMenuItem mn_reg_cob;
         private System.Windows.Forms.ToolStripMenuItem mn_suc_urs;
         private System.Windows.Forms.ToolStripMenuItem mn_ley_end;
         private System.Windows.Forms.ToolStripMenuItem mn_val_reg;

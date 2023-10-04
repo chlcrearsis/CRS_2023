@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CRS_NEG;
 
@@ -172,7 +168,7 @@ namespace CRS_PRE
             {
                 if (opcion_menu.Tag == null)
                 {
-                    tab_usm = o_ads012._05(glo_ide_usr, glo_ide_ven, opcion_menu.Name);
+                    tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, opcion_menu.Name);
 
                     if (glo_ide_usr == Program.gl_ide_usr)
                     {
@@ -208,7 +204,7 @@ namespace CRS_PRE
 
 
                 //verifica que la opcion no este restringida
-                tab_usm = o_ads012._05(glo_ide_usr, glo_ide_ven, hijo1.Name);
+                tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, hijo1.Name);
 
                 if (glo_ide_usr == Program.gl_ide_usr)
                 {
@@ -248,7 +244,7 @@ namespace CRS_PRE
 
 
                 //verifica que la opcion no este restringida
-                tab_usm = o_ads012._05(glo_ide_usr, glo_ide_ven, hijo2.Name);
+                tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, hijo2.Name);
 
                 if (glo_ide_usr == Program.gl_ide_usr)
                 {
@@ -273,21 +269,18 @@ namespace CRS_PRE
         /// <remarks></remarks>
         public static void fg_per_mnu(string ide_usr, dynamic frm_hja)
         {
+            ads012_01 frm = new ads012_01();
+            frm.vp_ide_usr = ide_usr;
+            frm.vp_ide_frm = frm_hja.Name;
+            frm.vp_tex_frm = frm_hja.Text;
 
-            ads012_01 o_frm = new ads012_01();
-
-            //Si el formulario es MDI
+            // Si el formulario es MDI
             if (frm_hja.IsMdiContainer == true)
-            {
-                o_frm.obtiene_menu(ide_usr, frm_hja.Name, frm_hja.m_mod_ulo);
-            }
-            else
-            {
-                //dynamic padre = frm_hja.MdiParent;
-                o_frm.obtiene_menu(ide_usr, frm_hja.Name, frm_hja.MdiParent.m_frm_hja);
-            }
+                frm.mn_men_usr = frm_hja.m_mod_ulo;            
+            else            
+                frm.mn_men_usr = frm_hja.MdiParent.m_frm_hja;            
 
-            cl_glo_frm.abrir(frm_hja, o_frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
+            cl_glo_frm.abrir(frm_hja, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
         }
         #endregion
 

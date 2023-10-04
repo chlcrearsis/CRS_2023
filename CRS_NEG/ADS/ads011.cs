@@ -8,7 +8,7 @@ namespace CRS_NEG
     //##       Tabla: ads010                                              ##
     //##      Nombre: Opciones del Menú                                   ##
     //## Descripcion: Opciones del Menú Formulario                        ##         
-    //##       Autor: EJER - (07-09-2021)                                  ##
+    //##       Autor: EJER - (07-09-2021)                                 ##
     //######################################################################
     public class ads011
     {        
@@ -63,6 +63,7 @@ namespace CRS_NEG
         /// Funcion "CONSULTA OPCIÓN MENU POR FORMULARIO Y MENU FORMULARIO"
         /// </summary>
         /// <param name="nom_frm">Nombre Formulario</param>
+        /// <param name="ide_men">ID. Menu Formulario</param>
         /// <returns></returns>
         public DataTable Fe_con_frm(string nom_frm, string ide_men)
         {

@@ -18,7 +18,7 @@ namespace CRS_PRE
         public int frm_tip;
         public DataTable frm_dat;
 
-        //Instancias
+        // Instancias
         ads008 o_ads008 = new ads008();
         DataTable Tabla = new DataTable();
         bool vp_chk_reg = true;

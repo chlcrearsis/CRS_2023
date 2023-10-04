@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CRS_DAT;
 namespace CRS_NEG
 {
-    /// <summary>
-    /// Clase: MODULOS
-    /// </summary>
+    //######################################################################
+    //##       Tabla: ads010                                              ##
+    //##      Nombre: Tipos de Imagen                                     ##
+    //## Descripcion: Definiciones Tipos de Imagen                        ##         
+    //##       Autor: EJR - (30-09-2023)                                  ##
+    //######################################################################
     public class ads010
-    {
-        //######################################################################
-        //##       Tabla: ads010                                              ##
-        //##      Nombre: Modulo                                              ##
-        //## Descripcion: Modulos del sistema                                 ##         
-        //##       Autor: FVM - (07-09-2021)                                  ##
-        //######################################################################
-        conexion_a ob_con_ecA = new conexion_a();
-        DataTable Tabla = new DataTable();
+    {        
+        conexion_a ob_con_ecA = new conexion_a();        
         StringBuilder cadena;
-
 
         /// <summary>
         /// Funcion "REGISTRA TIPO DE IMAGEN"
