@@ -1861,6 +1861,24 @@
     <Compile Include="CTB\ctb007_02.Designer.cs">
       <DependentUpon>ctb007_02.cs</DependentUpon>
     </Compile>
+    <Compile Include="ECP\ecp003_05.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECP\ecp003_05.Designer.cs">
+      <DependentUpon>ecp003_05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECP\ecp003_04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECP\ecp003_04.Designer.cs">
+      <DependentUpon>ecp003_04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECP\ecp003_03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECP\ecp003_03.Designer.cs">
+      <DependentUpon>ecp003_03.cs</DependentUpon>
+    </Compile>
     <Compile Include="ECP\ecp003_02.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3641,6 +3659,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CTB\ctb007_02.resx">
       <DependentUpon>ctb007_02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECP\ecp003_05.resx">
+      <DependentUpon>ecp003_05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECP\ecp003_04.resx">
+      <DependentUpon>ecp003_04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECP\ecp003_03.resx">
+      <DependentUpon>ecp003_03.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ECP\ecp003_02.resx">
       <DependentUpon>ecp003_02.cs</DependentUpon>

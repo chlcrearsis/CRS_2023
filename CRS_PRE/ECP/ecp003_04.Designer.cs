@@ -1,6 +1,6 @@
 ﻿namespace CRS_PRE
 {
-    partial class ecp003_02
+    partial class ecp003_04
     {
         /// <summary>
         /// Required designer variable.
@@ -36,8 +36,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lb_nom_bre = new System.Windows.Forms.Label();
             this.tb_fec_exp = new System.Windows.Forms.MaskedTextBox();
-            this.bt_bus_plg = new System.Windows.Forms.Button();
-            this.bt_bus_lib = new System.Windows.Forms.Button();
             this.tb_des_plg = new System.Windows.Forms.TextBox();
             this.tb_des_lib = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +55,8 @@
             this.tb_mto_lim = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.tb_est_ado = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,33 +142,6 @@
             this.tb_fec_exp.TabIndex = 30;
             this.tb_fec_exp.ValidatingType = typeof(System.DateTime);
             // 
-            // bt_bus_plg
-            // 
-            this.bt_bus_plg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_bus_plg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_bus_plg.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_bus_plg.Location = new System.Drawing.Point(119, 12);
-            this.bt_bus_plg.Name = "bt_bus_plg";
-            this.bt_bus_plg.Size = new System.Drawing.Size(16, 22);
-            this.bt_bus_plg.TabIndex = 44;
-            this.bt_bus_plg.TabStop = false;
-            this.bt_bus_plg.Text = "|";
-            this.bt_bus_plg.UseVisualStyleBackColor = false;
-            // 
-            // bt_bus_lib
-            // 
-            this.bt_bus_lib.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_bus_lib.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_bus_lib.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_bus_lib.Location = new System.Drawing.Point(81, 8);
-            this.bt_bus_lib.Name = "bt_bus_lib";
-            this.bt_bus_lib.Size = new System.Drawing.Size(16, 22);
-            this.bt_bus_lib.TabIndex = 44;
-            this.bt_bus_lib.TabStop = false;
-            this.bt_bus_lib.Text = "|";
-            this.bt_bus_lib.UseVisualStyleBackColor = false;
-            this.bt_bus_lib.Click += new System.EventHandler(this.Bt_bus_lib_Click);
-            // 
             // tb_des_plg
             // 
             this.tb_des_plg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -183,11 +156,11 @@
             // tb_des_lib
             // 
             this.tb_des_lib.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_des_lib.Location = new System.Drawing.Point(100, 9);
+            this.tb_des_lib.Location = new System.Drawing.Point(88, 9);
             this.tb_des_lib.MaxLength = 30;
             this.tb_des_lib.Name = "tb_des_lib";
             this.tb_des_lib.ReadOnly = true;
-            this.tb_des_lib.Size = new System.Drawing.Size(257, 20);
+            this.tb_des_lib.Size = new System.Drawing.Size(269, 20);
             this.tb_des_lib.TabIndex = 20;
             this.tb_des_lib.TabStop = false;
             // 
@@ -234,10 +207,11 @@
             this.tb_max_cuo.Location = new System.Drawing.Point(86, 13);
             this.tb_max_cuo.MaxLength = 3;
             this.tb_max_cuo.Name = "tb_max_cuo";
+            this.tb_max_cuo.ReadOnly = true;
             this.tb_max_cuo.Size = new System.Drawing.Size(37, 20);
             this.tb_max_cuo.TabIndex = 50;
+            this.tb_max_cuo.TabStop = false;
             this.tb_max_cuo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_max_cuo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_nro_KeyPress);
             // 
             // tb_cod_plg
             // 
@@ -246,12 +220,11 @@
             this.tb_cod_plg.Location = new System.Drawing.Point(83, 13);
             this.tb_cod_plg.MaxLength = 3;
             this.tb_cod_plg.Name = "tb_cod_plg";
-            this.tb_cod_plg.Size = new System.Drawing.Size(37, 20);
+            this.tb_cod_plg.ReadOnly = true;
+            this.tb_cod_plg.Size = new System.Drawing.Size(39, 20);
             this.tb_cod_plg.TabIndex = 40;
+            this.tb_cod_plg.TabStop = false;
             this.tb_cod_plg.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_cod_plg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_cod_plg_KeyDown);
-            this.tb_cod_plg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_nro_KeyPress);
-            this.tb_cod_plg.Validated += new System.EventHandler(this.Tb_cod_plg_Validated);
             // 
             // tb_cod_lib
             // 
@@ -260,12 +233,10 @@
             this.tb_cod_lib.Location = new System.Drawing.Point(45, 9);
             this.tb_cod_lib.MaxLength = 3;
             this.tb_cod_lib.Name = "tb_cod_lib";
-            this.tb_cod_lib.Size = new System.Drawing.Size(37, 20);
+            this.tb_cod_lib.ReadOnly = true;
+            this.tb_cod_lib.Size = new System.Drawing.Size(39, 20);
             this.tb_cod_lib.TabIndex = 10;
             this.tb_cod_lib.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_cod_lib.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_cod_lib_KeyDown);
-            this.tb_cod_lib.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_nro_KeyPress);
-            this.tb_cod_lib.Validated += new System.EventHandler(this.Tb_cod_lib_Validated);
             // 
             // gb_ctr_btn
             // 
@@ -311,7 +282,6 @@
             this.groupBox2.Controls.Add(this.tb_des_lib);
             this.groupBox2.Controls.Add(this.tb_mon_lib);
             this.groupBox2.Controls.Add(this.tb_cod_lib);
-            this.groupBox2.Controls.Add(this.bt_bus_lib);
             this.groupBox2.Location = new System.Drawing.Point(3, 45);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(454, 35);
@@ -366,7 +336,6 @@
             // 
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.tb_des_plg);
-            this.groupBox4.Controls.Add(this.bt_bus_plg);
             this.groupBox4.Controls.Add(this.tb_cod_plg);
             this.groupBox4.Location = new System.Drawing.Point(3, 109);
             this.groupBox4.Name = "groupBox4";
@@ -376,6 +345,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.tb_est_ado);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.tb_max_cuo);
             this.groupBox5.Location = new System.Drawing.Point(5, 165);
@@ -384,10 +355,32 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             // 
-            // ecp003_02
+            // tb_est_ado
             // 
+            this.tb_est_ado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_est_ado.Location = new System.Drawing.Point(361, 13);
+            this.tb_est_ado.MaxLength = 30;
+            this.tb_est_ado.Name = "tb_est_ado";
+            this.tb_est_ado.ReadOnly = true;
+            this.tb_est_ado.Size = new System.Drawing.Size(86, 20);
+            this.tb_est_ado.TabIndex = 51;
+            this.tb_est_ado.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(315, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Estado";
+            // 
+            // ecp003_04
+            // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(461, 249);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -399,9 +392,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ecp003_02";
+            this.Name = "ecp003_04";
             this.Tag = "Crea Libreta Cta. x Cobrar/Pagar";
-            this.Text = "Inscripcion Persona a Libreta";
+            this.Text = "Habilita/Deshabilita Inscripcion Persona a Libreta";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -429,8 +422,6 @@
         private System.Windows.Forms.Button bt_ace_pta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox tb_fec_exp;
-        private System.Windows.Forms.Button bt_bus_plg;
-        private System.Windows.Forms.Button bt_bus_lib;
         private System.Windows.Forms.TextBox tb_des_plg;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
@@ -449,5 +440,7 @@
         private System.Windows.Forms.TextBox tb_mto_lim;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_est_ado;
     }
 }
