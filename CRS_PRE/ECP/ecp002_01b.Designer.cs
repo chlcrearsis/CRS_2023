@@ -1,6 +1,6 @@
 ﻿namespace CRS_PRE
 {
-    partial class ecp002_01
+    partial class ecp002_01b
     {
         /// <summary>
         /// Required designer variable.
@@ -414,7 +414,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
             // 
-            // ecp002_01
+            // ecp002_01b
             // 
             this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,10 +428,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ecp002_01";
+            this.Name = "ecp002_01b";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "Busca Libreta";
-            this.Text = "Busca Libreta";
+            this.Text = "Busca Libreta (2)";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

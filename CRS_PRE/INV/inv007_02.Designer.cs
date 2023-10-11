@@ -32,7 +32,9 @@
             this.bt_eli_min = new System.Windows.Forms.Button();
             this.bt_edi_tar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tb_tip_cam = new System.Windows.Forms.TextBox();
+            this.tb_fec_ctr = new System.Windows.Forms.TextBox();
             this.tb_cod_doc = new System.Windows.Forms.TextBox();
             this.tb_nro_tal = new System.Windows.Forms.TextBox();
             this.tb_cod_bod = new System.Windows.Forms.TextBox();
@@ -125,9 +127,9 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(4, -3);
+            this.groupBox1.Location = new System.Drawing.Point(4, -4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(757, 384);
+            this.groupBox1.Size = new System.Drawing.Size(757, 390);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -136,10 +138,10 @@
             this.bt_eli_min.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_eli_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_eli_min.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_eli_min.Location = new System.Drawing.Point(88, 350);
+            this.bt_eli_min.Location = new System.Drawing.Point(88, 356);
             this.bt_eli_min.Name = "bt_eli_min";
             this.bt_eli_min.Size = new System.Drawing.Size(54, 23);
-            this.bt_eli_min.TabIndex = 112;
+            this.bt_eli_min.TabIndex = 113;
             this.bt_eli_min.Text = "E&liminar";
             this.bt_eli_min.UseVisualStyleBackColor = false;
             this.bt_eli_min.Click += new System.EventHandler(this.bt_eli_min_Click);
@@ -149,7 +151,7 @@
             this.bt_edi_tar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_edi_tar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_edi_tar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_edi_tar.Location = new System.Drawing.Point(19, 350);
+            this.bt_edi_tar.Location = new System.Drawing.Point(19, 356);
             this.bt_edi_tar.Name = "bt_edi_tar";
             this.bt_edi_tar.Size = new System.Drawing.Size(54, 23);
             this.bt_edi_tar.TabIndex = 112;
@@ -159,7 +161,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.tb_tip_cam);
+            this.groupBox2.Controls.Add(this.tb_fec_ctr);
             this.groupBox2.Controls.Add(this.tb_cod_doc);
             this.groupBox2.Controls.Add(this.tb_nro_tal);
             this.groupBox2.Controls.Add(this.tb_cod_bod);
@@ -171,22 +175,45 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(8, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(722, 34);
-            this.groupBox2.TabIndex = 49;
+            this.groupBox2.Size = new System.Drawing.Size(749, 34);
+            this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             // 
-            // textBox3
+            // label16
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(612, 10);
-            this.textBox3.MaxLength = 6;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(91, 20);
-            this.textBox3.TabIndex = 83;
-            this.textBox3.TabStop = false;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(639, 14);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(30, 13);
+            this.label16.TabIndex = 85;
+            this.label16.Text = "T.C.:";
+            // 
+            // tb_tip_cam
+            // 
+            this.tb_tip_cam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_tip_cam.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_tip_cam.Enabled = false;
+            this.tb_tip_cam.Location = new System.Drawing.Point(669, 10);
+            this.tb_tip_cam.MaxLength = 6;
+            this.tb_tip_cam.Name = "tb_tip_cam";
+            this.tb_tip_cam.Size = new System.Drawing.Size(49, 20);
+            this.tb_tip_cam.TabIndex = 84;
+            this.tb_tip_cam.TabStop = false;
+            this.tb_tip_cam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_fec_ctr
+            // 
+            this.tb_fec_ctr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_fec_ctr.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_fec_ctr.Enabled = false;
+            this.tb_fec_ctr.Location = new System.Drawing.Point(563, 10);
+            this.tb_fec_ctr.MaxLength = 6;
+            this.tb_fec_ctr.Name = "tb_fec_ctr";
+            this.tb_fec_ctr.ReadOnly = true;
+            this.tb_fec_ctr.Size = new System.Drawing.Size(68, 20);
+            this.tb_fec_ctr.TabIndex = 83;
+            this.tb_fec_ctr.TabStop = false;
+            this.tb_fec_ctr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_cod_doc
             // 
@@ -214,19 +241,21 @@
             this.tb_nro_tal.Text = "00";
             this.tb_nro_tal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_nro_tal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_nro_tal_KeyDown);
+            this.tb_nro_tal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_nro_KeyPress);
             this.tb_nro_tal.Validated += new System.EventHandler(this.Tb_nro_tal_Validated);
             // 
             // tb_cod_bod
             // 
             this.tb_cod_bod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_cod_bod.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_cod_bod.Location = new System.Drawing.Point(302, 10);
+            this.tb_cod_bod.Location = new System.Drawing.Point(293, 10);
             this.tb_cod_bod.MaxLength = 5;
             this.tb_cod_bod.Name = "tb_cod_bod";
             this.tb_cod_bod.Size = new System.Drawing.Size(61, 20);
             this.tb_cod_bod.TabIndex = 30;
             this.tb_cod_bod.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_cod_bod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_cod_bod_KeyDown);
+            this.tb_cod_bod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_nro_KeyPress);
             this.tb_cod_bod.Validated += new System.EventHandler(this.Tb_cod_bod_Validated);
             // 
             // lb_nom_tal
@@ -239,7 +268,7 @@
             // 
             // lb_nom_bod
             // 
-            this.lb_nom_bod.Location = new System.Drawing.Point(381, 14);
+            this.lb_nom_bod.Location = new System.Drawing.Point(372, 14);
             this.lb_nom_bod.Name = "lb_nom_bod";
             this.lb_nom_bod.Size = new System.Drawing.Size(174, 13);
             this.lb_nom_bod.TabIndex = 41;
@@ -257,7 +286,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(252, 12);
+            this.label6.Location = new System.Drawing.Point(243, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 46;
@@ -282,7 +311,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(362, 9);
+            this.button1.Location = new System.Drawing.Point(353, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(16, 22);
             this.button1.TabIndex = 44;
@@ -302,14 +331,14 @@
             this.groupBox3.Controls.Add(this.cb_for_pag);
             this.groupBox3.Location = new System.Drawing.Point(8, 28);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(722, 57);
-            this.groupBox3.TabIndex = 31;
+            this.groupBox3.Size = new System.Drawing.Size(739, 65);
+            this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 11);
+            this.label4.Location = new System.Drawing.Point(6, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 52;
@@ -317,7 +346,7 @@
             // 
             // lb_raz_soc
             // 
-            this.lb_raz_soc.Location = new System.Drawing.Point(145, 37);
+            this.lb_raz_soc.Location = new System.Drawing.Point(145, 42);
             this.lb_raz_soc.Name = "lb_raz_soc";
             this.lb_raz_soc.Size = new System.Drawing.Size(251, 13);
             this.lb_raz_soc.TabIndex = 42;
@@ -328,7 +357,7 @@
             this.bt_bus_per.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_bus_per.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_bus_per.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_bus_per.Location = new System.Drawing.Point(126, 32);
+            this.bt_bus_per.Location = new System.Drawing.Point(126, 37);
             this.bt_bus_per.Name = "bt_bus_per";
             this.bt_bus_per.Size = new System.Drawing.Size(16, 22);
             this.bt_bus_per.TabIndex = 45;
@@ -341,19 +370,20 @@
             // 
             this.tb_cod_per.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_cod_per.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_cod_per.Location = new System.Drawing.Point(66, 33);
+            this.tb_cod_per.Location = new System.Drawing.Point(66, 38);
             this.tb_cod_per.MaxLength = 6;
             this.tb_cod_per.Name = "tb_cod_per";
             this.tb_cod_per.Size = new System.Drawing.Size(61, 20);
             this.tb_cod_per.TabIndex = 50;
             this.tb_cod_per.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_cod_per.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_cod_per_KeyDown);
+            this.tb_cod_per.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_nro_KeyPress);
             this.tb_cod_per.Validated += new System.EventHandler(this.Tb_cod_per_Validated);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 36);
+            this.label3.Location = new System.Drawing.Point(6, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 47;
@@ -362,10 +392,11 @@
             // tb_fec_cmp
             // 
             this.tb_fec_cmp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tb_fec_cmp.Location = new System.Drawing.Point(47, 10);
+            this.tb_fec_cmp.Location = new System.Drawing.Point(47, 13);
             this.tb_fec_cmp.Name = "tb_fec_cmp";
             this.tb_fec_cmp.Size = new System.Drawing.Size(95, 20);
             this.tb_fec_cmp.TabIndex = 40;
+            this.tb_fec_cmp.ValueChanged += new System.EventHandler(this.tb_fec_cmp_ValueChanged);
             // 
             // cb_for_pag
             // 
@@ -374,7 +405,7 @@
             this.cb_for_pag.Items.AddRange(new object[] {
             "Contado",
             "Credito"});
-            this.cb_for_pag.Location = new System.Drawing.Point(402, 31);
+            this.cb_for_pag.Location = new System.Drawing.Point(409, 38);
             this.cb_for_pag.Name = "cb_for_pag";
             this.cb_for_pag.Size = new System.Drawing.Size(95, 21);
             this.cb_for_pag.TabIndex = 60;
@@ -396,7 +427,7 @@
             this.va_imp_tot,
             this.va_nom_pro,
             this.va_tip_fam});
-            this.dg_res_ult.Location = new System.Drawing.Point(3, 128);
+            this.dg_res_ult.Location = new System.Drawing.Point(3, 134);
             this.dg_res_ult.MultiSelect = false;
             this.dg_res_ult.Name = "dg_res_ult";
             this.dg_res_ult.ReadOnly = true;
@@ -474,7 +505,7 @@
             this.bt_lim_pia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_lim_pia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_lim_pia.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_lim_pia.Location = new System.Drawing.Point(645, 101);
+            this.bt_lim_pia.Location = new System.Drawing.Point(645, 107);
             this.bt_lim_pia.Name = "bt_lim_pia";
             this.bt_lim_pia.Size = new System.Drawing.Size(18, 23);
             this.bt_lim_pia.TabIndex = 110;
@@ -487,7 +518,7 @@
             this.bt_adi_pro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_adi_pro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_adi_pro.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_adi_pro.Location = new System.Drawing.Point(677, 101);
+            this.bt_adi_pro.Location = new System.Drawing.Point(677, 107);
             this.bt_adi_pro.Name = "bt_adi_pro";
             this.bt_adi_pro.Size = new System.Drawing.Size(70, 23);
             this.bt_adi_pro.TabIndex = 110;
@@ -497,7 +528,7 @@
             // 
             // lb_fab_ric
             // 
-            this.lb_fab_ric.Location = new System.Drawing.Point(336, 87);
+            this.lb_fab_ric.Location = new System.Drawing.Point(336, 93);
             this.lb_fab_ric.Name = "lb_fab_ric";
             this.lb_fab_ric.Size = new System.Drawing.Size(88, 13);
             this.lb_fab_ric.TabIndex = 84;
@@ -506,7 +537,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(307, 87);
+            this.label8.Location = new System.Drawing.Point(307, 93);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 84;
@@ -517,7 +548,7 @@
             this.tb_und_cmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_und_cmp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_und_cmp.Enabled = false;
-            this.tb_und_cmp.Location = new System.Drawing.Point(435, 103);
+            this.tb_und_cmp.Location = new System.Drawing.Point(435, 109);
             this.tb_und_cmp.MaxLength = 2;
             this.tb_und_cmp.Name = "tb_und_cmp";
             this.tb_und_cmp.ReadOnly = true;
@@ -531,7 +562,7 @@
             this.tb_nro_ite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_nro_ite.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_nro_ite.Enabled = false;
-            this.tb_nro_ite.Location = new System.Drawing.Point(4, 103);
+            this.tb_nro_ite.Location = new System.Drawing.Point(4, 109);
             this.tb_nro_ite.MaxLength = 2;
             this.tb_nro_ite.Name = "tb_nro_ite";
             this.tb_nro_ite.ReadOnly = true;
@@ -543,7 +574,7 @@
             // 
             this.tb_des_pro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_des_pro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_des_pro.Location = new System.Drawing.Point(156, 103);
+            this.tb_des_pro.Location = new System.Drawing.Point(156, 109);
             this.tb_des_pro.MaxLength = 80;
             this.tb_des_pro.Name = "tb_des_pro";
             this.tb_des_pro.Size = new System.Drawing.Size(277, 20);
@@ -553,7 +584,7 @@
             // 
             this.tb_imp_tot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_imp_tot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_imp_tot.Location = new System.Drawing.Point(568, 103);
+            this.tb_imp_tot.Location = new System.Drawing.Point(568, 109);
             this.tb_imp_tot.MaxLength = 15;
             this.tb_imp_tot.Name = "tb_imp_tot";
             this.tb_imp_tot.Size = new System.Drawing.Size(74, 20);
@@ -566,7 +597,7 @@
             // 
             this.tb_can_tid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_can_tid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_can_tid.Location = new System.Drawing.Point(467, 103);
+            this.tb_can_tid.Location = new System.Drawing.Point(467, 109);
             this.tb_can_tid.MaxLength = 8;
             this.tb_can_tid.Name = "tb_can_tid";
             this.tb_can_tid.Size = new System.Drawing.Size(45, 20);
@@ -579,7 +610,7 @@
             // 
             this.tb_pre_cmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_pre_cmp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_pre_cmp.Location = new System.Drawing.Point(513, 103);
+            this.tb_pre_cmp.Location = new System.Drawing.Point(513, 109);
             this.tb_pre_cmp.MaxLength = 15;
             this.tb_pre_cmp.Name = "tb_pre_cmp";
             this.tb_pre_cmp.Size = new System.Drawing.Size(54, 20);
@@ -592,7 +623,7 @@
             // 
             this.tb_cod_pro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_cod_pro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_cod_pro.Location = new System.Drawing.Point(28, 103);
+            this.tb_cod_pro.Location = new System.Drawing.Point(28, 109);
             this.tb_cod_pro.MaxLength = 15;
             this.tb_cod_pro.Name = "tb_cod_pro";
             this.tb_cod_pro.Size = new System.Drawing.Size(111, 20);
@@ -606,7 +637,7 @@
             this.bt_bus_pro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_bus_pro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_bus_pro.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_bus_pro.Location = new System.Drawing.Point(138, 102);
+            this.bt_bus_pro.Location = new System.Drawing.Point(138, 108);
             this.bt_bus_pro.Name = "bt_bus_pro";
             this.bt_bus_pro.Size = new System.Drawing.Size(16, 22);
             this.bt_bus_pro.TabIndex = 45;
@@ -618,7 +649,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(579, 87);
+            this.label11.Location = new System.Drawing.Point(579, 93);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 13);
             this.label11.TabIndex = 52;
@@ -626,7 +657,7 @@
             // 
             // lb_eqv_cmp
             // 
-            this.lb_eqv_cmp.Location = new System.Drawing.Point(212, 88);
+            this.lb_eqv_cmp.Location = new System.Drawing.Point(212, 94);
             this.lb_eqv_cmp.Name = "lb_eqv_cmp";
             this.lb_eqv_cmp.Size = new System.Drawing.Size(80, 13);
             this.lb_eqv_cmp.TabIndex = 52;
@@ -635,7 +666,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(477, 87);
+            this.label1.Location = new System.Drawing.Point(477, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 52;
@@ -644,7 +675,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(163, 87);
+            this.label7.Location = new System.Drawing.Point(163, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 52;
@@ -653,7 +684,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(513, 87);
+            this.label10.Location = new System.Drawing.Point(513, 93);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 13);
             this.label10.TabIndex = 52;
@@ -662,7 +693,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(434, 87);
+            this.label9.Location = new System.Drawing.Point(434, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 52;
@@ -671,7 +702,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 88);
+            this.label5.Location = new System.Drawing.Point(4, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 13);
             this.label5.TabIndex = 52;
@@ -682,10 +713,10 @@
             this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
             this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(4, 456);
+            this.gb_ctr_btn.Location = new System.Drawing.Point(4, 461);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
             this.gb_ctr_btn.Size = new System.Drawing.Size(753, 35);
-            this.gb_ctr_btn.TabIndex = 30;
+            this.gb_ctr_btn.TabIndex = 130;
             this.gb_ctr_btn.TabStop = false;
             // 
             // bt_can_cel
@@ -723,10 +754,10 @@
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Location = new System.Drawing.Point(558, 377);
+            this.groupBox4.Location = new System.Drawing.Point(558, 382);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(202, 82);
-            this.groupBox4.TabIndex = 31;
+            this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
             // 
             // tb_tot_net
@@ -739,6 +770,7 @@
             this.tb_tot_net.ReadOnly = true;
             this.tb_tot_net.Size = new System.Drawing.Size(104, 20);
             this.tb_tot_net.TabIndex = 86;
+            this.tb_tot_net.TabStop = false;
             this.tb_tot_net.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_des_cue
@@ -749,7 +781,7 @@
             this.tb_des_cue.MaxLength = 8;
             this.tb_des_cue.Name = "tb_des_cue";
             this.tb_des_cue.Size = new System.Drawing.Size(104, 20);
-            this.tb_des_cue.TabIndex = 86;
+            this.tb_des_cue.TabIndex = 10;
             this.tb_des_cue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_des_cue.Validated += new System.EventHandler(this.tb_des_cue_Validated);
             // 
@@ -763,6 +795,7 @@
             this.tb_tot_bru.ReadOnly = true;
             this.tb_tot_bru.Size = new System.Drawing.Size(104, 20);
             this.tb_tot_bru.TabIndex = 86;
+            this.tb_tot_bru.TabStop = false;
             this.tb_tot_bru.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label14
@@ -795,7 +828,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 384);
+            this.label15.Location = new System.Drawing.Point(9, 389);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 13);
             this.label15.TabIndex = 54;
@@ -805,12 +838,12 @@
             // 
             this.tb_obs_cmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_obs_cmp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_obs_cmp.Location = new System.Drawing.Point(12, 400);
+            this.tb_obs_cmp.Location = new System.Drawing.Point(12, 405);
             this.tb_obs_cmp.MaxLength = 100;
             this.tb_obs_cmp.Multiline = true;
             this.tb_obs_cmp.Name = "tb_obs_cmp";
             this.tb_obs_cmp.Size = new System.Drawing.Size(363, 59);
-            this.tb_obs_cmp.TabIndex = 81;
+            this.tb_obs_cmp.TabIndex = 120;
             // 
             // inv007_02
             // 
@@ -881,7 +914,7 @@
         private System.Windows.Forms.DateTimePicker tb_fec_cmp;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_fec_ctr;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_und_cmp;
         private System.Windows.Forms.TextBox tb_des_pro;
@@ -921,5 +954,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tb_obs_cmp;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tb_tip_cam;
     }
 }

@@ -19,6 +19,7 @@ namespace CRS_PRE.INV
         ads004 o_ads004 = new ads004();
         ads007 o_ads007 = new ads007();
         ads016 o_ads016 = new ads016();
+        ads022 o_ads022 = new ads022();
         adp002 o_adp002 = new adp002();
         cl_glo_frm o_mg_glo_frm = new cl_glo_frm();
 
@@ -46,6 +47,8 @@ namespace CRS_PRE.INV
             tb_nro_tal.Text = "0";
             tb_cod_bod.Text = "0";
             tb_fec_cmp.Value = DateTime.Today;
+            tb_cod_per.Text = "0";
+
             cb_for_pag.SelectedIndex = 0;
             tb_nro_ite.Text = "1";
 
@@ -56,7 +59,7 @@ namespace CRS_PRE.INV
             tb_tot_bru.Text = "0.00";
             tb_des_cue.Text = "0.00";
             tb_tot_net.Text = "0.00";
-
+            
 
             tb_cod_per.Focus();
 
@@ -315,13 +318,14 @@ namespace CRS_PRE.INV
         }
         void Fi_abr_bus_bod()
         {
-            inv002_01 frm = new inv002_01();
+            inv002_01b frm = new inv002_01b();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
 
             if (frm.DialogResult == DialogResult.OK)
             {
                 tb_cod_bod.Text = frm.tb_sel_bus.Text;
-                lb_nom_bod.Text = frm.lb_des_bus.Text;
+                Fi_obt_bod();
+
             }
         }
         private void Tb_cod_bod_Validated(object sender, EventArgs e)
@@ -348,10 +352,12 @@ namespace CRS_PRE.INV
             if (tabla.Rows.Count == 0)
             {
                 lb_nom_bod.Text = "No Existe";
+                tb_fec_ctr.Text = "";
             }
             else
             {
                 lb_nom_bod.Text = tabla.Rows[0]["va_nom_bod"].ToString();
+                tb_fec_ctr.Text = DateTime.Parse(tabla.Rows[0]["va_fec_ctr"].ToString()).ToString("d");
             }
         }
 
@@ -376,18 +382,18 @@ namespace CRS_PRE.INV
             tab_prm = new DataTable();
             tab_prm.Columns.Add("va_ide_doc");
             tab_prm.Columns.Add("va_nom_doc");
-
+            
             tab_prm.Rows.Add();
 
             tab_prm.Rows[0]["va_ide_doc"] = tb_cod_doc.Text;
             tab_prm.Rows[0]["va_nom_doc"] = "Compra";
 
-            ads004_01 frm = new ads004_01();
+            ads004_01b frm = new ads004_01b();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si, tab_prm);
 
             if (frm.DialogResult == DialogResult.OK)
             {
-                tb_nro_tal.Text = frm.tb_nro_tal.Text;
+                tb_nro_tal.Text = frm.vp_nro_tal;
                 Fi_obt_tal();
             }
         }
@@ -460,7 +466,7 @@ namespace CRS_PRE.INV
         {
             if (tb_cod_per.Text.Trim() == "")
             {
-                MessageBox.Show("Debe proporcionar un codigo de proveedor valido", "Error", MessageBoxButtons.OK);
+                //MessageBox.Show("Debe proporcionar un codigo de proveedor valido", "Error", MessageBoxButtons.OK);
                 //tb_cod_per.Focus();
             }
             int val = 0;
@@ -985,19 +991,21 @@ namespace CRS_PRE.INV
             }
 
 
+        }
 
+        private void tb_fec_cmp_ValueChanged(object sender, EventArgs e)
+        {
+            //**  Obtiene Tipo de Cambio segun fecha
+            tabla = o_ads022.Fe_con_tic(tb_fec_cmp.Text);
+            if (tabla.Rows.Count != 0)
+                tb_tip_cam.Text = tabla.Rows[0]["va_val_bus"].ToString();
+            else
+                tb_tip_cam.Text = "0";
+        }
 
-
-
-
-
-
-
-
-
-
-
-
+        private void tb_nro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cl_glo_bal.NotNumeric(e);
         }
     }
 }

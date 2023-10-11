@@ -166,8 +166,11 @@ namespace CRS_NEG
                     case 2: cadena.AppendLine(" where va_des_lib like '" + val_bus + "%' "); break;
                 }
 
-                if (tip_lib != 0)
-                    cadena.AppendLine(" and va_tip_lib = " + tip_lib );
+                if (tip_lib != 0 && tip_lib < 3)
+                {
+                    cadena.AppendLine(" and va_tip_lib = " + tip_lib);
+                }else
+                    cadena.AppendLine(" and va_tip_lib >= " + tip_lib);
 
                 if (est_bus != "T")
                     cadena.AppendLine(" and va_est_ado ='" + est_bus + "'");
