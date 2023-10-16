@@ -77,8 +77,8 @@ namespace CRS_PRE
         /// <summary>
         /// Verifica Menú al Activarse el formulario
         /// </summary>
-        /// <param name="ide_usr"></param>
-        /// <param name="frm_act"></param>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <param name="frm_act">Formulario Activo</param>
         public void fu_ver_mnu(string ide_usr, Form frm_act)
         {
             // verifica Restricciones del Menu de la aplicacion para el usuario
