@@ -13,50 +13,67 @@ using CRS_NEG;
 
 namespace CRS_PRE
 {
-    public partial class ecp003_02 : Form
+    public partial class ecp003_04 : Form
     {
 
         public dynamic frm_pad;
         public int frm_tip;
         public DataTable frm_dat;
+        
 
         //Instancias
+        adp002 o_adp002 = new adp002();
         ecp001 o_ecp001 = new ecp001();
         ecp002 o_ecp002 = new ecp002();
         ecp003 o_ecp003 = new ecp003();
 
         DataTable tabla = new DataTable();
-        int cod_per = 0;
         string raz_soc = "";
         string nom_bre = "";
         int ced_per = 0;
+        int cod_per = 0;
 
-        public ecp003_02()
+        public ecp003_04()
         {
             InitializeComponent();
         }
 
       
         private void frm_Load(object sender, EventArgs e)
-        {                       
+        {
+             //** Obtiene datos de la persona
             cod_per = int.Parse(frm_dat.Rows[0]["va_cod_per"].ToString());
-            raz_soc = frm_dat.Rows[0]["va_raz_soc"].ToString();
-            nom_bre = frm_dat.Rows[0]["va_ape_pat"].ToString() + " " + frm_dat.Rows[0]["va_ape_mat"].ToString() + ", " + frm_dat.Rows[0]["va_nom_bre"].ToString();
-            ced_per = int.Parse(frm_dat.Rows[0]["va_nro_doc"].ToString());
+
+            tabla = o_adp002.Fe_con_per(cod_per);
+
+            cod_per = int.Parse(tabla.Rows[0]["va_cod_per"].ToString());
+            raz_soc = tabla.Rows[0]["va_raz_soc"].ToString();
+            nom_bre = tabla.Rows[0]["va_ape_pat"].ToString() + " " + tabla.Rows[0]["va_ape_mat"].ToString() + ", " + tabla.Rows[0]["va_nom_bre"].ToString();
+            ced_per = int.Parse(tabla.Rows[0]["va_nro_doc"].ToString());
 
             lb_raz_soc.Text = raz_soc + "  (" + cod_per + ")";
             lb_nom_bre.Text = nom_bre;
             lb_nro_doc.Text = ced_per.ToString();
 
-
-            tb_cod_lib.Text = "0";
             tb_max_cuo.Text = "0";
             tb_des_lib.Text = "";
-            tb_fec_exp.Text = DateTime.Today.AddMonths(3).ToString();  
-            
-            tb_cod_lib.Focus();
-        }
+            tb_fec_exp.Text = DateTime.Today.AddMonths(3).ToString();
 
+            tb_cod_lib.Text = frm_dat.Rows[0]["va_cod_lib"].ToString();
+            Fi_obt_lib();
+
+            tb_mto_lim.Text = frm_dat.Rows[0]["va_mto_lim"].ToString().Trim();
+            tb_fec_exp.Text = DateTime.Parse(frm_dat.Rows[0]["va_fec_exp"].ToString()).ToString("d");
+            tb_cod_plg.Text = frm_dat.Rows[0]["va_cod_plg"].ToString();
+            Fi_obt_plg();
+
+            tb_max_cuo.Text = frm_dat.Rows[0]["va_max_cuo"].ToString();
+
+            if (frm_dat.Rows[0]["va_est_ado"].ToString() == "H")
+                tb_est_ado.Text = "Habilitado";
+            else
+                tb_est_ado.Text = "Deshabilitado";
+        }
 
         protected string Fi_val_dat()
         {
@@ -80,12 +97,12 @@ namespace CRS_PRE
                 return "La libreta se encuentra Deshabilitada";
             }
 
-            //Verificar si ya esta inscrito
+            //Verificar si esta inscrito
             tabla = o_ecp003.Fe_con_sus( int.Parse(tb_cod_lib.Text),cod_per);
-            if (tabla.Rows.Count > 0)
+            if (tabla.Rows.Count == 0)
             {
                 tb_cod_lib.Focus();
-                return "La persona ya se encuentra inscrita en esta libreta";
+                return "La persona no se encuentra inscrita en esta libreta";
             }
 
             //Verificar plan de pago
@@ -113,41 +130,7 @@ namespace CRS_PRE
         }
 
 
-
-
-
-        private void Bt_bus_lib_Click(object sender, EventArgs e)
-        {
-            Fi_abr_bus_lib();
-        }
-        private void Tb_cod_lib_KeyDown(object sender, KeyEventArgs e)
-        {
-            //al presionar tecla para ARRIBA
-            if (e.KeyData == Keys.Up)
-            {
-                // Abre la ventana Busca Documento
-                Fi_abr_bus_lib();
-            }
-
-        }
-
-        void Fi_abr_bus_lib()
-        {
-            ecp002_01 frm = new ecp002_01();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
-
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                tb_cod_lib.Text = frm.tb_sel_ecc.Text;
-                Fi_obt_lib();
-            }
-        }
-
-        private void Tb_cod_lib_Validated(object sender, EventArgs e)
-        {
-            Fi_obt_lib();
-        }
-
+      
         /// <summary>
         /// Obtiene ide y nombre documento para colocar en los campos del formulario
         /// </summary>
@@ -183,12 +166,6 @@ namespace CRS_PRE
         }
         private void Tb_cod_plg_KeyDown(object sender, KeyEventArgs e)
         {
-            //al presionar tecla para ARRIBA
-            if (e.KeyData == Keys.Up)
-            {
-                // Abre la ventana Busca Documento
-                Fi_abr_bus_plg();
-            }
 
         }
 
@@ -255,15 +232,20 @@ namespace CRS_PRE
                 MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                 return;
             }
-            msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", "Nueva Inscripción", MessageBoxButtons.OKCancel);
+            if (frm_dat.Rows[0]["va_est_ado"].ToString() == "H")
+                msg_res = MessageBox.Show("Esta seguro de Deshabilitar la inscripción?", "Deshabilita Inscripción", MessageBoxButtons.OKCancel);
+            else
+                msg_res = MessageBox.Show("Esta seguro de Habilitar la inscripción?", "Habilita Inscripción", MessageBoxButtons.OKCancel);
+
             if (msg_res == DialogResult.OK)
             {
+                if (frm_dat.Rows[0]["va_est_ado"].ToString() == "H")
+                    o_ecp003.Fe_dhb_sus(int.Parse(tb_cod_lib.Text), cod_per);
+                else
+                    o_ecp003.Fe_hab_sus(int.Parse(tb_cod_lib.Text), cod_per);
 
-                //Registrar 
-                o_ecp003.Fe_nue_sus(int.Parse(tb_cod_lib.Text), cod_per, int.Parse(tb_cod_plg.Text), decimal.Parse(tb_mto_lim.Text), decimal.Parse("0"),
-                    int.Parse(tb_max_cuo.Text), DateTime.Parse(tb_fec_exp.Text));
-                Fi_lim_pia();
                 frm_pad.Fe_act_frm(int.Parse(tb_cod_lib.Text));
+                cl_glo_frm.Cerrar(this);
             }
 
         }

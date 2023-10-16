@@ -72,7 +72,7 @@ namespace CRS_NEG
 
         public DataTable Fe_bus_car(string ar_tex_bus,int ar_par_ame, string ar_est_ado, int ar_ide_gru )
         {
-            cadena = " SELECT va_ide_gru, va_cod_bod, va_nom_bod, va_mon_inv, va_est_ado" +
+            cadena = " SELECT va_ide_gru, va_cod_bod, va_nom_bod, va_mon_inv,va_fec_ctr, va_est_ado" +
                      " FROM inv002 ";
             cadena += " WHERE va_ide_gru = va_ide_gru ";
 

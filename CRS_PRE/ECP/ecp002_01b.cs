@@ -5,28 +5,26 @@ using System.Windows.Forms;
 
 namespace CRS_PRE
 {
-    public partial class ecp003_01 : Form
+    public partial class ecp002_01b : Form
     {
         public dynamic frm_pad;
         public int frm_tip;
-        public DataTable frm_dat;
-        //public DataTable tab_dat;
+        public DataTable tab_dat;
         public dynamic frm_MDI;
+        public int tip_lib = 0;
 
-        public ecp003_01()
+        public ecp002_01b()
         {
             InitializeComponent();
         }
 
         // instancia
-
-        adp002 o_adp002 = new adp002();
-        ecp003 o_ecp003 = new ecp003();
+        
+        ecp002 o_ecp002 = new ecp002();
 
 
         // Variables
         DataTable tabla = new DataTable();
-        int cod_lib = 0 ;
 
         private void frm_Load(object sender, EventArgs e)
         {
@@ -36,46 +34,29 @@ namespace CRS_PRE
         #region  [Funciones Internas]
         private void fi_ini_frm()
         {
-            tb_sel_ecc.Text = frm_dat.Rows[0]["va_cod_per"].ToString();
-            Fi_obt_per();
+            
+            tb_sel_ecc.Text = "";
+           
+            cb_prm_bus.SelectedIndex = 0;
             cb_est_ado.SelectedIndex = 0;
+            cb_tip_lib.SelectedIndex = 0;
+
+            fi_bus_car();
         }
-        private void Fi_obt_per()
-        {
-            if (tb_sel_ecc.Text.Trim() == "")
-            {
-                MessageBox.Show("Debe proporcionar un codigo de persona valido", "Error", MessageBoxButtons.OK);                
-            }
-
-            if (!cl_glo_bal.IsNumeric(tb_sel_ecc.Text.Trim()))
-            {
-                tb_raz_soc.Text = "No Existe";
-                tb_nom_per.Text = "";
-            }
-            tabla = o_adp002.Fe_con_per(int.Parse(tb_sel_ecc.Text));
-            if (tabla.Rows.Count == 0)
-            {
-                tb_raz_soc.Text = "No Existe";
-                tb_nom_per.Text = "";
-            }
-            else
-            {
-                tb_raz_soc.Text = tabla.Rows[0]["va_raz_soc"].ToString();
-                tb_nom_per.Text = tabla.Rows[0]["va_ape_pat"].ToString() + " " + tabla.Rows[0]["va_ape_mat"].ToString() + ", " + tabla.Rows[0]["va_nom_bre"].ToString();
-
-            }
-        }
-
 
         /// <summary>
         /// Funcion interna buscar
         /// </summary>
+        /// <param name="ar_tex_bus">Texto a buscar</param>
+        /// <param name="ar_prm_bus">Parametro a buscar</param>
+        /// <param name="ar_est_bus">Estado a buscar</param>
         private void fi_bus_car(  )
         {
             //Limpia Grilla
             dg_res_ult.Rows.Clear();
-
+            string ar_tex_bus = tb_tex_bus.Text;
             string ar_est_ado = "T";
+            int ar_tip_lib = 0;
 
             if (cb_est_ado.SelectedIndex == 0)
                 ar_est_ado = "T";
@@ -84,9 +65,10 @@ namespace CRS_PRE
             if (cb_est_ado.SelectedIndex == 2)
                 ar_est_ado = "N";
 
-            tabla = o_ecp003.Fe_lis_tar(int.Parse(tb_sel_ecc.Text), ar_est_ado);
+            ar_tip_lib = tip_lib ;
+           
 
-             
+            tabla = o_ecp002.Fe_bus_car(ar_tex_bus,cb_prm_bus.SelectedIndex + 1, ar_est_ado, ar_tip_lib);
 
             if (tabla.Rows.Count > 0)
             {
@@ -95,9 +77,6 @@ namespace CRS_PRE
                     dg_res_ult.Rows.Add();
                     dg_res_ult.Rows[i].Cells["va_cod_lib"].Value = tabla.Rows[i]["va_cod_lib"].ToString();
                     dg_res_ult.Rows[i].Cells["va_des_lib"].Value = tabla.Rows[i]["va_des_lib"].ToString();
-                    dg_res_ult.Rows[i].Cells["va_mto_lim"].Value = tabla.Rows[i]["va_mto_lim"].ToString();
-                    dg_res_ult.Rows[i].Cells["va_sal_act"].Value = tabla.Rows[i]["va_sal_act"].ToString();
-                    dg_res_ult.Rows[i].Cells["va_fec_exp"].Value = DateTime.Parse(tabla.Rows[i]["va_fec_exp"].ToString()).ToString("d");
 
                     if (tabla.Rows[i]["va_tip_lib"].ToString() == "1")
                         dg_res_ult.Rows[i].Cells["va_tip_lib"].Value = "Cta. x Cob.";
@@ -122,15 +101,17 @@ namespace CRS_PRE
                         dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Deshabilitado";
                 
                 }
-                tb_sel_ecc.Text = tabla.Rows[0]["va_cod_per"].ToString();
-                cod_lib = int.Parse(dg_res_ult.Rows[0].Cells["va_cod_lib"].Value.ToString());
+                tb_sel_ecc.Text = tabla.Rows[0]["va_cod_lib"].ToString();
+                lb_des_plg.Text = tabla.Rows[0]["va_des_lib"].ToString();
 
             }
+
+            tb_tex_bus.Focus();
 
         }
       
         /// <summary>
-        /// - > Función que selecciona la fila en el Datagrid que se Modificó
+        /// - > Función que selecciona la fila en el Datagrid que el talonario Modificó
         /// </summary>
         private void fi_sel_fil(long nro_dos)
         {
@@ -146,12 +127,9 @@ namespace CRS_PRE
                         {
                             dg_res_ult.Rows[i].Selected = true;
                             dg_res_ult.FirstDisplayedScrollingRowIndex = i;
-                            
                             return;
                         }
                     }
-
-                    cod_lib = int.Parse(nro_dos.ToString());
                 }
                 catch (Exception ex)
                 {
@@ -213,15 +191,9 @@ namespace CRS_PRE
             if (dg_res_ult.SelectedRows.Count != 0)
             {
                 if (dg_res_ult.SelectedRows[0].Cells[0].Value == null)
-                {
-                    //tb_sel_ecc.Text = "";
-                    cod_lib = 0;
-                }
+                    tb_sel_ecc.Text = "";
                 else
-                { 
-                    //tb_sel_ecc.Text = tabla.Rows[0]["va_cod_per"].ToString();
-                    cod_lib = int.Parse(dg_res_ult.SelectedRows[0].Cells[0].Value.ToString());
-                }
+                    tb_sel_ecc.Text = dg_res_ult.SelectedRows[0].Cells[0].Value.ToString();
             }
         }
 
@@ -233,17 +205,17 @@ namespace CRS_PRE
             string res_fun = "";
 
             if(cl_glo_bal.IsDecimal(tb_sel_ecc.Text) ==false)
-                res_fun = "la suscripción no es valido.";
-
-            frm_dat = o_ecp003.Fe_con_sus(cod_lib, int.Parse(tb_sel_ecc.Text));
-            if (frm_dat.Rows.Count == 0)
+                res_fun = "El plan de pago no es valido.";
+            
+            tab_dat = o_ecp002.Fe_con_lib( int.Parse(tb_sel_ecc.Text));
+            if (tabla.Rows.Count == 0)
             {
-                res_fun = "la suscripción no se encuentra registrado";
+                res_fun = "El plan de pago no se encuentra registrado";
             }
 
             if (res_fun != "")
             {
-                MessageBox.Show(res_fun, "suscripción", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(res_fun, "plan de pago", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_sel_ecc.Focus();
                 return false;
             }
@@ -271,10 +243,11 @@ namespace CRS_PRE
             fi_fil_act();
         }
 
-        private void cb_est_ado_SelectedIndexChanged(object sender, EventArgs e)
+        private void Bt_bus_car_Click(object sender, EventArgs e)
         {
             fi_bus_car();
         }
+
 
         /// <summary>
         /// Funcion Externa que actualiza la ventana con los datos que tenga, despues de realizar alguna operacion.
@@ -297,6 +270,8 @@ namespace CRS_PRE
                             return;
                         }
                     }
+
+                    tb_tex_bus.Focus();
                 }
 
                 catch (Exception ex)
@@ -312,19 +287,19 @@ namespace CRS_PRE
             if (fi_ver_dat() == false)
                 return;
 
-            ecp003_03 frm = new ecp003_03();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, frm_dat);
+            ecp002_03 frm = new ecp002_03();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
        
       
         private void Mn_con_sul_Click(object sender, EventArgs e)
         {
-            // Verifica concurrencia de datos para consulta
+            // Verifica concurrencia de datos para editar
             if (fi_ver_dat() == false)
                 return;
 
-            ecp003_05 frm = new ecp003_05();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, frm_dat);
+            ecp002_05 frm = new ecp002_05();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
         private void mn_hab_des_Click(object sender, EventArgs e)
@@ -333,8 +308,8 @@ namespace CRS_PRE
             if (fi_ver_dat() == false)
                 return;
 
-            ecp003_04 frm = new ecp003_04();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, frm_dat);
+            ecp001_04 frm = new ecp001_04();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
         private void mn_eli_min_Click(object sender, EventArgs e)
         {
@@ -343,18 +318,17 @@ namespace CRS_PRE
                 return;
 
             ecp001_06 frm = new ecp001_06();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, frm_dat);
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
-     
-        private void mn_nue_ins_Click(object sender, EventArgs e)
+        private void mn_nue_ccp_Click(object sender, EventArgs e)
         {
-            ecp003_02 frm = new ecp003_02();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, frm_dat);
+            ecp002_02 frm = new ecp002_02();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
         private void mn_nue_tes_Click(object sender, EventArgs e)
         {
-            //ecp003_02b frm = new ecp003_02b();
-            //cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+            ecp002_02b frm = new ecp002_02b();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
         private void mn_atr_ass_Click(object sender, EventArgs e)
@@ -381,6 +355,6 @@ namespace CRS_PRE
             }
         }
 
-      
+       
     }
 }

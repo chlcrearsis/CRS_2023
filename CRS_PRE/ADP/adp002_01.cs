@@ -64,55 +64,62 @@ namespace CRS_PRE
         /// <param name="est_bus">Estado (H=Habilitado; N=Deshabilitado; T=Todos)</param>
         private void fi_bus_car(int gru_per = 0, string tip_per = "T", string tex_bus = "", int prm_bus = 0, string est_bus = "T")
         {
-            // Limpia Grilla
-            dg_res_ult.Rows.Clear();
+            try
+            {           
+                // Limpia Grilla
+                dg_res_ult.Rows.Clear();
 
-            // Obtiene el Tipo de Persona
-            if (cb_tip_per.SelectedIndex == 0)
-                tip_per = "T";  // Todos
-            if (cb_tip_per.SelectedIndex == 1)
-                tip_per = "P";  // Particular
-            if (cb_tip_per.SelectedIndex == 2)
-                tip_per = "E";  // Empresa
+                // Obtiene el Tipo de Persona
+                if (cb_tip_per.SelectedIndex == 0)
+                    tip_per = "T";  // Todos
+                if (cb_tip_per.SelectedIndex == 1)
+                    tip_per = "P";  // Particular
+                if (cb_tip_per.SelectedIndex == 2)
+                    tip_per = "E";  // Empresa
 
-            // Obtiene el Estado de la Persona
-            if (cb_est_bus.SelectedIndex == 0)
-                est_bus = "T";  // Todos
-            if (cb_est_bus.SelectedIndex == 1)
-                est_bus = "H";  // Habilitados
-            if (cb_est_bus.SelectedIndex == 2)
-                est_bus = "N";  // Deshabilitado
+                // Obtiene el Estado de la Persona
+                if (cb_est_bus.SelectedIndex == 0)
+                    est_bus = "T";  // Todos
+                if (cb_est_bus.SelectedIndex == 1)
+                    est_bus = "H";  // Habilitados
+                if (cb_est_bus.SelectedIndex == 2)
+                    est_bus = "N";  // Deshabilitado
 
-            // Obtiene Datos de la consulta
-            Tabla = new DataTable();
-            Tabla = o_adp002.Fe_bus_car(gru_per, tip_per, tex_bus, prm_bus, est_bus);
-            if (Tabla.Rows.Count > 0){
-                for (int i = 0; i < Tabla.Rows.Count; i++){
-                    dg_res_ult.Rows.Add();
-                    dg_res_ult.Rows[i].Cells["va_cod_per"].Value = Tabla.Rows[i]["va_cod_per"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_raz_soc"].Value = Tabla.Rows[i]["va_raz_soc"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_ruc_nit"].Value = Tabla.Rows[i]["va_ruc_nit"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_nom_bre"].Value = Tabla.Rows[i]["va_nom_bre"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_ape_pat"].Value = Tabla.Rows[i]["va_ape_pat"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_ape_mat"].Value = Tabla.Rows[i]["va_ape_mat"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_tip_doc"].Value = Tabla.Rows[i]["va_tip_doc"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_nro_doc"].Value = Tabla.Rows[i]["va_nro_doc"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_tel_per"].Value = Tabla.Rows[i]["va_tel_per"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_cel_ula"].Value = Tabla.Rows[i]["va_cel_ula"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_tel_fij"].Value = Tabla.Rows[i]["va_tel_fij"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_dir_pri"].Value = Tabla.Rows[i]["va_dir_pri"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_ema_ail"].Value = Tabla.Rows[i]["va_ema_ail"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_nom_ven"].Value = Tabla.Rows[i]["va_nom_ven"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_nom_cob"].Value = Tabla.Rows[i]["va_nom_cob"].ToString().Trim();
-                    if (Tabla.Rows[i]["va_est_ado"].ToString() == "H")
-                        dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Habilitado";
-                    else
-                        dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Deshabilitado";
+                // Obtiene Datos de la consulta
+                Tabla = new DataTable();
+                Tabla = o_adp002.Fe_bus_car(gru_per, tip_per, tex_bus, prm_bus, est_bus);
+                if (Tabla.Rows.Count > 0){
+                    for (int i = 0; i < Tabla.Rows.Count; i++){
+                        dg_res_ult.Rows.Add();
+                        dg_res_ult.Rows[i].Cells["va_cod_per"].Value = Tabla.Rows[i]["va_cod_per"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_raz_soc"].Value = Tabla.Rows[i]["va_raz_soc"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_ruc_nit"].Value = Tabla.Rows[i]["va_ruc_nit"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_nom_bre"].Value = Tabla.Rows[i]["va_nom_bre"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_ape_pat"].Value = Tabla.Rows[i]["va_ape_pat"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_ape_mat"].Value = Tabla.Rows[i]["va_ape_mat"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_tip_doc"].Value = Tabla.Rows[i]["va_tip_doc"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_nro_doc"].Value = Tabla.Rows[i]["va_nro_doc"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_tel_per"].Value = Tabla.Rows[i]["va_tel_per"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_cel_ula"].Value = Tabla.Rows[i]["va_cel_ula"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_tel_fij"].Value = Tabla.Rows[i]["va_tel_fij"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_dir_pri"].Value = Tabla.Rows[i]["va_dir_pri"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_ema_ail"].Value = Tabla.Rows[i]["va_ema_ail"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_nom_ven"].Value = Tabla.Rows[i]["va_nom_ven"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_nom_cob"].Value = Tabla.Rows[i]["va_nom_cob"].ToString().Trim();
+                        if (Tabla.Rows[i]["va_est_ado"].ToString() == "H")
+                            dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Habilitado";
+                        else
+                            dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Deshabilitado";
+                    }
+                    tb_cod_per.Text = Tabla.Rows[0]["va_cod_per"].ToString().Trim();
+                    lb_raz_soc.Text = Tabla.Rows[0]["va_raz_soc"].ToString().Trim();
+                    tb_tex_bus.Focus();
+                    tb_tex_bus.SelectAll();
                 }
-                tb_cod_per.Text = Tabla.Rows[0]["va_cod_per"].ToString().Trim();
-                lb_raz_soc.Text = Tabla.Rows[0]["va_raz_soc"].ToString().Trim();
-                tb_tex_bus.Focus();
-                tb_tex_bus.SelectAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void fi_con_sel()

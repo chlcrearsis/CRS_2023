@@ -36,6 +36,8 @@ namespace CRS_PRE
         
         private void frm_Load(object sender, EventArgs e)
         {
+            vp_ide_doc = frm_dat.Rows[0]["va_ide_doc"].ToString();
+            vp_nom_doc = frm_dat.Rows[0]["va_nom_doc"].ToString();    
             fi_ini_frm();
         }
         
