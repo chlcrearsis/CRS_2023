@@ -25,7 +25,8 @@ namespace CRS_PRE
         ads007 o_ads007 = new ads007();
         ads013 o_ads013 = new ads013();
         ads008 o_ads008 = new ads008();        
-        ads024 o_ads024 = new ads024();        
+        ads024 o_ads024 = new ads024();
+        ads100 o_ads100 = new ads100();
         General general = new General();
 
         int vg_lic_sis = 0; // Licencia del Sistema (0=Sin Licencia; 1=Con Licencia)
@@ -76,12 +77,15 @@ namespace CRS_PRE
                     pb_ima_usr.Image = Properties.Resources.im_usr_hom;
                 else
                     pb_ima_usr.Image = Properties.Resources.im_usr_muj;
-            }                     
+            }
 
-            // Obtiene nombre de la empresa (1-4)
+            // Obtener nombre de la empresa
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_obt_glo(1, 4);
-            Text = Text + ": " + Tabla.Rows[0]["va_glo_car"].ToString();         
+            Tabla = o_ads013.Fe_obt_glo(1, 1);
+            if (Tabla.Rows.Count > 0)
+                Text = Text + ": " + Tabla.Rows[0]["va_glo_car"].ToString();
+            else
+                Text = Text + ": NO DEFINIDO";
 
             // Despliega el nombre del Equipo
             lb_nom_equ.Text = SystemInformation.ComputerName;
@@ -214,12 +218,13 @@ namespace CRS_PRE
 
                 // Lee datos de la licencia
                 Tabla = new DataTable();
-                Tabla = o_ads013.Fe_obt_lic();
+                Tabla = o_ads100.Fe_obt_lic();
                 if (Tabla.Rows.Count > 0)
                 {                    
                     string fec_exp = Tabla.Rows[0]["va_fec_exp"].ToString().Trim();
                     if (fec_exp.CompareTo("") == 0) {
                         vg_lic_sis = 0; // 0=Sin Licencia
+                        lb_lic_act.Text = "Aplicar Licencia";
                         lb_val_lic.Text = "Validez de la Licencia: Sin Licencia";                        
                         return;
                     }
@@ -234,23 +239,27 @@ namespace CRS_PRE
 
                     if (nro_dia == 0) {
                         vg_lic_sis = 1; // 1=Con Licencia
+                        lb_lic_act.Text = "Aplicar Licencia";
                         lb_val_lic.Text = "Validez de la Licencia: Vence Hoy a las 23:59 pm";
                         return;
                     }
                     
                     if (nro_dia >= 0 && nro_dia <= 7){
-                        vg_lic_sis = 1; // 1=Con Licencia                        
+                        vg_lic_sis = 1; // 1=Con Licencia
+                        lb_lic_act.Text = "Licencia Activada";
                         lb_val_lic.Text = "Validez de la Licencia: Próximo a Vencerse en " + nro_dia + " días.";
                         return;
                     }
 
                     if (nro_dia < 0) {
                         vg_lic_sis = 0; // 0=Sin Licencia
+                        lb_lic_act.Text = "Aplicar Licencia";
                         lb_val_lic.Text = "Validez de la Licencia: Licencia Expirada";
                         return;
                     }
 
                     vg_lic_sis = 1; // 1=Con Licencia
+                    lb_lic_act.Text = "Licencia Activada";
                     lb_val_lic.Text = "Validez de la Licencia: " + fec_exp;
                 }
             }

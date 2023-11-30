@@ -48,7 +48,7 @@ namespace CRS_PRE
                 vp_ord_dat = "Nombre";
 
             // Obtener nombre de la empresa
-            Tabla = o_ads013.Fe_obt_glo(1, 4);
+            Tabla = o_ads013.Fe_obt_glo(1, 1);
             va_nom_emp = Tabla.Rows[0]["va_glo_car"].ToString().Trim();
             // Logueo Manual el ReportDocument asociado al Crystal Report
             ads007_R01.SetDatabaseLogon(Program.gl_ide_usr, Program.gl_pas_usr, Program.gl_ser_bdo + "\\" + Program.gl_ins_bdo, Program.gl_nom_bdo);

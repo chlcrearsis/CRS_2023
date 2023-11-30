@@ -16,19 +16,19 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "REGISTRA OPCIÓN DEL MENU"
+        /// Funcion "Registrar Definicion Claves"
         /// </summary>
-        /// <param name="nom_frm">Nombre Formulario</param>
-        /// <param name="ide_men">ID. Menu Formulario</param>
-        /// <param name="tex_men">Texto Menu Formulario</param>
-        /// <param name="des_men">Descripción</param>
-        /// <param name="ide_pad">ID. Menu Padre</param>
-        public void Fe_nue_tip(string nom_frm, string ide_men, string tex_men, string des_men, string ide_pad)
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_cla">ID. Clave</param>
+        /// <param name="nom_cla">Nombre</param>
+        /// <param name="des_cla">Descripción</param>
+        /// <param name="cla_req">Clave Requerido (S=Si; N=No)</param>
+        public void Fe_nue_reg(int ide_mod, int ide_cla, string nom_cla, string des_cla, string cla_req)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("EXECUTE ads011_01a_p01 '" + nom_frm + "', '" + ide_men + "', '" + tex_men + "', '" + des_men + "', '" + ide_pad + "'");
+                cadena.AppendLine("INSERT INTO ads011 VALUES (" + ide_mod + ", " + ide_cla + ", '" + nom_cla + "', '" + des_cla + "', '" + cla_req + "')");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -38,19 +38,82 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA OPCIÓN MENU POR NOMBRE FORMULARIO"
+        /// Funcion "Modifica Definicion Claves"
         /// </summary>
-        /// <param name="nom_frm">Nombre Formulario</param>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_cla">ID. Clave</param>
+        /// <param name="nom_cla">Nombre</param>
+        /// <param name="des_cla">Descripción</param>
+        /// <param name="cla_req">Clave Requerido (S=Si; N=No)</param>
         /// <returns></returns>
-        public DataTable Fe_con_frm(string nom_frm)
+        public void Fe_edi_tar(int ide_mod, int ide_cla, string nom_cla, string des_cla, string cla_req)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_nom_frm, va_ide_men, va_tex_men,");
-                cadena.AppendLine("       va_des_men, va_ide_pad");
-                cadena.AppendLine("  FROM ads011");
-                cadena.AppendLine(" WHERE va_nom_frm = '" + nom_frm + "'");
+                cadena.AppendLine("UPDATE ads011 SET va_nom_cla = '" + nom_cla + "',");
+                cadena.AppendLine("                  va_des_cla = '" + des_cla + "',");
+                cadena.AppendLine("                  va_cla_req = '" + cla_req + "'");
+                cadena.AppendLine("            WHERE va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("              AND va_ide_cla = " + ide_cla + "");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "Elimina Definicion Claves"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_cla">ID. Clave</param>
+        /// <returns></returns>
+        public void Fe_eli_min(int ide_mod, int ide_cla)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("DELETE ads011 WHERE va_ide_mod = " + ide_mod + " AND va_ide_cla = " + ide_cla + "");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Función: "FILTRA MÓDULOS DEL SISTEMA"
+        /// </summary>
+        /// <param name="cri_bus">Criterio de Busqueda</param>
+        /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_mod; 1=va_ide_cla; 2=va_nom_cla)</param>
+        /// <param name="ide_mod">ID. Módulo (0=Todos)</param>
+        /// <returns></returns>
+        public DataTable Fe_bus_car(string cri_bus, int prm_bus, int ide_mod = 0)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads001.va_abr_mod, ads001.va_nom_mod, ads011.va_ide_mod,");
+                cadena.AppendLine("       ads011.va_ide_cla, ads011.va_nom_cla, ads011.va_des_cla,");
+                cadena.AppendLine("       ads011.va_cla_req");
+                cadena.AppendLine("  FROM ads011, ads001");
+                cadena.AppendLine(" WHERE ads011.va_ide_mod = ads001.va_ide_mod");
+                switch (prm_bus)
+                {
+                    case 0: cadena.AppendLine(" AND va_ide_mod like '" + cri_bus + "%'"); break;
+                    case 1: cadena.AppendLine(" AND va_ide_cla like '" + cri_bus + "%'"); break;
+                    case 2: cadena.AppendLine(" AND va_nom_cla like '" + cri_bus + "%'"); break;
+                }
+                
+
+                if (ide_mod != 0)
+                {
+                    cadena.AppendLine(" AND va_ide_mod = " + ide_mod + "");
+                }
+
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -60,21 +123,24 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA OPCIÓN MENU POR FORMULARIO Y MENU FORMULARIO"
+        /// Funcion "Consulta Definición Claves"
         /// </summary>
-        /// <param name="nom_frm">Nombre Formulario</param>
-        /// <param name="ide_men">ID. Menu Formulario</param>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_cla">ID. Clave</param>
         /// <returns></returns>
-        public DataTable Fe_con_frm(string nom_frm, string ide_men)
+        public DataTable Fe_con_mod(int ide_mod, int ide_cla)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_nom_frm, va_ide_men, va_tex_men,");
-                cadena.AppendLine("       va_des_men, va_ide_pad");
-                cadena.AppendLine("  FROM ads011");
-                cadena.AppendLine(" WHERE va_nom_frm = '" + nom_frm + "'");
-                cadena.AppendLine("   AND va_ide_men = '" + ide_men + "'");
+                cadena.AppendLine("SELECT ads001.va_abr_mod, ads001.va_nom_mod, ads011.va_ide_mod,");
+                cadena.AppendLine("       ads011.va_ide_cla, ads011.va_nom_cla, ads011.va_des_cla,");
+                cadena.AppendLine("       ads011.va_cla_req");
+                cadena.AppendLine("  FROM ads011, ads001");
+                cadena.AppendLine(" WHERE ads011.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads011.va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("   AND ads011.va_ide_cla = " + ide_cla + "");
+
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -82,5 +148,81 @@ namespace CRS_NEG
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Funcion "Consulta Definición Claves p/Módulo"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <returns></returns>
+        public DataTable Fe_con_mod(int ide_mod)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads001.va_abr_mod, ads001.va_nom_mod, ads011.va_ide_mod,");
+                cadena.AppendLine("       ads011.va_ide_cla, ads011.va_nom_cla, ads011.va_des_cla,");
+                cadena.AppendLine("       ads011.va_cla_req");
+                cadena.AppendLine("  FROM ads011, ads001");
+                cadena.AppendLine("   AND ads011.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads011.va_ide_mod = " + ide_mod + "");
+
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "Consulta Definición Claves p/Nombre"
+        /// </summary>
+        /// <param name="nom_cla">Nombre Clave</param>
+        /// <returns></returns>
+        public DataTable Fe_con_mod(string nom_cla)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads001.va_abr_mod, ads001.va_nom_mod, ads011.va_ide_mod,");
+                cadena.AppendLine("       ads011.va_ide_cla, ads011.va_nom_cla, ads011.va_des_cla,");
+                cadena.AppendLine("       ads011.va_cla_req");
+                cadena.AppendLine("  FROM ads011, ads001");
+                cadena.AppendLine(" WHERE ads011.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads011.va_nom_cla like '" + nom_cla + "%'");
+
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "Consulta Definición Claves p/Descripción"
+        /// </summary>
+        /// <param name="des_cla">Descripción Clave</param>
+        /// <returns></returns>
+        public DataTable Fe_con_des(string des_cla)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads001.va_abr_mod, ads001.va_nom_mod, ads011.va_ide_mod,");
+                cadena.AppendLine("       ads011.va_ide_cla, ads011.va_nom_cla, ads011.va_des_cla,");
+                cadena.AppendLine("       ads011.va_cla_req");
+                cadena.AppendLine("  FROM ads011, ads001");
+                cadena.AppendLine(" WHERE ads011.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads011.va_des_cla like '" + des_cla + "%'");
+
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

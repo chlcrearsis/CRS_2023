@@ -44,7 +44,7 @@ namespace CRS_PRE
 
             /* Obtiene la Gestion Actual */
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_obt_glo(1, 2);
+            Tabla = o_ads013.Fe_obt_glo(1, 30);
             if (Tabla.Rows.Count > 0)
                 tb_ges_tio.Text = Tabla.Rows[0]["va_glo_ent"].ToString();
 

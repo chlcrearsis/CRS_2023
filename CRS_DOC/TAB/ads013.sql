@@ -13,36 +13,37 @@ CREATE TABLE ads013
     va_ide_glo	INT			 NOT NULL DEFAULT(0),	--** ID. Global
 	--** Atributos
     va_nom_glo	VARCHAR(60)	 NOT NULL DEFAULT(''),	--** Nombre
-    va_tip_glo	INT			 NOT NULL DEFAULT(0),	--** Tipo Global (1=Caracter; 2=Numérico; 3=Decimal)
-    va_glo_car	VARCHAR(120) NOT NULL DEFAULT(''),	--** Global Caracter											
+    va_tip_glo	INT			 NOT NULL DEFAULT(0),	--** Tipo Global (0=Numérico; 1=Decimal; 2=Caracter)    											
     va_glo_ent 	INT 		 NOT NULL DEFAULT(0),	--** Global Numérico
     va_glo_dec	DEC(18,5)    NOT NULL DEFAULT(0),	--** Global Decimal
+	va_glo_car	VARCHAR(120) NOT NULL DEFAULT(''),	--** Global Caracter
 
 CONSTRAINT pk1_ads013 PRIMARY KEY(va_ide_mod, va_ide_glo)
 )
 GO
 
---** Inserta Globales del Sistema
-INSERT INTO ads013 VALUES (1,0,'Longitud Mínima Contraseña Usuario', 2,'', 4, 0)
-INSERT INTO ads013 VALUES (1,1,'Contraseña por defecto', 1,'Contra123.', 0, 0)
-INSERT INTO ads013 VALUES (1,2,'Gestion', 2, '', 2010, 0)
-INSERT INTO ads013 VALUES (1,3,'Periodo', 2, '', 12, 0)
-INSERT INTO ads013 VALUES (1,4,'Razon Social Empresa', 1,'Empresa S.R.L.', 0, 0)
-INSERT INTO ads013 VALUES (1,5,'Representante legal',1,'Nombre representante', 0, 0)
-INSERT INTO ads013 VALUES (1,6,'Nit de la empresa', 3, '', 0, 123456789)
-INSERT INTO ads013 VALUES (1,7,'Telefono fijo', 1, '33-333333', 0, 0)
-INSERT INTO ads013 VALUES (1,8,'Telefono Celular', 1, '999-99999', 0, 0)
-INSERT INTO ads013 VALUES (1,9,'Email', 1, 'empresa@gmail.com', 0, 0)
-INSERT INTO ads013 VALUES (1,10,'Dirección', 1, 'Direccion', 0, 0)
-INSERT INTO ads013 VALUES (1,11,'Clave Wifi', 1, '', 0, 0)
-INSERT INTO ads013 VALUES (1,12,'Logo Empresa', 1, '', 0, 0)
-INSERT INTO ads013 VALUES (1,13,'Logo B', 1, '', 0, 0)
-INSERT INTO ads013 VALUES (1,14,'Logo C', 1, '', 0, 0)
-INSERT INTO ads013 VALUES (1,15,'Logo D', 1, '', 0, 0)
-INSERT INTO ads013 VALUES (1,16,'UsrLicAct', 2, '', 15360,0)	-- Cantidad de Licencia * 1024; (15*1024 = 15360)
-INSERT INTO ads013 VALUES (1,17,'FecLicAct', 1, '21260026', 0, 0) -- Cadena encriptada de la licencia que contiene la fecha de expiracion
-INSERT INTO ads013 VALUES (1,100,'Version del sistema',1,'1.0.0',0,0)
-INSERT INTO ads013 VALUES (3,1,'Formulario Ventas',1,'Normal',0,0) -- 1 = Normal ; 2= Tactil
-INSERT INTO ads013 VALUES (3,2,'Productos Farmacia',2,'Normal',0,0) -- 1 = Normal ; 2= Farmacia
+--** Módulo: Administración y Seguridad
+INSERT INTO ads013 VALUES (1, 1, 'Razon Social Empresa', 2, 0, 0.00000, 'Empresa S.R.L.')
+INSERT INTO ads013 VALUES (1, 2, 'Representante Legal', 2, 0, 0.00000, 'Nombre Representante')
+INSERT INTO ads013 VALUES (1, 3, 'NIT de la empresa', 1, 0.00000, 123456789, '')
+INSERT INTO ads013 VALUES (1, 4, 'Telefono fijo', 2, 0, 0.00000, '33-333333')
+INSERT INTO ads013 VALUES (1, 5, 'Telefono Celular', 2, 0, 0.00000, '999-99999')
+INSERT INTO ads013 VALUES (1, 6, 'Email', 2, 0, 0.00000, 'empresa@gmail.com')
+INSERT INTO ads013 VALUES (1, 7, 'Dirección', 2, 0, 0.00000, 'Direccion')
+INSERT INTO ads013 VALUES (1, 8, 'Clave Wifi', 2, 0, 0.00000, 'Wifi123.')
+INSERT INTO ads013 VALUES (1, 9, 'Logo Empresa', 2, 0, 0.00000, '')
+INSERT INTO ads013 VALUES (1, 10, 'Logo B', 2, 0, 0.00000, '')
+INSERT INTO ads013 VALUES (1, 11, 'Logo C', 2, 0, 0.00000, '')
+INSERT INTO ads013 VALUES (1, 12, 'Logo D', 2, 0, 0.00000, '')
+INSERT INTO ads013 VALUES (1, 20, 'Longitud Mínima Contraseña Usuario', 0, 4, 0.00000,'')
+INSERT INTO ads013 VALUES (1, 21, 'Contraseña por defecto', 2, 0, 0.00000,'Contra123.')
+INSERT INTO ads013 VALUES (1, 100, 'Versión del sistema', 2, 0, 0.00000, '1.0.0')
+--** Módulo: Comercialización
+INSERT INTO ads013 VALUES (3, 1, 'Formulario Ventas', 2, 0, 0.00000, 'Normal')  --** 1=Normal ; 2=Tactil
+INSERT INTO ads013 VALUES (3, 2, 'Productos Farmacia', 2, 0, 0.00000, 'Normal') --** 1=Normal ; 2=Farmacia
+--** Módulo: Contabilidad
+INSERT INTO ads013 VALUES (4, 1, 'Gestión', 0, 2023, 0.00000, '')
+INSERT INTO ads013 VALUES (4, 2, 'Periodo', 0, 11, 0.00000, '')
 
+delete ads013
 GO

@@ -24,8 +24,8 @@ namespace CRS_PRE
         private void ads200_Load(object sender, EventArgs e)
         {
             // Inicializa Datos
-            ts_usr_usr.Text = o_ads013.va_ide_usr;
-            ts_bas_dat.Text = o_ads013.va_nom_bda;
+            ts_usr_usr.Text = Program.gl_ide_usr;
+            ts_bas_dat.Text = Program.gl_nom_bdo;
             ts_ide_app.Text = Name;
             ts_rut_app.Text = Text;
 
@@ -364,6 +364,28 @@ namespace CRS_PRE
         {
             o_frm = new ads010_01();
             cl_glo_frm.abrir(this, o_frm);
+        }
+
+        // Evento Click: Globales
+        private void mn_glo_bal_Click(object sender, EventArgs e)
+        {
+            o_frm = new ads013_01();
+            cl_glo_frm.abrir(this, o_frm);
+
+
+
+            // Abre Formulario PIN de Acceso Usuario
+            /*o_frm = new ads000_07();
+            o_frm.vp_ide_mod = 1;   // Administracion
+            o_frm.vp_ide_glo = 25;  // Modifica Parámetros Estructurales
+            cl_glo_frm.abrir(this, o_frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
+
+            if (o_frm.DialogResult == DialogResult.OK){
+                if (o_frm.DialogResult == DialogResult.OK){
+                    o_frm = new ads010_01();
+                    cl_glo_frm.abrir(this, o_frm);
+                }
+            }  */             
         }
 
         // Evento Click: Cerrar

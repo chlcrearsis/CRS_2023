@@ -101,9 +101,9 @@ namespace CRS_PRE
 
             // Obtiene la Longitud Minima que DEBE tener una contraseña de usuario
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_obt_glo(1, 0);
+            Tabla = o_ads013.Fe_obt_glo(1, 20);
             if (Tabla.Rows.Count == 0)
-                return "NO está definido la Clave (1-0) : Longitud Mínima Contraseña Usuario";
+                return "NO está definido la Clave (1-20) : Longitud Mínima Contraseña Usuario";
 
             int lon_min = int.Parse(Tabla.Rows[0]["va_glo_ent"].ToString());
             

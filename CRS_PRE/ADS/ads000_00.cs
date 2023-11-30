@@ -113,28 +113,7 @@ namespace CRS_PRE
 
                 // Verifica que el usuario y contraseña sean correcta
                 if (fi_val_dat() == true) {
-                    // Verifica que el usuario crssql este definido en el servidor
-                    /*Tabla = new DataTable();
-                    Tabla = o_ads007.Fe_usr_sql(nom_bda, usr_sql, pas_sql);
-                    if (Tabla.Rows.Count == 0) {
-                        MessageBox.Show("DEBE registrar el Inicio de Sesión ('" + usr_sql + "') en el SQL-Server", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    // Verifica que el usuario este definido y asignado los permisos correspondiente
-                    Tabla = o_ads007.Fe_ver_usr(nom_bda, usr_sql, pas_sql, ide_usr, pas_usr);
-                    if (Tabla.Rows.Count == 0) {
-                        MessageBox.Show("El Usuario ('" + ide_usr + "') NO esta definido en el Servidor", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }else{
-                        cod_err = Tabla.Rows[0]["va_cod_err"].ToString();
-                        msn_err = Tabla.Rows[0]["va_msn_err"].ToString();
-                        if (cod_err.CompareTo("0") != 0){
-                            MessageBox.Show("ERROR '" + cod_err + "': '" + msn_err + "'", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                    }*/
-
+                   
                     // INICIA SESION SQL
                     msn_err = o_ads007.Fe_ing_sis(ide_uni, nom_bda, ide_usr, pas_usr);
                     if (msn_err == "OK") {
@@ -168,8 +147,8 @@ namespace CRS_PRE
                         return;
                     }
 
-                    // Obtiene: (SG-100) -> Contraseña por Defecto
-                    Tabla = o_ads013.Fe_obt_glo(1, 1);
+                    // Obtiene Contraseña por Defecto
+                    Tabla = o_ads013.Fe_obt_glo(1, 21);
                     if (Tabla.Rows.Count > 0){
                         pas_def = Tabla.Rows[0]["va_glo_car"].ToString().Trim();
                         if (pas_def == pas_usr) {
@@ -221,7 +200,7 @@ namespace CRS_PRE
             va_tool_tip.SetToolTip(pb_wha_sap, "Whatsapp");
             va_tool_tip.SetToolTip(pb_fac_bok, "Facebook");
             va_tool_tip.SetToolTip(pb_ins_gra, "Instagran");
-            va_tool_tip.SetToolTip(pb_gma_ail, "Gmail");
+            va_tool_tip.SetToolTip(pb_gma_ail, "Gmail");            
 
             // Recuperar BD
             fi_rec_bdo();

@@ -29,7 +29,7 @@ namespace CRS_PRE.INV
             this.Dock = DockStyle.Fill;
 
             //obtener nombre de la empresa
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 4);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 1);
             va_nom_emp = tab_ads013.Rows[0]["va_glo_car"].ToString();
 
             //Logueo manual el ReportDocument asociado al crystal report

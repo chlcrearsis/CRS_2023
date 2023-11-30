@@ -64,8 +64,8 @@
             this.mn_tip_doc = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_gru_emp = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_def_rut = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_rel_con = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mn_rel_con = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_val_reg = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_par_con = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_dos_ifi = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +92,7 @@
             this.ts_ide_app = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ts_rut_app = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mn_glo_bal = new System.Windows.Forms.ToolStripMenuItem();
             this.m_mod_ulo.SuspendLayout();
             this.st_bar_pie.SuspendLayout();
             this.SuspendLayout();
@@ -140,21 +141,21 @@
             // mn_def_doc
             // 
             this.mn_def_doc.Name = "mn_def_doc";
-            this.mn_def_doc.Size = new System.Drawing.Size(140, 22);
+            this.mn_def_doc.Size = new System.Drawing.Size(180, 22);
             this.mn_def_doc.Text = "Documento";
             this.mn_def_doc.Click += new System.EventHandler(this.mn_def_doc_Click);
             // 
             // mn_tal_doc
             // 
             this.mn_tal_doc.Name = "mn_tal_doc";
-            this.mn_tal_doc.Size = new System.Drawing.Size(140, 22);
+            this.mn_tal_doc.Size = new System.Drawing.Size(180, 22);
             this.mn_tal_doc.Text = "Talonario";
             this.mn_tal_doc.Click += new System.EventHandler(this.mn_tal_doc_Click);
             // 
             // mn_num_tal
             // 
             this.mn_num_tal.Name = "mn_num_tal";
-            this.mn_num_tal.Size = new System.Drawing.Size(140, 22);
+            this.mn_num_tal.Size = new System.Drawing.Size(180, 22);
             this.mn_num_tal.Text = "Numeración";
             this.mn_num_tal.Click += new System.EventHandler(this.mn_num_tal_Click);
             // 
@@ -395,17 +396,17 @@
             this.mn_def_rut.Text = "Definición de &Rutas";
             this.mn_def_rut.Click += new System.EventHandler(this.mn_def_rut_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            // 
             // mn_rel_con
             // 
             this.mn_rel_con.Name = "mn_rel_con";
             this.mn_rel_con.Size = new System.Drawing.Size(216, 22);
             this.mn_rel_con.Text = "Relación &Contacto Persona";
             this.mn_rel_con.Click += new System.EventHandler(this.mn_rel_con_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
             // 
             // mn_val_reg
             // 
@@ -475,7 +476,8 @@
             this.mn_apl_ica,
             this.mn_lic_aut,
             this.toolStripSeparator3,
-            this.mn_tip_ima});
+            this.mn_tip_ima,
+            this.mn_glo_bal});
             this.mn_par_adm.Name = "mn_par_adm";
             this.mn_par_adm.Size = new System.Drawing.Size(180, 22);
             this.mn_par_adm.Text = "&Parámetros";
@@ -483,14 +485,14 @@
             // mn_mod_ulo
             // 
             this.mn_mod_ulo.Name = "mn_mod_ulo";
-            this.mn_mod_ulo.Size = new System.Drawing.Size(156, 22);
+            this.mn_mod_ulo.Size = new System.Drawing.Size(180, 22);
             this.mn_mod_ulo.Text = "&Módulo";
             this.mn_mod_ulo.Click += new System.EventHandler(this.mn_mod_ulo_Click);
             // 
             // mn_apl_ica
             // 
             this.mn_apl_ica.Name = "mn_apl_ica";
-            this.mn_apl_ica.Size = new System.Drawing.Size(156, 22);
+            this.mn_apl_ica.Size = new System.Drawing.Size(180, 22);
             this.mn_apl_ica.Text = "&Aplicación";
             this.mn_apl_ica.Click += new System.EventHandler(this.mn_apl_ica_Click);
             // 
@@ -498,19 +500,19 @@
             // 
             this.mn_lic_aut.Name = "mn_lic_aut";
             this.mn_lic_aut.Size = new System.Drawing.Size(180, 22);
-            this.mn_lic_aut.Text = "Licencia";
+            this.mn_lic_aut.Text = "&Licencia";
             this.mn_lic_aut.Click += new System.EventHandler(this.mn_lic_aut_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // mn_tip_ima
             // 
             this.mn_tip_ima.Name = "mn_tip_ima";
-            this.mn_tip_ima.Size = new System.Drawing.Size(156, 22);
-            this.mn_tip_ima.Text = "Tipo de Imagen";
+            this.mn_tip_ima.Size = new System.Drawing.Size(180, 22);
+            this.mn_tip_ima.Text = "&Tipo de Imagen";
             this.mn_tip_ima.Click += new System.EventHandler(this.mn_tip_ima_Click);
             // 
             // mn_cer_rar
@@ -623,6 +625,13 @@
             this.ts_rut_app.Text = "...";
             this.ts_rut_app.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // mn_glo_bal
+            // 
+            this.mn_glo_bal.Name = "mn_glo_bal";
+            this.mn_glo_bal.Size = new System.Drawing.Size(180, 22);
+            this.mn_glo_bal.Text = "&Globales";
+            this.mn_glo_bal.Click += new System.EventHandler(this.mn_glo_bal_Click);
+            // 
             // ads200
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -713,5 +722,6 @@
         private System.Windows.Forms.ToolStripMenuItem mn_cer_rar;
         private System.Windows.Forms.ToolStripMenuItem mn_lic_aut;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem mn_glo_bal;
     }
 }

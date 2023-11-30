@@ -641,6 +641,66 @@
     <Compile Include="ADS\ads000_06.Designer.cs">
       <DependentUpon>ads000_06.cs</DependentUpon>
     </Compile>
+    <Compile Include="ADS\ads013_R01w.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_R01w.Designer.cs">
+      <DependentUpon>ads013_R01w.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_R01.cs">
+      <DependentUpon>ads013_R01.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ADS\ads013_R01p.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_R01p.Designer.cs">
+      <DependentUpon>ads013_R01p.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_06.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_06.Designer.cs">
+      <DependentUpon>ads013_06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_05.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_05.Designer.cs">
+      <DependentUpon>ads013_05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_03.Designer.cs">
+      <DependentUpon>ads013_03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_02b.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_02b.Designer.cs">
+      <DependentUpon>ads013_02b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_02.Designer.cs">
+      <DependentUpon>ads013_02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads013_01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads013_01.Designer.cs">
+      <DependentUpon>ads013_01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads014_01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads014_01.Designer.cs">
+      <DependentUpon>ads014_01.cs</DependentUpon>
+    </Compile>
     <Compile Include="ADS\ads010_R01p.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3094,6 +3154,37 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads000_R00w.resx">
       <DependentUpon>ads000_R00w.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_R01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ads013_R01.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_R01p.resx">
+      <DependentUpon>ads013_R01p.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_06.resx">
+      <DependentUpon>ads013_06.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_05.resx">
+      <DependentUpon>ads013_05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_03.resx">
+      <DependentUpon>ads013_03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_02b.resx">
+      <DependentUpon>ads013_02b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_02.resx">
+      <DependentUpon>ads013_02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_01.resx">
+      <DependentUpon>ads013_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads013_R01w.resx">
+      <DependentUpon>ads013_R01w.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads014_01.resx">
+      <DependentUpon>ads014_01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads010_R01p.resx">
       <DependentUpon>ads010_R01p.cs</DependentUpon>

@@ -1,20 +1,21 @@
 /*--**********************************************
 ARCHIVO:	ads014.sql	
-TABLA:		Tabla de "Región"
-AUTOR:		CREARSIS 3.0.0 (CHL)
+TABLA:		Tabla de "Clave Usuario p/Global"
+AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		06-11-2029
 */--**********************************************
 
-PRINT 'ads014 : Región'
+PRINT 'ads014 : Clave Usuario p/Global'
 CREATE TABLE ads014
 (
 	--** Llave Primaria
-	va_ide_mod	INT			 NOT NULL DEFAULT(0),	--** ID. Módulo (ads001)
+	va_ide_usr 	VARCHAR(15)  NOT NULL DEFAULT(''),	--** ID. Usuario
+	va_ide_mod	INT			 NOT NULL DEFAULT(0),	--** ID. Módulo
+	va_ide_cla  INT          NOT NULL DEFAULT(0),   --** ID. Global
 	--** Atributos
-	va_ide_reg 	INT			 NOT NULL DEFAULT(0),	--** ID. Región
-	va_nom_reg	VARCHAR(30)	 NOT NULL DEFAULT(0),	--** Nombre
-	va_est_ado	CHAR(01)	 NOT NULL DEFAULT(0),	--** Estado (H=Habilitado; N=Deshabilitado)
+	va_cla_usr 	VARCHAR(15)  NOT NULL DEFAULT(0),	--** Clave Usuario
+	va_fec_reg	DATETIME,	                        --** Fecha Registro
 
-CONSTRAINT pk1_ads014 PRIMARY KEY(va_ide_reg)
+CONSTRAINT pk1_ads014 PRIMARY KEY(va_ide_usr, va_ide_mod, va_ide_cla)
 )
 GO

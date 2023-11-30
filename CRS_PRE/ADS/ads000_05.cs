@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System.Runtime.InteropServices;
 using CRS_NEG;
 
 namespace CRS_PRE
 {
+    /**********************************************************************/
+    /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
+    /*  Aplicación: ads100 - Licencia del Sistema                         */
+    /*      Opción: Aplica la Licencia                                    */
+    /*       Autor: JEJR - Crearsis             Fecha: 29-11-2023         */
+    /**********************************************************************/
     public partial class ads000_05 : Form
     {
-        ads013 o_ads013 = new ads013();
+        ads100 o_ads100 = new ads100();
         General o_general = new General();
         DataTable Tabla = new DataTable();
         string Titulo = "Licencia Sistema";
@@ -80,7 +78,7 @@ namespace CRS_PRE
 
                 // Lee datos de la licencia
                 Tabla = new DataTable();
-                Tabla = o_ads013.Fe_obt_lic();
+                Tabla = o_ads100.Fe_obt_lic();
                 if (Tabla.Rows.Count > 0) {
                     tb_mom_ser.Text = Tabla.Rows[0]["va_nom_ser"].ToString().Trim();
                     tb_nom_bda.Text = Tabla.Rows[0]["va_nom_bda"].ToString().Trim();
@@ -110,13 +108,15 @@ namespace CRS_PRE
                 MessageBox.Show(ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-}
+        }
 
+        // Evento KeyPress: Nro de Usuario Concurrente
         private void tb_nro_usr_KeyPress(object sender, KeyPressEventArgs e)
         {
             cl_glo_bal.NotNumeric(e);
         }
 
+        // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {            
             string mod_ads = "N";    // Modulo de ADM
@@ -146,8 +146,8 @@ namespace CRS_PRE
                     mod_res = "S";
 
                 if (fi_val_dat() == true){
-                    if (MessageBox.Show("Está seguro de registrar la licencia?", Titulo, MessageBoxButtons.OKCancel) == DialogResult.OK){
-                        o_ads013.Fe_gra_lic(int.Parse(nro_usr), fec_exp, mod_ads, mod_inv, mod_cmr, mod_ctb, mod_tes, mod_res);
+                    if (MessageBox.Show("Está seguro de aplicar la licencia?", Titulo, MessageBoxButtons.OKCancel) == DialogResult.OK){
+                        o_ads100.Fe_gra_lic(int.Parse(nro_usr), fec_exp, mod_ads, mod_inv, mod_cmr, mod_ctb, mod_tes, mod_res);
                         DialogResult = DialogResult.OK;
                     }
                 }
@@ -156,6 +156,7 @@ namespace CRS_PRE
             }            
         }
 
+        // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;

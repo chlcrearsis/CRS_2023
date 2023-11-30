@@ -36,9 +36,9 @@ namespace CRS_PRE
             tb_ide_usr.Text = frm_dat.Rows[0]["va_ide_usr"].ToString();
             tb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString();
 
-            // Despliega la Clave por Defecto
+            // Despliega la Contraseña por Defecto
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_obt_glo(1, 1);
+            Tabla = o_ads013.Fe_obt_glo(1, 21);
             if (Tabla.Rows.Count > 0)
                 tb_cla_def.Text = Tabla.Rows[0]["va_glo_car"].ToString().Trim();
         }
@@ -70,7 +70,7 @@ namespace CRS_PRE
 
             // Verifica si esta definido la contraseña por defecto
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_obt_glo(1, 1);
+            Tabla = o_ads013.Fe_obt_glo(1, 21);
             if (Tabla.Rows.Count == 0)
                 return "La contraseña por defecto NO está definida en el sistema";
 

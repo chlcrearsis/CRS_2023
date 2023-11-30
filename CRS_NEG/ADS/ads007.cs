@@ -338,7 +338,6 @@ namespace CRS_NEG
         /// <summary>
         /// Consulta Lista Usuario
         /// </summary>
-        /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="est_ado">Estado (H=Habilitado; N=Deshabilitado; T=Todos)</param>
         /// <returns></returns>
         public DataTable Fe_lis_usr(string est_ado = "T")

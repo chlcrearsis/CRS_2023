@@ -35,32 +35,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ads000_07));
             this.tb_pas_usr = new System.Windows.Forms.TextBox();
-            this.pn_con_pas = new System.Windows.Forms.Label();
+            this.pn_pas_usr = new System.Windows.Forms.Label();
             this.pn_fon_pas = new System.Windows.Forms.Label();
             this.gb_con_pri = new System.Windows.Forms.GroupBox();
-            this.pb_ima_pin = new System.Windows.Forms.PictureBox();
+            this.ps_sel_usr = new System.Windows.Forms.PictureBox();
+            this.pb_cla_usr = new System.Windows.Forms.PictureBox();
             this.tb_ide_usr = new System.Windows.Forms.TextBox();
-            this.pb_ima_usu = new System.Windows.Forms.PictureBox();
-            this.pn_con_usr = new System.Windows.Forms.Label();
+            this.pb_ide_usr = new System.Windows.Forms.PictureBox();
+            this.pn_ide_usr = new System.Windows.Forms.Label();
             this.pn_fon_usr = new System.Windows.Forms.Label();
-            this.tb_pin_usr = new System.Windows.Forms.TextBox();
-            this.ps_sel_rep = new System.Windows.Forms.PictureBox();
-            this.pn_rep_pas = new System.Windows.Forms.Label();
+            this.tb_cla_usr = new System.Windows.Forms.TextBox();
+            this.ps_sel_cla = new System.Windows.Forms.PictureBox();
+            this.pn_cla_usr = new System.Windows.Forms.Label();
             this.pn_fon_rep = new System.Windows.Forms.Label();
             this.pb_mos_pas = new System.Windows.Forms.PictureBox();
             this.ps_sel_pas = new System.Windows.Forms.PictureBox();
-            this.pb_ima_pas = new System.Windows.Forms.PictureBox();
+            this.pb_pas_usr = new System.Windows.Forms.PictureBox();
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.lb_tit_ulo = new System.Windows.Forms.Label();
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.lb_glo_bal = new System.Windows.Forms.Label();
             this.gb_con_pri.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ima_pin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ima_usu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ps_sel_rep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ps_sel_usr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_cla_usr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ide_usr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ps_sel_cla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_mos_pas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ps_sel_pas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ima_pas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pas_usr)).BeginInit();
             this.gb_ctr_btn.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,22 +84,22 @@
             this.tb_pas_usr.Enter += new System.EventHandler(this.tb_pas_usr_Enter);
             this.tb_pas_usr.Validated += new System.EventHandler(this.tb_pas_usr_Validated);
             // 
-            // pn_con_pas
+            // pn_pas_usr
             // 
-            this.pn_con_pas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pn_pas_usr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pn_con_pas.AutoSize = true;
-            this.pn_con_pas.BackColor = System.Drawing.Color.White;
-            this.pn_con_pas.Font = new System.Drawing.Font("HP Simplified", 9.75F);
-            this.pn_con_pas.ForeColor = System.Drawing.Color.Gray;
-            this.pn_con_pas.Location = new System.Drawing.Point(24, 64);
-            this.pn_con_pas.MaximumSize = new System.Drawing.Size(290, 40);
-            this.pn_con_pas.MinimumSize = new System.Drawing.Size(290, 40);
-            this.pn_con_pas.Name = "pn_con_pas";
-            this.pn_con_pas.Size = new System.Drawing.Size(290, 40);
-            this.pn_con_pas.TabIndex = 3;
-            this.pn_con_pas.Text = "             Contraseña Nueva";
+            this.pn_pas_usr.AutoSize = true;
+            this.pn_pas_usr.BackColor = System.Drawing.Color.White;
+            this.pn_pas_usr.Font = new System.Drawing.Font("HP Simplified", 9.75F);
+            this.pn_pas_usr.ForeColor = System.Drawing.Color.Gray;
+            this.pn_pas_usr.Location = new System.Drawing.Point(24, 64);
+            this.pn_pas_usr.MaximumSize = new System.Drawing.Size(290, 40);
+            this.pn_pas_usr.MinimumSize = new System.Drawing.Size(290, 40);
+            this.pn_pas_usr.Name = "pn_pas_usr";
+            this.pn_pas_usr.Size = new System.Drawing.Size(290, 40);
+            this.pn_pas_usr.TabIndex = 3;
+            this.pn_pas_usr.Text = "             Contraseña";
             // 
             // pn_fon_pas
             // 
@@ -116,38 +119,47 @@
             // 
             // gb_con_pri
             // 
-            this.gb_con_pri.Controls.Add(this.pb_ima_pin);
+            this.gb_con_pri.Controls.Add(this.ps_sel_usr);
+            this.gb_con_pri.Controls.Add(this.pb_cla_usr);
             this.gb_con_pri.Controls.Add(this.tb_ide_usr);
-            this.gb_con_pri.Controls.Add(this.pb_ima_usu);
-            this.gb_con_pri.Controls.Add(this.pn_con_usr);
+            this.gb_con_pri.Controls.Add(this.pb_ide_usr);
+            this.gb_con_pri.Controls.Add(this.pn_ide_usr);
             this.gb_con_pri.Controls.Add(this.pn_fon_usr);
-            this.gb_con_pri.Controls.Add(this.tb_pin_usr);
-            this.gb_con_pri.Controls.Add(this.ps_sel_rep);
-            this.gb_con_pri.Controls.Add(this.pn_rep_pas);
+            this.gb_con_pri.Controls.Add(this.tb_cla_usr);
+            this.gb_con_pri.Controls.Add(this.ps_sel_cla);
+            this.gb_con_pri.Controls.Add(this.pn_cla_usr);
             this.gb_con_pri.Controls.Add(this.pn_fon_rep);
             this.gb_con_pri.Controls.Add(this.tb_pas_usr);
             this.gb_con_pri.Controls.Add(this.pb_mos_pas);
             this.gb_con_pri.Controls.Add(this.ps_sel_pas);
-            this.gb_con_pri.Controls.Add(this.pb_ima_pas);
-            this.gb_con_pri.Controls.Add(this.pn_con_pas);
+            this.gb_con_pri.Controls.Add(this.pb_pas_usr);
+            this.gb_con_pri.Controls.Add(this.pn_pas_usr);
             this.gb_con_pri.Controls.Add(this.pn_fon_pas);
-            this.gb_con_pri.Location = new System.Drawing.Point(12, 46);
+            this.gb_con_pri.Location = new System.Drawing.Point(12, 59);
             this.gb_con_pri.Name = "gb_con_pri";
-            this.gb_con_pri.Size = new System.Drawing.Size(340, 156);
+            this.gb_con_pri.Size = new System.Drawing.Size(340, 165);
             this.gb_con_pri.TabIndex = 1;
             this.gb_con_pri.TabStop = false;
             // 
-            // pb_ima_pin
+            // ps_sel_usr
             // 
-            this.pb_ima_pin.BackColor = System.Drawing.Color.White;
-            this.pb_ima_pin.Image = ((System.Drawing.Image)(resources.GetObject("pb_ima_pin.Image")));
-            this.pb_ima_pin.Location = new System.Drawing.Point(35, 120);
-            this.pb_ima_pin.Name = "pb_ima_pin";
-            this.pb_ima_pin.Size = new System.Drawing.Size(22, 22);
-            this.pb_ima_pin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_ima_pin.TabIndex = 124;
-            this.pb_ima_pin.TabStop = false;
-            this.pb_ima_pin.DoubleClick += new System.EventHandler(this.pb_ima_pin_DoubleClick);
+            this.ps_sel_usr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.ps_sel_usr.Location = new System.Drawing.Point(329, 16);
+            this.ps_sel_usr.Name = "ps_sel_usr";
+            this.ps_sel_usr.Size = new System.Drawing.Size(10, 42);
+            this.ps_sel_usr.TabIndex = 125;
+            this.ps_sel_usr.TabStop = false;
+            // 
+            // pb_cla_usr
+            // 
+            this.pb_cla_usr.BackColor = System.Drawing.Color.White;
+            this.pb_cla_usr.Image = ((System.Drawing.Image)(resources.GetObject("pb_cla_usr.Image")));
+            this.pb_cla_usr.Location = new System.Drawing.Point(35, 120);
+            this.pb_cla_usr.Name = "pb_cla_usr";
+            this.pb_cla_usr.Size = new System.Drawing.Size(22, 22);
+            this.pb_cla_usr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_cla_usr.TabIndex = 124;
+            this.pb_cla_usr.TabStop = false;
             // 
             // tb_ide_usr
             // 
@@ -161,34 +173,36 @@
             this.tb_ide_usr.Name = "tb_ide_usr";
             this.tb_ide_usr.Size = new System.Drawing.Size(200, 19);
             this.tb_ide_usr.TabIndex = 10;
+            this.tb_ide_usr.Enter += new System.EventHandler(this.tb_ide_usr_Enter);
+            this.tb_ide_usr.Validated += new System.EventHandler(this.tb_ide_usr_Validated);
             // 
-            // pb_ima_usu
+            // pb_ide_usr
             // 
-            this.pb_ima_usu.BackColor = System.Drawing.Color.White;
-            this.pb_ima_usu.Image = ((System.Drawing.Image)(resources.GetObject("pb_ima_usu.Image")));
-            this.pb_ima_usu.Location = new System.Drawing.Point(35, 26);
-            this.pb_ima_usu.Name = "pb_ima_usu";
-            this.pb_ima_usu.Size = new System.Drawing.Size(20, 20);
-            this.pb_ima_usu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_ima_usu.TabIndex = 123;
-            this.pb_ima_usu.TabStop = false;
+            this.pb_ide_usr.BackColor = System.Drawing.Color.White;
+            this.pb_ide_usr.Image = ((System.Drawing.Image)(resources.GetObject("pb_ide_usr.Image")));
+            this.pb_ide_usr.Location = new System.Drawing.Point(35, 26);
+            this.pb_ide_usr.Name = "pb_ide_usr";
+            this.pb_ide_usr.Size = new System.Drawing.Size(20, 20);
+            this.pb_ide_usr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_ide_usr.TabIndex = 123;
+            this.pb_ide_usr.TabStop = false;
             // 
-            // pn_con_usr
+            // pn_ide_usr
             // 
-            this.pn_con_usr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pn_ide_usr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pn_con_usr.AutoSize = true;
-            this.pn_con_usr.BackColor = System.Drawing.Color.White;
-            this.pn_con_usr.Font = new System.Drawing.Font("HP Simplified", 9.75F);
-            this.pn_con_usr.ForeColor = System.Drawing.Color.Gray;
-            this.pn_con_usr.Location = new System.Drawing.Point(24, 17);
-            this.pn_con_usr.MaximumSize = new System.Drawing.Size(290, 40);
-            this.pn_con_usr.MinimumSize = new System.Drawing.Size(290, 40);
-            this.pn_con_usr.Name = "pn_con_usr";
-            this.pn_con_usr.Size = new System.Drawing.Size(290, 40);
-            this.pn_con_usr.TabIndex = 0;
-            this.pn_con_usr.Text = "             Usuario Administrador/Supervisor";
+            this.pn_ide_usr.AutoSize = true;
+            this.pn_ide_usr.BackColor = System.Drawing.Color.White;
+            this.pn_ide_usr.Font = new System.Drawing.Font("HP Simplified", 9.75F);
+            this.pn_ide_usr.ForeColor = System.Drawing.Color.Gray;
+            this.pn_ide_usr.Location = new System.Drawing.Point(24, 17);
+            this.pn_ide_usr.MaximumSize = new System.Drawing.Size(290, 40);
+            this.pn_ide_usr.MinimumSize = new System.Drawing.Size(290, 40);
+            this.pn_ide_usr.Name = "pn_ide_usr";
+            this.pn_ide_usr.Size = new System.Drawing.Size(290, 40);
+            this.pn_ide_usr.TabIndex = 0;
+            this.pn_ide_usr.Text = "             Usuario";
             // 
             // pn_fon_usr
             // 
@@ -206,51 +220,50 @@
             this.pn_fon_usr.Size = new System.Drawing.Size(292, 42);
             this.pn_fon_usr.TabIndex = 1;
             // 
-            // tb_pin_usr
+            // tb_cla_usr
             // 
-            this.tb_pin_usr.AccessibleDescription = "";
-            this.tb_pin_usr.AccessibleName = "";
-            this.tb_pin_usr.BackColor = System.Drawing.Color.White;
-            this.tb_pin_usr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_pin_usr.Font = new System.Drawing.Font("HP Simplified", 12F);
-            this.tb_pin_usr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_pin_usr.Location = new System.Drawing.Point(67, 127);
-            this.tb_pin_usr.MaxLength = 4;
-            this.tb_pin_usr.Name = "tb_pin_usr";
-            this.tb_pin_usr.PasswordChar = '*';
-            this.tb_pin_usr.Size = new System.Drawing.Size(200, 19);
-            this.tb_pin_usr.TabIndex = 30;
-            this.tb_pin_usr.Text = "Contraseña";
-            this.tb_pin_usr.UseSystemPasswordChar = true;
-            this.tb_pin_usr.Enter += new System.EventHandler(this.tb_pin_usr_Enter);
-            this.tb_pin_usr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_pin_usr_KeyPress);
-            this.tb_pin_usr.Validated += new System.EventHandler(this.tb_pin_usr_Validated);
+            this.tb_cla_usr.AccessibleDescription = "";
+            this.tb_cla_usr.AccessibleName = "";
+            this.tb_cla_usr.BackColor = System.Drawing.Color.White;
+            this.tb_cla_usr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_cla_usr.Font = new System.Drawing.Font("HP Simplified", 12F);
+            this.tb_cla_usr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_cla_usr.Location = new System.Drawing.Point(67, 127);
+            this.tb_cla_usr.MaxLength = 4;
+            this.tb_cla_usr.Name = "tb_cla_usr";
+            this.tb_cla_usr.PasswordChar = '*';
+            this.tb_cla_usr.Size = new System.Drawing.Size(200, 19);
+            this.tb_cla_usr.TabIndex = 30;
+            this.tb_cla_usr.Text = "Contraseña";
+            this.tb_cla_usr.UseSystemPasswordChar = true;
+            this.tb_cla_usr.Enter += new System.EventHandler(this.tb_cla_usr_Enter);
+            this.tb_cla_usr.Validated += new System.EventHandler(this.tb_cla_usr_Validated);
             // 
-            // ps_sel_rep
+            // ps_sel_cla
             // 
-            this.ps_sel_rep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.ps_sel_rep.Location = new System.Drawing.Point(331, 110);
-            this.ps_sel_rep.Name = "ps_sel_rep";
-            this.ps_sel_rep.Size = new System.Drawing.Size(10, 42);
-            this.ps_sel_rep.TabIndex = 119;
-            this.ps_sel_rep.TabStop = false;
+            this.ps_sel_cla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.ps_sel_cla.Location = new System.Drawing.Point(331, 110);
+            this.ps_sel_cla.Name = "ps_sel_cla";
+            this.ps_sel_cla.Size = new System.Drawing.Size(10, 42);
+            this.ps_sel_cla.TabIndex = 119;
+            this.ps_sel_cla.TabStop = false;
             // 
-            // pn_rep_pas
+            // pn_cla_usr
             // 
-            this.pn_rep_pas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pn_cla_usr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pn_rep_pas.AutoSize = true;
-            this.pn_rep_pas.BackColor = System.Drawing.Color.White;
-            this.pn_rep_pas.Font = new System.Drawing.Font("HP Simplified", 9.75F);
-            this.pn_rep_pas.ForeColor = System.Drawing.Color.Gray;
-            this.pn_rep_pas.Location = new System.Drawing.Point(24, 111);
-            this.pn_rep_pas.MaximumSize = new System.Drawing.Size(290, 40);
-            this.pn_rep_pas.MinimumSize = new System.Drawing.Size(290, 40);
-            this.pn_rep_pas.Name = "pn_rep_pas";
-            this.pn_rep_pas.Size = new System.Drawing.Size(290, 40);
-            this.pn_rep_pas.TabIndex = 6;
-            this.pn_rep_pas.Text = "             PIN Usuario";
+            this.pn_cla_usr.AutoSize = true;
+            this.pn_cla_usr.BackColor = System.Drawing.Color.White;
+            this.pn_cla_usr.Font = new System.Drawing.Font("HP Simplified", 9.75F);
+            this.pn_cla_usr.ForeColor = System.Drawing.Color.Gray;
+            this.pn_cla_usr.Location = new System.Drawing.Point(24, 111);
+            this.pn_cla_usr.MaximumSize = new System.Drawing.Size(290, 40);
+            this.pn_cla_usr.MinimumSize = new System.Drawing.Size(290, 40);
+            this.pn_cla_usr.Name = "pn_cla_usr";
+            this.pn_cla_usr.Size = new System.Drawing.Size(290, 40);
+            this.pn_cla_usr.TabIndex = 6;
+            this.pn_cla_usr.Text = "             Clave Usuario";
             // 
             // pn_fon_rep
             // 
@@ -290,16 +303,16 @@
             this.ps_sel_pas.TabIndex = 110;
             this.ps_sel_pas.TabStop = false;
             // 
-            // pb_ima_pas
+            // pb_pas_usr
             // 
-            this.pb_ima_pas.BackColor = System.Drawing.Color.White;
-            this.pb_ima_pas.Image = ((System.Drawing.Image)(resources.GetObject("pb_ima_pas.Image")));
-            this.pb_ima_pas.Location = new System.Drawing.Point(35, 72);
-            this.pb_ima_pas.Name = "pb_ima_pas";
-            this.pb_ima_pas.Size = new System.Drawing.Size(22, 22);
-            this.pb_ima_pas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_ima_pas.TabIndex = 107;
-            this.pb_ima_pas.TabStop = false;
+            this.pb_pas_usr.BackColor = System.Drawing.Color.White;
+            this.pb_pas_usr.Image = ((System.Drawing.Image)(resources.GetObject("pb_pas_usr.Image")));
+            this.pb_pas_usr.Location = new System.Drawing.Point(35, 72);
+            this.pb_pas_usr.Name = "pb_pas_usr";
+            this.pb_pas_usr.Size = new System.Drawing.Size(22, 22);
+            this.pb_pas_usr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_pas_usr.TabIndex = 107;
+            this.pb_pas_usr.TabStop = false;
             // 
             // bt_can_cel
             // 
@@ -322,7 +335,6 @@
             // 
             this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_ace_pta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_ace_pta.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_ace_pta.FlatAppearance.BorderSize = 0;
             this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_ace_pta.Font = new System.Drawing.Font("HP Simplified", 9.75F);
@@ -351,11 +363,25 @@
             this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
             this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(12, 199);
+            this.gb_ctr_btn.Location = new System.Drawing.Point(12, 218);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
             this.gb_ctr_btn.Size = new System.Drawing.Size(340, 48);
             this.gb_ctr_btn.TabIndex = 76;
             this.gb_ctr_btn.TabStop = false;
+            // 
+            // lb_glo_bal
+            // 
+            this.lb_glo_bal.AutoSize = true;
+            this.lb_glo_bal.Font = new System.Drawing.Font("HP Simplified", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_glo_bal.ForeColor = System.Drawing.Color.Black;
+            this.lb_glo_bal.Location = new System.Drawing.Point(14, 43);
+            this.lb_glo_bal.MaximumSize = new System.Drawing.Size(335, 0);
+            this.lb_glo_bal.MinimumSize = new System.Drawing.Size(335, 0);
+            this.lb_glo_bal.Name = "lb_glo_bal";
+            this.lb_glo_bal.Size = new System.Drawing.Size(335, 16);
+            this.lb_glo_bal.TabIndex = 77;
+            this.lb_glo_bal.Text = "1 - 25  :  Modifica Parámetros Estructurales";
+            this.lb_glo_bal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ads000_07
             // 
@@ -364,28 +390,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.bt_can_cel;
-            this.ClientSize = new System.Drawing.Size(368, 257);
+            this.ClientSize = new System.Drawing.Size(368, 269);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_glo_bal);
             this.Controls.Add(this.gb_con_pri);
             this.Controls.Add(this.lb_tit_ulo);
             this.Controls.Add(this.gb_ctr_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ads000_07";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "USUARIO";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ads000_07_FormClosing);
-            this.Load += new System.EventHandler(this.ads000_01_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ads000_01_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ads000_01_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ads000_01_MouseUp);
+            this.Tag = "PIN de Acceso";
+            this.Text = "PIN de Acceso";
+            this.Load += new System.EventHandler(this.ads000_07_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ads000_07_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ads000_07_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ads000_07_MouseUp);
             this.gb_con_pri.ResumeLayout(false);
             this.gb_con_pri.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ima_pin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ima_usu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ps_sel_rep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ps_sel_usr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_cla_usr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_ide_usr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ps_sel_cla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_mos_pas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ps_sel_pas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_ima_pas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pas_usr)).EndInit();
             this.gb_ctr_btn.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -395,23 +423,25 @@
         #endregion
         internal System.Windows.Forms.TextBox tb_pas_usr;
         internal System.Windows.Forms.PictureBox pb_mos_pas;
-        internal System.Windows.Forms.PictureBox pb_ima_pas;
-        private System.Windows.Forms.Label pn_con_pas;
+        internal System.Windows.Forms.PictureBox pb_pas_usr;
+        private System.Windows.Forms.Label pn_pas_usr;
         private System.Windows.Forms.Label pn_fon_pas;
         internal System.Windows.Forms.PictureBox ps_sel_pas;
         private System.Windows.Forms.GroupBox gb_con_pri;
-        internal System.Windows.Forms.PictureBox ps_sel_rep;
-        private System.Windows.Forms.Label pn_rep_pas;
+        internal System.Windows.Forms.PictureBox ps_sel_cla;
+        private System.Windows.Forms.Label pn_cla_usr;
         private System.Windows.Forms.Label pn_fon_rep;
         internal System.Windows.Forms.Button bt_can_cel;
         internal System.Windows.Forms.Button bt_ace_pta;
-        internal System.Windows.Forms.PictureBox pb_ima_usu;
-        private System.Windows.Forms.Label pn_con_usr;
+        internal System.Windows.Forms.PictureBox pb_ide_usr;
+        private System.Windows.Forms.Label pn_ide_usr;
         private System.Windows.Forms.Label pn_fon_usr;
         private System.Windows.Forms.Label lb_tit_ulo;
         internal System.Windows.Forms.TextBox tb_ide_usr;
         public System.Windows.Forms.GroupBox gb_ctr_btn;
-        public System.Windows.Forms.TextBox tb_pin_usr;
-        internal System.Windows.Forms.PictureBox pb_ima_pin;
+        public System.Windows.Forms.TextBox tb_cla_usr;
+        internal System.Windows.Forms.PictureBox pb_cla_usr;
+        private System.Windows.Forms.Label lb_glo_bal;
+        internal System.Windows.Forms.PictureBox ps_sel_usr;
     }
 }

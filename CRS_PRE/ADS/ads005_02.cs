@@ -42,7 +42,7 @@ namespace CRS_PRE
             tb_con_fin.Text = "99999";
             // Obtiene la Gestión Actual
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_obt_glo(1, 2);
+            Tabla = o_ads013.Fe_obt_glo(1, 30);
             if (Tabla.Rows.Count > 0)
                 tb_ges_tio.Text = Tabla.Rows[0]["va_glo_ent"].ToString();
         }

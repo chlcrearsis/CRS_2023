@@ -1,102 +1,251 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using CRS_DAT;
 
 namespace CRS_NEG
 {
-    /// <summary>
-    /// Clase:  PARAMETROS GLOBALES PARA LA EMPRESA
-    /// </summary>
+    //######################################################################
+    //##       Tabla: ads013                                              ##
+    //##      Nombre: Globales del Sistema                                ##
+    //## Descripcion: Globales y Licencia del Sistema                     ##         
+    //##       Autor: EJER - (27-11-2023)                                 ##
+    //######################################################################
     public class ads013
     {
-        //######################################################################
-        //##       Tabla: ads013                                              ##
-        //##      Nombre: GLOBALES                                            ##
-        //## Descripcion:                                                     ##         
-        //##       Autor: CHL  - (01-04-2020)                                 ##
-        //######################################################################
         conexion_a ob_con_ecA = new conexion_a();
-
-        public string va_ser_bda;//= ob_con_ecA.va_ins_bda;
-
-        public string va_ins_bda;// = ob_con_ecA.va_ins_bda;
-        public string va_nom_bda;//= ob_con_ecA.va_nom_bda;
-        public string va_ide_usr;//= ob_con_ecA.va_ide_usr;
-        public string va_pas_usr;//= ob_con_ecA.va_pas_usr;
-
-        string cadena = "";
-
-
-
-        public ads013()
-        {
-            va_ser_bda = ob_con_ecA.va_ser_bda;
-            va_ins_bda = ob_con_ecA.va_ins_bda;
-            va_nom_bda = ob_con_ecA.va_nom_bda;
-            va_ide_usr = ob_con_ecA.va_ide_usr;
-            va_pas_usr = ob_con_ecA.va_pas_usr;
-        }
-
-        public void Fe_crea(int ar_ges_tio, int ar_per_ini)
-        {
-            //cadena = " Execute ads016_02a_p01 " + ar_ges_tio + "," + ar_per_ini;
-            //ob_con_ecA.fe_exe_sql(cadena);
-        }
-       
-        public void Fe_edi_glo(int ar_ide_mod, int ar_ide_glo,string ar_nom_glo, int ar_tip_glo,
-            string ar_glo_car, int ar_glo_int, decimal ar_glo_dec)
-        {
-            cadena = " UPDATE ads013 SET va_nom_glo = '" + ar_nom_glo + "', va_tip_glo = " + ar_tip_glo +", " +
-                    " va_glo_car ='" + ar_glo_car + "', va_glo_int =" + ar_glo_int + ", va_glo_dec = '" + ar_glo_dec + "' " +
-                    " WHERE va_ide_mod = " + ar_ide_mod + " AND va_ide_glo = " + ar_ide_glo;
-            ob_con_ecA.fe_exe_sql(cadena);
-        }
-
-        public DataTable Fe_obt_glo(int ar_ide_mod, int ar_ide_glo)
-        {
-            cadena = " SELECT * FROM ads013";
-            cadena += " WHERE va_ide_mod = " + ar_ide_mod ;
-            cadena += "   AND va_ide_glo = " + ar_ide_glo;
-
-            return ob_con_ecA.fe_exe_sql(cadena);
-        }
-
-        // Obtiene Datos de la Licencia del Servidor
-        public DataTable Fe_obt_lic()
-        {
-            cadena = " EXECUTE ads000_13a_p01";
-
-            return ob_con_ecA.fe_exe_sql(cadena);
-        }
-
-        // Graba Datos de la Licencia del Servidor
-        public void Fe_gra_lic(int nro_usr, string fec_exp, string mod_ads,
-                                    string mod_inv, string mod_cmr, string mod_ctb, string mod_tes, string mod_res)
-        {
-            cadena = " EXECUTE ads000_13b_p01 " + nro_usr + ", '" + fec_exp + "', '" + mod_ads + "', " +
-                "'" + mod_inv + "', '" + mod_cmr + "', '" + mod_ctb + "', '" + mod_tes + "', '" + mod_res + "'";
-
-            ob_con_ecA.fe_exe_sql(cadena);
-        }
-
-        //** FUNCIONES DE REPORTES
+        StringBuilder cadena;
 
         /// <summary>
-        /// Funcion externa reporte: PERIODOS DE UNA GESTION
+        /// Funcion "Registra Globales por Defectos"
         /// </summary>
-        /// <param name="ar_ges_tio"></param>
+        public void Fe_reg_glo()
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads013_02b_p01");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "Registra Global"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_glo">ID. Global</param>
+        /// <param name="nom_glo">Nombre</param>
+        /// <param name="tip_glo">Tipo Global (1=Caracter; 2=Numérico; 3=Decimal)</param>
+        /// <param name="glo_car">Global Caracter</param>
+        /// <param name="glo_ent">Global Numérico</param>
+        /// <param name="glo_dec">Global Decimal</param>
+        public void Fe_nue_reg(int ide_mod, int ide_glo, string nom_glo, int tip_glo, int glo_ent, decimal glo_dec, string glo_car)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("INSERT INTO ads013 VALUES ( " + ide_mod + ", " + ide_glo + ", '" + nom_glo + "', " + tip_glo + ", " + glo_ent + ", " + glo_dec + ", '" + glo_car + "')");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Funcion "Modifica Global"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_glo">ID. Global</param>
+        /// <param name="nom_glo">Nombre</param>
+        /// <param name="tip_glo">Tipo Global (1=Caracter; 2=Numérico; 3=Decimal)</param>
+        /// <param name="glo_car">Global Caracter</param>
+        /// <param name="glo_ent">Global Numérico</param>
+        /// <param name="glo_dec">Global Decimal</param>
+        public void Fe_edi_tar(int ide_mod, int ide_glo, string nom_glo, int tip_glo, int glo_ent, decimal glo_dec, string glo_car)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("UPDATE ads013 SET va_nom_glo = '" + nom_glo + "',");
+                cadena.AppendLine("                  va_tip_glo =  " + tip_glo + ",");                
+                cadena.AppendLine("                  va_glo_ent =  " + glo_ent + ",");
+                cadena.AppendLine("                  va_glo_dec =  " + glo_dec + ",");
+                cadena.AppendLine("                  va_glo_car = '" + glo_car + "'");
+                cadena.AppendLine("            WHERE va_ide_mod =  " + ide_mod + "");
+                cadena.AppendLine("              AND va_ide_glo =  " + ide_glo + "");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "Elimina Global"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_glo">ID. Global</param>
         /// <returns></returns>
-        //public DataTable Fe_ads016_R01(int ar_ges_tio)
-        //{
-        //    cadena = " ads016_R01 " + ar_ges_tio;
+        public void Fe_eli_min(int ide_mod, int ide_glo)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("DELETE ads013 WHERE va_ide_mod = " + ide_mod + " AND va_ide_glo = " + ide_glo + "");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        //    return ob_con_ecA.fe_exe_sql(cadena);
-        //}
+        /// <summary>
+        /// Función: "FILTRA GLOBALES DEL SISTEMA"
+        /// </summary>
+        /// <param name="cri_bus">Criterio de Busqueda</param>
+        /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_glo; 1=va_nom_glo)</param>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <returns></returns>
+        public DataTable Fe_bus_car(string cri_bus, int prm_bus, int ide_mod = 0)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads013.va_ide_mod, ads001.va_nom_mod, ads013.va_ide_glo,");
+                cadena.AppendLine("       ads013.va_nom_glo, ads013.va_tip_glo, ads013.va_glo_ent,");
+                cadena.AppendLine("       ads013.va_glo_dec, ads013.va_glo_car");
+                cadena.AppendLine("  FROM ads013, ads001");
+                cadena.AppendLine(" WHERE ads013.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads013.va_ide_glo < 100");
+                
+                if (ide_mod != 0)
+                    cadena.AppendLine(" AND ads013.va_ide_mod = " + ide_mod);
 
+                switch (prm_bus)
+                {
+                    case 0: cadena.AppendLine(" AND ads013.va_ide_glo like '" + cri_bus + "%'"); break;
+                    case 1: cadena.AppendLine(" AND ads013.va_nom_glo like '" + cri_bus + "%'"); break;
+                }
+                
 
+                        return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "CONSULTA LA GLOBAL"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_glo">ID. Global</param>
+        /// <returns></returns>
+        public DataTable Fe_con_glo(int ide_mod, int ide_glo)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads013.va_ide_mod, ads001.va_nom_mod, ads013.va_ide_glo,");
+                cadena.AppendLine("       ads013.va_nom_glo, ads013.va_tip_glo, ads013.va_glo_ent,");
+                cadena.AppendLine("       ads013.va_glo_dec, ads013.va_glo_car");
+                cadena.AppendLine("  FROM ads013, ads001");
+                cadena.AppendLine(" WHERE ads013.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads013.va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("   AND ads013.va_ide_glo = " + ide_glo + "");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "CONSULTA LA GLOBAL"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="nom_glo">Nombre Global</param>
+        /// <returns></returns>
+        public DataTable Fe_con_nom(int ide_mod, string nom_glo, int ide_glo = 0)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads013.va_ide_mod, ads001.va_nom_mod, ads013.va_ide_glo,");
+                cadena.AppendLine("       ads013.va_nom_glo, ads013.va_tip_glo, ads013.va_glo_ent,");
+                cadena.AppendLine("       ads013.va_glo_dec, ads013.va_glo_car");
+                cadena.AppendLine("  FROM ads013, ads001");
+                cadena.AppendLine(" WHERE ads013.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads013.va_ide_mod =  " + ide_mod + "");
+                cadena.AppendLine("   AND ads013.va_nom_glo = '" + nom_glo + "'");
+
+                if (ide_glo > 0)
+                    cadena.AppendLine("   AND ads013.va_ide_glo <>  " + ide_mod + "");
+
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Funcion "OBTIENE GLOBAL"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_glo">ID. Global</param>
+        /// <returns></returns>
+        public DataTable Fe_obt_glo(int ide_mod, int ide_glo)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads013.va_ide_mod, ads001.va_nom_mod, ads013.va_ide_glo,");
+                cadena.AppendLine("       ads013.va_nom_glo, ads013.va_tip_glo, ads013.va_glo_ent,");
+                cadena.AppendLine("       ads013.va_glo_dec, ads013.va_glo_car");
+                cadena.AppendLine("  FROM ads013, ads001");
+                cadena.AppendLine(" WHERE ads013.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads013.va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("   AND ads013.va_ide_glo = " + ide_glo + "");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Informe: Definición de Globales
+        /// </summary>        
+        /// <param name="mod_ini">ID. Módulo Inicial</param>
+        /// <param name="mod_fin">ID. Módulo Final</param>
+        /// <param name="ord_dat">Orden Datos (C=Código; N=Nombre)</param>
+        /// <returns></returns>
+        public DataTable Fe_inf_R01(int mod_ini, int mod_fin, string ord_dat)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads013_R01 " + mod_ini + ", " + mod_fin + ", '" + ord_dat + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

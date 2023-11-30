@@ -64,31 +64,31 @@ namespace CRS_PRE
             tabla = o_res001.Fe_con_fac(va_ide_vta, va_ges_vta);
 
             // Hacer grande la pantalla
-            this.Dock = DockStyle.Fill;
+            Dock = DockStyle.Fill;
 
             //obtener nombre de la empresa
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 4);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 1);
             va_nom_emp = tab_ads013.Rows[0]["va_glo_car"].ToString();
 
             //obtener direccion de la empresa
             tab_ads013 = new DataTable();
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 6);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 7);
             va_nit_emp = tab_ads013.Rows[0]["va_glo_dec"].ToString();
 
             //obtener NIT de la empresa
             tab_ads013 = new DataTable();
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 10);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 3);
             va_dir_emp = tab_ads013.Rows[0]["va_glo_car"].ToString();
 
             //obtener Telefono de la empresa
             tab_ads013 = new DataTable();
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 8);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 4);
             va_tel_emp = tab_ads013.Rows[0]["va_glo_car"].ToString();
 
 
             //obtener WIFI de la empresa
             tab_ads013 = new DataTable();
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 11);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 8);
             va_cla_wif = tab_ads013.Rows[0]["va_glo_car"].ToString();
 
 

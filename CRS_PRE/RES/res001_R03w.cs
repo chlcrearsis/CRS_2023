@@ -46,12 +46,10 @@ namespace CRS_PRE
         public void Fe_pob_rep()
         {
             // Hacer grande la pantalla
-            this.Dock = DockStyle.Fill;
-
-
+            Dock = DockStyle.Fill;
 
             //obtener nombre de la empresa
-            tab_ads013 = o_ads013.Fe_obt_glo(1, 4);
+            tab_ads013 = o_ads013.Fe_obt_glo(1, 1);
             va_nom_emp = tab_ads013.Rows[0]["va_glo_car"].ToString();
 
             //Logueo manual el ReportDocument asociado al crystal report
@@ -62,9 +60,7 @@ namespace CRS_PRE
             // Para enviar parametros directos al reporte (nombre del parametro en crystal report, valor que se enviara)
             res001_R03.SetParameterValue("vc_ide_usr", Program.gl_ide_usr);
             res001_R03.SetParameterValue("vc_nom_emp", va_nom_emp);
-
-            
-
+           
             res001_R03.SetParameterValue("vc_cod_bod", int.Parse(frm_pad.tb_cod_bod.Text));
             res001_R03.SetParameterValue("vc_nom_bod", frm_pad.lb_nom_bod.Text);
             res001_R03.SetParameterValue("vc_fec_ini", frm_pad.tb_fec_ini.Value);

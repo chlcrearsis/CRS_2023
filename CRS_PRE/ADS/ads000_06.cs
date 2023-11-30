@@ -50,10 +50,8 @@ namespace CRS_PRE
 
         private void ads000_01_Load(object sender, EventArgs e)
         {
-            //tb_ide_usr.Text = vp_ide_usr;
-            tb_usr_adm.Focus();
             // Inicializa Datos
-            tb_ide_usr.Text = cl_glo_bal.glo_ide_usr;
+            Fi_lim_pia();
         }
 
         // Limpia e Iniciliza los campos
@@ -61,7 +59,7 @@ namespace CRS_PRE
         {
             tb_usr_adm.Text = string.Empty;
             tb_pas_adm.Text = string.Empty;
-            tb_ide_usr.Text = string.Empty;
+            tb_ide_usr.Text = cl_glo_bal.glo_ide_usr;
             tb_usr_adm.Focus();
         }
 

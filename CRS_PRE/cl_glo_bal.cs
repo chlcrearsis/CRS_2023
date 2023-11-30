@@ -117,24 +117,16 @@ namespace CRS_PRE
         public static void NotDecimal(KeyPressEventArgs e, string val_tex)
         {
             if (char.IsDigit(e.KeyChar) || e.KeyChar.ToString() == ".")
-            {
-                
-                if(val_tex.Contains(e.KeyChar.ToString()) == true && e.KeyChar.ToString() == ".")
-                {
-                    e.Handled = true;
-                    return;
-                }
+            {                
+                if(val_tex.Contains(e.KeyChar.ToString()) == true && e.KeyChar.ToString() == ".")                
+                    e.Handled = true;                
                 else
                     e.Handled = false;
             }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            else if (char.IsControl(e.KeyChar))            
+                e.Handled = false;            
+            else            
+                e.Handled = true;            
         }
 
 
@@ -142,7 +134,7 @@ namespace CRS_PRE
         #region -> VERIFICA OPCIONES RESTRINGIDAS DEL MENU PARA EL USUARIO
 
 
-       public static string glo_ide_usr;
+        public static string glo_ide_usr;
 
         private static string glo_ide_ven;
         static DataTable tab_usm = new DataTable();

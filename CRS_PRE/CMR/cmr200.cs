@@ -131,8 +131,6 @@ namespace CRS_PRE
         {
             // Verifica version de formulario para ventas (1= Normal ; 2= Tactil)
             tabla = o_ads013.Fe_obt_glo(3, 1);
-            //Global formulario Normal o Tactil
-            tabla = o_ads013.Fe_obt_glo(3, 1);
             if (tabla != null)
                 if (tabla.Rows[0]["va_glo_ent"].ToString() == "2")
                 {
