@@ -8,19 +8,19 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads013 - Globales                                     */
+    /*  Aplicación: ads013 - Definicion de Claves                         */
     /*      Opción: Crear Registros Automaticos                           */
-    /*       Autor: JEJR - Crearsis             Fecha: 29-11-2023         */
+    /*       Autor: JEJR - Crearsis             Fecha: 05-12-2023         */
     /**********************************************************************/
-    public partial class ads013_02b : Form
+    public partial class ads011_02b : Form
     {
         public dynamic frm_pad;
         public int frm_tip;
         // Instancias
-        ads013 o_ads013 = new ads013();        
+        ads011 o_ads011 = new ads011();        
         DataTable Tabla = new DataTable();
 
-        public ads013_02b()
+        public ads011_02b()
         {
             InitializeComponent();
         }
@@ -36,9 +36,9 @@ namespace CRS_PRE
         {
             // Verifica Si existe registros
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_bus_car("", 0, 0);
+            Tabla = o_ads011.Fe_bus_car("", 0, 0);
             if (Tabla.Rows.Count > 0)
-                return "NO se puede usar esta operación, ya que existe globales registrados";
+                return "NO se puede usar esta operación, ya que existe claves registradas";
 
             return "OK";
         }
@@ -62,7 +62,7 @@ namespace CRS_PRE
                 if (msg_res == DialogResult.OK)
                 {
                     // Registrar 
-                    o_ads013.Fe_reg_glo();
+                    o_ads011.Fe_reg_cla();
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
                     frm_pad.fi_ini_frm();
                     cl_glo_frm.Cerrar(this);

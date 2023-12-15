@@ -537,6 +537,16 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
+        private void mn_cla_aut_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para el permiso
+            if (fi_ver_dat(tb_ide_usr.Text) == false)
+                return;
+
+            ads014_01 frm = new ads014_01();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
         // Evento Click: Permiso Lista de Precio
         private void mn_per_lis_Click(object sender, EventArgs e)
         {
@@ -694,6 +704,8 @@ namespace CRS_PRE
         {
             DialogResult = DialogResult.OK;
             cl_glo_frm.Cerrar(this);
-        }        
+        }
+
+        
     }
 }

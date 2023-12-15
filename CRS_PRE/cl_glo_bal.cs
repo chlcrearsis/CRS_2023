@@ -13,15 +13,15 @@ namespace CRS_PRE
     class cl_glo_bal
     {
         /// <summary>
-        /// Verifica que el valor sea Numerico valido
+        /// Función: Verifica que el valor sea NUMERO valido
         /// </summary>
-        /// <param name="num">Valor a verificar</param>
+        /// <param name="num_dig">Valor a verificar</param>
         /// <returns></returns>
-        public static bool IsNumeric(string num)
+        public static bool IsNumeric(string num_dig)
         {
             try
             {
-                int x = Convert.ToInt32(num);
+                int x = Convert.ToInt32(num_dig);
                 return true;
             }
             catch (Exception)
@@ -31,15 +31,15 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Verifica que el valor sea DECIMAL valido
+        /// Función: Verifica que el valor sea DECIMAL valido
         /// </summary>
-        /// <param name="num">Valor a verificar</param>
+        /// <param name="num_dig">Valor a verificar</param>
         /// <returns></returns>
-        public static bool IsDecimal(string num)
+        public static bool IsDecimal(string num_dig)
         {
             try
             {
-                decimal x = Convert.ToDecimal(num);
+                decimal x = Convert.ToDecimal(num_dig);
                 return true;
             }
             catch (Exception)
@@ -49,7 +49,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Verifica que el valor sea FECHA valida
+        /// Función: Verifica que el valor sea FECHA valida
         /// </summary>
         /// <param name="date">Fecha Formato dd/MM/yyyy</param>
         /// <returns></returns>
@@ -70,20 +70,20 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Verifica que el valor sea FECHA valida
+        /// Función: Verifica que el valor sea una HORA valida
         /// </summary>
-        /// <param name="hour">Hora y Minuto HH:mm</param>
+        /// <param name="hora">Hora y Minuto HH:mm</param>
         /// <returns></returns>
-        public static bool IsHourTime(string hour)
+        public static bool IsHourTime(string hora)
         {
             Regex regex = new Regex(@"^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$");
 
             // Verifique si la fecha ingresada en formato HH:mm.
-            bool isValid = regex.IsMatch(hour);
+            bool isValid = regex.IsMatch(hora);
 
             // Verifique si la fecha ingresada es una fecha válida.            
             DateTime dt;
-            isValid = DateTime.TryParseExact(hour, "HH:mm", new CultureInfo("es-MX"), DateTimeStyles.None, out dt);
+            isValid = DateTime.TryParseExact(hora, "HH:mm", new CultureInfo("es-MX"), DateTimeStyles.None, out dt);
             if (isValid)
                 return true;
             else
@@ -91,29 +91,25 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// No permite digitar otro caractero que no sea numeros en el key press del control
+        /// Función: NO permite digitar otro caractero que no sea NUMERICO,
+        ///          en el key press del control
         /// </summary>
-        /// <param name="e"> volor digitado</param>
-        public static void NotNumeric( KeyPressEventArgs e)
+        /// <param name="e">Valor digitado</param>
+        public static void NotNumeric(KeyPressEventArgs e)
         {
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            if (char.IsNumber(e.KeyChar))            
+                e.Handled = false;            
+            else if (char.IsControl(e.KeyChar))            
+                e.Handled = false;            
+            else            
+                e.Handled = true;            
         }
 
         /// <summary>
-        /// No permite digitar otros caracteres que no sean Decimal en el key press del control
+        /// Función: NO permite digitar otros caracteres que no sean DECIMAL,
+        ///          en el key press del control
         /// </summary>
-        /// <param name="e"> volor digitado</param>
+        /// <param name="e">Valor Digitado</param>
         public static void NotDecimal(KeyPressEventArgs e, string val_tex)
         {
             if (char.IsDigit(e.KeyChar) || e.KeyChar.ToString() == ".")
@@ -129,20 +125,14 @@ namespace CRS_PRE
                 e.Handled = true;            
         }
 
-
-
-        #region -> VERIFICA OPCIONES RESTRINGIDAS DEL MENU PARA EL USUARIO
-
-
         public static string glo_ide_usr;
-
-        private static string glo_ide_ven;
+        public static string glo_ide_ven;
         static DataTable tab_usm = new DataTable();
         static ads012 o_ads012 = new ads012();
 
         /// <summary>
         ///  <example>
-        ///   FUNCION GLOBAL: verifica opciones restringidas del menu en la aplicacion para el usuario
+        ///   FUNCION GLOBAL: Verifica opciones restringidas del menu en la aplicacion para el usuario
         ///  </example>
         /// </summary>
         /// <param name="ide_usr">Codigo del usuario a personalizar el menú</param>
@@ -156,108 +146,80 @@ namespace CRS_PRE
 
             //verifica restriccines del menu para el usuario
 
-            foreach (dynamic opcion_menu in menu.Items)
+            foreach (dynamic itm_hi1 in menu.Items)
             {
-                if (opcion_menu.Tag == null)
-                {
-                    tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, opcion_menu.Name);
+                if (itm_hi1.GetType() == typeof(ToolStripMenuItem)){
+                    // Verifica si el usuario tiene habilitado el item menu
+                    tab_usm = new DataTable();
+                    tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, itm_hi1.Name);
 
                     if (glo_ide_usr == Program.gl_ide_usr)
                     {
-                        if (tab_usm.Rows.Count != 0) {
-                            opcion_menu.Enabled = false;
-                        }else{
-                            opcion_menu.Enabled = true;
-                        }                        
+                        if (tab_usm.Rows.Count != 0)
+                            itm_hi1.Enabled = false;                        
+                        else
+                            itm_hi1.Enabled = true;
+                        
                         // Verifica en las opciones Hijas                    
-                        fu_bus_hi1(opcion_menu);
-                    }
+                        fu_bus_hi1(itm_hi1);
+                    }                    
                 }
             }
-
             return menu;
-
         }
 
-
-        //barre el menu al 2do nivel
-
+        // Recorre el Menú al 2do nivel
         private static void fu_bus_hi1(ToolStripMenuItem itm_hi1)
         {
-            foreach (dynamic hijo1 in itm_hi1.DropDownItems)
+            foreach (dynamic itm_hi2 in itm_hi1.DropDownItems)
             {
-                if (hijo1.Tag != null)
+                if (itm_hi2.GetType() == typeof(ToolStripMenuItem))
                 {
-                    if (hijo1.Tag.ToString() == "separador")
-                    {
-                        return;
-                    }
-                }
+                    // Verifica que la opcion no este restringida
+                    tab_usm = new DataTable();
+                    tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, itm_hi2.Name);
 
+                    if (glo_ide_usr == Program.gl_ide_usr){
+                        // Si existe = permiso restringido
+                        if (tab_usm.Rows.Count != 0)    
+                            itm_hi2.Enabled = false;
+                        else   // Si no existe = Tiene permiso
+                            itm_hi2.Enabled = true;
 
-                //verifica que la opcion no este restringida
-                tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, hijo1.Name);
-
-                if (glo_ide_usr == Program.gl_ide_usr)
-                {
-                    //si existe = permiso restringido
-                    if (tab_usm.Rows.Count != 0)
-                    {
-                        hijo1.Enabled = false;
-                    }
-                    else
-                    {
-                        //si no existe = Tiene permiso
-                        hijo1.Enabled = true;
-                    }
-
-                    if (hijo1.DropDownItems.Count > 0)
-                    {
-                        fu_bus_hi2(itm_hi1, hijo1);
+                        if (itm_hi2.DropDownItems.Count > 0)
+                            fu_bus_hi2(itm_hi2);                        
                     }
                 }
             }
         }
 
-
-        //barre el menu al 3do nivel
-        private static void fu_bus_hi2(ToolStripMenuItem padre, ToolStripMenuItem itm_hi2)
+        // Recorre el Menú al 3er nivel
+        private static void fu_bus_hi2(ToolStripMenuItem itm_hi2)
         {
-
-            foreach (dynamic hijo2 in itm_hi2.DropDownItems)
+            foreach (dynamic itm_hi3 in itm_hi2.DropDownItems)
             {
-                if (hijo2.Tag != null)
+                if (itm_hi3.GetType() == typeof(ToolStripMenuItem))
                 {
-                    if (hijo2.Tag.ToString() == "separador")
-                    {
-                        return;
-                    }
-                }
+                    // Verifica que la opcion no este restringida
+                    tab_usm = new DataTable();
+                    tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, itm_hi3.Name);
 
-
-                //verifica que la opcion no este restringida
-                tab_usm = o_ads012.Fe_aut_men(glo_ide_usr, glo_ide_ven, hijo2.Name);
-
-                if (glo_ide_usr == Program.gl_ide_usr)
-                {
-                    //si existe = permiso restringido
-                    if (tab_usm.Rows.Count != 0)
-                    {
-                        hijo2.Enabled = false;
-                    }
-                    else
-                    {
-                        //si no existe = Tiene permiso
-                        hijo2.Enabled = true;
+                    if (glo_ide_usr == Program.gl_ide_usr){
+                        // Si existe = permiso restringido
+                        if (tab_usm.Rows.Count != 0)                        
+                            itm_hi3.Enabled = false;                        
+                        else // Si no existe = Tiene permiso
+                            itm_hi3.Enabled = true;                        
                     }
                 }
 
             }
         }
+
         /// <summary>
         /// Abre Personalizacion del menu actual para el usuario
         /// </summary>
-        /// <param name="ide_usr">Usuario aquien se le personalizara el menú</param>
+        /// <param name="ide_usr">Usuario a quien se le personalizara el menú</param>
         /// <remarks></remarks>
         public static void fg_per_mnu(string ide_usr, dynamic frm_hja)
         {
@@ -273,8 +235,7 @@ namespace CRS_PRE
                 frm.mn_men_usr = frm_hja.MdiParent.m_frm_hja;            
 
             cl_glo_frm.abrir(frm_hja, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
-        }
-        #endregion
+        }        
 
 
 
@@ -363,7 +324,7 @@ namespace CRS_PRE
 
 
         public static string FE_obt_ccf(string ar_num_aut, string ar_num_fac, string ar_nit_cli,
-                          DateTime ar_fec_fac, decimal ar_mto_fac, string ar_lla_ve)
+                                      DateTime ar_fec_fac, decimal ar_mto_fac, string ar_lla_ve)
         {
             string va_num_fax, va_nit_clx, va_fec_fax, va_mto_fax;
             string va_num_aut, va_num_fac, va_nit_cli, va_fec_fac, va_mto_fac;
@@ -377,25 +338,24 @@ namespace CRS_PRE
             va_fec_tem += formato(Convert.ToDateTime(ar_fec_fac).Day.ToString());
 
 
-            //PASO #1
-            //Obtener y concatenar consecutivamente 2 dígitos Verhoeff al final de los siguientes datos: Número Factura, NIT ' CI del
-            //Cliente, Fecha de la Transacción y Monto de la Transacción. Posteriormente hallar la sumatoria de los datos obtenidos y
-            //sobre este resultado generar consecutivamente 5 dígitos Verhoeff. Para efectos de Verhoeff, tomar en cuenta el 0(cero)
-            //como cualquier otro número, aún cuando este se encuentre a la izquierda de la cifra. 
+            // PASO #1
+            // Obtener y concatenar consecutivamente 2 dígitos Verhoeff al final de los siguientes datos: Número Factura, NIT ' CI del
+            // Cliente, Fecha de la Transacción y Monto de la Transacción. Posteriormente hallar la sumatoria de los datos obtenidos y
+            // sobre este resultado generar consecutivamente 5 dígitos Verhoeff. Para efectos de Verhoeff, tomar en cuenta el 0(cero)
+            // como cualquier otro número, aún cuando este se encuentre a la izquierda de la cifra. 
 
 
-            //-- Obtiene los 2 dijitos verificadores NUMERO DE FACTURA
+            // Obtiene los 2 dijitos verificadores NUMERO DE FACTURA
             va_num_fax = ar_num_fac + ObtenerVerhoeff(ar_num_fac);
             va_num_fax = va_num_fax + ObtenerVerhoeff(va_num_fax);
 
-            //-- Obtiene los 2 dijitos verificadores NIT DEL CLIENTE
+            // Obtiene los 2 dijitos verificadores NIT DEL CLIENTE
             va_nit_clx = ar_nit_cli + ObtenerVerhoeff(ar_nit_cli);
             va_nit_clx = va_nit_clx + ObtenerVerhoeff(va_nit_clx);
 
-            //-- Obtiene los 2 dijitos verificadores FECHA DE LA FACTURA
+            // Obtiene los 2 dijitos verificadores FECHA DE LA FACTURA
             va_fec_fax = va_fec_tem + ObtenerVerhoeff(va_fec_tem);
             va_fec_fax = va_fec_fax + ObtenerVerhoeff(va_fec_fax);
-
 
             //redondeamos los decimales del MONTO. si el decimal es 5 redondeara al su inmediato superior 
             ar_mto_fac = Math.Round(ar_mto_fac, 0, MidpointRounding.AwayFromZero);
@@ -457,25 +417,21 @@ namespace CRS_PRE
             va_cad_cin = sub_string(ar_lla_ve, va_pos_sig, Convert.ToInt32(va_qui_dvi));
             va_pos_sig += Convert.ToInt32(va_qui_dvi);
 
-
-
             //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ CONCAENA $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-            //' Concatena la cadena 1 al numero de autorizacion
+            // Concatena la cadena 1 al numero de autorizacion
             va_num_aut = ar_num_aut + va_cad_uno;
 
-            //' Concatena la cadena 2 al numero de factura
+            // Concatena la cadena 2 al numero de factura
             va_num_fac = va_num_fax + va_cad_dos;
 
-            //' Concatena la cadena 3 al numero de NIT ' CI
+            // Concatena la cadena 3 al numero de NIT ' CI
             va_nit_cli = va_nit_clx + va_cad_tre;
 
-            //' Concatena la cadena 4 a la fecha de la factura
+            // Concatena la cadena 4 a la fecha de la factura
             va_fec_fac = va_fec_fax + va_cad_cua;
 
-            //' Concatena la cadena 5 al monto de la factura
+            // Concatena la cadena 5 al monto de la factura
             va_mto_fac = va_mto_fax + va_cad_cin;
-
-
 
             //# PASO #3
             //llamo a la funcion AllegedRC4 con los parametros texto  key

@@ -1,17 +1,16 @@
 /*--**********************************************
 ARCHIVO:	ads015.sql	
-TABLA:		Tabla de "Región"
+TABLA:		Tabla de "Regiónal"
 AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		06-11-2029
 */--**********************************************
 
-PRINT 'ads015 : Región'
+PRINT 'ads015 : Regional'
 CREATE TABLE ads015
 (
 	--** Llave Primaria
-	va_ide_mod	INT			 NOT NULL DEFAULT(0),	--** ID. Módulo (ads001)
+	va_ide_reg 	INT			 NOT NULL DEFAULT(0),	--** ID. Regional
 	--** Atributos
-	va_ide_reg 	INT			 NOT NULL DEFAULT(0),	--** ID. Región
 	va_nom_reg	VARCHAR(30)	 NOT NULL DEFAULT(0),	--** Nombre
 	va_est_ado	CHAR(01)	 NOT NULL DEFAULT(0),	--** Estado (H=Habilitado; N=Deshabilitado)
 

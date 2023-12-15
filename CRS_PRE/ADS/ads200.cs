@@ -356,7 +356,8 @@ namespace CRS_PRE
         // Evento Click: Licencias Autorizadas
         private void mn_lic_aut_Click(object sender, EventArgs e)
         {
-
+            o_frm = new ads100_05();
+            cl_glo_frm.abrir(this, o_frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
         // Evento Click: Tipos de Imagen
@@ -386,6 +387,13 @@ namespace CRS_PRE
                     cl_glo_frm.abrir(this, o_frm);
                 }
             }  */             
+        }
+
+        // Evento Click: Definición de Claves
+        private void mn_def_cla_Click(object sender, EventArgs e)
+        {
+            o_frm = new ads011_01();
+            cl_glo_frm.abrir(this, o_frm);
         }
 
         // Evento Click: Cerrar

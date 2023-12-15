@@ -55,10 +55,12 @@
             this.mn_per_plv = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_tal = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_apl = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_cla_aut = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_rep_ort = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lis_usr = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lis_tus = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lis_apu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lis_tau = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lis_aau = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_tip_usu = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_cer_rar = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +85,9 @@
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.bt_tip_usr = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.mn_lis_tau = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lin_uno = new System.Windows.Forms.ToolStripSeparator();
+            this.mn_lin_dos = new System.Windows.Forms.ToolStripSeparator();
+            this.mn_lin_tre = new System.Windows.Forms.ToolStripSeparator();
             this.m_frm_hja.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -224,12 +228,16 @@
             this.mn_per_gdp,
             this.mn_per_ven,
             this.mn_per_cob,
+            this.mn_lin_uno,
             this.mn_per_gdb,
             this.mn_per_bod,
             this.mn_per_lis,
             this.mn_per_plv,
+            this.mn_lin_dos,
             this.mn_per_tal,
-            this.mn_per_apl});
+            this.mn_per_apl,
+            this.mn_lin_tre,
+            this.mn_cla_aut});
             this.mn_per_usu.Name = "mn_per_usu";
             this.mn_per_usu.Size = new System.Drawing.Size(67, 20);
             this.mn_per_usu.Text = "&Permisos";
@@ -297,6 +305,13 @@
             this.mn_per_apl.Text = "Permiso de Aplicaciones";
             this.mn_per_apl.Click += new System.EventHandler(this.mn_per_apl_Click);
             // 
+            // mn_cla_aut
+            // 
+            this.mn_cla_aut.Name = "mn_cla_aut";
+            this.mn_cla_aut.Size = new System.Drawing.Size(230, 22);
+            this.mn_cla_aut.Text = "Claves Autorizadas";
+            this.mn_cla_aut.Click += new System.EventHandler(this.mn_cla_aut_Click);
+            // 
             // mn_rep_ort
             // 
             this.mn_rep_ort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -332,6 +347,14 @@
             this.mn_lis_apu.Size = new System.Drawing.Size(389, 22);
             this.mn_lis_apu.Text = "Autorizaciones p/Rango de Usuarios";
             this.mn_lis_apu.Click += new System.EventHandler(this.mn_lis_apu_Click);
+            // 
+            // mn_lis_tau
+            // 
+            this.mn_lis_tau.Name = "mn_lis_tau";
+            this.mn_lis_tau.ShortcutKeyDisplayString = "(ads007_R06)";
+            this.mn_lis_tau.Size = new System.Drawing.Size(389, 22);
+            this.mn_lis_tau.Text = "Talonarios Autorizados p/Rando de Usuario";
+            this.mn_lis_tau.Click += new System.EventHandler(this.mn_lis_tau_Click);
             // 
             // mn_lis_aau
             // 
@@ -608,13 +631,20 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
-            // mn_lis_tau
+            // mn_lin_uno
             // 
-            this.mn_lis_tau.Name = "mn_lis_tau";
-            this.mn_lis_tau.ShortcutKeyDisplayString = "(ads007_R06)";
-            this.mn_lis_tau.Size = new System.Drawing.Size(389, 22);
-            this.mn_lis_tau.Text = "Talonarios Autorizados p/Rando de Usuario";
-            this.mn_lis_tau.Click += new System.EventHandler(this.mn_lis_tau_Click);
+            this.mn_lin_uno.Name = "mn_lin_uno";
+            this.mn_lin_uno.Size = new System.Drawing.Size(227, 6);
+            // 
+            // mn_lin_dos
+            // 
+            this.mn_lin_dos.Name = "mn_lin_dos";
+            this.mn_lin_dos.Size = new System.Drawing.Size(227, 6);
+            // 
+            // mn_lin_tre
+            // 
+            this.mn_lin_tre.Name = "mn_lin_tre";
+            this.mn_lin_tre.Size = new System.Drawing.Size(227, 6);
             // 
             // ads007_01
             // 
@@ -704,5 +734,9 @@
         private System.Windows.Forms.ToolStripMenuItem mn_con_aut;
         private System.Windows.Forms.ToolStripMenuItem mn_lis_aau;
         private System.Windows.Forms.ToolStripMenuItem mn_lis_tau;
+        private System.Windows.Forms.ToolStripMenuItem mn_cla_aut;
+        private System.Windows.Forms.ToolStripSeparator mn_lin_uno;
+        private System.Windows.Forms.ToolStripSeparator mn_lin_dos;
+        private System.Windows.Forms.ToolStripSeparator mn_lin_tre;
     }
 }

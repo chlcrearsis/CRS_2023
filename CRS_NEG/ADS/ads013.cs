@@ -8,7 +8,7 @@ namespace CRS_NEG
     //######################################################################
     //##       Tabla: ads013                                              ##
     //##      Nombre: Globales del Sistema                                ##
-    //## Descripcion: Globales y Licencia del Sistema                     ##         
+    //## Descripcion: Definiciones de Globales                            ##         
     //##       Autor: EJER - (27-11-2023)                                 ##
     //######################################################################
     public class ads013
@@ -191,7 +191,7 @@ namespace CRS_NEG
                 cadena.AppendLine("   AND ads013.va_nom_glo = '" + nom_glo + "'");
 
                 if (ide_glo > 0)
-                    cadena.AppendLine("   AND ads013.va_ide_glo <>  " + ide_mod + "");
+                    cadena.AppendLine("   AND ads013.va_ide_glo <>  " + ide_glo + "");
 
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
@@ -219,6 +219,27 @@ namespace CRS_NEG
                 cadena.AppendLine(" WHERE ads013.va_ide_mod = ads001.va_ide_mod");
                 cadena.AppendLine("   AND ads013.va_ide_mod = " + ide_mod + "");
                 cadena.AppendLine("   AND ads013.va_ide_glo = " + ide_glo + "");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }        
+
+        /// <summary>
+        /// Funcion "Obtiene el Último ID. Global"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <returns></returns>
+        public DataTable Fe_obt_ide(int ide_mod)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("DECLARE @va_ide_glo INT ");
+                cadena.AppendLine(" SELECT @va_ide_glo = ISNULL(MAX(va_ide_glo), 0) FROM ads013 WHERE va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine(" SELECT @va_ide_glo + 1 AS va_ide_glo");
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)

@@ -8,20 +8,20 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads013 - Globales                                     */
+    /*  Aplicación: ads011 - Definición de Claves                         */
     /*      Opción: Crear Registro                                        */
-    /*       Autor: JEJR - Crearsis             Fecha: 27-11-2023         */
+    /*       Autor: JEJR - Crearsis             Fecha: 04-12-2023         */
     /**********************************************************************/
-    public partial class ads013_02 : Form
+    public partial class ads011_02 : Form
     {     
         public dynamic frm_pad;
         public int frm_tip;
         // Instancias
         ads001 o_ads001 = new ads001();
-        ads013 o_ads013 = new ads013();        
+        ads011 o_ads011 = new ads011();        
         DataTable Tabla = new DataTable();
 
-        public ads013_02()
+        public ads011_02()
         {
             InitializeComponent();
         }
@@ -37,11 +37,9 @@ namespace CRS_PRE
         {
             tb_ide_mod.Text = string.Empty;
             lb_nom_mod.Text = string.Empty;
-            tb_ide_glo.Text = string.Empty;
-            tb_nom_glo.Text = string.Empty;
-            tb_glo_ent.Text = string.Empty;
-            tb_glo_dec.Text = string.Empty;
-            tb_glo_car.Text = string.Empty;
+            tb_ide_cla.Text = string.Empty;
+            tb_nom_cla.Text = string.Empty;
+            tb_obs_cla.Text = string.Empty;
             Fi_ini_pan();
         }
 
@@ -50,29 +48,24 @@ namespace CRS_PRE
         {
             // Establece el Focus en el Módulo 
             tb_ide_mod.Text = "0";
-            lb_nom_mod.Text = "...";            
-            tb_glo_ent.Enabled = true;
-            tb_glo_dec.Enabled = false;
-            tb_glo_car.Enabled = false;
-            cb_tip_glo.SelectedIndex = 0;
+            lb_nom_mod.Text = "...";
+            cb_cla_req.SelectedIndex = 0;
             tb_ide_mod.Focus();
         }
 
         // Obtiene el Ultimo ID. Correspondiente
-        private void Fi_ult_ide()
-        {
-            tb_ide_glo.Text = string.Empty;
+        private void Fi_ult_ide() {
+            tb_ide_cla.Text = string.Empty;
             // Verifica si el ID. Módulo es Numerico
-            if (cl_glo_bal.IsNumeric(tb_ide_mod.Text))
-            {
-                // Obtiene el Ultimo ID. Global
+            if (cl_glo_bal.IsNumeric(tb_ide_mod.Text)) {
+                // Obtiene el Ultimo ID. Clave
                 Tabla = new DataTable();
-                Tabla = o_ads013.Fe_obt_ide(int.Parse(tb_ide_mod.Text));
+                Tabla = o_ads011.Fe_obt_ide(int.Parse(tb_ide_mod.Text));
                 if (Tabla.Rows.Count > 0)
-                    tb_ide_glo.Text = Tabla.Rows[0]["va_ide_glo"].ToString();
+                    tb_ide_cla.Text = Tabla.Rows[0]["va_ide_cla"].ToString();
 
-                tb_nom_glo.Focus();
-            }
+                tb_nom_cla.Focus();
+            }                                   
         }
 
         // Funcion: Buscar Módulo
@@ -100,7 +93,7 @@ namespace CRS_PRE
             }else{
                 tb_ide_mod.Text = Tabla.Rows[0]["va_ide_mod"].ToString();
                 lb_nom_mod.Text = Tabla.Rows[0]["va_nom_mod"].ToString();
-                // Obtiene el ID. Global
+                // Obtiene el ID. Clave
                 Fi_ult_ide();
             }
         }
@@ -122,57 +115,24 @@ namespace CRS_PRE
                 return "El ID. Módulo NO es valido";
             }
 
-            // Valida que el campo ID. Global NO este vacio
-            if (tb_ide_glo.Text.Trim() == ""){
-                tb_ide_glo.Focus();
-                return "DEBE proporcionar el ID. Global";
+            // Valida que el campo ID. Clave NO este vacio
+            if (tb_ide_cla.Text.Trim() == ""){
+                tb_ide_cla.Focus();
+                return "DEBE proporcionar el ID. Clave";
             }
 
-            // Valida que el campo código sea un valor válido
-            if (!cl_glo_bal.IsNumeric(tb_ide_glo.Text.Trim())){
+            // Valida que el campo ID. Clave sea un valor válido
+            if (!cl_glo_bal.IsNumeric(tb_ide_cla.Text.Trim())){
                 tb_ide_mod.Focus();
-                return "El ID. Global NO es valido";
+                return "El ID. Clave NO es valido";
             }
 
             // Valida que el campo Nombre de la Global NO este vacio
-            if (tb_nom_glo.Text.Trim() == ""){
-                tb_nom_glo.Focus();
-                return "DEBE proporcionar el Nombre de la Global";
+            if (tb_nom_cla.Text.Trim() == ""){
+                tb_nom_cla.Focus();
+                return "DEBE proporcionar el Nombre de la Clave";
             }
-
-            // Válida los campos de las Global Entero
-            if (cb_tip_glo.Text == "Entero"){
-                if (tb_glo_ent.Text.Trim() == ""){
-                    tb_glo_ent.Focus();
-                    return "DEBE proporcionar el valor de la Global en el campo Entero";
-                }
-                if (!cl_glo_bal.IsNumeric(tb_glo_ent.Text.Trim())){                    
-                    tb_glo_ent.Focus();
-                    return "El valor de la Global en el campo Entero NO es válido";
-                }
-            }
-
-            // Válida los campos de las Global Decimal
-            if (cb_tip_glo.Text == "Decimal"){
-                if (tb_glo_dec.Text.Trim() == ""){
-                    tb_glo_dec.Focus();
-                    return "DEBE proporcionar el valor de la Global en el campo Decimal";
-                }
-                if (!cl_glo_bal.IsDecimal(tb_glo_dec.Text.Trim())){
-                    tb_glo_dec.Focus();
-                    return "El valor de la Global en el campo Decimal NO es válido";
-                }
-            }
-
-            // Válida los campos de las Caracter
-            if (cb_tip_glo.Text == "Caracter")
-            {
-                if (tb_glo_car.Text.Trim() == ""){
-                    tb_glo_car.Focus();
-                    return "DEBE proporcionar el valor de la Global en el campo Caracter";
-                }                
-            }
-
+            
             // Verifica SI el Módulo se encuentra registrado
             Tabla = new DataTable();
             Tabla = o_ads001.Fe_con_mod(int.Parse(tb_ide_mod.Text));
@@ -187,28 +147,26 @@ namespace CRS_PRE
                 return "El Módulo seleccionado se encuentra Deshabilitado";
             }            
 
-            // Verifica SI existe otro registro con el mismo ID. Global
+            // Verifica SI existe otro registro con el mismo ID. Clave
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_con_glo(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_glo.Text));
+            Tabla = o_ads011.Fe_con_cla(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_cla.Text));
             if (Tabla.Rows.Count > 0){
-                tb_ide_glo.Focus();
-                return "Ya existe otra Global con los mismo ID. Global";
+                tb_ide_cla.Focus();
+                return "Ya existe otra Clave con los mismo ID. Clave";
             }
 
-            // Verifica SI existe otro registro con el mismo Nombre de Aplicación
+            // Verifica SI existe otro registro con el mismo Nombre de Clave
             Tabla = new DataTable();
-            Tabla = o_ads013.Fe_con_nom(int.Parse(tb_ide_mod.Text), tb_nom_glo.Text.Trim());
+            Tabla = o_ads011.Fe_con_nom(int.Parse(tb_ide_mod.Text), tb_nom_cla.Text.Trim());
             if (Tabla.Rows.Count > 0){
-                tb_nom_glo.Focus();
+                tb_nom_cla.Focus();
                 return "Ya existe otra Global con el mismo Nombre en el mismo Módulo";
             }
 
             // Quita caracteres especiales de SQL-Trans
-            tb_ide_glo.Text = tb_ide_glo.Text.Replace("'", "");
-            tb_nom_glo.Text = tb_nom_glo.Text.Replace("'", "");
-            tb_glo_ent.Text = tb_glo_ent.Text.Replace("'", "");
-            tb_glo_dec.Text = tb_glo_dec.Text.Replace("'", "");
-            tb_glo_car.Text = tb_glo_car.Text.Replace("'", "");
+            tb_ide_cla.Text = tb_ide_cla.Text.Replace("'", "");
+            tb_nom_cla.Text = tb_nom_cla.Text.Replace("'", "");            
+            tb_obs_cla.Text = tb_obs_cla.Text.Replace("'", "");
 
             return "OK";
         }
@@ -247,56 +205,13 @@ namespace CRS_PRE
         private void tb_ide_glo_KeyPress(object sender, KeyPressEventArgs e)
         {
             cl_glo_bal.NotNumeric(e);
-        }
-
-        // Evento KeyPress: Global Entero
-        private void tb_glo_ent_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            cl_glo_bal.NotNumeric(e);            
-        }
-
-        // Evento KeyPress: Global Decimal
-        private void tb_glo_dec_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            cl_glo_bal.NotDecimal(e, tb_glo_dec.Text);
-        }
-
-        // Evento SelectedValueChanged: Tipo de Global
-        private void cb_tip_glo_SelectedValueChanged(object sender, EventArgs e)
-        {
-            // Limpia los campos
-            tb_glo_car.Text = string.Empty;
-            tb_glo_ent.Text = string.Empty;
-            tb_glo_dec.Text = string.Empty;
-
-            // Inabilita los controles
-            tb_glo_ent.Enabled = false;
-            tb_glo_dec.Enabled = false;
-            tb_glo_car.Enabled = false;
-
-            // Establece el control de edición
-            switch (cb_tip_glo.SelectedIndex) {
-                case 0: // Entero
-                    tb_glo_ent.Enabled = true;
-                    break;                    
-                case 1: // Decimal
-                    tb_glo_dec.Enabled = true;
-                    break; 
-                case 2: // Caracter
-                    tb_glo_car.Enabled = true;
-                    break;            
-            }
-        }
+        }               
 
         // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
             try
             {
-                string glo_ent = tb_glo_ent.Text == "" ? "0" : tb_glo_ent.Text;
-                string glo_dec = tb_glo_dec.Text == "" ? "0.00" : tb_glo_dec.Text;
-                string glo_car = tb_glo_car.Text == "" ? "" : tb_glo_car.Text;
-
                 DialogResult msg_res;
 
                 // funcion para validar datos
@@ -310,9 +225,9 @@ namespace CRS_PRE
                 if (msg_res == DialogResult.OK)
                 {
                     // Graba registro
-                    o_ads013.Fe_nue_reg(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_glo.Text), tb_nom_glo.Text, cb_tip_glo.SelectedIndex, int.Parse(glo_ent), decimal.Parse(glo_dec), glo_car);
+                    o_ads011.Fe_nue_reg(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_cla.Text), tb_nom_cla.Text, tb_obs_cla.Text, cb_cla_req.SelectedText.Substring(0, 1));
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_mod.Text, tb_ide_glo.Text);
+                    frm_pad.Fe_act_frm(tb_ide_mod.Text, tb_ide_cla.Text);
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
                     // Inicializa Campos
