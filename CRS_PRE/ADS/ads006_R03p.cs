@@ -232,7 +232,7 @@ namespace CRS_PRE
             
             // Obtiene Datos
             Tabla = new DataTable();
-            Tabla = o_ads006.Fe_inf_R03(int.Parse(tb_ide_tus.Text.Trim()), int.Parse(tb_mod_ini.Text), int.Parse(tb_mod_fin.Text));
+            Tabla = o_ads006.Fe_inf_R02(int.Parse(tb_ide_tus.Text.Trim()), int.Parse(tb_mod_ini.Text), int.Parse(tb_mod_fin.Text));
 
             // Genera el Informe
             ads006_R03w frm = new ads006_R03w{

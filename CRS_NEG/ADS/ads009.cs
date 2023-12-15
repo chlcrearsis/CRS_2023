@@ -16,7 +16,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registrar Autorizacion Tipo de Usuario"
+        /// Función: "Registrar Autorizacion Tipo de Usuario"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -42,7 +42,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 1 Autorizacion Tipo de Usuario"
+        /// Función: "Elimina Autorizacion Tipo de Usuario"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -61,7 +61,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 2 Autorizacion Usuario"
+        /// Función: "Elimina Autorizacion Tipo de Usuario Nivel 1"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -82,7 +82,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 3 Autorizacion Tipo de Usuario"
+        /// Función: "Elimina Autorizacion Tipo de Usuario Nivel 2"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -105,7 +105,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 4 Autorizacion Tipo de Usuario"
+        /// Función: "Elimina Autorizacion Tipo de Usuario Nivel 3"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -130,7 +130,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 5 Autorizacion Tipo de Usuario"
+        /// Función: "Elimina Autorizacion Tipo de Usuario Nivel 4"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -154,10 +154,10 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }      
+        }
 
         /// <summary>
-        /// Consulta 1 "Autorización Tipo de Usuario"
+        /// Función: "Consulta Autorización Tipo de Usuario"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -182,7 +182,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta 2 "Autorización Tipo de Usuario"
+        /// Función: "Consulta Autorización Tipo de Usuario Nivel 1"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -209,7 +209,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta 3 "Autorización Usuario"
+        /// Función: "Consulta Autorización Tipo de Usuario Nivel 2"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -238,7 +238,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta 4 "Autorización Tipo de Usuario"
+        /// Función: "Consulta Autorización Tipo de Usuario Nivel 3"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -268,9 +268,8 @@ namespace CRS_NEG
             }
         }
 
-
         /// <summary>
-        /// Función 1 "Verifica Autorización Tipo de Usuario"
+        /// Función: "Verifica Autorización Tipo de Usuario"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -296,7 +295,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion 2 "Verifica Autorización Usuario"
+        /// Función: "Verifica Autorización Tipo de Usuario Nivel 1"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -324,7 +323,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion 3 "Verifica Autorización Tipo de Usuario"
+        /// Función: "Verifica Autorización Tipo de Usuario Nivel 2"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -354,7 +353,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función 4 "Verifica Autorización Tipo de Usuario"
+        /// Función: "Verifica Autorización Tipo de Usuario Nivel 3"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -362,8 +361,7 @@ namespace CRS_NEG
         /// <param name="ide_dos">Identificador 2</param>
         /// <param name="ide_tre">Identificador 3</param>
         /// <returns></returns>
-        public bool Fe_aut_tus(int ide_tus, string ide_tab, string ide_uno,
-                               string ide_dos, string ide_tre)
+        public bool Fe_aut_tus(int ide_tus, string ide_tab, string ide_uno, string ide_dos, string ide_tre)
         {
             try
             {
@@ -387,7 +385,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Aplicacion"
+        /// Función: "Permiso Tipo de Usuario sobre Aplicacion"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -406,7 +404,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Plantilla de Venta"
+        /// Función: "Permiso Tipo de Usuario sobre Plantilla de Venta"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -425,7 +423,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Plantilla de Venta"
+        /// Función: "Permiso Tipo de Usuario sobre Plantilla de Venta"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -444,7 +442,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Grupo de Persona"
+        /// Función: "Permiso Tipo de Usuario sobre Grupo de Persona"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -463,7 +461,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Vendedor"
+        /// Función: "Permiso Tipo de Usuario sobre Vendedor"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -482,7 +480,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Cobrador"
+        /// Función: "Permiso Tipo de Usuario sobre Cobrador"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -501,7 +499,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Grupo de Bodega"
+        /// Función: "Permiso Tipo de Usuario sobre Grupo de Bodega"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>
@@ -520,7 +518,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Talonario"
+        /// Función: "Permiso Tipo de Usuario sobre Talonario"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo Usuario</param>
         /// <returns></returns>
@@ -539,7 +537,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Tipo de Usuario sobre Bodega"
+        /// Función: "Permiso Tipo de Usuario sobre Bodega"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo Usuario</param>
         /// <returns></returns>

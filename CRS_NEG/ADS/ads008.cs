@@ -19,7 +19,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registrar Autorizacion Usuario"
+        /// Función: "Registrar Autorizacióón Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -45,7 +45,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 1 Autorizacion Usuario"
+        /// Función: "Elimina 1 Autorizacion Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -64,7 +64,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 2 Autorizacion Usuario"
+        /// Función: "Elimina 2 Autorizacion Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -85,7 +85,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 3 Autorizacion Usuario"
+        /// Función: "Elimina 3 Autorizacion Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -108,15 +108,14 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina 4 Autorizacion Usuario"
+        /// Función: "Elimina 4 Autorizacion Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
         /// <param name="ide_uno">Identificador 1</param>
         /// <param name="ide_dos">Identificador 2</param>
         /// <returns></returns>
-        public void Fe_eli_min(string ide_usr, string ide_tab, string ide_uno, 
-                               string ide_dos)
+        public void Fe_eli_min(string ide_usr, string ide_tab, string ide_uno, string ide_dos)
         {
             try
             {
@@ -142,8 +141,7 @@ namespace CRS_NEG
         /// <param name="ide_dos">Identificador 2</param>
         /// <param name="ide_tre">Identificador 3</param>
         /// <returns></returns>
-        public void Fe_eli_min(string ide_usr, string ide_tab, string ide_uno, 
-                               string ide_dos, string ide_tre)
+        public void Fe_eli_min(string ide_usr, string ide_tab, string ide_uno, string ide_dos, string ide_tre)
         {
             try
             {
@@ -159,10 +157,10 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }        
+        }
 
         /// <summary>
-        /// Consulta 1 "Autorización Usuario"
+        /// Función: "Consulta Autorización Usuario Nivel 1"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -187,7 +185,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta 2 "Autorización Usuario"
+        /// Función: "Consulta Autorización Usuario Nivel 2"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -214,15 +212,14 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta 3 "Autorización Usuario"
+        /// Función: "Consulta Autorización Usuario Nivel 3"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
         /// <param name="ide_uno">Identificador 1</param>
         /// <param name="ide_dos">Identificador 2</param>
         /// <returns></returns>
-        public DataTable Fe_con_aut(string ide_usr, string ide_tab, string ide_uno,
-                                    string ide_dos)
+        public DataTable Fe_con_aut(string ide_usr, string ide_tab, string ide_uno, string ide_dos)
         {
             try
             {
@@ -244,7 +241,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta 4 "Autorización Usuario"
+        /// Función: "Consulta Autorización Usuario Nivel 4"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -252,8 +249,7 @@ namespace CRS_NEG
         /// <param name="ide_dos">Identificador 2</param>
         /// <param name="ide_tre">Identificador 3</param>
         /// <returns></returns>
-        public DataTable Fe_con_aut(string ide_usr, string ide_tab, string ide_uno,
-                                    string ide_dos, string ide_tre)
+        public DataTable Fe_con_aut(string ide_usr, string ide_tab, string ide_uno, string ide_dos, string ide_tre)
         {
             try
             {
@@ -277,7 +273,7 @@ namespace CRS_NEG
 
 
         /// <summary>
-        /// Función 1 "Verifica Autorización Usuario"
+        /// Función: "Verifica Autorización Usuario Nivel 1"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -303,7 +299,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion 2 "Verifica Autorización Usuario"
+        /// Función: "Verifica Autorización Usuario Nivel 2"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -331,15 +327,14 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion 3 "Verifica Autorización Usuario"
+        /// Función: "Verifica Autorización Usuario Nivel 3"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
         /// <param name="ide_uno">Identificador 1</param>
         /// <param name="ide_dos">Identificador 2</param>
         /// <returns></returns>
-        public bool Fe_aut_usr(string ide_usr, string ide_tab, string ide_uno,
-                               string ide_dos)
+        public bool Fe_aut_usr(string ide_usr, string ide_tab, string ide_uno, string ide_dos)
         {
             try
             {
@@ -362,7 +357,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función 4 "Verifica Autorización Usuario"
+        /// Función: "Verifica Autorización Usuario Nivel 4"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_tab">ID. Tabla</param>
@@ -370,8 +365,7 @@ namespace CRS_NEG
         /// <param name="ide_dos">Identificador 2</param>
         /// <param name="ide_tre">Identificador 3</param>
         /// <returns></returns>
-        public bool Fe_aut_usr(string ide_usr, string ide_tab, string ide_uno,
-                               string ide_dos, string ide_tre)
+        public bool Fe_aut_usr(string ide_usr, string ide_tab, string ide_uno, string ide_dos, string ide_tre)
         {
             try
             {
@@ -395,8 +389,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Aplicaciones Autorizadas al Usuario
-        /// p/Menu Principal
+        /// Función: "Aplicaciones Autorizadas al Usuario p/Menu Principal"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -415,7 +408,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Aplicacion"
+        /// Función: "Permiso Usuario sobre Aplicación"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -434,7 +427,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Plantilla de Venta"
+        /// Función: "Permiso Usuario sobre Plantilla de Venta"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -453,7 +446,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Lista de Precio"
+        /// Función: "Permiso Usuario sobre Lista de Precio"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -472,7 +465,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Grupo de Persona"
+        /// Función: "Permiso Usuario sobre Grupo de Persona"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -491,7 +484,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Vendedor"
+        /// Función: "Permiso Usuario sobre Vendedor"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -510,7 +503,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Cobrador"
+        /// Función: "Permiso Usuario sobre Cobrador"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -529,7 +522,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Grupo de Bodega"
+        /// Función: "Permiso Usuario sobre Grupo de Bodega"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -548,7 +541,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Talonario"
+        /// Función: "Permiso Usuario sobre Talonario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_mod">ID. Módulo</param>
@@ -568,7 +561,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta "Permiso Usuario sobre Bodega"
+        /// Función: "Permiso Usuario sobre Bodega"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="grp_bod">ID. Grupo Bodega</param>

@@ -42,7 +42,7 @@ namespace CRS_PRE
                 tb_est_ado.Text = "Deshabilitado";            
 
             // Despliega los Tipos de Usuario al Combobox
-            cb_tip_usr.DataSource = o_ads006.Fe_lis_tus();
+            cb_tip_usr.DataSource = o_ads006.Fe_lis_tus("H");
             cb_tip_usr.ValueMember = "va_ide_tus";
             cb_tip_usr.DisplayMember = "va_nom_tus";
         }

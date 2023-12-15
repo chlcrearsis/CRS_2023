@@ -17,7 +17,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registra Clave Usuario p/Global"
+        /// Función: "Registra Clave Usuario p/Global"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_mod">ID. Módulo</param>
@@ -39,7 +39,7 @@ namespace CRS_NEG
 
 
         /// <summary>
-        /// Funcion "Modifica Clave Usuario p/Global"
+        /// Función: "Modifica Clave Usuario p/Global"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_mod">ID. Módulo</param>
@@ -61,10 +61,10 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }                
+        }
 
         /// <summary>
-        /// Funcion "Elimina Clave Usuario p/Global"
+        /// Función: "Elimina Clave Usuario p/Global"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_mod">ID. Módulo</param>
@@ -87,7 +87,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Clave Usuario p/Global"
+        /// Función: "Elimina Clave Usuario p/Global"
         /// </summary>        
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_cla">ID. Clave</param>
@@ -108,7 +108,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Obtiene Clave Usuario p/Global"
+        /// Función: "Obtiene Clave Usuario p/Global"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_mod">ID. Módulo</param>
@@ -128,6 +128,7 @@ namespace CRS_NEG
                 cadena.AppendLine("   AND ads014.va_ide_usr = '" + ide_usr + "'");
                 cadena.AppendLine("   AND ads014.va_ide_mod =  " + ide_mod + "");
                 cadena.AppendLine("   AND ads014.va_ide_cla =  " + ide_cla + "");
+
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -137,7 +138,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Obtiene Claves del Usuario"
+        /// Función: "Obtiene Claves del Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -153,6 +154,7 @@ namespace CRS_NEG
                 cadena.AppendLine(" WHERE ads014.va_ide_mod = ads001.va_ide_mod");
                 cadena.AppendLine("   AND ads014.va_ide_cla = ads011.va_ide_cla");
                 cadena.AppendLine("   AND ads014.va_ide_usr = '" + ide_usr + "'");
+
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -162,7 +164,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Lista de Claves Autorizadas p/Usuario"
+        /// Función: "Lista de Claves Autorizadas p/Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>

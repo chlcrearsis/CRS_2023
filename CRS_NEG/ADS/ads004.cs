@@ -16,9 +16,8 @@ namespace CRS_NEG
         conexion_a ob_con_ecA = new conexion_a();
         StringBuilder cadena;
 
-
         /// <summary>
-        /// Funcion "Registrar Talonarios"
+        /// Función: "Registra Nuevo Talonario"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="nro_tal">Nro. Talonario</param>
@@ -54,7 +53,7 @@ namespace CRS_NEG
 
 
         /// <summary>
-        /// Funcion "Registrar Talonarios y Control Numeración (Anual/Mensual)"
+        /// Función: "Registra Nuevo Talonario y Control Numeración"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="nro_tal">Nro. Talonario</param>
@@ -93,7 +92,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Registrar Talonarios Automatico"
+        /// Función: "Registra Talonarios Automático"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="tal_anu">Talonario Anual (0)</param>
@@ -114,7 +113,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Modifica Talonario"
+        /// Función: "Modifica Talonario"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="nro_tal">Nro. Talonario</param>
@@ -153,7 +152,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Habilita/Deshabilita Talonario"
+        /// Función: "Habilita/Deshabilita Talonario"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="nro_tal">Nro. Talonario</param>
@@ -174,7 +173,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Talonario"
+        /// Función: "Elimina Talonario"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="nro_tal">Nro. Talonario</param>
@@ -194,11 +193,11 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "FILTRA TALONARIO"
+        /// Función: "Filtra Talonarios"
         /// </summary>
         /// <param name="cri_bus">Criterio de Busqueda</param>
         /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_doc; 1=va_nom_doc; 2=va_des_doc)</param>
-        /// <param name="est_bus">Estado (0=Todos; 1=Habilitado; 2=Deshabilitado)</param>
+        /// <param name="est_bus">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>       
         public DataTable Fe_bus_car(string cri_bus, int prm_bus, string est_bus, int ide_mod = 0)
         {            
@@ -212,26 +211,16 @@ namespace CRS_NEG
                 cadena.AppendLine("  FROM ads004, ads003");
                 cadena.AppendLine(" WHERE ads004.va_ide_doc = ads003.va_ide_doc");
                 if (ide_mod != 0)
-                {
                     cadena.AppendLine(" AND ads003.va_ide_mod = " + ide_mod + "");
-                }
-                switch (prm_bus)
-                {
+                
+                switch (prm_bus){
                     case 0: cadena.AppendLine(" AND ads004.va_nom_tal like '" + cri_bus + "%'"); break;
                     case 1: cadena.AppendLine(" AND ads003.va_nom_doc like '" + cri_bus + "%'"); break;
                     case 2: cadena.AppendLine(" AND ads003.va_ide_doc like '" + cri_bus + "%'"); break;
-                }
-                switch (est_bus)
-                {
-                    case "0": est_bus = "T"; break;
-                    case "1": est_bus = "H"; break;
-                    case "2": est_bus = "N"; break;
-                }
+                }                
 
-                if (est_bus != "T")
-                {
-                    cadena.AppendLine(" AND ads004.va_est_ado = '" + est_bus + "'");
-                }
+                if (est_bus != "T")                
+                    cadena.AppendLine(" AND ads004.va_est_ado = '" + est_bus + "'");                
 
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
@@ -242,7 +231,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "TALONARIO"
+        /// Función: "Consulta Talonario"
         /// </summary>
         /// <param name="ide_doc">ID. Documento</param>
         /// <param name="nro_tal">Nro. Talonario</param>
@@ -269,7 +258,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "CONSULTA TALONARIO POR ID. DOCUMENTOS"
+        /// Función: "Consulta Talonarios p/ID. Documento"
         /// </summary>
         /// <param name="ide_doc">ID. Documentos</param>
         /// <returns></returns>
@@ -294,13 +283,13 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "CONSULTA TALONARIO POR NOMBRE"
+        /// Función: "Consulta Talonarios p/Nombre"
         /// </summary>
-        /// <param name="nom_doc">Nombre</param>
+        /// <param name="nom_tal">Nombre Talonario</param>
         /// <param name="ide_doc">ID. Documentos</param>
         /// <param name="nro_tal">Nro. Talonario</param>
         /// <returns></returns>
-        public DataTable Fe_con_nom(string nom_doc, string ide_doc, int nro_tal = 9999)
+        public DataTable Fe_con_nom(string nom_tal, string ide_doc, int nro_tal = 9999)
         {
             try
             {
@@ -312,6 +301,7 @@ namespace CRS_NEG
                 cadena.AppendLine("  FROM ads004, ads003");
                 cadena.AppendLine(" WHERE ads004.va_ide_doc = ads003.va_ide_doc");
                 cadena.AppendLine(" WHERE ads004.va_ide_doc = '" + ide_doc + "'");
+                cadena.AppendLine(" WHERE ads004.va_nom_tal = '" + nom_tal + "'");
                 if (nro_tal != 9999)
                     cadena.AppendLine("   AND ads004.va_nro_tal <> " + nro_tal + "");
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
@@ -323,11 +313,11 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "LISTA TALONARIO"
+        /// Función: "Lista Talonarios p/Estado"
         /// </summary>
-        /// <param name="est_ado">Estado (0=Todos; 1=Habilitado; 2=Deshabilitado)</param>
+        /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
-        public DataTable Fe_lis_tal(string est_ado = "0")
+        public DataTable Fe_lis_tal(string est_ado)
         {
             try
             {
@@ -338,13 +328,7 @@ namespace CRS_NEG
                 cadena.AppendLine("       ads004.va_for_log, ads004.va_obs_uno, ads004.va_obs_dos, ads004.va_est_ado");
                 cadena.AppendLine("  FROM ads004, ads003");
                 cadena.AppendLine(" WHERE ads004.va_ide_doc = ads003.va_ide_doc");
-                switch (est_ado)
-                {
-                    case "0": est_ado = "T"; break;
-                    case "1": est_ado = "H"; break;
-                    case "2": est_ado = "N"; break;
-                }
-
+               
                 if (est_ado != "T")
                     cadena.AppendLine(" AND ads004.va_est_ado = '" + est_ado + "'");
 
@@ -357,7 +341,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "PERMISO SOBRE TALONARIO AL USUARIO"
+        /// Función: "Permiso sobre el Talonario al Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_doc">ID. Documentos</param>
@@ -379,7 +363,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "PERMISO SOBRE TALONARIO AL USUARIO"
+        /// Función: "Permiso sobre el Talonario al Usuario p/Documento"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_doc">ID. Documentos</param>
@@ -400,7 +384,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "BUSCA TALONARIO CON PERMISO PARA EL USUARIO"
+        /// Función: "Busca Talonario con Permiso al Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="ide_doc">ID. Documentos</param>
@@ -422,7 +406,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "LISTA USUARIOS HABILITADOS AUTORIZADO P/TALONARIO"
+        /// Función: "Lista Usuarios Autorizados p/Talonario"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo Usuario</param>
         /// <param name="est_usr">Estado Usuario (H=Habilitado; N=Deshabilitado; T=Todos)</param>
@@ -444,7 +428,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Talonarios
+        /// Informe 01: "Lista Talonarios"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
@@ -464,7 +448,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Talonarios Formato y Definición de Firmas
+        /// Informe 02: "Talonarios Formato y Definición de Firmas"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="doc_ini">Documento Inicial</param>

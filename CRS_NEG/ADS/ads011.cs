@@ -16,7 +16,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registra Claves por Defectos"
+        /// Función: "Registra Claves por Defectos"
         /// </summary>
         public void Fe_reg_cla()
         {
@@ -33,7 +33,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Registrar Definicion Claves"
+        /// Función: "Registrar Nueva Definición de Clave"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_cla">ID. Clave</param>
@@ -55,7 +55,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Modifica Definicion Claves"
+        /// Función: "Modifica Definición de Clave"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_cla">ID. Clave</param>
@@ -82,7 +82,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Definicion Claves"
+        /// Función: "Elimina Definición de Clave"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_cla">ID. Clave</param>
@@ -102,7 +102,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "FILTRA DEFINICIÓN DE CLAVES"
+        /// Función: "Filtra Definición de Clave"
         /// </summary>
         /// <param name="cri_bus">Criterio de Busqueda</param>
         /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_cla; 1=va_nom_cla)</param>
@@ -122,7 +122,6 @@ namespace CRS_NEG
                     case 0: cadena.AppendLine(" AND ads011.va_ide_cla like '" + cri_bus + "%'"); break;
                     case 1: cadena.AppendLine(" AND ads011.va_nom_cla like '" + cri_bus + "%'"); break;
                 }                
-
                 if (ide_mod != 0)                
                     cadena.AppendLine(" AND ads011.va_ide_mod = " + ide_mod + "");                
 

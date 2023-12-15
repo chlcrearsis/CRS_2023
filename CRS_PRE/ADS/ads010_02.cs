@@ -98,7 +98,7 @@ namespace CRS_PRE
                         ide_tab = "inv004";
 
                     // Graba el registro en la BD.
-                    o_ads010.Fe_nue_tip(tb_ide_tip.Text, tb_nom_tip.Text, ide_tab);
+                    o_ads010.Fe_nue_reg(tb_ide_tip.Text, tb_nom_tip.Text, ide_tab);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_tip.Text);
                     // Despliega Mensaje

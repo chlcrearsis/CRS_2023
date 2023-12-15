@@ -16,12 +16,12 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "REGISTRA TIPO DE IMAGEN"
+        /// Función: "Registra Nuevo Tipo de Imagen"
         /// </summary>
         /// <param name="ide_tip">ID. Tipo Imagen</param>
         /// <param name="nom_tip">Nombre</param>
         /// <param name="ide_tab">ID. Tabla</param>
-        public void Fe_nue_tip(string ide_tip , string nom_tip , string ide_tab)
+        public void Fe_nue_reg(string ide_tip , string nom_tip , string ide_tab)
         {
             try
             {
@@ -36,12 +36,12 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "EDITA TIPO DE IMAGEN"
+        /// Función: "Modifica Tipo de Imagen"
         /// </summary>
         /// <param name="ide_tip">ID. Tipo Imagen</param>
         /// <param name="nom_tip">Nombre</param>
         /// <param name="ide_tab">ID. Tabla</param>
-        public void Fe_edi_tip(string ide_tip, string nom_tip, string ide_tab)
+        public void Fe_edi_tar(string ide_tip, string nom_tip, string ide_tab)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "HABILITA/DESHABILITA TIPO DE IMAGEN"
+        /// Funcion "Habilita/Deshabilita Tipo de Imagen"
         /// </summary>
         /// <param name="ide_tip">ID. Tipo Imagen</param>
         /// <param name="est_ado">Estado (H= habilitado; N=deshabilitado)</param>
@@ -79,7 +79,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "ELIMINA TIPO DE IMAGEN"
+        /// Funcion "Elimina Tipo de Imagen"
         /// </summary>
         /// <param name="ide_tip">ID. Tipo Imagen</param>
         public void Fe_eli_min(string ide_tip)
@@ -97,7 +97,7 @@ namespace CRS_NEG
         }        
 
         /// <summary>
-        /// Función: "FILTRA TIPO DE IMAGEN"
+        /// Función: "Filtra Tipo de Imagen"
         /// </summary>
         /// <param name="cri_bus">Criterio de Busqueda</param>
         /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_tip; 1=va_nom_tip)</param>
@@ -111,10 +111,9 @@ namespace CRS_NEG
                 cadena.AppendLine("SELECT va_ide_tip, va_nom_tip, va_ide_tab, va_est_ado");
                 cadena.AppendLine("  FROM ads010");
                 cadena.AppendLine(" WHERE va_ide_tab LIKE '%" + ide_tab + "%'");
-
                 switch (prm_bus){
-                    case 0: cadena.AppendLine(" AND va_ide_tip LIKE '" + cri_bus + "%' "); break;
-                    case 1: cadena.AppendLine(" AND va_nom_tip LIKE '" + cri_bus + "%' "); break;
+                    case 0: cadena.AppendLine(" AND va_ide_tip LIKE '" + cri_bus + "%'"); break;
+                    case 1: cadena.AppendLine(" AND va_nom_tip LIKE '" + cri_bus + "%'"); break;
 
                 }
                 switch (est_bus){
@@ -123,9 +122,8 @@ namespace CRS_NEG
                     case "2": est_bus = "N"; break;
                 }
 
-                if (est_bus != "T"){
-                    cadena.AppendLine(" AND va_est_ado ='" + est_bus + "'");
-                }
+                if (est_bus != "T")
+                    cadena.AppendLine(" AND va_est_ado ='" + est_bus + "'");                
 
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
@@ -136,7 +134,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA TIPO DE IMAGEN"
+        /// Función: "Consulta Tipo de Imagen"
         /// </summary>
         /// <param name="ide_tip"></param>
         /// <returns></returns>
@@ -157,9 +155,9 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA TIPO DE IMAGEN POR NOMBRE"
+        /// Función: "Consulta Tipo de Imagen p/Nombre"
         /// </summary>
-        /// <param name="nom_tip">Nombre Ruta</param>
+        /// <param name="nom_tip">Nombre</param>
         /// <returns></returns>
         public DataTable Fe_con_nom(string nom_tip, string ide_tip = "")
         {
@@ -180,11 +178,11 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "LISTA TIPOS DE IMAGEN"
+        /// Función: "Lista Tipo de Imagen p/Estado"
         /// </summary>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
-        public DataTable Fe_lis_tip(string est_ado = "T")
+        public DataTable Fe_lis_tip(string est_ado)
         {
             try
             {
@@ -203,7 +201,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Tipos de Imagen 
+        /// Informe: "Lista Tipos de Imagen"
         /// </summary>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <param name="ord_dat">Ordenar Por (C=Código; D=Descripción)</param>

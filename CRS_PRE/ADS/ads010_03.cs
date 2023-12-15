@@ -118,7 +118,7 @@ namespace CRS_PRE
                         ide_tab = "inv004";
 
                     // Edita el registro
-                    o_ads010.Fe_edi_tip(tb_ide_tip.Text, tb_nom_tip.Text.Trim(), ide_tab);
+                    o_ads010.Fe_edi_tar(tb_ide_tip.Text, tb_nom_tip.Text.Trim(), ide_tab);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_tip.Text);
                     // Despliega Mensaje

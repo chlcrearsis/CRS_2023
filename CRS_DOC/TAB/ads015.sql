@@ -11,8 +11,9 @@ CREATE TABLE ads015
 	--** Llave Primaria
 	va_ide_reg 	INT			 NOT NULL DEFAULT(0),	--** ID. Regional
 	--** Atributos
-	va_nom_reg	VARCHAR(30)	 NOT NULL DEFAULT(0),	--** Nombre
-	va_est_ado	CHAR(01)	 NOT NULL DEFAULT(0),	--** Estado (H=Habilitado; N=Deshabilitado)
+	va_nom_reg	VARCHAR(30)	 NOT NULL DEFAULT(''),	--** Nombre
+	va_nom_cor  VARCHAR(10)  NOT NULL DEFAULT(''),  --** Nombre Corto
+	va_est_ado	CHAR(01)	 NOT NULL DEFAULT(''),	--** Estado (H=Habilitado; N=Deshabilitado)
 
 CONSTRAINT pk1_ads015 PRIMARY KEY(va_ide_reg)
 )

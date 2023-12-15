@@ -17,7 +17,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registrar Aplicaciones del Sistema"
+        /// Función: "Registra Nueva Aplicaciones del Sistema"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_apl">ID. Aplicaciones</param>
@@ -38,7 +38,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Modifica Aplicaciones del Sistema"
+        /// Función: "Modifica Aplicaciones del Sistema"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_apl">ID. Aplicaciones</param>
@@ -59,7 +59,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Habilita/Deshabilita Aplicaciones del Sistema"
+        /// Función: "Habilita/Deshabilita Aplicaciones del Sistema"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_apl">ID. Aplicaciones</param>
@@ -80,7 +80,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Aplicaciones del Sistema"
+        /// Función: "Elimina Aplicaciones del Sistema"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_apl">ID. Aplicaciones</param>
@@ -100,11 +100,11 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "FILTRA APLICACIONES DEL SISTEMA"
+        /// Función: "Filtra Aplicaciones del Sistema"
         /// </summary>
         /// <param name="cri_bus">Criterio de Busqueda</param>
         /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_apl; 1=va_nom_apl; 2=va_nom_mod)</param>
-        /// <param name="est_bus">Estado (0=Todos; 1=Habilitado; 2=Deshabilitado)</param>
+        /// <param name="est_bus">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
         public DataTable Fe_bus_car(string cri_bus, int prm_bus, string est_bus)
         {           
@@ -115,23 +115,14 @@ namespace CRS_NEG
                 cadena.AppendLine("       ads002.va_nom_apl, ads002.va_est_ado");
                 cadena.AppendLine("  FROM ads002, ads001");
                 cadena.AppendLine(" WHERE ads002.va_ide_mod = ads001.va_ide_mod");
-                switch (prm_bus)
-                {
+                switch (prm_bus){
                     case 0: cadena.AppendLine(" AND ads002.va_ide_apl like '" + cri_bus + "%'"); break;
                     case 1: cadena.AppendLine(" AND ads002.va_nom_apl like '" + cri_bus + "%'"); break;
                     case 2: cadena.AppendLine(" AND ads001.va_nom_mod like '" + cri_bus + "%'"); break;                                        
                 }
-                switch (est_bus)
-                {
-                    case "0": est_bus = "T"; break;
-                    case "1": est_bus = "H"; break;
-                    case "2": est_bus = "N"; break;
-                }
-
-                if (est_bus != "T")
-                {
-                    cadena.AppendLine(" AND ads002.va_est_ado = '" + est_bus + "'");
-                }
+                
+                if (est_bus != "T")                
+                    cadena.AppendLine(" AND ads002.va_est_ado = '" + est_bus + "'");                
 
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
@@ -142,7 +133,32 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "APLICACIONES POR MODULOS DEL SISTEMA"
+        /// Función: "Consulta Aplicaciones del Sistema"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_apl">ID. Aplicaciones</param>
+        /// <returns></returns>
+        public DataTable Fe_con_apl(int ide_mod, string ide_apl)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads002.va_ide_mod, ads001.va_nom_mod, ads002.va_ide_apl,");
+                cadena.AppendLine("       ads002.va_nom_apl, ads002.va_est_ado");
+                cadena.AppendLine("  FROM ads002, ads001");
+                cadena.AppendLine(" WHERE ads002.va_ide_mod = ads001.va_ide_mod");
+                cadena.AppendLine("   AND ads002.va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("   AND ads002.va_ide_apl = '" + ide_apl + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Función: "Consulta Aplicaciones del Sistema p/Módulo"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="est_ado">Estado (H=Habilitado; N=Deshabilitado; T=Todos)</param>
@@ -168,32 +184,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "CONSULTA APLICACIONES DEL SISTEMA POR ID. MODULOS Y APLICACIONES"
-        /// </summary>
-        /// <param name="ide_mod">ID. Módulo</param>
-        /// <param name="ide_apl">ID. Aplicaciones</param>
-        /// <returns></returns>
-        public DataTable Fe_con_apl(int ide_mod, string ide_apl)
-        {
-            try
-            {
-                cadena = new StringBuilder();
-                cadena.AppendLine("SELECT ads002.va_ide_mod, ads001.va_nom_mod, ads002.va_ide_apl,");
-                cadena.AppendLine("       ads002.va_nom_apl, ads002.va_est_ado");
-                cadena.AppendLine("  FROM ads002, ads001");
-                cadena.AppendLine(" WHERE ads002.va_ide_mod = ads001.va_ide_mod");
-                cadena.AppendLine("   AND ads002.va_ide_mod = " + ide_mod + "");
-                cadena.AppendLine("   AND ads002.va_ide_apl = '" + ide_apl + "'");
-                return ob_con_ecA.fe_exe_sql(cadena.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// Funcion consultar "CONSULTA APLICACIONES DEL SISTEMA POR ID. APLICACIONES"
+        /// Función: "Consulta Aplicaciones del Sistema p/ID. Aplicación"
         /// </summary>
         /// <param name="ide_apl">ID. Aplicaciones</param>
         /// <returns></returns>
@@ -216,7 +207,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "CONSULTA APLICACIONES DEL SISTEMA POR NOMBRE"
+        /// Función: "Consulta Aplicaciones del Sistema p/Nombre"
         /// </summary>
         /// <param name="nom_apl">Nombre</param>
         /// <param name="ide_apl">ID. Aplicaciones</param>
@@ -242,7 +233,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion consultar "LISTA APLICACIÓN DEL SISTEMA"
+        /// Función: "Lista Aplicaciones del Sistema p/Estado"
         /// </summary>
         /// <param name="est_ado">Estado (0=Todos; 1=Habilitado; 2=Deshabilitado)</param>
         /// <returns></returns>
@@ -274,7 +265,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Aplicaciones del Sistema
+        /// Informe 01: "Aplicaciones del Sistema"
         /// </summary>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <param name="mod_ini">ID. Módulo Inicial</param>

@@ -17,7 +17,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registrar Numeración"
+        /// Función: "Registrar Nuevo Numeración de Talonario"
         /// </summary>
         /// <param name="ges_tio">Gestión</param>
         /// <param name="ide_doc">ID. Documento</param>
@@ -41,7 +41,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Modifica Numeración"
+        /// Función: "Modifica Numeración de Talonario"
         /// </summary>
         /// <param name="ges_tio">Gestión</param>
         /// <param name="ide_doc">ID. Documento</param>
@@ -71,7 +71,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Numeración"
+        /// Función: "Elimina Numeración de Talonario"
         /// </summary>
         /// <param name="ges_tio">Gestión</param>
         /// <param name="ide_doc">ID. Documento</param>
@@ -93,13 +93,13 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "FILTRA NUMERACIÓN"
+        /// Función: "Filtra Numeración de Talonario"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ges_tio">Gestión</param>
         /// <param name="tex_bus">Texto a Buscar</param>
         /// <param name="cri_bus">Criterio de Busqueda</param>
-        /// <param name="est_doc">Estado Documento (H=Habilitado; N=Deshabilitado; T=Todos)</param>
+        /// <param name="est_doc">Estado Documento (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
         public DataTable Fe_bus_car(int ide_mod, int ges_tio, string tex_bus, int cri_bus, string est_doc)
         {
@@ -113,10 +113,10 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }        
+        }
 
         /// <summary>
-        /// Funcion "CONSULTAR NUMERACIÓN"
+        /// Función: "Consulta Numeración de Talonario"
         /// </summary>
         /// <param name="ges_tio">Gestión</param>
         /// <param name="ide_doc">ID. Documento</param>
@@ -134,12 +134,13 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }        
+        }
 
         /// <summary>
-        /// Funcion "CONSULTA NUMERACIÓN POR ID. DOCUMENTOS"
+        /// Función: "Consulta Numeración de Talonario p/Talonario"
         /// </summary>
         /// <param name="ide_doc">ID. Documentos</param>
+        /// <param name="nro_tal">Nro. Talonario</param>
         /// <returns></returns>
         public DataTable Fe_con_tal(string ide_doc, int nro_tal)
         {
@@ -163,7 +164,7 @@ namespace CRS_NEG
 
 
         /// <summary>
-        /// Informe: Numeración de Talonarios
+        /// Informe 01: "Numeración de Talonarios"
         /// </summary>
         /// <param name="ges_tio">Gestión</param>
         /// <param name="doc_ini">ID. Documento Inicial</param>

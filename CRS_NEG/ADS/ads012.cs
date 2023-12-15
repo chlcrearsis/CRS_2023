@@ -15,13 +15,13 @@ namespace CRS_NEG
     {
         conexion_a ob_con_ecA = new conexion_a();
         StringBuilder cadena;
-       
+
         /// <summary>
-        /// Funcion "Registrar Autorización del Menu p/Usuario"
+        /// Función: "Registrar Autorización del Menú p/Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="nom_frm">Nombre Formulario</param>
-        /// <param name="ide_men">ID. Menu Formulario</param>
+        /// <param name="ide_men">ID. Menú Formulario</param>
         /// <returns></returns>
         public void Fe_nue_reg(string ide_usr, string nom_frm, string ide_men)
         {
@@ -38,7 +38,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Autorización del Menu p/Usuario"
+        /// Función: "Elimina Autorización del Menú p/Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="nom_frm">Nombre Formulario</param>
@@ -61,7 +61,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA AUTORIZACIÓN DEL MENU P/USUARIO"
+        /// Función: "Consulta Autorización del Menú p/Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <returns></returns>
@@ -82,7 +82,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA AUTORIZACIÓN DEL MENU P/USUARIO"
+        /// Función: "Consulta Autorización del Menú p/Usuario y Formulario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="nom_frm">Nombre Formulario</param>
@@ -105,7 +105,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA AUTORIZACIÓN DEL MENU P/USUARIO"
+        /// Función: "Consulta Autorización del Menú p/Usuario, Formulario y Menu"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="nom_frm">Nombre Formulario</param>

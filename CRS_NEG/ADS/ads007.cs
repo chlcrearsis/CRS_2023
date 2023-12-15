@@ -27,7 +27,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Registra Nuevo Usuario"
+        /// Función: "Registra Nuevo Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="nom_usr">Nombre de Usuario</param>
@@ -58,7 +58,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Modifica Usuario"
+        /// Función: "Modifica Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="nom_usr">Nombre de Usuario</param>
@@ -89,7 +89,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Habilita/Deshabilita Usuario"
+        /// Función: "Habilita/Deshabilita Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="est_ado">Estado (H=Habilitado; N=Deshabilitado)</param>
@@ -108,7 +108,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Usuario"
+        /// Función: "Elimina Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         public void Fe_eli_min(string ide_usr)
@@ -126,7 +126,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Verifica que el usuario SQL este definida en el SQL-Server
+        /// Función: "Verifica que el usuario SQL este definida en el SQL Server"
         /// </summary>
         /// <param name="ser_bda">Servidor/Base de Datos</param>
         /// <param name="usr_sql">ID. Usuario SQL</param>
@@ -147,8 +147,8 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta SI el Usuario Logeado tiene los permisos 
-        /// necesario para Ingresar al Sistema
+        /// Función: "Consulta SI el Usuario Logeado tiene los permisos 
+        ///           necesario para Ingresar al Sistema"
         /// </summary>
         /// <param name="ser_bda">Servidor/Base de Datos</param>
         /// <param name="ide_usr">ID. Usuario</param>
@@ -169,7 +169,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion: Ingreso al Sistema (Primera Conexion)
+        /// Función: "Ingreso al Sistema -> (Primera Conexion)"
         /// </summary>
         /// <param name="ide_uni">Identificador Unico de Conexion</param>
         /// <param name="ser_bda">Servidor/Base de Datos</param>
@@ -190,7 +190,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion: Ingreso al Sistema (Segunda Conexion)
+        /// Función: "Ingreso al Sistema -> (Segunda Conexion)"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="pas_usr">Contraseña</param>
@@ -205,10 +205,10 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }                               
-        
+        }
+
         /// <summary>
-        /// cambia tipo de usuario al usuario
+        /// Función: "Cambia el Tipo de usuario al usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="tus_nue">ID. Tipo de Usuario Nuevo</param>
@@ -227,7 +227,8 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Restablece los Permisos del Usuario a la del Tipo de Usuario asignado
+        /// Función: "Restablece los Permisos del Usuario a la del
+        ///           Tipo de Usuario asignado"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         public void Fe_rei_per(string ide_usr)
@@ -245,7 +246,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Edita contraseña de usuario
+        /// Función: "Modifica Contraseña del Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="pas_new">Nueva contraseña</param>
@@ -263,7 +264,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Inicializa Contraseña de Usuario a la por defecto
+        /// Función: "Inicializa Contraseña de Usuario a p/Defecto"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         public void Fe_ini_con(string ide_usr)
@@ -280,10 +281,10 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta Usuario por ID. Usuario
+        /// Función: "Consulta Usuario p/ID. Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
-        /// <param name="est_ado">Estado (H=Habilitado; N=Deshabilitado; T=Todos)</param>
+        /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
         public DataTable Fe_con_ide(string ide_usr, string est_ado = "T")
         {
@@ -308,10 +309,10 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta Usuario por ID. Tipo de Usuario
+        /// Función: "Consulta Usuario p/Tipo de Usuario"
         /// </summary>
         /// <param name="ide_tus"> ID. Tipo de Usuario</param>
-        /// <param name="est_ado"> Estado (H=Habilitado; N=Deshabilitado; T=Todos)</param>
+        /// <param name="est_ado"> Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
         public DataTable Fe_con_tus(int ide_tus, string est_ado = "T")
         {
@@ -336,11 +337,11 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Consulta Lista Usuario
+        /// Función: "Consulta Lista Usuario"
         /// </summary>
-        /// <param name="est_ado">Estado (H=Habilitado; N=Deshabilitado; T=Todos)</param>
+        /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
-        public DataTable Fe_lis_usr(string est_ado = "T")
+        public DataTable Fe_lis_usr(string est_ado)
         {
             try
             {
@@ -361,9 +362,8 @@ namespace CRS_NEG
             }
         }
 
-
         /// <summary>
-        /// Función: "FILTRA USUARIO"
+        /// Función: "Filtra Usuario"
         /// </summary>        
         /// <param name="cri_bus">Texto a Buscar</param>
         /// <param name="prm_bus">Criterio de Busqueda</param>
@@ -381,21 +381,13 @@ namespace CRS_NEG
                 cadena.AppendLine("       ads006.va_nom_tus, ads007.va_est_ado");
                 cadena.AppendLine("  FROM ads007, ads006");
                 cadena.AppendLine(" WHERE ads007.va_ide_tus = ads006.va_ide_tus");
-                switch (prm_bus)
-                {
-                    case 0: cadena.AppendLine(" AND ads007.va_ide_usr like '" + cri_bus + "%'"); break;
-                    case 1: cadena.AppendLine(" AND ads007.va_nom_usr like '" + cri_bus + "%'"); break;
-                    case 2: cadena.AppendLine(" AND ads007.va_car_usr like '" + cri_bus + "%'"); break;
-                }
-                switch (est_bus)
-                {
-                    case "0": est_bus = "T"; break;
-                    case "1": est_bus = "H"; break;
-                    case "2": est_bus = "N"; break;
-                }
                 if (ide_tus != 0)
                     cadena.AppendLine(" AND ads007.va_ide_tus = " + ide_tus + "");
-
+                switch (prm_bus){
+                    case 0: cadena.AppendLine(" AND ads007.va_ide_usr LIKE '" + cri_bus + "%'"); break;
+                    case 1: cadena.AppendLine(" AND ads007.va_nom_usr LIKE '" + cri_bus + "%'"); break;
+                    case 2: cadena.AppendLine(" AND ads007.va_car_usr LIKE '" + cri_bus + "%'"); break;
+                }                                
                 if (est_bus != "T")                
                     cadena.AppendLine(" AND ads007.va_est_ado = '" + est_bus + "'");                                               
 
@@ -409,7 +401,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Lista de Inicios de Sesion creados en el SQL-Server
+        /// Función: "Inicios de Sesión Creados en el SQL-Server"
         /// </summary>
         /// <returns></returns>
         public DataTable Fe_usr_sql()
@@ -429,7 +421,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Lista de Usuario
+        /// Informe 01: "Lista de Usuario"
         /// </summary>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <param name="ord_dat">Ordenar Por (C=Código; N=Nombre)</param>
@@ -449,7 +441,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Lista de Usuario P/Tipo de Usuario
+        /// Informe 02: "Lista de Usuario p/Tipo de Usuario"
         /// </summary>
         /// <param name="tus_ini">Tipo de Usuario Inicial</param>
         /// <param name="tus_fin">Tipo de Usuario Final</param>
@@ -471,7 +463,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Autorizaciones del Usuario
+        /// Informe 03: "Autorizaciones del Usuario"
         /// </summary>
         /// <param name="ide_usr">ID. Usuario</param>
         /// <param name="mod_ini">ID. Módulo Inicial</param>
@@ -492,7 +484,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Autorizaciones p/Rango de Usuario
+        /// Informe 04: "Autorizaciones p/Rango de Usuario"
         /// </summary>
         /// <param name="usr_ini">ID. Usuario Inicial</param>
         /// <param name="usr_fin">ID. Usuario Final</param>
@@ -514,7 +506,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Aplicaciones Autorizadas p/Rango de Usuario
+        /// Informe 05: "Aplicaciones Autorizadas p/Rango de Usuario"
         /// </summary>
         /// <param name="usr_ini">ID. Usuario Inicial</param>
         /// <param name="usr_fin">ID. Usuario Final</param>
@@ -536,7 +528,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Talonarios Autorizadas p/Rango de Usuario
+        /// Informe 06: "Talonarios Autorizadas p/Rango de Usuario"
         /// </summary>
         /// <param name="usr_ini">ID. Usuario Inicial</param>
         /// <param name="usr_fin">ID. Usuario Final</param>

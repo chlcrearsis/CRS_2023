@@ -5,29 +5,29 @@ using CRS_DAT;
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads001                                              ##
-    //##      Nombre: Módulos                                             ##
-    //## Descripcion: Modulos del Sistema                                 ##         
-    //##       Autor: EJR - (20-04-2023)                                  ##
+    //##       Tabla: ads015                                              ##
+    //##      Nombre: Regional                                            ##
+    //## Descripcion: Regional/Unidad de Negocio                          ##         
+    //##       Autor: EJR - (15-12-2023)                                  ##
     //######################################################################
-    public class ads001
+    public class ads015
     {        
         conexion_a ob_con_ecA = new conexion_a();
-        StringBuilder cadena;                
+        StringBuilder cadena;
 
         /// <summary>
-        /// Función: "Registra Nuevo Modulos del Sistema"
+        /// Función: "Registrar Regional"
         /// </summary>
-        /// <param name="ide_mod">ID. Módulo</param>
-        /// <param name="nom_mod">Nombre</param>
-        /// <param name="abr_mod">Abrebiacion</param>
+        /// <param name="ide_reg">ID. Regional</param>
+        /// <param name="nom_reg">Nombre</param>
+        /// <param name="nom_cor">Nombre Corto</param>
         /// <returns></returns>
-        public void Fe_nue_reg(int ide_mod, string nom_mod, string abr_mod)
+        public void Fe_nue_reg(int ide_reg, string nom_reg, string nom_cor)
         {            
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("INSERT INTO ads001 VALUES (" + ide_mod + ", '" + nom_mod + "', '" + abr_mod + "', 'H')");
+                cadena.AppendLine("INSERT INTO ads015 VALUES (" + ide_reg + ", '" + nom_reg + "', '" + nom_cor + "', 'H')");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -37,18 +37,18 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Modifica Modulos del Sistema"
+        /// Función: "Modifica Regional"
         /// </summary>
-        /// <param name="ide_mod">ID. Módulo</param>
-        /// <param name="nom_mod">Nombre</param>
-        /// <param name="abr_mod">Abrebiacion</param>
+        /// <param name="ide_reg">ID. Regional</param>
+        /// <param name="nom_reg">Nombre</param>
+        /// <param name="nom_cor">Nombre Corto</param>
         /// <returns></returns>
-        public void Fe_edi_tar(int ide_mod, string nom_mod, string abr_mod)
+        public void Fe_edi_tar(int ide_reg, string nom_reg, string nom_cor)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("UPDATE ads001 SET va_nom_mod = '" + nom_mod + "', va_abr_mod = '" + abr_mod + "' WHERE va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("UPDATE ads015 SET va_nom_reg = '" + nom_reg + "', va_nom_cor = '" + nom_cor + "' WHERE va_ide_reg = " + ide_reg + "");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -58,17 +58,17 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Habilita/Deshabilita Modulos del Sistema"
+        /// Función: "Habilita/Deshabilita Regional"
         /// </summary>
-        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_reg">ID. Regional</param>
         /// <param name="est_ado">Estado (H=Habilitado; N=Deshabilitado)</param>
         /// <remarks></remarks>
-        public void Fe_hab_des(int ide_mod, string est_ado)
+        public void Fe_hab_des(int ide_reg, string est_ado)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("UPDATE ads001 SET va_est_ado = '" + est_ado + "' WHERE va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("UPDATE ads015 SET va_est_ado = '" + est_ado + "' WHERE va_ide_reg = " + ide_reg + "");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -78,16 +78,16 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Elimina Modulos del Sistema"
+        /// Función: "Elimina Regional"
         /// </summary>
-        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_reg">ID. Regional</param>
         /// <returns></returns>
-        public void Fe_eli_min(int ide_mod)
+        public void Fe_eli_min(int ide_reg)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("DELETE ads001 WHERE va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("DELETE ads015 WHERE va_ide_reg = " + ide_reg + "");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -97,24 +97,24 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Filtra Módulo del Sistema"
+        /// Función: "Filtra Regional"
         /// </summary>
         /// <param name="cri_bus">Criterio de Busqueda</param>
-        /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_mod; 1=va_nom_mod; 2=va_abr_mod)</param>
-        /// <param name="est_bus">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
+        /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_reg; 1=va_nom_reg; 2=va_nom_cor)</param>
+        /// <param name="est_bus">Estado (0=Todos; 1=Habilitado; 2=Deshabilitado)</param>
         /// <returns></returns>
         public DataTable Fe_bus_car(string cri_bus, int prm_bus, string est_bus)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_ide_mod, va_nom_mod, va_abr_mod, va_est_ado");
-                cadena.AppendLine("  FROM ads001");
+                cadena.AppendLine("SELECT va_ide_reg, va_nom_reg, va_nom_cor, va_est_ado");
+                cadena.AppendLine("  FROM ads015");
                 switch (prm_bus){
-                    case 0: cadena.AppendLine(" WHERE va_ide_mod like '" + cri_bus + "%'"); break;
-                    case 1: cadena.AppendLine(" WHERE va_nom_mod like '" + cri_bus + "%'"); break;
-                    case 2: cadena.AppendLine(" WHERE va_abr_mod like '" + cri_bus + "%'"); break;
-                }               
+                    case 0: cadena.AppendLine(" WHERE va_ide_reg like '" + cri_bus + "%'"); break;
+                    case 1: cadena.AppendLine(" WHERE va_nom_reg like '" + cri_bus + "%'"); break;
+                    case 2: cadena.AppendLine(" WHERE va_nom_cor like '" + cri_bus + "%'"); break;
+                }                
 
                 if (est_bus != "T")                
                     cadena.AppendLine(" AND va_est_ado = '" + est_bus + "'");                
@@ -128,18 +128,18 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Consultar Módulo del Sistema"
+        /// Función: "Consulta Regional"
         /// </summary>
-        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_reg">ID. Módulo</param>
         /// <returns></returns>
-        public DataTable Fe_con_mod(int ide_mod)
+        public DataTable Fe_con_mod(int ide_reg)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_ide_mod, va_nom_mod, va_abr_mod, va_est_ado");
-                cadena.AppendLine("  FROM ads001");
-                cadena.AppendLine(" WHERE va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("SELECT va_ide_reg, va_nom_reg, va_nom_cor, va_est_ado");
+                cadena.AppendLine("  FROM ads015");
+                cadena.AppendLine(" WHERE va_ide_reg = " + ide_reg + "");
 
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
@@ -150,21 +150,21 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Consultar Módulo del Sistema p/Nombre"
+        /// Función: "Consulta Regional p/Nombre"
         /// </summary>
-        /// <param name="nom_mod">Nombre</param>
-        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="nom_reg">Nombre</param>
+        /// <param name="ide_reg">ID. Módulo</param>
         /// <returns></returns>
-        public DataTable Fe_con_nom(string nom_mod, int ide_mod = 0)
+        public DataTable Fe_con_nom(string nom_reg, int ide_reg = 0)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_ide_mod, va_nom_mod, va_abr_mod, va_est_ado");
-                cadena.AppendLine("  FROM ads001");
-                cadena.AppendLine(" WHERE va_nom_mod = '" + nom_mod + "'");
-                if (ide_mod > 0)
-                    cadena.AppendLine(" AND va_ide_mod <> " + ide_mod + "");
+                cadena.AppendLine("SELECT va_ide_reg, va_nom_reg, va_nom_cor, va_est_ado");
+                cadena.AppendLine("  FROM ads015");
+                cadena.AppendLine(" WHERE va_nom_reg = '" + nom_reg + "'");
+                if (ide_reg > 0)
+                    cadena.AppendLine(" AND va_ide_reg <> " + ide_reg + "");
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -174,21 +174,21 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Consultar Módulo del Sistema p/Abreviación"
+        /// Función: "Consulta Regional p/Abreviación"
         /// </summary>
-        /// <param name="abr_mod">Abreviación</param>
-        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="nom_cor">Abreviación</param>
+        /// <param name="ide_reg">ID. Módulo</param>
         /// <returns></returns>
-        public DataTable Fe_con_abr(string abr_mod, int ide_mod = 0)
+        public DataTable Fe_con_abr(string nom_cor, int ide_reg = 0)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_ide_mod, va_nom_mod, va_abr_mod, va_est_ado");
-                cadena.AppendLine("  FROM ads001");
-                cadena.AppendLine(" WHERE va_abr_mod = '" + abr_mod + "'");
-                if (ide_mod > 0)
-                    cadena.AppendLine(" AND va_ide_mod <> " + ide_mod + "");
+                cadena.AppendLine("SELECT va_ide_reg, va_nom_reg, va_nom_cor, va_est_ado");
+                cadena.AppendLine("  FROM ads015");
+                cadena.AppendLine(" WHERE va_nom_cor = '" + nom_cor + "'");
+                if (ide_reg > 0)
+                    cadena.AppendLine(" AND va_ide_reg <> " + ide_reg + "");
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -198,17 +198,17 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Lista Módulos del Sistema p/Estado"
+        /// Función: "Lista Regional p/Estado"
         /// </summary>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <returns></returns>
-        public DataTable Fe_lis_mod(string est_ado = "T")
+        public DataTable Fe_lis_reg(string est_ado = "T")
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("SELECT va_ide_mod, va_nom_mod, va_abr_mod, va_est_ado");
-                cadena.AppendLine("  FROM ads001");                
+                cadena.AppendLine("SELECT va_ide_reg, va_nom_reg, va_nom_cor, va_est_ado");
+                cadena.AppendLine("  FROM ads015");                
                 if (est_ado != "T")
                     cadena.AppendLine(" WHERE va_est_ado = '" + est_ado + "'");
 
@@ -221,7 +221,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Obtiene el Último ID. Módulo"
+        /// Función: "Obtiene Último ID. Regional"
         /// </summary>
         /// <returns></returns>
         public DataTable Fe_obt_ide()
@@ -229,9 +229,9 @@ namespace CRS_NEG
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("DECLARE @va_ide_mod INT ");
-                cadena.AppendLine(" SELECT @va_ide_mod = ISNULL(MAX(va_ide_mod), 0) FROM ads001");
-                cadena.AppendLine(" SELECT @va_ide_mod + 1 AS va_ide_mod");
+                cadena.AppendLine("DECLARE @va_ide_reg INT ");
+                cadena.AppendLine(" SELECT @va_ide_reg = ISNULL(MAX(va_ide_reg), 0) FROM ads015");
+                cadena.AppendLine(" SELECT @va_ide_reg + 1 AS va_ide_reg");
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -241,7 +241,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe 01: "Módulo del Sistema"
+        /// Informe 01: "Lista Regional"
         /// </summary>
         /// <param name="est_ado">Estado (T=Todos; H=Habilitado; N=Deshabilitado)</param>
         /// <param name="ord_dat">Ordenar Por (C=Código; A=Abreviación; N=Nombre)</param>
@@ -251,7 +251,7 @@ namespace CRS_NEG
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("EXECUTE ads001_R01 '" + est_ado + "', '" + ord_dat + "'");
+                cadena.AppendLine("EXECUTE ads015_R01 '" + est_ado + "', '" + ord_dat + "'");
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)

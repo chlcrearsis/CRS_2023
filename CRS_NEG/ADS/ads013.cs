@@ -17,7 +17,7 @@ namespace CRS_NEG
         StringBuilder cadena;
 
         /// <summary>
-        /// Funcion "Registra Globales por Defectos"
+        /// Función: "Registra Globales por Defectos"
         /// </summary>
         public void Fe_reg_glo()
         {
@@ -34,7 +34,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Registra Global"
+        /// Función: "Registra Nueva Global"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_glo">ID. Global</param>
@@ -57,9 +57,8 @@ namespace CRS_NEG
             }
         }
 
-
         /// <summary>
-        /// Funcion "Modifica Global"
+        /// Función: "Modifica Global"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_glo">ID. Global</param>
@@ -89,7 +88,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina Global"
+        /// Función: "Elimina Global"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_glo">ID. Global</param>
@@ -109,7 +108,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "FILTRA GLOBALES DEL SISTEMA"
+        /// Función: "Filtra Globales"
         /// </summary>
         /// <param name="cri_bus">Criterio de Busqueda</param>
         /// <param name="prm_bus">Parametros de Busqueda (0=va_ide_glo; 1=va_nom_glo)</param>
@@ -125,19 +124,16 @@ namespace CRS_NEG
                 cadena.AppendLine("       ads013.va_glo_dec, ads013.va_glo_car");
                 cadena.AppendLine("  FROM ads013, ads001");
                 cadena.AppendLine(" WHERE ads013.va_ide_mod = ads001.va_ide_mod");
-                cadena.AppendLine("   AND ads013.va_ide_glo < 100");
-                
+                cadena.AppendLine("   AND ads013.va_ide_glo < 100");                
                 if (ide_mod != 0)
                     cadena.AppendLine(" AND ads013.va_ide_mod = " + ide_mod);
 
-                switch (prm_bus)
-                {
+                switch (prm_bus){
                     case 0: cadena.AppendLine(" AND ads013.va_ide_glo like '" + cri_bus + "%'"); break;
                     case 1: cadena.AppendLine(" AND ads013.va_nom_glo like '" + cri_bus + "%'"); break;
-                }
-                
+                }                
 
-                        return ob_con_ecA.fe_exe_sql(cadena.ToString());
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
             {
@@ -146,7 +142,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA LA GLOBAL"
+        /// Función: "Consulta Global"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_glo">ID. Global</param>
@@ -172,7 +168,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "CONSULTA LA GLOBAL"
+        /// Función: "Consulta Global p/Nombre"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="nom_glo">Nombre Global</param>
@@ -202,7 +198,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "OBTIENE GLOBAL"
+        /// Función: "Obtiene Global"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <param name="ide_glo">ID. Global</param>
@@ -225,10 +221,10 @@ namespace CRS_NEG
             {
                 throw ex;
             }
-        }        
+        }
 
         /// <summary>
-        /// Funcion "Obtiene el Último ID. Global"
+        /// Función: "Obtiene Último ID. Global"
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         /// <returns></returns>
@@ -249,7 +245,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Informe: Definición de Globales
+        /// Informe 01: "Definición de Globales"
         /// </summary>        
         /// <param name="mod_ini">ID. Módulo Inicial</param>
         /// <param name="mod_fin">ID. Módulo Final</param>
