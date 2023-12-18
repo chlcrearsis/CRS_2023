@@ -132,7 +132,7 @@ namespace CRS_NEG
         /// </summary>
         /// <param name="ide_reg">ID. Módulo</param>
         /// <returns></returns>
-        public DataTable Fe_con_mod(int ide_reg)
+        public DataTable Fe_con_reg(int ide_reg)
         {
             try
             {
@@ -174,12 +174,12 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Consulta Regional p/Abreviación"
+        /// Función: "Consulta Regional p/Nombre Corto"
         /// </summary>
-        /// <param name="nom_cor">Abreviación</param>
+        /// <param name="nom_cor">Nombre Corto</param>
         /// <param name="ide_reg">ID. Módulo</param>
         /// <returns></returns>
-        public DataTable Fe_con_abr(string nom_cor, int ide_reg = 0)
+        public DataTable Fe_con_cor(string nom_cor, int ide_reg = 0)
         {
             try
             {

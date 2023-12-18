@@ -18,3 +18,6 @@ CREATE TABLE ads015
 CONSTRAINT pk1_ads015 PRIMARY KEY(va_ide_reg)
 )
 GO
+
+--** Registro por Defecto
+INSERT INTO ads015 VALUES (1, 'Central', 'Central', 'V')

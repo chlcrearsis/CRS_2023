@@ -185,6 +185,13 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, o_frm);
         }
 
+        // Evento Click: Regional
+        private void mn_def_reg_Click(object sender, EventArgs e)
+        {
+            o_frm = new ads015_01();
+            cl_glo_frm.abrir(this, o_frm);
+        }
+
         // Evento Click: Sucursal
         private void mn_suc_urs_Click(object sender, EventArgs e)
         {
@@ -426,6 +433,8 @@ namespace CRS_PRE
                 if (o_frm.DialogResult == DialogResult.OK)
                     cl_glo_bal.fg_per_mnu(o_frm.tb_ide_usr.Text, frm_pad);
             }
-        }        
+        }
+
+        
     }
 }
