@@ -1,179 +1,171 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System.Runtime.InteropServices;
 using CRS_NEG;
 
 namespace CRS_PRE
 {
+    /**********************************************************************/
+    /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
+    /*  Aplicación: ads022 - Tasa de Cambio                               */
+    /*      Opción: Registra Tasa de Cambio p/Rango de Fecha              */
+    /*       Autor: JEJR - Crearsis             Fecha: 02-01-2024         */
+    /**********************************************************************/
     public partial class ads022_02 : Form
-    {
-
-
-     #region VARIABLES
-
+    {     
         public dynamic frm_pad;
         public int frm_tip;
-        public DataTable frm_dat;
-
-        string err_msg = "";
-        DataTable tab_ads022;
-        int vv_ban_tcm = 0;
-
-    #endregion
-
-        
-    #region INSTANCIAS
+        // Instancias
         ads022 o_ads022 = new ads022();
-        CRS_NEG.General o_glo_bal = new CRS_NEG.General();
-    #endregion
+        DataTable Tabla = new DataTable();
+        General general = new General();        
 
-      
-
-    #region METODOS
-        /// <summary>
-        /// Funcion que verifica los datos antes de grabar
-        /// </summary>
-        DateTime Dtemp;
-        public string fu_ver_dat()
-        {
-            if (DateTime.TryParse(tb_fec_tcm.Text, out Dtemp) == false)
-            {
-                tb_fec_tcm.Focus();
-                return "La fecha es invalida";
-            }
-
-            decimal temp;
-            if (decimal.TryParse(tb_val_tcm.Text, out temp) == false)
-            {
-                tb_val_tcm.Focus();
-                return "Dato no valido, el T.C. debe ser numerico";
-            }
-
-            if (Convert.ToDecimal(tb_val_tcm.Text) <= 0 || Convert.ToDecimal(tb_val_tcm.Text) > 10)
-            {
-                return "Dato no valido, el T.C. debe ser menor que 10";
-            }
-
-            tab_ads022 = o_ads022.Fe_con_tic(tb_fec_tcm.Text);
-            if (tab_ads022.Rows.Count != 0)  //--** si esa fecha ya tiene valor
-            {               
-                vv_ban_tcm = 1;
-            }
-            else  //--** si esa fecha aun no tiene valor
-            {                
-                vv_ban_tcm = 0;
-            }
-
-
-
-            return null;
-        }
-
-        #endregion
-
-        #region EVENTOS
         public ads022_02()
         {
             InitializeComponent();
         }
-
-
+     
         private void frm_Load(object sender, EventArgs e)
         {
-            tb_fec_tcm.Value = o_glo_bal.Fe_fec_act();
-
-            if (frm_dat.Rows.Count != 0)
-            {
-                tb_fec_tcm.Value = DateTime.Parse(frm_dat.Rows[0]["va_fec_tcm"].ToString());
-                tb_val_tcm.Text = frm_dat.Rows[0]["va_val_tcm"].ToString();
-            }
-
-            tb_val_tcm.Focus();
-
-           
-
+            // Inicializa Campos
+            Fi_lim_pia();                      
         }
 
+        // Limpia e Iniciliza los campos
+        private void Fi_lim_pia()
+        {
+            tb_fec_ini.Text = string.Empty;
+            tb_fec_fin.Text = string.Empty;
+            tb_tas_cam.Text = string.Empty;
+            Fi_ini_pan();
+        }
+
+        // Inicializa los campos en pantalla
+        private void Fi_ini_pan()
+        {
+            // Obtiene la fecha inicial y final
+            DateTime fec_ini = DateTime.Parse(general.Fe_fch_act());
+            DateTime fec_fin = fec_ini.AddMonths(1);
+
+            // Establece datos por defectos 
+            tb_fec_ini.Text = fec_ini.ToString();
+            tb_fec_fin.Text = fec_fin.ToString();
+            tb_tas_cam.Text = "0.0000";
+            tb_fec_ini.Focus();            
+        }
+
+        // Valida los datos proporcionados
+        protected string Fi_val_dat()
+        {
+            // Valida que el campo Fecha Inicial NO este vacio
+            if (tb_fec_ini.Text.Trim() == "  /  /" || 
+                tb_fec_ini.Text.Trim() == "00/00/0000"){
+                tb_fec_ini.Focus();
+                return "DEBE proporcionar la Fecha Inicial";
+            }
+
+            // Valida que el campo Fecha Final NO este vacio
+            if (tb_fec_fin.Text.Trim() == "  /  /" ||
+                tb_fec_fin.Text.Trim() == "00/00/0000"){
+                tb_fec_fin.Focus();
+                return "DEBE proporcionar la Fecha Final";
+            }
+
+            // Valida que la Fecha Inicial sea una fecha válida
+            if (!cl_glo_bal.IsDateTime(tb_fec_ini.Text.Trim())){
+                tb_fec_ini.Focus();
+                return "La Fecha Inicial proporcionada NO es valido";
+            }
+
+            // Valida que la Fecha Final sea una fecha válida
+            if (!cl_glo_bal.IsDateTime(tb_fec_fin.Text.Trim())){
+                tb_fec_fin.Focus();
+                return "La Fecha Final proporcionada NO es valido";
+            }
+
+            // Valida que la Fecha Inicial sea MAYOR a la Fecha Final
+            if (DateTime.Parse(tb_fec_ini.Text) > DateTime.Parse(tb_fec_fin.Text)){
+                tb_fec_fin.Focus();
+                return "La Fecha Final DEBE ser MAYOR a la Fecha Inicial";
+            }
+
+            // Valida que el campo T.C NO este vacio
+            if (tb_tas_cam.Text.Trim() == ""){
+                tb_tas_cam.Focus();
+                return "DEBE proporcionar el valor de la T.C";
+            }
+
+            // Valida que el campo T.C sea un valor valido
+            if (!cl_glo_bal.IsDecimal(tb_tas_cam.Text.Trim())){
+                tb_tas_cam.Focus();
+                return "DEBE proporcionar un valor de la T.C válido";
+            }
+
+            // Valida que el campo Monto sea un Monto MAYOR a cero
+            if (double.Parse(tb_tas_cam.Text.Trim()) <= 0.00){
+                tb_tas_cam.Focus();
+                return "El Monto de la T.C DEBE ser MAYOR a cero";
+            }            
+
+            // Quita caracteres especiales de SQL-Trans
+            tb_fec_ini.Text = tb_fec_ini.Text.Replace("'", "");
+            tb_fec_fin.Text = tb_fec_fin.Text.Replace("'", "");
+            tb_tas_cam.Text = tb_tas_cam.Text.Replace("'", "");            
+
+            return "OK";
+        }
+
+        // Evento Enter: Tasa de Cambio
+        private void tb_tas_cam_Enter(object sender, EventArgs e)
+        {
+            if (tb_tas_cam.Text == "0.0000")
+                tb_tas_cam.Clear();
+        }
+
+        // Evento Validated: Tasa de Cambio
+        private void tb_tas_cam_Validated(object sender, EventArgs e)
+        {
+            if (tb_tas_cam.Text.Trim() == "")
+                tb_tas_cam.Text = "0.0000";
+        }
+
+        // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
             try
             {
-                err_msg = fu_ver_dat();
-                if (err_msg != null)
+                DialogResult msg_res;
+
+                // funcion para validar datos
+                string msg_val = Fi_val_dat();
+                if (msg_val != "OK")
                 {
-                    MessageBox.Show(err_msg, "Error Nuevo T.C. Bs./UsD", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                     return;
                 }
-
-                DialogResult res_msg;
-
-                if (vv_ban_tcm == 0)
+                msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
+                if (msg_res == DialogResult.OK)
                 {
-                    res_msg = MessageBox.Show("¿Estas seguro de grabar los datos ?", "Nuevo T.C. Bs./UsD", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    // Graba registro
+                    o_ads022.Fe_nue_reg(tb_fec_ini.Text, tb_fec_fin.Text, double.Parse(tb_tas_cam.Text));
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm();
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Inicializa Campos
+                    Fi_lim_pia();
                 }
-                else
-                {
-                    res_msg = MessageBox.Show("¿La fecha ya tiene tipo de cambio asignada, esta seguro de continuar ?", "Nuevo T.C. Bs./UsD", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                }
-
-
-                if (res_msg == DialogResult.Cancel)
-                {
-                    return;
-                }
-
-                //grabar datos
-                o_ads022.Fe_eli_tic(tb_fec_tcm.Text);
-
-                if (tb_val_tcm.Text != null)
-                {
-                    o_ads022.Fe_reg_tic(Convert.ToDateTime(tb_fec_tcm.Text), tb_val_tcm.Text);
-                }
-                DateTime aux;
-                aux = Convert.ToDateTime(tb_fec_tcm.Text);
-
-                frm_pad.fu_bus_car(aux.Month.ToString(), Convert.ToInt32(aux.Year));
-
-                MessageBox.Show("Operación completada exitosamente", "Nuevo T.C. Bs./UsD", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //tb_fec_tcm.Clear();
-                tb_val_tcm.Clear();
-                Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: " + ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
-            Close();
-        }
-
-        private void tb_val_tcm_TextChanged(object sender, EventArgs e)
-        {
-            if (tb_val_tcm.Text.Contains(","))
-            {
-                tb_val_tcm.Text = tb_val_tcm.Text.Replace(",", ".");
-
-                //System.Media.SystemSounds.Beep.Play();
-
-                //posiciona el cursor al final del texto
-                tb_val_tcm.Select(tb_val_tcm.Text.Length, 0);
-            }
-        }
-    #endregion
-
-
-
+            cl_glo_frm.Cerrar(this);
+        }               
     }
 }

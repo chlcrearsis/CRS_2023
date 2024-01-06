@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.m_frm_hja = new System.Windows.Forms.MenuStrip();
             this.mn_nue_reg = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_nue_per = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_nue_ges = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_sig_ges = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_edi_tar = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_mod_ifi = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_eli_min = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,10 +86,34 @@
             // 
             // mn_nue_reg
             // 
+            this.mn_nue_reg.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_nue_per,
+            this.mn_nue_ges,
+            this.mn_sig_ges});
             this.mn_nue_reg.Name = "mn_nue_reg";
             this.mn_nue_reg.Size = new System.Drawing.Size(43, 20);
             this.mn_nue_reg.Text = "&Crea";
-            this.mn_nue_reg.Click += new System.EventHandler(this.mn_nue_reg_Click);
+            // 
+            // mn_nue_per
+            // 
+            this.mn_nue_per.Name = "mn_nue_per";
+            this.mn_nue_per.Size = new System.Drawing.Size(209, 22);
+            this.mn_nue_per.Text = "Nuevo &Periodo";
+            this.mn_nue_per.Click += new System.EventHandler(this.mn_nue_per_Click);
+            // 
+            // mn_nue_ges
+            // 
+            this.mn_nue_ges.Name = "mn_nue_ges";
+            this.mn_nue_ges.Size = new System.Drawing.Size(209, 22);
+            this.mn_nue_ges.Text = "Nueva &Gestion";
+            this.mn_nue_ges.Click += new System.EventHandler(this.mn_nue_ges_Click);
+            // 
+            // mn_sig_ges
+            // 
+            this.mn_sig_ges.Name = "mn_sig_ges";
+            this.mn_sig_ges.Size = new System.Drawing.Size(209, 22);
+            this.mn_sig_ges.Text = "Prepara &Siguiente Gestion";
+            this.mn_sig_ges.Click += new System.EventHandler(this.mn_sig_ges_Click);
             // 
             // mn_edi_tar
             // 
@@ -130,14 +157,16 @@
             // mn_lis_ges
             // 
             this.mn_lis_ges.Name = "mn_lis_ges";
-            this.mn_lis_ges.Size = new System.Drawing.Size(202, 22);
+            this.mn_lis_ges.ShortcutKeyDisplayString = "(ads016_01)";
+            this.mn_lis_ges.Size = new System.Drawing.Size(270, 22);
             this.mn_lis_ges.Text = "&Lista Gestión Periodo";
             this.mn_lis_ges.Click += new System.EventHandler(this.mn_lis_ges_Click);
             // 
             // mn_lis_tod
             // 
             this.mn_lis_tod.Name = "mn_lis_tod";
-            this.mn_lis_tod.Size = new System.Drawing.Size(202, 22);
+            this.mn_lis_tod.ShortcutKeyDisplayString = "(ads016_02)";
+            this.mn_lis_tod.Size = new System.Drawing.Size(270, 22);
             this.mn_lis_tod.Text = "Lista &Todas las Gestiones";
             this.mn_lis_tod.Click += new System.EventHandler(this.mn_lis_tod_Click);
             // 
@@ -172,6 +201,7 @@
             this.tb_ges_tio.Name = "tb_ges_tio";
             this.tb_ges_tio.Size = new System.Drawing.Size(38, 20);
             this.tb_ges_tio.TabIndex = 33;
+            this.tb_ges_tio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_ges_tio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ges_tio_KeyPress);
             this.tb_ges_tio.Validated += new System.EventHandler(this.tb_ges_tio_Validated);
             // 
@@ -246,6 +276,7 @@
             this.tb_ges_per.Name = "tb_ges_per";
             this.tb_ges_per.Size = new System.Drawing.Size(24, 20);
             this.tb_ges_per.TabIndex = 10;
+            this.tb_ges_per.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_ges_per.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fi_pre_tec_KeyDown);
             this.tb_ges_per.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ges_per_KeyPress);
             this.tb_ges_per.Validated += new System.EventHandler(this.tb_ges_per_Validated);
@@ -267,15 +298,15 @@
             this.dg_res_ult.AllowUserToResizeRows = false;
             this.dg_res_ult.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_res_ult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dg_res_ult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_res_ult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.va_ges_tio,
@@ -283,14 +314,14 @@
             this.va_nom_per,
             this.va_fec_ini,
             this.va_fec_fin});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle4;
             this.dg_res_ult.Location = new System.Drawing.Point(4, 11);
             this.dg_res_ult.MultiSelect = false;
             this.dg_res_ult.Name = "dg_res_ult";
@@ -440,5 +471,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn va_fec_ini;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_fec_fin;
         private System.Windows.Forms.ToolStripMenuItem mn_lis_tod;
+        private System.Windows.Forms.ToolStripMenuItem mn_nue_per;
+        private System.Windows.Forms.ToolStripMenuItem mn_nue_ges;
+        private System.Windows.Forms.ToolStripMenuItem mn_sig_ges;
     }
 }

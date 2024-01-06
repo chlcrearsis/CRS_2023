@@ -62,12 +62,12 @@ namespace CRS_PRE
         protected string Fi_val_dat()
         {
             // Valida que se haya proporcionado una Gestión válida
-            int.TryParse(tb_nue_ges.Text.Trim(), out int ges_tio);
-            if (ges_tio == 0)
+            if (!cl_glo_bal.IsNumeric(tb_nue_ges.Text))
             {
                 tb_nue_ges.Focus();
                 return "Proporcione la Gestión";
             }
+            int ges_tio = int.Parse(tb_nue_ges.Text);
             if (ges_tio < 1900 && ges_tio > 2900)
             {
                 tb_nue_ges.Focus();
@@ -92,7 +92,7 @@ namespace CRS_PRE
             // Verifica si la Gestión YA eta creada en el sistema
             Tabla = new DataTable();
             Tabla = o_ads016.Fe_con_ges(int.Parse(tb_nue_ges.Text));
-            if (Tabla.Rows.Count == 0)
+            if (Tabla.Rows.Count > 0)
             {
                 tb_nue_ges.Focus();
                 return "La Gestión YA se encuentra creada";
@@ -119,13 +119,13 @@ namespace CRS_PRE
                 MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                 return;
             }
-            msg_res = MessageBox.Show("¿Está seguro de preparar la Siguiente Gestión?", Name, MessageBoxButtons.OKCancel);
+            msg_res = MessageBox.Show("¿Está seguro de preparar la Siguiente Gestión " + tb_nue_ges.Text + "?", Name, MessageBoxButtons.OKCancel);
             if (msg_res == DialogResult.OK)
             {
-                //Registrar usuario
-                o_ads016.Fe_sig_ges(int.Parse(tb_nue_ges.Text));
+                // Registrar usuario
+                o_ads016.Fe_sig_ges(int.Parse(tb_ult_ges.Text), int.Parse(tb_nue_ges.Text));
                 MessageBox.Show("Los datos se grabaron correctamente", Name, MessageBoxButtons.OK);
-                frm_pad.Fi_bus_car();
+                frm_pad.fi_bus_car();
             }
         }
 

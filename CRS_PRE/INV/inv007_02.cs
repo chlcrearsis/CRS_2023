@@ -996,7 +996,7 @@ namespace CRS_PRE.INV
         private void tb_fec_cmp_ValueChanged(object sender, EventArgs e)
         {
             //**  Obtiene Tipo de Cambio segun fecha
-            tabla = o_ads022.Fe_con_tic(tb_fec_cmp.Text);
+            tabla = o_ads022.Fe_con_tas(tb_fec_cmp.Text);
             if (tabla.Rows.Count != 0)
                 tb_tip_cam.Text = tabla.Rows[0]["va_val_bus"].ToString();
             else

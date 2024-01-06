@@ -21,8 +21,6 @@ namespace CRS_PRE
         // Instancia
         ads016 o_ads016 = new ads016();
         DataTable Tabla = new DataTable();
-        // Variables
-        string est_bus = "H";
 
         public ads016_01()
         {
@@ -46,9 +44,8 @@ namespace CRS_PRE
         /// <summary>
         /// Funcion interna buscar
         /// </summary>
-        /// <param name="ar_tex_bus">Texto a buscar</param>
-        /// <param name="ar_prm_bus">Parametro a buscar</param>
-        /// <param name="ar_est_bus">Estado a buscar</param>
+        /// <param name="tex_bus">Texto a buscar</param>
+        /// <param name="prm_bus">Parametro a buscar</param>
         public void fi_bus_car(string tex_bus = "", int prm_bus = 0)
         {
             // Limpia Grilla
@@ -269,7 +266,7 @@ namespace CRS_PRE
         private void dg_res_ult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
                 cl_glo_frm.Cerrar(this);
             }
         }
@@ -317,10 +314,22 @@ namespace CRS_PRE
                 }
             }
         }
+        
+        private void mn_nue_per_Click(object sender, EventArgs e)
+        {
+            ads016_02 frm = new ads016_02();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
 
-        private void mn_nue_reg_Click(object sender, EventArgs e)
+        private void mn_nue_ges_Click(object sender, EventArgs e)
         {
             ads016_02b frm = new ads016_02b();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
+
+        private void mn_sig_ges_Click(object sender, EventArgs e)
+        {
+            ads016_02c frm = new ads016_02c();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
@@ -365,23 +374,22 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
+        /* Evento Click: Cerrar Formulario */
         private void mn_cer_rar_Click(object sender, EventArgs e)
         {
             cl_glo_frm.Cerrar(this);
         }
-
+        /* Evento Click: Button Aceptar */
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             cl_glo_frm.Cerrar(this);
         }
-
+        /* Evento Click: Button Cancelar */
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
-        }
-
-        
+        }        
     }
 }

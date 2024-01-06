@@ -69,12 +69,39 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.102.2.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.102.2\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.0.5\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding">
       <HintPath>..\CRS_DOC\LIB\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -84,9 +111,79 @@
     <Reference Include="PictureBoxAbouAmmar">
       <HintPath>..\CRS_DOC\LIB\PictureBoxAbouAmmar.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -96,9 +193,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADP\adp001_06.cs">
@@ -640,6 +740,48 @@
     </Compile>
     <Compile Include="ADS\ads000_06.Designer.cs">
       <DependentUpon>ads000_06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads022_09.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads022_09.Designer.cs">
+      <DependentUpon>ads022_09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads022_08.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads022_08.Designer.cs">
+      <DependentUpon>ads022_08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads022_R01w.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads022_R01w.Designer.cs">
+      <DependentUpon>ads022_R01w.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads022_R01.cs">
+      <DependentUpon>ads022_R01.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ADS\ads022_R01p.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads022_R01p.Designer.cs">
+      <DependentUpon>ads022_R01p.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads022_03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads022_03.Designer.cs">
+      <DependentUpon>ads022_03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads022_02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads022_02.Designer.cs">
+      <DependentUpon>ads022_02.cs</DependentUpon>
     </Compile>
     <Compile Include="ADS\ads015_06.cs">
       <SubType>Form</SubType>
@@ -1618,18 +1760,6 @@
     </Compile>
     <Compile Include="ADS\ads024_R01p.Designer.cs">
       <DependentUpon>ads024_R01p.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ADS\ads022_02b.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ADS\ads022_02b.Designer.cs">
-      <DependentUpon>ads022_02b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ADS\ads022_02.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ADS\ads022_02.Designer.cs">
-      <DependentUpon>ads022_02.cs</DependentUpon>
     </Compile>
     <Compile Include="ADS\ads008_02.cs">
       <SubType>Form</SubType>
@@ -3275,6 +3405,25 @@
     <EmbeddedResource Include="ADS\ads000_R00w.resx">
       <DependentUpon>ads000_R00w.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_09.resx">
+      <DependentUpon>ads022_09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_R01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ads022_R01.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_08.resx">
+      <DependentUpon>ads022_08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_R01p.resx">
+      <DependentUpon>ads022_R01p.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_03.resx">
+      <DependentUpon>ads022_03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_02.resx">
+      <DependentUpon>ads022_02.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads015_06.resx">
       <DependentUpon>ads015_06.cs</DependentUpon>
     </EmbeddedResource>
@@ -3333,6 +3482,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads015_R01w.resx">
       <DependentUpon>ads015_R01w.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads016_01.resx">
+      <DependentUpon>ads016_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads022_R01w.resx">
+      <DependentUpon>ads022_R01w.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads100_05.resx">
       <DependentUpon>ads100_05.cs</DependentUpon>
@@ -3726,12 +3881,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads024_R01p.resx">
       <DependentUpon>ads024_R01p.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ADS\ads022_02b.resx">
-      <DependentUpon>ads022_02b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ADS\ads022_02.resx">
-      <DependentUpon>ads022_02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads008_02.resx">
       <DependentUpon>ads008_02.cs</DependentUpon>
@@ -4428,6 +4577,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -4516,6 +4666,44 @@
     <None Include="Resources\instagram.png" />
     <None Include="Resources\facebook.png" />
     <None Include="Resources\whatsapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

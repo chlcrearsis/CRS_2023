@@ -93,7 +93,7 @@
             this.dg_res_ult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_res_ult.Size = new System.Drawing.Size(500, 250);
             this.dg_res_ult.TabIndex = 1;
-            this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);            
             // 
             // va_ide_doc
             // 

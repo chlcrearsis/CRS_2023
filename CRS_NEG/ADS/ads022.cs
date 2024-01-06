@@ -5,83 +5,91 @@ using CRS_DAT;
 
 namespace CRS_NEG
 {
-    /// <summary>
-    /// ◘◘◘◘◘◘◘◘◘◘◘◘◘◘
-    /// Clase T.C. Bs/Us
-    /// ◘◘◘◘◘◘◘◘◘◘◘◘◘◘
-    /// </summary>
+    //######################################################################
+    //##       Tabla: ads022                                              ##
+    //##      Nombre: Tasa de Cambio Bs/Us                                ##
+    //## Descripcion: Tasa de Cambio Bs/Us                                ##         
+    //##       Autor: EJR - (29-12-2023)                                  ##
+    //######################################################################
     public class ads022
     {
-        //######################################################################
-        //##       Tabla: ads022                                              ##
-        //##      Nombre: Tipo de cambio bs/us                                ##
-        //## Descripcion: Tipo de cambio Bs/Us                                ##         
-        //##       Autor: CHL - (22-04-2021)                                  ##
-        //######################################################################
         conexion_a ob_con_ecA = new conexion_a();
+        StringBuilder cadena;
 
-        public string va_ser_bda;   // Servidor;
-        public string va_ins_bda;   // Instancia;
-        public string va_nom_bda;   // Nombre de Base de Datos;
-        public string va_ide_usr;   // ID. Usuario;
-        public string va_pas_usr;   // Contraseña;
-
-
-        public ads022()
+        /// <summary>
+        /// Función: "Registra Tasa de Cambio p/Fecha"
+        /// </summary>
+        /// <param name="fec_tas">Fecha</param>
+        /// <param name="tas_cam">Tasa de Cambio</param>
+        /// <returns></returns>
+        public void Fe_nue_reg(string fec_tas, double tas_cam)
         {
-            va_ser_bda = ob_con_ecA.va_ser_bda;
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("INSERT INTO ads022 VALUES ('" + fec_tas + "', " + tas_cam + ")");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
-        /// Cadena de Comando SQL
+        /// Función: "Registra Tasa de Cambio p/Rango de Fecha"
         /// </summary>
-        StringBuilder vv_str_sql = new StringBuilder();
+        /// <param name="fec_ini">Fecha Inicial</param>
+        /// <param name="fec_fin">Fecha Final</param>
+        /// <param name="tas_cam">Tasa de Cambio</param>
+        /// <returns></returns>
+        public void Fe_nue_reg(string fec_ini, string fec_fin, double tas_cam)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads022_02b_p01 '" + fec_ini + "', '" + fec_fin + "', " + tas_cam + "");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Función: "Modifica Tasa de Cambio"
+        /// </summary>
+        /// <param name="fec_tas">Fecha</param>
+        /// <param name="tas_cam">Tasa de Cambio</param>
+        /// <returns></returns>
+        public void Fe_edi_tar(string fec_tas, double tas_cam)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("UPDATE ads022 SET va_tas_cam = " + tas_cam + " WHERE va_fec_tas = '" + fec_tas + "'");
+                ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         ///  Busca tipos de cambio de un mes en el año
         /// </summary>
-        /// <param name="val_mes">Numero de mes</param>
-        /// <param name="val_año">año</param>
+        /// <param name="mes_tdc">Mes T.C (1-12)</param>
+        /// <param name="año_tdc">Año T.C</param>
         /// <returns></returns>
-        public DataTable Fe_fil_tic(int val_mes, int val_año)
+        public DataTable Fe_bus_car(int mes_tdc, int año_tdc)
         {
             try
             {
-                DateTime fec_ini;
-                DateTime fec_fin;
-
-                fec_ini = Convert.ToDateTime("01/" + val_mes + "/" + val_año);
-                fec_fin = fec_ini.AddMonths(1);
-                fec_fin = fec_fin.AddDays(-1);
-
-                vv_str_sql = new StringBuilder();
-                vv_str_sql.AppendLine(" select * from ads022  ");
-                vv_str_sql.AppendLine(" where va_fec_bus BETWEEN '" + fec_ini.ToShortDateString() + "' AND '" + fec_fin.ToShortDateString() + "'");
-
-                return ob_con_ecA.fe_exe_sql(vv_str_sql.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        /// <summary>
-        /// Funcion "inserta nueva T.C. Bs/Us"
-        /// </summary>
-        /// <param name="fec_bus">Fecha de T.C. Bs</param>
-        /// <param name="val_bus">Valor de T.C. Bs</param>
-        /// <returns></returns>
-        public void Fe_reg_tic(DateTime fec_bus, string val_bus)
-        {
-            try
-            {
-                vv_str_sql = new StringBuilder();
-                vv_str_sql.AppendLine(" INSERT INTO ads022 VALUES ");
-                vv_str_sql.AppendLine(" ('" + fec_bus.ToShortDateString() + "', '" + val_bus + "')");
-
-                ob_con_ecA.fe_exe_sql(vv_str_sql.ToString());
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads022_01a_p01 " + mes_tdc + ", " + año_tdc + "");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
             {
@@ -90,52 +98,20 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Modifica T.C. Bs/Us"
+        /// Función: "Consulta Tasa de Cambio"
         /// </summary>
-        /// <param name="fec_bus">Fecha de T.C. Bs</param>
-        /// <param name="val_bus">Valor de T.C. Bs</param>
+        /// <param name="fec_tas">Fecha T.C</param>
         /// <returns></returns>
-        public void Fe_reg_ran(DateTime fec_ini, DateTime fec_fin, string val_bus)
+        public DataTable Fe_con_tas(string fec_tas)
         {
             try
             {
-                int nro_dia = 0;
-                DateTime fec_aux;
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT va_fec_tas, va_tas_cam");
+                cadena.AppendLine("  FROM ads022");
+                cadena.AppendLine(" WHERE va_fec_tas = '" + fec_tas + "'");
 
-                //intervalo de dias
-                nro_dia = (fec_fin - fec_ini).Days;
-
-                vv_str_sql = new StringBuilder();
-
-                for (int i = 0; i <= nro_dia; i++)
-                {
-                    vv_str_sql.AppendLine(" INSERT INTO ads022 VALUES ");
-
-                    fec_aux = fec_ini.AddDays(i);
-                    vv_str_sql.AppendLine(" ('" + fec_aux.ToShortDateString() + "', '" + val_bus + "')");
-                }
-                ob_con_ecA.fe_exe_sql(vv_str_sql.ToString());
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        /// <summary>
-        /// Funcion "Consulta T.C. Bs/Us"
-        /// </summary>
-        /// <param name="fec_bus">Fecha de la T.C. Bs/Us</param>
-        /// <returns></returns>
-        public DataTable Fe_con_tic(string fec_bus)
-        {
-            try
-            {
-                vv_str_sql = new StringBuilder();
-                vv_str_sql.AppendLine(" SELECT * FROM ads022 ");
-                vv_str_sql.AppendLine(" WHERE  va_fec_bus ='" + fec_bus + "'");
-
-                return ob_con_ecA.fe_exe_sql(vv_str_sql.ToString());
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
             {
@@ -144,42 +120,18 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Funcion "Elimina T.C. Bs/Us"
+        /// Función: "Exportar Tasa de Cambio a Excel"
         /// </summary>
-        /// <param name="fec_bus">>Codigo de T.C. Bs/Us</param>
-        /// <returns></returns>
-        public void Fe_eli_tic(string fec_bus)
-        {
-            try
-            {
-                vv_str_sql = new StringBuilder();
-                vv_str_sql.AppendLine(" DELETE ads022 ");
-                vv_str_sql.AppendLine(" WHERE  va_fec_bus = '" + fec_bus + "'");
-
-                ob_con_ecA.fe_exe_sql(vv_str_sql.ToString());
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// Funcion "Elimina T.C. Bs/Us por rango de fecha
-        /// </summary>
-        /// <param name="fec_ini">Fecha inicial</param>
+        /// <param name="fec_ini">Fecha Inicial</param>
         /// <param name="fec_fin">Fecha Final</param>
         /// <returns></returns>
-        public void Fe_eli_tic(DateTime fec_ini, DateTime fec_fin)
+        public DataTable Fe_exp_tas(string fec_ini, string fec_fin)
         {
             try
             {
-                vv_str_sql = new StringBuilder();
-                vv_str_sql.AppendLine(" DELETE ads022 ");
-                vv_str_sql.AppendLine(" WHERE  va_fec_bus BETWEEN '" + fec_ini.ToShortDateString() + "' AND '" + fec_fin.ToShortDateString() + "'");
-
-                ob_con_ecA.fe_exe_sql(vv_str_sql.ToString());
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads022_08a_p01 '" + fec_ini + "', '" + fec_fin + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
             {
@@ -187,8 +139,44 @@ namespace CRS_NEG
             }
         }
 
+        /// <summary>
+        /// Función: "Importa Tasa de Cambio desde Excel"
+        /// </summary>
+        /// <param name="fec_tas">Fecha</param>
+        /// <param name="tas_cam">Tasa de Cambio</param>
+        /// <returns></returns>
+        public DataTable Fe_imp_tas(string fec_tas, double tas_cam)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads022_09a_p01 '" + fec_tas + "', " + tas_cam + "");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-
-
+        /// <summary>
+        /// Informe 01: "Tasa de Cambio"
+        /// </summary>
+        /// <param name="fec_ini">Fecha Inicial</param>
+        /// <param name="fec_fin">Fecha Final</param>
+        /// <returns></returns>
+        public DataTable Fe_inf_R01(string fec_ini, string fec_fin)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("EXECUTE ads022_R01 '" + fec_ini + "', '" + fec_fin + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

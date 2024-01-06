@@ -42,13 +42,14 @@ namespace CRS_NEG
         /// <summary>
         /// Funcion "Registrar Siguiente Gestión"
         /// </summary>
-        /// <param name="ges_tio">Gestión</param>
-        public void Fe_sig_ges(int ges_tio)
+        /// <param name="ges_ant">Gestión Anterior</param>
+        /// <param name="nue_ges">Nueva Gestión</param>
+        public void Fe_sig_ges(int ges_ant, int nue_ges)
         {
             try
             {
                 cadena = new StringBuilder();
-                cadena.AppendLine("EXECUTE ads016_02b_p01 " + ges_tio + "");
+                cadena.AppendLine("EXECUTE ads016_02b_p01 " + ges_ant + ", " + nue_ges + "");
                 ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)
@@ -144,6 +145,7 @@ namespace CRS_NEG
                     case 0: cadena.AppendLine(" WHERE va_ges_tio like '" + cri_bus + "%'"); break;
                     case 1: cadena.AppendLine(" WHERE va_nom_per like '" + cri_bus + "%'"); break;
                 }
+                cadena.AppendLine("  ORDER BY va_ges_tio DESC, va_ges_per ASC");
 
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }

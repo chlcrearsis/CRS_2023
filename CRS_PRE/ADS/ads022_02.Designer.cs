@@ -29,76 +29,116 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tb_fec_tcm = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_val_tcm = new System.Windows.Forms.TextBox();
+            this.tb_fec_fin = new System.Windows.Forms.MaskedTextBox();
+            this.lb_fec_fin = new System.Windows.Forms.Label();
+            this.tb_fec_ini = new System.Windows.Forms.MaskedTextBox();
+            this.lb_tas_cam = new System.Windows.Forms.Label();
+            this.lb_fec_ini = new System.Windows.Forms.Label();
+            this.tb_tas_cam = new System.Windows.Forms.TextBox();
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_can_cel = new System.Windows.Forms.Button();
             this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tb_fec_tcm);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tb_val_tcm);
-            this.groupBox1.Location = new System.Drawing.Point(3, -4);
+            this.groupBox1.Controls.Add(this.tb_fec_fin);
+            this.groupBox1.Controls.Add(this.lb_fec_fin);
+            this.groupBox1.Controls.Add(this.tb_fec_ini);
+            this.groupBox1.Controls.Add(this.lb_tas_cam);
+            this.groupBox1.Controls.Add(this.lb_fec_ini);
+            this.groupBox1.Controls.Add(this.tb_tas_cam);
+            this.groupBox1.Location = new System.Drawing.Point(3, -3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(251, 100);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(244, 107);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // tb_fec_tcm
+            // tb_fec_fin
             // 
-            this.tb_fec_tcm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tb_fec_tcm.Location = new System.Drawing.Point(95, 30);
-            this.tb_fec_tcm.Name = "tb_fec_tcm";
-            this.tb_fec_tcm.Size = new System.Drawing.Size(89, 20);
-            this.tb_fec_tcm.TabIndex = 10;
+            this.tb_fec_fin.Location = new System.Drawing.Point(89, 72);
+            this.tb_fec_fin.Mask = "00/00/0000";
+            this.tb_fec_fin.Name = "tb_fec_fin";
+            this.tb_fec_fin.Size = new System.Drawing.Size(88, 20);
+            this.tb_fec_fin.TabIndex = 5;
+            this.tb_fec_fin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_fec_fin.ValidatingType = typeof(System.DateTime);
             // 
-            // label1
+            // lb_fec_fin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Fecha";
+            this.lb_fec_fin.AutoSize = true;
+            this.lb_fec_fin.Location = new System.Drawing.Point(25, 76);
+            this.lb_fec_fin.Name = "lb_fec_fin";
+            this.lb_fec_fin.Size = new System.Drawing.Size(62, 13);
+            this.lb_fec_fin.TabIndex = 4;
+            this.lb_fec_fin.Text = "Fecha Final";
             // 
-            // label2
+            // tb_fec_ini
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "T.C.";
+            this.tb_fec_ini.Location = new System.Drawing.Point(89, 18);
+            this.tb_fec_ini.Mask = "00/00/0000";
+            this.tb_fec_ini.Name = "tb_fec_ini";
+            this.tb_fec_ini.Size = new System.Drawing.Size(88, 20);
+            this.tb_fec_ini.TabIndex = 1;
+            this.tb_fec_ini.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_fec_ini.ValidatingType = typeof(System.DateTime);
             // 
-            // tb_val_tcm
+            // lb_tas_cam
             // 
-            this.tb_val_tcm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_val_tcm.Location = new System.Drawing.Point(95, 56);
-            this.tb_val_tcm.MaxLength = 4;
-            this.tb_val_tcm.Multiline = true;
-            this.tb_val_tcm.Name = "tb_val_tcm";
-            this.tb_val_tcm.Size = new System.Drawing.Size(51, 18);
-            this.tb_val_tcm.TabIndex = 20;
-            this.tb_val_tcm.TextChanged += new System.EventHandler(this.tb_val_tcm_TextChanged);
+            this.lb_tas_cam.AutoSize = true;
+            this.lb_tas_cam.Location = new System.Drawing.Point(60, 48);
+            this.lb_tas_cam.Name = "lb_tas_cam";
+            this.lb_tas_cam.Size = new System.Drawing.Size(27, 13);
+            this.lb_tas_cam.TabIndex = 2;
+            this.lb_tas_cam.Text = "T.C.";
+            // 
+            // lb_fec_ini
+            // 
+            this.lb_fec_ini.AutoSize = true;
+            this.lb_fec_ini.Location = new System.Drawing.Point(20, 22);
+            this.lb_fec_ini.Name = "lb_fec_ini";
+            this.lb_fec_ini.Size = new System.Drawing.Size(67, 13);
+            this.lb_fec_ini.TabIndex = 0;
+            this.lb_fec_ini.Text = "Fecha Inicial";
+            // 
+            // tb_tas_cam
+            // 
+            this.tb_tas_cam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_tas_cam.Location = new System.Drawing.Point(89, 45);
+            this.tb_tas_cam.MaxLength = 7;
+            this.tb_tas_cam.Name = "tb_tas_cam";
+            this.tb_tas_cam.Size = new System.Drawing.Size(88, 20);
+            this.tb_tas_cam.TabIndex = 3;
+            this.tb_tas_cam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_tas_cam.Enter += new System.EventHandler(this.tb_tas_cam_Enter);
+            this.tb_tas_cam.Validated += new System.EventHandler(this.tb_tas_cam_Validated);
             // 
             // gb_ctr_btn
             // 
-            this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
+            this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(3, 91);
+            this.gb_ctr_btn.Location = new System.Drawing.Point(3, 99);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
-            this.gb_ctr_btn.Size = new System.Drawing.Size(251, 35);
-            this.gb_ctr_btn.TabIndex = 2;
+            this.gb_ctr_btn.Size = new System.Drawing.Size(244, 40);
+            this.gb_ctr_btn.TabIndex = 1;
             this.gb_ctr_btn.TabStop = false;
+            // 
+            // bt_ace_pta
+            // 
+            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_ace_pta.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_ace_pta.Location = new System.Drawing.Point(84, 10);
+            this.bt_ace_pta.Name = "bt_ace_pta";
+            this.bt_ace_pta.Size = new System.Drawing.Size(75, 25);
+            this.bt_ace_pta.TabIndex = 0;
+            this.bt_ace_pta.Text = "&Aceptar";
+            this.bt_ace_pta.UseVisualStyleBackColor = false;
+            this.bt_ace_pta.Click += new System.EventHandler(this.bt_ace_pta_Click);
             // 
             // bt_can_cel
             // 
@@ -106,34 +146,19 @@
             this.bt_can_cel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_can_cel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_can_cel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_can_cel.Location = new System.Drawing.Point(167, 9);
+            this.bt_can_cel.Location = new System.Drawing.Point(163, 10);
             this.bt_can_cel.Name = "bt_can_cel";
-            this.bt_can_cel.Size = new System.Drawing.Size(75, 23);
-            this.bt_can_cel.TabIndex = 20;
+            this.bt_can_cel.Size = new System.Drawing.Size(75, 25);
+            this.bt_can_cel.TabIndex = 1;
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // bt_ace_pta
-            // 
-            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_ace_pta.Location = new System.Drawing.Point(86, 9);
-            this.bt_ace_pta.Name = "bt_ace_pta";
-            this.bt_ace_pta.Size = new System.Drawing.Size(75, 23);
-            this.bt_ace_pta.TabIndex = 10;
-            this.bt_ace_pta.Text = "&Aceptar";
-            this.bt_ace_pta.UseVisualStyleBackColor = false;
-            this.bt_ace_pta.Click += new System.EventHandler(this.bt_ace_pta_Click);
-            // 
             // ads022_02
             // 
-            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bt_can_cel;
-            this.ClientSize = new System.Drawing.Size(258, 130);
+            this.ClientSize = new System.Drawing.Size(249, 140);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_ctr_btn);
@@ -141,7 +166,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads022_02";
-            this.Text = "Crea tipo de cambio Bs/Us";
+            this.Tag = "Registra Tasa de Cambio Bs/Us";
+            this.Text = "Registra Tasa de Cambio Bs/Us";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -152,12 +178,14 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tb_val_tcm;
-        private System.Windows.Forms.Button bt_can_cel;
-        private System.Windows.Forms.Button bt_ace_pta;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_tas_cam;
+        private System.Windows.Forms.Label lb_fec_ini;
+        private System.Windows.Forms.TextBox tb_tas_cam;
         public System.Windows.Forms.GroupBox gb_ctr_btn;
-        private System.Windows.Forms.DateTimePicker tb_fec_tcm;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bt_ace_pta;
+        private System.Windows.Forms.Button bt_can_cel;
+        private System.Windows.Forms.MaskedTextBox tb_fec_ini;
+        private System.Windows.Forms.MaskedTextBox tb_fec_fin;
+        private System.Windows.Forms.Label lb_fec_fin;
     }
 }

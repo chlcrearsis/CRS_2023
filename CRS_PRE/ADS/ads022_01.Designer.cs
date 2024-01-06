@@ -30,146 +30,152 @@ namespace CRS_PRE
         private void InitializeComponent()
         {
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
-            this.mn_pri_nci = new System.Windows.Forms.MenuStrip();
-            this.m_adm022_02 = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_adm022_02a = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_adm013_p00 = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_adm013_08 = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_adm013_08a = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_adm013_08b = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_atr_ass = new System.Windows.Forms.ToolStripMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cb_prm_bus = new System.Windows.Forms.ComboBox();
-            this.tb_val_año = new System.Windows.Forms.NumericUpDown();
-            this.GroupBox3 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.m_frm_hja = new System.Windows.Forms.MenuStrip();
+            this.mn_nue_reg = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_reg_fch = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_edi_tar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_mod_ifi = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_otr_tar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_exp_tdc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_imp_tdc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_rep_ort = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lis_tdc = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_cer_rar = new System.Windows.Forms.ToolStripMenuItem();
+            this.cb_mes_tdc = new System.Windows.Forms.ComboBox();
+            this.lb_mes_tdc = new System.Windows.Forms.Label();
+            this.lb_año_tdc = new System.Windows.Forms.Label();
+            this.tb_año_tdc = new System.Windows.Forms.NumericUpDown();
+            this.gb_dia_sem = new System.Windows.Forms.GroupBox();
+            this.lb_dia_sab = new System.Windows.Forms.Label();
+            this.lb_dia_vie = new System.Windows.Forms.Label();
+            this.lb_dia_jue = new System.Windows.Forms.Label();
+            this.lb_dia_mie = new System.Windows.Forms.Label();
+            this.lb_dia_mar = new System.Windows.Forms.Label();
+            this.lb_dia_lun = new System.Windows.Forms.Label();
+            this.lb_dia_dom = new System.Windows.Forms.Label();
             this.fl_cal_end = new System.Windows.Forms.FlowLayoutPanel();
-            this.GroupBox2 = new System.Windows.Forms.GroupBox();
-            this.fl_cal_end_2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fl_cal_tdc = new System.Windows.Forms.FlowLayoutPanel();
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_can_cel = new System.Windows.Forms.Button();
             this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.GroupBox1.SuspendLayout();
-            this.mn_pri_nci.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_val_año)).BeginInit();
-            this.GroupBox3.SuspendLayout();
-            this.GroupBox2.SuspendLayout();
+            this.m_frm_hja.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_año_tdc)).BeginInit();
+            this.gb_dia_sem.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
             this.SuspendLayout();
             // 
             // GroupBox1
             // 
             this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.GroupBox1.Controls.Add(this.mn_pri_nci);
-            this.GroupBox1.Controls.Add(this.label2);
-            this.GroupBox1.Controls.Add(this.label1);
-            this.GroupBox1.Controls.Add(this.cb_prm_bus);
-            this.GroupBox1.Controls.Add(this.tb_val_año);
+            this.GroupBox1.Controls.Add(this.m_frm_hja);
+            this.GroupBox1.Controls.Add(this.cb_mes_tdc);
+            this.GroupBox1.Controls.Add(this.lb_mes_tdc);
+            this.GroupBox1.Controls.Add(this.lb_año_tdc);
+            this.GroupBox1.Controls.Add(this.tb_año_tdc);
             this.GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.GroupBox1.Location = new System.Drawing.Point(3, 3);
+            this.GroupBox1.Location = new System.Drawing.Point(3, -4);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Size = new System.Drawing.Size(512, 38);
             this.GroupBox1.TabIndex = 70;
             this.GroupBox1.TabStop = false;
             // 
-            // mn_pri_nci
+            // m_frm_hja
             // 
-            this.mn_pri_nci.BackColor = System.Drawing.Color.White;
-            this.mn_pri_nci.Dock = System.Windows.Forms.DockStyle.None;
-            this.mn_pri_nci.ForeColor = System.Drawing.Color.Black;
-            this.mn_pri_nci.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mn_pri_nci.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.m_adm022_02,
-            this.m_adm013_p00,
-            this.m_adm013_08,
-            this.m_atr_ass});
-            this.mn_pri_nci.Location = new System.Drawing.Point(124, 12);
-            this.mn_pri_nci.Name = "mn_pri_nci";
-            this.mn_pri_nci.Size = new System.Drawing.Size(264, 24);
-            this.mn_pri_nci.TabIndex = 5;
-            this.mn_pri_nci.Text = "MenuStrip1";
-            this.mn_pri_nci.Visible = false;
+            this.m_frm_hja.Dock = System.Windows.Forms.DockStyle.None;
+            this.m_frm_hja.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_nue_reg,
+            this.mn_edi_tar,
+            this.mn_otr_tar,
+            this.mn_rep_ort,
+            this.mn_cer_rar});
+            this.m_frm_hja.Location = new System.Drawing.Point(122, 7);
+            this.m_frm_hja.Name = "m_frm_hja";
+            this.m_frm_hja.Size = new System.Drawing.Size(414, 24);
+            this.m_frm_hja.TabIndex = 77;
+            this.m_frm_hja.Visible = false;
             // 
-            // m_adm022_02
+            // mn_nue_reg
             // 
-            this.m_adm022_02.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.m_adm022_02a});
-            this.m_adm022_02.Name = "m_adm022_02";
-            this.m_adm022_02.Size = new System.Drawing.Size(54, 20);
-            this.m_adm022_02.Text = "&Nuevo";
+            this.mn_nue_reg.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_reg_fch});
+            this.mn_nue_reg.Name = "mn_nue_reg";
+            this.mn_nue_reg.Size = new System.Drawing.Size(53, 20);
+            this.mn_nue_reg.Text = "Nueva";
             // 
-            // m_adm022_02a
+            // mn_reg_fch
             // 
-            this.m_adm022_02a.Name = "m_adm022_02a";
-            this.m_adm022_02a.Size = new System.Drawing.Size(197, 22);
-            this.m_adm022_02a.Text = "&T.C. por rango de fecha";
-            this.m_adm022_02a.Click += new System.EventHandler(this.m_adm022_02b_Click);
+            this.mn_reg_fch.Name = "mn_reg_fch";
+            this.mn_reg_fch.Size = new System.Drawing.Size(224, 22);
+            this.mn_reg_fch.Text = "Registra por Rango de Fecha";
+            this.mn_reg_fch.Click += new System.EventHandler(this.mn_reg_fch_Click);
             // 
-            // m_adm013_p00
+            // mn_edi_tar
             // 
-            this.m_adm013_p00.Name = "m_adm013_p00";
-            this.m_adm013_p00.Size = new System.Drawing.Size(61, 20);
-            this.m_adm013_p00.Text = "&Informe";
+            this.mn_edi_tar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_mod_ifi});
+            this.mn_edi_tar.Name = "mn_edi_tar";
+            this.mn_edi_tar.Size = new System.Drawing.Size(45, 20);
+            this.mn_edi_tar.Text = "&Edita";
             // 
-            // m_adm013_08
+            // mn_mod_ifi
             // 
-            this.m_adm013_08.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.m_adm013_08a,
-            this.m_adm013_08b});
-            this.m_adm013_08.Name = "m_adm013_08";
-            this.m_adm013_08.Size = new System.Drawing.Size(95, 20);
-            this.m_adm013_08.Text = "&Importar Excel";
+            this.mn_mod_ifi.Name = "mn_mod_ifi";
+            this.mn_mod_ifi.Size = new System.Drawing.Size(121, 22);
+            this.mn_mod_ifi.Text = "&Modifica";
+            this.mn_mod_ifi.Click += new System.EventHandler(this.mn_mod_ifi_Click);
             // 
-            // m_adm013_08a
+            // mn_otr_tar
             // 
-            this.m_adm013_08a.Name = "m_adm013_08a";
-            this.m_adm013_08a.Size = new System.Drawing.Size(154, 22);
-            this.m_adm013_08a.Text = "&T.C. por Año";
+            this.mn_otr_tar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_exp_tdc,
+            this.mn_imp_tdc});
+            this.mn_otr_tar.Name = "mn_otr_tar";
+            this.mn_otr_tar.Size = new System.Drawing.Size(82, 20);
+            this.mn_otr_tar.Text = "&Otras Tareas";
             // 
-            // m_adm013_08b
+            // mn_exp_tdc
             // 
-            this.m_adm013_08b.Name = "m_adm013_08b";
-            this.m_adm013_08b.Size = new System.Drawing.Size(154, 22);
-            this.m_adm013_08b.Text = "&T.C. por Fechas";
+            this.mn_exp_tdc.Name = "mn_exp_tdc";
+            this.mn_exp_tdc.Size = new System.Drawing.Size(189, 22);
+            this.mn_exp_tdc.Text = "Exporta T.C. Bs. p/US.";
+            this.mn_exp_tdc.Click += new System.EventHandler(this.mn_exp_tdc_Click);
             // 
-            // m_atr_ass
+            // mn_imp_tdc
             // 
-            this.m_atr_ass.Name = "m_atr_ass";
-            this.m_atr_ass.Size = new System.Drawing.Size(46, 20);
-            this.m_atr_ass.Text = "&Atrás";
-            this.m_atr_ass.Click += new System.EventHandler(this.m_atr_ass_Click);
+            this.mn_imp_tdc.Name = "mn_imp_tdc";
+            this.mn_imp_tdc.Size = new System.Drawing.Size(189, 22);
+            this.mn_imp_tdc.Text = "Importa T.C. Bs. p/US.";
+            this.mn_imp_tdc.Click += new System.EventHandler(this.mn_imp_tdc_Click);
             // 
-            // label2
+            // mn_rep_ort
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(223, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "Mes";
+            this.mn_rep_ort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_lis_tdc});
+            this.mn_rep_ort.Name = "mn_rep_ort";
+            this.mn_rep_ort.Size = new System.Drawing.Size(60, 20);
+            this.mn_rep_ort.Text = "&Reporte";
             // 
-            // label1
+            // mn_lis_tdc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 75;
-            this.label1.Text = "Año";
+            this.mn_lis_tdc.Name = "mn_lis_tdc";
+            this.mn_lis_tdc.ShortcutKeyDisplayString = "(ads022_01)";
+            this.mn_lis_tdc.Size = new System.Drawing.Size(268, 22);
+            this.mn_lis_tdc.Text = "&Lista de Tasa de Cambio";
+            this.mn_lis_tdc.Click += new System.EventHandler(this.mn_lis_tdc_Click);
             // 
-            // cb_prm_bus
+            // mn_cer_rar
             // 
-            this.cb_prm_bus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_prm_bus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cb_prm_bus.FormattingEnabled = true;
-            this.cb_prm_bus.Items.AddRange(new object[] {
+            this.mn_cer_rar.Name = "mn_cer_rar";
+            this.mn_cer_rar.Size = new System.Drawing.Size(46, 20);
+            this.mn_cer_rar.Text = "&Atras";
+            this.mn_cer_rar.Click += new System.EventHandler(this.mn_cer_rar_Click);
+            // 
+            // cb_mes_tdc
+            // 
+            this.cb_mes_tdc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_mes_tdc.FormattingEnabled = true;
+            this.cb_mes_tdc.Items.AddRange(new object[] {
             "Enero",
             "Febrero",
             "Marzo",
@@ -182,106 +188,124 @@ namespace CRS_PRE
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cb_prm_bus.Location = new System.Drawing.Point(256, 11);
-            this.cb_prm_bus.Name = "cb_prm_bus";
-            this.cb_prm_bus.Size = new System.Drawing.Size(121, 21);
-            this.cb_prm_bus.TabIndex = 11;
-            this.cb_prm_bus.SelectedIndexChanged += new System.EventHandler(this.cb_prm_bus_SelectedIndexChanged);
+            this.cb_mes_tdc.Location = new System.Drawing.Point(94, 11);
+            this.cb_mes_tdc.Name = "cb_mes_tdc";
+            this.cb_mes_tdc.Size = new System.Drawing.Size(122, 21);
+            this.cb_mes_tdc.TabIndex = 76;
+            this.cb_mes_tdc.SelectedIndexChanged += new System.EventHandler(this.cb_mes_año_SelectedIndexChanged);
             // 
-            // tb_val_año
+            // lb_mes_tdc
             // 
-            this.tb_val_año.Location = new System.Drawing.Point(48, 12);
-            this.tb_val_año.Name = "tb_val_año";
-            this.tb_val_año.Size = new System.Drawing.Size(69, 20);
-            this.tb_val_año.TabIndex = 10;
-            this.tb_val_año.ValueChanged += new System.EventHandler(this.tb_val_año_ValueChanged);
+            this.lb_mes_tdc.AutoSize = true;
+            this.lb_mes_tdc.Location = new System.Drawing.Point(65, 15);
+            this.lb_mes_tdc.Name = "lb_mes_tdc";
+            this.lb_mes_tdc.Size = new System.Drawing.Size(27, 13);
+            this.lb_mes_tdc.TabIndex = 75;
+            this.lb_mes_tdc.Text = "Mes";
             // 
-            // GroupBox3
+            // lb_año_tdc
             // 
-            this.GroupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.GroupBox3.Controls.Add(this.label9);
-            this.GroupBox3.Controls.Add(this.label8);
-            this.GroupBox3.Controls.Add(this.label7);
-            this.GroupBox3.Controls.Add(this.label6);
-            this.GroupBox3.Controls.Add(this.label5);
-            this.GroupBox3.Controls.Add(this.label4);
-            this.GroupBox3.Controls.Add(this.label3);
-            this.GroupBox3.Controls.Add(this.fl_cal_end);
-            this.GroupBox3.Location = new System.Drawing.Point(3, 36);
-            this.GroupBox3.Name = "GroupBox3";
-            this.GroupBox3.Size = new System.Drawing.Size(512, 29);
-            this.GroupBox3.TabIndex = 73;
-            this.GroupBox3.TabStop = false;
+            this.lb_año_tdc.AutoSize = true;
+            this.lb_año_tdc.Location = new System.Drawing.Point(327, 15);
+            this.lb_año_tdc.Name = "lb_año_tdc";
+            this.lb_año_tdc.Size = new System.Drawing.Size(26, 13);
+            this.lb_año_tdc.TabIndex = 75;
+            this.lb_año_tdc.Text = "Año";
             // 
-            // label9
+            // tb_año_tdc
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(443, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
-            this.label9.TabIndex = 75;
-            this.label9.Text = "Sabado";
+            this.tb_año_tdc.Location = new System.Drawing.Point(355, 12);
+            this.tb_año_tdc.Name = "tb_año_tdc";
+            this.tb_año_tdc.Size = new System.Drawing.Size(69, 20);
+            this.tb_año_tdc.TabIndex = 10;
+            this.tb_año_tdc.ValueChanged += new System.EventHandler(this.tb_val_año_ValueChanged);
             // 
-            // label8
+            // gb_dia_sem
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(370, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 75;
-            this.label8.Text = "Viernes";
+            this.gb_dia_sem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.gb_dia_sem.Controls.Add(this.lb_dia_sab);
+            this.gb_dia_sem.Controls.Add(this.lb_dia_vie);
+            this.gb_dia_sem.Controls.Add(this.lb_dia_jue);
+            this.gb_dia_sem.Controls.Add(this.lb_dia_mie);
+            this.gb_dia_sem.Controls.Add(this.lb_dia_mar);
+            this.gb_dia_sem.Controls.Add(this.lb_dia_lun);
+            this.gb_dia_sem.Controls.Add(this.lb_dia_dom);
+            this.gb_dia_sem.Controls.Add(this.fl_cal_end);
+            this.gb_dia_sem.Location = new System.Drawing.Point(3, 29);
+            this.gb_dia_sem.Name = "gb_dia_sem";
+            this.gb_dia_sem.Size = new System.Drawing.Size(512, 29);
+            this.gb_dia_sem.TabIndex = 73;
+            this.gb_dia_sem.TabStop = false;
             // 
-            // label7
+            // lb_dia_sab
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(306, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 13);
-            this.label7.TabIndex = 75;
-            this.label7.Text = "Jueves";
+            this.lb_dia_sab.AutoSize = true;
+            this.lb_dia_sab.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_dia_sab.Location = new System.Drawing.Point(443, 10);
+            this.lb_dia_sab.Name = "lb_dia_sab";
+            this.lb_dia_sab.Size = new System.Drawing.Size(44, 13);
+            this.lb_dia_sab.TabIndex = 75;
+            this.lb_dia_sab.Text = "Sabado";
             // 
-            // label6
+            // lb_dia_vie
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(226, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 75;
-            this.label6.Text = "Miercoles";
+            this.lb_dia_vie.AutoSize = true;
+            this.lb_dia_vie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_dia_vie.Location = new System.Drawing.Point(370, 10);
+            this.lb_dia_vie.Name = "lb_dia_vie";
+            this.lb_dia_vie.Size = new System.Drawing.Size(42, 13);
+            this.lb_dia_vie.TabIndex = 75;
+            this.lb_dia_vie.Text = "Viernes";
             // 
-            // label5
+            // lb_dia_jue
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(160, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
-            this.label5.TabIndex = 75;
-            this.label5.Text = "Martes";
+            this.lb_dia_jue.AutoSize = true;
+            this.lb_dia_jue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_dia_jue.Location = new System.Drawing.Point(306, 10);
+            this.lb_dia_jue.Name = "lb_dia_jue";
+            this.lb_dia_jue.Size = new System.Drawing.Size(41, 13);
+            this.lb_dia_jue.TabIndex = 75;
+            this.lb_dia_jue.Text = "Jueves";
             // 
-            // label4
+            // lb_dia_mie
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(91, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 75;
-            this.label4.Text = "Lunes";
+            this.lb_dia_mie.AutoSize = true;
+            this.lb_dia_mie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_dia_mie.Location = new System.Drawing.Point(226, 10);
+            this.lb_dia_mie.Name = "lb_dia_mie";
+            this.lb_dia_mie.Size = new System.Drawing.Size(52, 13);
+            this.lb_dia_mie.TabIndex = 75;
+            this.lb_dia_mie.Text = "Miercoles";
             // 
-            // label3
+            // lb_dia_mar
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label3.Location = new System.Drawing.Point(15, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 75;
-            this.label3.Text = "Domingo";
+            this.lb_dia_mar.AutoSize = true;
+            this.lb_dia_mar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_dia_mar.Location = new System.Drawing.Point(160, 10);
+            this.lb_dia_mar.Name = "lb_dia_mar";
+            this.lb_dia_mar.Size = new System.Drawing.Size(39, 13);
+            this.lb_dia_mar.TabIndex = 75;
+            this.lb_dia_mar.Text = "Martes";
+            // 
+            // lb_dia_lun
+            // 
+            this.lb_dia_lun.AutoSize = true;
+            this.lb_dia_lun.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lb_dia_lun.Location = new System.Drawing.Point(91, 10);
+            this.lb_dia_lun.Name = "lb_dia_lun";
+            this.lb_dia_lun.Size = new System.Drawing.Size(36, 13);
+            this.lb_dia_lun.TabIndex = 75;
+            this.lb_dia_lun.Text = "Lunes";
+            // 
+            // lb_dia_dom
+            // 
+            this.lb_dia_dom.AutoSize = true;
+            this.lb_dia_dom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.lb_dia_dom.Location = new System.Drawing.Point(15, 10);
+            this.lb_dia_dom.Name = "lb_dia_dom";
+            this.lb_dia_dom.Size = new System.Drawing.Size(49, 13);
+            this.lb_dia_dom.TabIndex = 75;
+            this.lb_dia_dom.Text = "Domingo";
             // 
             // fl_cal_end
             // 
@@ -291,70 +315,62 @@ namespace CRS_PRE
             this.fl_cal_end.Size = new System.Drawing.Size(506, 422);
             this.fl_cal_end.TabIndex = 74;
             // 
-            // GroupBox2
+            // fl_cal_tdc
             // 
-            this.GroupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.GroupBox2.Controls.Add(this.fl_cal_end_2);
-            this.GroupBox2.ForeColor = System.Drawing.Color.Black;
-            this.GroupBox2.Location = new System.Drawing.Point(2, 60);
-            this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(513, 443);
-            this.GroupBox2.TabIndex = 74;
-            this.GroupBox2.TabStop = false;
-            // 
-            // fl_cal_end_2
-            // 
-            this.fl_cal_end_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fl_cal_end_2.Location = new System.Drawing.Point(3, 16);
-            this.fl_cal_end_2.Name = "fl_cal_end_2";
-            this.fl_cal_end_2.Size = new System.Drawing.Size(507, 424);
-            this.fl_cal_end_2.TabIndex = 0;
+            this.fl_cal_tdc.Location = new System.Drawing.Point(3, 60);
+            this.fl_cal_tdc.Name = "fl_cal_tdc";
+            this.fl_cal_tdc.Size = new System.Drawing.Size(512, 424);
+            this.fl_cal_tdc.TabIndex = 0;
             // 
             // gb_ctr_btn
             // 
-            this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
+            this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(2, 501);
+            this.gb_ctr_btn.Location = new System.Drawing.Point(3, 480);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
-            this.gb_ctr_btn.Size = new System.Drawing.Size(513, 35);
+            this.gb_ctr_btn.Size = new System.Drawing.Size(513, 40);
             this.gb_ctr_btn.TabIndex = 75;
             this.gb_ctr_btn.TabStop = false;
+            // 
+            // bt_ace_pta
+            // 
+            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_ace_pta.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_ace_pta.Location = new System.Drawing.Point(355, 10);
+            this.bt_ace_pta.Name = "bt_ace_pta";
+            this.bt_ace_pta.Size = new System.Drawing.Size(75, 25);
+            this.bt_ace_pta.TabIndex = 46;
+            this.bt_ace_pta.Text = "&Aceptar";
+            this.bt_ace_pta.UseVisualStyleBackColor = false;
+            this.bt_ace_pta.Click += new System.EventHandler(this.bt_ace_pta_Click);
             // 
             // bt_can_cel
             // 
             this.bt_can_cel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
             this.bt_can_cel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_can_cel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_can_cel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_can_cel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_can_cel.Location = new System.Drawing.Point(419, 8);
+            this.bt_can_cel.Location = new System.Drawing.Point(433, 10);
             this.bt_can_cel.Name = "bt_can_cel";
-            this.bt_can_cel.Size = new System.Drawing.Size(75, 23);
-            this.bt_can_cel.TabIndex = 20;
+            this.bt_can_cel.Size = new System.Drawing.Size(75, 25);
+            this.bt_can_cel.TabIndex = 45;
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
-            // 
-            // bt_ace_pta
-            // 
-            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_ace_pta.Location = new System.Drawing.Point(338, 8);
-            this.bt_ace_pta.Name = "bt_ace_pta";
-            this.bt_ace_pta.Size = new System.Drawing.Size(75, 23);
-            this.bt_ace_pta.TabIndex = 10;
-            this.bt_ace_pta.Text = "&Aceptar";
-            this.bt_ace_pta.UseVisualStyleBackColor = false;
+            this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
             // ads022_01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 536);
+            this.ClientSize = new System.Drawing.Size(518, 522);
             this.ControlBox = false;
+            this.Controls.Add(this.fl_cal_tdc);
             this.Controls.Add(this.GroupBox1);
-            this.Controls.Add(this.GroupBox3);
-            this.Controls.Add(this.GroupBox2);
+            this.Controls.Add(this.gb_dia_sem);
             this.Controls.Add(this.gb_ctr_btn);
             this.Name = "ads022_01";
             this.ShowIcon = false;
@@ -363,12 +379,11 @@ namespace CRS_PRE
             this.Load += new System.EventHandler(this.frm_Load);
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
-            this.mn_pri_nci.ResumeLayout(false);
-            this.mn_pri_nci.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_val_año)).EndInit();
-            this.GroupBox3.ResumeLayout(false);
-            this.GroupBox3.PerformLayout();
-            this.GroupBox2.ResumeLayout(false);
+            this.m_frm_hja.ResumeLayout(false);
+            this.m_frm_hja.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_año_tdc)).EndInit();
+            this.gb_dia_sem.ResumeLayout(false);
+            this.gb_dia_sem.PerformLayout();
             this.gb_ctr_btn.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -377,31 +392,33 @@ namespace CRS_PRE
         #endregion
 
         internal System.Windows.Forms.GroupBox GroupBox1;
-        internal System.Windows.Forms.NumericUpDown tb_val_año;
-        internal System.Windows.Forms.GroupBox GroupBox3;
+        internal System.Windows.Forms.NumericUpDown tb_año_tdc;
+        internal System.Windows.Forms.GroupBox gb_dia_sem;
         internal System.Windows.Forms.FlowLayoutPanel fl_cal_end;
-        internal System.Windows.Forms.GroupBox GroupBox2;
-        internal System.Windows.Forms.MenuStrip mn_pri_nci;
-        internal System.Windows.Forms.ToolStripMenuItem m_adm022_02;
-        internal System.Windows.Forms.ToolStripMenuItem m_adm022_02a;
-        internal System.Windows.Forms.ToolStripMenuItem m_adm013_p00;
-        private System.Windows.Forms.ToolStripMenuItem m_adm013_08;
-        private System.Windows.Forms.ToolStripMenuItem m_adm013_08a;
-        private System.Windows.Forms.ToolStripMenuItem m_adm013_08b;
-        internal System.Windows.Forms.ToolStripMenuItem m_atr_ass;
-        private System.Windows.Forms.ComboBox cb_prm_bus;
-        private System.Windows.Forms.FlowLayoutPanel fl_cal_end_2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FlowLayoutPanel fl_cal_tdc;
+        private System.Windows.Forms.Label lb_mes_tdc;
+        private System.Windows.Forms.Label lb_año_tdc;
+        private System.Windows.Forms.Label lb_dia_sab;
+        private System.Windows.Forms.Label lb_dia_vie;
+        private System.Windows.Forms.Label lb_dia_jue;
+        private System.Windows.Forms.Label lb_dia_mie;
+        private System.Windows.Forms.Label lb_dia_mar;
+        private System.Windows.Forms.Label lb_dia_lun;
+        private System.Windows.Forms.Label lb_dia_dom;
         public System.Windows.Forms.GroupBox gb_ctr_btn;
-        private System.Windows.Forms.Button bt_can_cel;
         private System.Windows.Forms.Button bt_ace_pta;
+        private System.Windows.Forms.Button bt_can_cel;
+        private System.Windows.Forms.ComboBox cb_mes_tdc;
+        public System.Windows.Forms.MenuStrip m_frm_hja;
+        private System.Windows.Forms.ToolStripMenuItem mn_nue_reg;
+        private System.Windows.Forms.ToolStripMenuItem mn_edi_tar;
+        private System.Windows.Forms.ToolStripMenuItem mn_mod_ifi;
+        private System.Windows.Forms.ToolStripMenuItem mn_otr_tar;
+        private System.Windows.Forms.ToolStripMenuItem mn_rep_ort;
+        private System.Windows.Forms.ToolStripMenuItem mn_lis_tdc;
+        private System.Windows.Forms.ToolStripMenuItem mn_cer_rar;
+        private System.Windows.Forms.ToolStripMenuItem mn_reg_fch;
+        private System.Windows.Forms.ToolStripMenuItem mn_exp_tdc;
+        private System.Windows.Forms.ToolStripMenuItem mn_imp_tdc;
     }
 }
