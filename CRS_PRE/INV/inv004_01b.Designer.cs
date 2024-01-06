@@ -54,6 +54,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
+            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.bt_can_cel = new System.Windows.Forms.Button();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_con_exi = new System.Windows.Forms.Button();
             this.va_cod_pro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_nom_pro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_und_vta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,10 +70,9 @@
             this.va_nom_fam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_est_ado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_des_pro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_can_cel = new System.Windows.Forms.Button();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
-            this.bt_con_exi = new System.Windows.Forms.Button();
+            this.va_pri_act = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_pro_ind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_con_ind = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_frm_hja.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -112,21 +115,21 @@
             // mn_mod_ifi
             // 
             this.mn_mod_ifi.Name = "mn_mod_ifi";
-            this.mn_mod_ifi.Size = new System.Drawing.Size(180, 22);
+            this.mn_mod_ifi.Size = new System.Drawing.Size(178, 22);
             this.mn_mod_ifi.Text = "&Modifica";
             this.mn_mod_ifi.Click += new System.EventHandler(this.Mn_mod_ifi_Click);
             // 
             // mn_hab_des
             // 
             this.mn_hab_des.Name = "mn_hab_des";
-            this.mn_hab_des.Size = new System.Drawing.Size(180, 22);
+            this.mn_hab_des.Size = new System.Drawing.Size(178, 22);
             this.mn_hab_des.Text = "&Habilita/Deshabilita";
             this.mn_hab_des.Click += new System.EventHandler(this.Mn_hab_des_Click);
             // 
             // mn_eli_min
             // 
             this.mn_eli_min.Name = "mn_eli_min";
-            this.mn_eli_min.Size = new System.Drawing.Size(180, 22);
+            this.mn_eli_min.Size = new System.Drawing.Size(178, 22);
             this.mn_eli_min.Text = "E&limina";
             this.mn_eli_min.Click += new System.EventHandler(this.Mn_eli_min_Click);
             // 
@@ -327,7 +330,10 @@
             this.va_cod_fam,
             this.va_nom_fam,
             this.va_est_ado,
-            this.va_des_pro});
+            this.va_des_pro,
+            this.va_pri_act,
+            this.va_pro_ind,
+            this.va_con_ind});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -348,6 +354,58 @@
             this.dg_res_ult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellClick);
             this.dg_res_ult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellDoubleClick);
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
+            // 
+            // gb_ctr_btn
+            // 
+            this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
+            this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
+            this.gb_ctr_btn.Controls.Add(this.bt_con_exi);
+            this.gb_ctr_btn.Enabled = false;
+            this.gb_ctr_btn.Location = new System.Drawing.Point(2, 368);
+            this.gb_ctr_btn.Name = "gb_ctr_btn";
+            this.gb_ctr_btn.Size = new System.Drawing.Size(672, 34);
+            this.gb_ctr_btn.TabIndex = 8;
+            this.gb_ctr_btn.TabStop = false;
+            // 
+            // bt_can_cel
+            // 
+            this.bt_can_cel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_can_cel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bt_can_cel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_can_cel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_can_cel.Location = new System.Drawing.Point(572, 7);
+            this.bt_can_cel.Name = "bt_can_cel";
+            this.bt_can_cel.Size = new System.Drawing.Size(75, 23);
+            this.bt_can_cel.TabIndex = 45;
+            this.bt_can_cel.Text = "&Cancelar";
+            this.bt_can_cel.UseVisualStyleBackColor = false;
+            this.bt_can_cel.Click += new System.EventHandler(this.Bt_can_cel_Click);
+            // 
+            // bt_ace_pta
+            // 
+            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_ace_pta.Location = new System.Drawing.Point(491, 7);
+            this.bt_ace_pta.Name = "bt_ace_pta";
+            this.bt_ace_pta.Size = new System.Drawing.Size(75, 23);
+            this.bt_ace_pta.TabIndex = 40;
+            this.bt_ace_pta.Text = "&Aceptar";
+            this.bt_ace_pta.UseVisualStyleBackColor = false;
+            this.bt_ace_pta.Click += new System.EventHandler(this.Bt_ace_pta_Click);
+            // 
+            // bt_con_exi
+            // 
+            this.bt_con_exi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_con_exi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_con_exi.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_con_exi.Location = new System.Drawing.Point(11, 8);
+            this.bt_con_exi.Name = "bt_con_exi";
+            this.bt_con_exi.Size = new System.Drawing.Size(75, 23);
+            this.bt_con_exi.TabIndex = 50;
+            this.bt_con_exi.Text = "&Existencia";
+            this.bt_con_exi.UseVisualStyleBackColor = false;
+            this.bt_con_exi.Click += new System.EventHandler(this.bt_con_exi_Click);
             // 
             // va_cod_pro
             // 
@@ -433,57 +491,26 @@
             this.va_des_pro.ReadOnly = true;
             this.va_des_pro.Width = 350;
             // 
-            // gb_ctr_btn
+            // va_pri_act
             // 
-            this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
-            this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
-            this.gb_ctr_btn.Controls.Add(this.bt_con_exi);
-            this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(2, 368);
-            this.gb_ctr_btn.Name = "gb_ctr_btn";
-            this.gb_ctr_btn.Size = new System.Drawing.Size(672, 34);
-            this.gb_ctr_btn.TabIndex = 8;
-            this.gb_ctr_btn.TabStop = false;
+            this.va_pri_act.HeaderText = "Principio Activo";
+            this.va_pri_act.Name = "va_pri_act";
+            this.va_pri_act.ReadOnly = true;
+            this.va_pri_act.Visible = false;
             // 
-            // bt_can_cel
+            // va_pro_ind
             // 
-            this.bt_can_cel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_can_cel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bt_can_cel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_can_cel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_can_cel.Location = new System.Drawing.Point(572, 7);
-            this.bt_can_cel.Name = "bt_can_cel";
-            this.bt_can_cel.Size = new System.Drawing.Size(75, 23);
-            this.bt_can_cel.TabIndex = 45;
-            this.bt_can_cel.Text = "&Cancelar";
-            this.bt_can_cel.UseVisualStyleBackColor = false;
-            this.bt_can_cel.Click += new System.EventHandler(this.Bt_can_cel_Click);
+            this.va_pro_ind.HeaderText = "Indicaciones";
+            this.va_pro_ind.Name = "va_pro_ind";
+            this.va_pro_ind.ReadOnly = true;
+            this.va_pro_ind.Visible = false;
             // 
-            // bt_ace_pta
+            // va_con_ind
             // 
-            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_ace_pta.Location = new System.Drawing.Point(491, 7);
-            this.bt_ace_pta.Name = "bt_ace_pta";
-            this.bt_ace_pta.Size = new System.Drawing.Size(75, 23);
-            this.bt_ace_pta.TabIndex = 40;
-            this.bt_ace_pta.Text = "&Aceptar";
-            this.bt_ace_pta.UseVisualStyleBackColor = false;
-            this.bt_ace_pta.Click += new System.EventHandler(this.Bt_ace_pta_Click);
-            // 
-            // bt_con_exi
-            // 
-            this.bt_con_exi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_con_exi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_con_exi.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_con_exi.Location = new System.Drawing.Point(11, 8);
-            this.bt_con_exi.Name = "bt_con_exi";
-            this.bt_con_exi.Size = new System.Drawing.Size(75, 23);
-            this.bt_con_exi.TabIndex = 50;
-            this.bt_con_exi.Text = "&Existencia";
-            this.bt_con_exi.UseVisualStyleBackColor = false;
-            this.bt_con_exi.Click += new System.EventHandler(this.bt_con_exi_Click);
+            this.va_con_ind.HeaderText = "Contraindicaciones";
+            this.va_con_ind.Name = "va_con_ind";
+            this.va_con_ind.ReadOnly = true;
+            this.va_con_ind.Visible = false;
             // 
             // inv004_01b
             // 
@@ -560,5 +587,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn va_nom_fam;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_est_ado;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_des_pro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn va_pri_act;
+        private System.Windows.Forms.DataGridViewTextBoxColumn va_pro_ind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn va_con_ind;
     }
 }
