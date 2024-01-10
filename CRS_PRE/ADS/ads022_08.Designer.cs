@@ -142,8 +142,8 @@
             this.MinimizeBox = false;
             this.Name = "ads022_08";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Exporta Tasa de Cambio a Excel";
-            this.Text = "Exporta Tasa de Cambio a Excel";
+            this.Tag = "Exporta Tasa de Cambio Bs/Us a Excel";
+            this.Text = "Exporta Tasa de Cambio Bs/Us a Excel";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

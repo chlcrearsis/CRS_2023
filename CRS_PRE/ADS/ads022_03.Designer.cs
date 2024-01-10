@@ -58,7 +58,7 @@
             this.tb_fec_tas.Mask = "00/00/0000";
             this.tb_fec_tas.Name = "tb_fec_tas";
             this.tb_fec_tas.Size = new System.Drawing.Size(88, 20);
-            this.tb_fec_tas.TabIndex = 6;
+            this.tb_fec_tas.TabIndex = 1;
             this.tb_fec_tas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_fec_tas.ValidatingType = typeof(System.DateTime);
             // 
@@ -68,7 +68,7 @@
             this.lb_tas_cam.Location = new System.Drawing.Point(46, 53);
             this.lb_tas_cam.Name = "lb_tas_cam";
             this.lb_tas_cam.Size = new System.Drawing.Size(27, 13);
-            this.lb_tas_cam.TabIndex = 4;
+            this.lb_tas_cam.TabIndex = 2;
             this.lb_tas_cam.Text = "T.C.";
             // 
             // lb_fec_tas
@@ -87,7 +87,7 @@
             this.tb_tas_cam.MaxLength = 7;
             this.tb_tas_cam.Name = "tb_tas_cam";
             this.tb_tas_cam.Size = new System.Drawing.Size(88, 20);
-            this.tb_tas_cam.TabIndex = 5;
+            this.tb_tas_cam.TabIndex = 3;
             this.tb_tas_cam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_tas_cam.Enter += new System.EventHandler(this.tb_tas_cam_Enter);
             this.tb_tas_cam.Validated += new System.EventHandler(this.tb_tas_cam_Validated);
@@ -131,7 +131,7 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // ads022_02
+            // ads022_03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +142,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ads022_02";
+            this.Name = "ads022_03";
             this.Tag = "Edita Tasa de Cambio Bs/Us";
             this.Text = "Edita Tasa de Cambio Bs/Us";
             this.Load += new System.EventHandler(this.frm_Load);

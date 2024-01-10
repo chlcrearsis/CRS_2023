@@ -7,9 +7,9 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads022 - Tasa de Cambio                               */
+    /*  Aplicación: ads022 - Tasa de Cambio Bs/Us                         */
     /*      Opción: Informe R01 - Reporte View                            */
-    /*       Autor: JEJR - Crearsis             Fecha: 02-01-2023         */
+    /*       Autor: JEJR - Crearsis             Fecha: 02-01-2024         */
     /**********************************************************************/
     public partial class ads022_R01w : Form
     {

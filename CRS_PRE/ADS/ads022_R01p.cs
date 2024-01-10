@@ -7,7 +7,7 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads022 - Tasa de Cambio                               */
+    /*  Aplicación: ads022 - Tasa de Cambio Bs/Us                         */
     /*      Opción: Informe R01 - Parametros                              */
     /*       Autor: JEJR - Crearsis             Fecha: 02-01-2024         */
     /**********************************************************************/
@@ -18,7 +18,6 @@ namespace CRS_PRE
         // Instancia
         private DataTable Tabla;
         private ads022 o_ads022 = new ads022();
-        private General general = new General();
 
         public ads022_R01p()
         {

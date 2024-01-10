@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
-            this.bt_can_cel = new System.Windows.Forms.Button();
             this.tb_fec_fin = new System.Windows.Forms.MaskedTextBox();
             this.lb_fec_fin = new System.Windows.Forms.Label();
             this.tb_fec_ini = new System.Windows.Forms.MaskedTextBox();
             this.lb_fec_ini = new System.Windows.Forms.Label();
+            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +51,44 @@
             this.groupBox1.Size = new System.Drawing.Size(267, 86);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // tb_fec_fin
+            // 
+            this.tb_fec_fin.Location = new System.Drawing.Point(108, 46);
+            this.tb_fec_fin.Mask = "00/00/0000";
+            this.tb_fec_fin.Name = "tb_fec_fin";
+            this.tb_fec_fin.Size = new System.Drawing.Size(88, 20);
+            this.tb_fec_fin.TabIndex = 3;
+            this.tb_fec_fin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_fec_fin.ValidatingType = typeof(System.DateTime);
+            // 
+            // lb_fec_fin
+            // 
+            this.lb_fec_fin.AutoSize = true;
+            this.lb_fec_fin.Location = new System.Drawing.Point(44, 50);
+            this.lb_fec_fin.Name = "lb_fec_fin";
+            this.lb_fec_fin.Size = new System.Drawing.Size(62, 13);
+            this.lb_fec_fin.TabIndex = 2;
+            this.lb_fec_fin.Text = "Fecha Final";
+            // 
+            // tb_fec_ini
+            // 
+            this.tb_fec_ini.Location = new System.Drawing.Point(108, 21);
+            this.tb_fec_ini.Mask = "00/00/0000";
+            this.tb_fec_ini.Name = "tb_fec_ini";
+            this.tb_fec_ini.Size = new System.Drawing.Size(88, 20);
+            this.tb_fec_ini.TabIndex = 1;
+            this.tb_fec_ini.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_fec_ini.ValidatingType = typeof(System.DateTime);
+            // 
+            // lb_fec_ini
+            // 
+            this.lb_fec_ini.AutoSize = true;
+            this.lb_fec_ini.Location = new System.Drawing.Point(39, 25);
+            this.lb_fec_ini.Name = "lb_fec_ini";
+            this.lb_fec_ini.Size = new System.Drawing.Size(67, 13);
+            this.lb_fec_ini.TabIndex = 0;
+            this.lb_fec_ini.Text = "Fecha Inicial";
             // 
             // gb_ctr_btn
             // 
@@ -91,44 +129,6 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // tb_fec_fin
-            // 
-            this.tb_fec_fin.Location = new System.Drawing.Point(108, 46);
-            this.tb_fec_fin.Mask = "00/00/0000";
-            this.tb_fec_fin.Name = "tb_fec_fin";
-            this.tb_fec_fin.Size = new System.Drawing.Size(88, 20);
-            this.tb_fec_fin.TabIndex = 3;
-            this.tb_fec_fin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_fec_fin.ValidatingType = typeof(System.DateTime);
-            // 
-            // lb_fec_fin
-            // 
-            this.lb_fec_fin.AutoSize = true;
-            this.lb_fec_fin.Location = new System.Drawing.Point(44, 50);
-            this.lb_fec_fin.Name = "lb_fec_fin";
-            this.lb_fec_fin.Size = new System.Drawing.Size(62, 13);
-            this.lb_fec_fin.TabIndex = 2;
-            this.lb_fec_fin.Text = "Fecha Final";
-            // 
-            // tb_fec_ini
-            // 
-            this.tb_fec_ini.Location = new System.Drawing.Point(108, 21);
-            this.tb_fec_ini.Mask = "00/00/0000";
-            this.tb_fec_ini.Name = "tb_fec_ini";
-            this.tb_fec_ini.Size = new System.Drawing.Size(88, 20);
-            this.tb_fec_ini.TabIndex = 1;
-            this.tb_fec_ini.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_fec_ini.ValidatingType = typeof(System.DateTime);
-            // 
-            // lb_fec_ini
-            // 
-            this.lb_fec_ini.AutoSize = true;
-            this.lb_fec_ini.Location = new System.Drawing.Point(39, 25);
-            this.lb_fec_ini.Name = "lb_fec_ini";
-            this.lb_fec_ini.Size = new System.Drawing.Size(67, 13);
-            this.lb_fec_ini.TabIndex = 0;
-            this.lb_fec_ini.Text = "Fecha Inicial";
-            // 
             // ads022_R01p
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,8 +142,8 @@
             this.MinimizeBox = false;
             this.Name = "ads022_R01p";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Informe Tasa de Cambio";
-            this.Text = "Informe Tasa de Cambio";
+            this.Tag = "Informe Tasa de Cambio Bs/Us";
+            this.Text = "Informe Tasa de Cambio Bs/Us";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -77,7 +77,7 @@ namespace CRS_PRE
             this.GroupBox1.Location = new System.Drawing.Point(3, -4);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Size = new System.Drawing.Size(512, 38);
-            this.GroupBox1.TabIndex = 70;
+            this.GroupBox1.TabIndex = 0;
             this.GroupBox1.TabStop = false;
             // 
             // m_frm_hja
@@ -91,7 +91,7 @@ namespace CRS_PRE
             this.mn_cer_rar});
             this.m_frm_hja.Location = new System.Drawing.Point(122, 7);
             this.m_frm_hja.Name = "m_frm_hja";
-            this.m_frm_hja.Size = new System.Drawing.Size(414, 24);
+            this.m_frm_hja.Size = new System.Drawing.Size(294, 24);
             this.m_frm_hja.TabIndex = 77;
             this.m_frm_hja.Visible = false;
             // 
@@ -191,7 +191,7 @@ namespace CRS_PRE
             this.cb_mes_tdc.Location = new System.Drawing.Point(94, 11);
             this.cb_mes_tdc.Name = "cb_mes_tdc";
             this.cb_mes_tdc.Size = new System.Drawing.Size(122, 21);
-            this.cb_mes_tdc.TabIndex = 76;
+            this.cb_mes_tdc.TabIndex = 1;
             this.cb_mes_tdc.SelectedIndexChanged += new System.EventHandler(this.cb_mes_año_SelectedIndexChanged);
             // 
             // lb_mes_tdc
@@ -200,7 +200,7 @@ namespace CRS_PRE
             this.lb_mes_tdc.Location = new System.Drawing.Point(65, 15);
             this.lb_mes_tdc.Name = "lb_mes_tdc";
             this.lb_mes_tdc.Size = new System.Drawing.Size(27, 13);
-            this.lb_mes_tdc.TabIndex = 75;
+            this.lb_mes_tdc.TabIndex = 0;
             this.lb_mes_tdc.Text = "Mes";
             // 
             // lb_año_tdc
@@ -209,7 +209,7 @@ namespace CRS_PRE
             this.lb_año_tdc.Location = new System.Drawing.Point(327, 15);
             this.lb_año_tdc.Name = "lb_año_tdc";
             this.lb_año_tdc.Size = new System.Drawing.Size(26, 13);
-            this.lb_año_tdc.TabIndex = 75;
+            this.lb_año_tdc.TabIndex = 2;
             this.lb_año_tdc.Text = "Año";
             // 
             // tb_año_tdc
@@ -217,7 +217,7 @@ namespace CRS_PRE
             this.tb_año_tdc.Location = new System.Drawing.Point(355, 12);
             this.tb_año_tdc.Name = "tb_año_tdc";
             this.tb_año_tdc.Size = new System.Drawing.Size(69, 20);
-            this.tb_año_tdc.TabIndex = 10;
+            this.tb_año_tdc.TabIndex = 3;
             this.tb_año_tdc.ValueChanged += new System.EventHandler(this.tb_val_año_ValueChanged);
             // 
             // gb_dia_sem
@@ -234,7 +234,7 @@ namespace CRS_PRE
             this.gb_dia_sem.Location = new System.Drawing.Point(3, 29);
             this.gb_dia_sem.Name = "gb_dia_sem";
             this.gb_dia_sem.Size = new System.Drawing.Size(512, 29);
-            this.gb_dia_sem.TabIndex = 73;
+            this.gb_dia_sem.TabIndex = 1;
             this.gb_dia_sem.TabStop = false;
             // 
             // lb_dia_sab
@@ -244,7 +244,7 @@ namespace CRS_PRE
             this.lb_dia_sab.Location = new System.Drawing.Point(443, 10);
             this.lb_dia_sab.Name = "lb_dia_sab";
             this.lb_dia_sab.Size = new System.Drawing.Size(44, 13);
-            this.lb_dia_sab.TabIndex = 75;
+            this.lb_dia_sab.TabIndex = 6;
             this.lb_dia_sab.Text = "Sabado";
             // 
             // lb_dia_vie
@@ -254,7 +254,7 @@ namespace CRS_PRE
             this.lb_dia_vie.Location = new System.Drawing.Point(370, 10);
             this.lb_dia_vie.Name = "lb_dia_vie";
             this.lb_dia_vie.Size = new System.Drawing.Size(42, 13);
-            this.lb_dia_vie.TabIndex = 75;
+            this.lb_dia_vie.TabIndex = 5;
             this.lb_dia_vie.Text = "Viernes";
             // 
             // lb_dia_jue
@@ -264,7 +264,7 @@ namespace CRS_PRE
             this.lb_dia_jue.Location = new System.Drawing.Point(306, 10);
             this.lb_dia_jue.Name = "lb_dia_jue";
             this.lb_dia_jue.Size = new System.Drawing.Size(41, 13);
-            this.lb_dia_jue.TabIndex = 75;
+            this.lb_dia_jue.TabIndex = 4;
             this.lb_dia_jue.Text = "Jueves";
             // 
             // lb_dia_mie
@@ -274,7 +274,7 @@ namespace CRS_PRE
             this.lb_dia_mie.Location = new System.Drawing.Point(226, 10);
             this.lb_dia_mie.Name = "lb_dia_mie";
             this.lb_dia_mie.Size = new System.Drawing.Size(52, 13);
-            this.lb_dia_mie.TabIndex = 75;
+            this.lb_dia_mie.TabIndex = 3;
             this.lb_dia_mie.Text = "Miercoles";
             // 
             // lb_dia_mar
@@ -284,7 +284,7 @@ namespace CRS_PRE
             this.lb_dia_mar.Location = new System.Drawing.Point(160, 10);
             this.lb_dia_mar.Name = "lb_dia_mar";
             this.lb_dia_mar.Size = new System.Drawing.Size(39, 13);
-            this.lb_dia_mar.TabIndex = 75;
+            this.lb_dia_mar.TabIndex = 2;
             this.lb_dia_mar.Text = "Martes";
             // 
             // lb_dia_lun
@@ -294,7 +294,7 @@ namespace CRS_PRE
             this.lb_dia_lun.Location = new System.Drawing.Point(91, 10);
             this.lb_dia_lun.Name = "lb_dia_lun";
             this.lb_dia_lun.Size = new System.Drawing.Size(36, 13);
-            this.lb_dia_lun.TabIndex = 75;
+            this.lb_dia_lun.TabIndex = 1;
             this.lb_dia_lun.Text = "Lunes";
             // 
             // lb_dia_dom
@@ -304,7 +304,7 @@ namespace CRS_PRE
             this.lb_dia_dom.Location = new System.Drawing.Point(15, 10);
             this.lb_dia_dom.Name = "lb_dia_dom";
             this.lb_dia_dom.Size = new System.Drawing.Size(49, 13);
-            this.lb_dia_dom.TabIndex = 75;
+            this.lb_dia_dom.TabIndex = 0;
             this.lb_dia_dom.Text = "Domingo";
             // 
             // fl_cal_end
@@ -313,14 +313,14 @@ namespace CRS_PRE
             this.fl_cal_end.Margin = new System.Windows.Forms.Padding(0);
             this.fl_cal_end.Name = "fl_cal_end";
             this.fl_cal_end.Size = new System.Drawing.Size(506, 422);
-            this.fl_cal_end.TabIndex = 74;
+            this.fl_cal_end.TabIndex = 7;
             // 
             // fl_cal_tdc
             // 
             this.fl_cal_tdc.Location = new System.Drawing.Point(3, 60);
             this.fl_cal_tdc.Name = "fl_cal_tdc";
             this.fl_cal_tdc.Size = new System.Drawing.Size(512, 424);
-            this.fl_cal_tdc.TabIndex = 0;
+            this.fl_cal_tdc.TabIndex = 2;
             // 
             // gb_ctr_btn
             // 
@@ -330,7 +330,7 @@ namespace CRS_PRE
             this.gb_ctr_btn.Location = new System.Drawing.Point(3, 480);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
             this.gb_ctr_btn.Size = new System.Drawing.Size(513, 40);
-            this.gb_ctr_btn.TabIndex = 75;
+            this.gb_ctr_btn.TabIndex = 3;
             this.gb_ctr_btn.TabStop = false;
             // 
             // bt_ace_pta
@@ -342,7 +342,7 @@ namespace CRS_PRE
             this.bt_ace_pta.Location = new System.Drawing.Point(355, 10);
             this.bt_ace_pta.Name = "bt_ace_pta";
             this.bt_ace_pta.Size = new System.Drawing.Size(75, 25);
-            this.bt_ace_pta.TabIndex = 46;
+            this.bt_ace_pta.TabIndex = 0;
             this.bt_ace_pta.Text = "&Aceptar";
             this.bt_ace_pta.UseVisualStyleBackColor = false;
             this.bt_ace_pta.Click += new System.EventHandler(this.bt_ace_pta_Click);
@@ -357,7 +357,7 @@ namespace CRS_PRE
             this.bt_can_cel.Location = new System.Drawing.Point(433, 10);
             this.bt_can_cel.Name = "bt_can_cel";
             this.bt_can_cel.Size = new System.Drawing.Size(75, 25);
-            this.bt_can_cel.TabIndex = 45;
+            this.bt_can_cel.TabIndex = 1;
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
@@ -375,7 +375,8 @@ namespace CRS_PRE
             this.Name = "ads022_01";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Tipo de Cambio Bs/Us";
+            this.Tag = "Tasa de Cambio Bs/Us";
+            this.Text = "Tasa de Cambio Bs/Us";
             this.Load += new System.EventHandler(this.frm_Load);
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();

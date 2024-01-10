@@ -28,32 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bt_car_dat = new System.Windows.Forms.Button();
             this.bt_bus_arc = new System.Windows.Forms.Button();
             this.tb_dir_arc = new System.Windows.Forms.TextBox();
             this.lb_arc_exc = new System.Windows.Forms.Label();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
-            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.pn_tot_reg = new System.Windows.Forms.Panel();
-            this.tb_tot_reg = new System.Windows.Forms.Label();
-            this.lb_sin_err = new System.Windows.Forms.Label();
-            this.tb_sin_err = new System.Windows.Forms.Label();
-            this.lb_con_err = new System.Windows.Forms.Label();
-            this.lb_tot_reg = new System.Windows.Forms.Label();
-            this.tb_con_err = new System.Windows.Forms.Label();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
-            this.bt_can_cel = new System.Windows.Forms.Button();
-            this.ds_bus_arc = new System.DirectoryServices.DirectorySearcher();
             this.va_nro_reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_fec_tas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_tas_cam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_obs_reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.pn_tot_reg = new System.Windows.Forms.Panel();
+            this.lb_tot_reg = new System.Windows.Forms.Label();
+            this.lb_sin_err = new System.Windows.Forms.Label();
+            this.lb_con_err = new System.Windows.Forms.Label();
+            this.tb_tot_reg = new System.Windows.Forms.Label();
+            this.tb_sin_err = new System.Windows.Forms.Label();
+            this.tb_con_err = new System.Windows.Forms.Label();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_res_ult)).BeginInit();
             this.gb_ctr_btn.SuspendLayout();
@@ -123,29 +122,29 @@
             this.dg_res_ult.AllowUserToResizeRows = false;
             this.dg_res_ult.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_res_ult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dg_res_ult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_res_ult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.va_nro_reg,
             this.va_fec_tas,
             this.va_tas_cam,
             this.va_obs_reg});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle10;
             this.dg_res_ult.Location = new System.Drawing.Point(5, 52);
             this.dg_res_ult.MultiSelect = false;
             this.dg_res_ult.Name = "dg_res_ult";
@@ -155,6 +154,40 @@
             this.dg_res_ult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_res_ult.Size = new System.Drawing.Size(501, 206);
             this.dg_res_ult.TabIndex = 8;
+            // 
+            // va_nro_reg
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_nro_reg.DefaultCellStyle = dataGridViewCellStyle7;
+            this.va_nro_reg.HeaderText = "N°";
+            this.va_nro_reg.Name = "va_nro_reg";
+            this.va_nro_reg.ReadOnly = true;
+            this.va_nro_reg.Width = 30;
+            // 
+            // va_fec_tas
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_fec_tas.DefaultCellStyle = dataGridViewCellStyle8;
+            this.va_fec_tas.HeaderText = "Fecha Columna (A)";
+            this.va_fec_tas.Name = "va_fec_tas";
+            this.va_fec_tas.ReadOnly = true;
+            this.va_fec_tas.Width = 98;
+            // 
+            // va_tas_cam
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_tas_cam.DefaultCellStyle = dataGridViewCellStyle9;
+            this.va_tas_cam.HeaderText = "Tasa de Cambio Columna (B)";
+            this.va_tas_cam.Name = "va_tas_cam";
+            this.va_tas_cam.ReadOnly = true;
+            this.va_tas_cam.Width = 120;
+            // 
+            // va_obs_reg
+            // 
+            this.va_obs_reg.HeaderText = "Observación";
+            this.va_obs_reg.Name = "va_obs_reg";
+            this.va_obs_reg.ReadOnly = true;
+            this.va_obs_reg.Width = 230;
             // 
             // gb_ctr_btn
             // 
@@ -181,14 +214,15 @@
             this.pn_tot_reg.Size = new System.Drawing.Size(326, 21);
             this.pn_tot_reg.TabIndex = 2;
             // 
-            // tb_tot_reg
+            // lb_tot_reg
             // 
-            this.tb_tot_reg.AutoSize = true;
-            this.tb_tot_reg.Location = new System.Drawing.Point(256, 4);
-            this.tb_tot_reg.Name = "tb_tot_reg";
-            this.tb_tot_reg.Size = new System.Drawing.Size(34, 13);
-            this.tb_tot_reg.TabIndex = 7;
-            this.tb_tot_reg.Text = "3,500";
+            this.lb_tot_reg.AutoSize = true;
+            this.lb_tot_reg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tot_reg.Location = new System.Drawing.Point(214, 4);
+            this.lb_tot_reg.Name = "lb_tot_reg";
+            this.lb_tot_reg.Size = new System.Drawing.Size(44, 13);
+            this.lb_tot_reg.TabIndex = 6;
+            this.lb_tot_reg.Text = "Total :";
             // 
             // lb_sin_err
             // 
@@ -200,16 +234,6 @@
             this.lb_sin_err.TabIndex = 4;
             this.lb_sin_err.Text = "Sin Error :";
             // 
-            // tb_sin_err
-            // 
-            this.tb_sin_err.AutoSize = true;
-            this.tb_sin_err.Location = new System.Drawing.Point(172, 4);
-            this.tb_sin_err.Name = "tb_sin_err";
-            this.tb_sin_err.Size = new System.Drawing.Size(34, 13);
-            this.tb_sin_err.TabIndex = 5;
-            this.tb_sin_err.Text = "3,500";
-            this.tb_sin_err.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lb_con_err
             // 
             this.lb_con_err.AutoSize = true;
@@ -220,15 +244,24 @@
             this.lb_con_err.TabIndex = 2;
             this.lb_con_err.Text = "Con Error :";
             // 
-            // lb_tot_reg
+            // tb_tot_reg
             // 
-            this.lb_tot_reg.AutoSize = true;
-            this.lb_tot_reg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_tot_reg.Location = new System.Drawing.Point(214, 4);
-            this.lb_tot_reg.Name = "lb_tot_reg";
-            this.lb_tot_reg.Size = new System.Drawing.Size(44, 13);
-            this.lb_tot_reg.TabIndex = 6;
-            this.lb_tot_reg.Text = "Total :";
+            this.tb_tot_reg.AutoSize = true;
+            this.tb_tot_reg.Location = new System.Drawing.Point(256, 4);
+            this.tb_tot_reg.Name = "tb_tot_reg";
+            this.tb_tot_reg.Size = new System.Drawing.Size(34, 13);
+            this.tb_tot_reg.TabIndex = 7;
+            this.tb_tot_reg.Text = "3,500";
+            // 
+            // tb_sin_err
+            // 
+            this.tb_sin_err.AutoSize = true;
+            this.tb_sin_err.Location = new System.Drawing.Point(172, 4);
+            this.tb_sin_err.Name = "tb_sin_err";
+            this.tb_sin_err.Size = new System.Drawing.Size(34, 13);
+            this.tb_sin_err.TabIndex = 5;
+            this.tb_sin_err.Text = "3,500";
+            this.tb_sin_err.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tb_con_err
             // 
@@ -268,46 +301,6 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // ds_bus_arc
-            // 
-            this.ds_bus_arc.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
-            this.ds_bus_arc.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            this.ds_bus_arc.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            // 
-            // va_nro_reg
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_nro_reg.DefaultCellStyle = dataGridViewCellStyle2;
-            this.va_nro_reg.HeaderText = "N°";
-            this.va_nro_reg.Name = "va_nro_reg";
-            this.va_nro_reg.ReadOnly = true;
-            this.va_nro_reg.Width = 30;
-            // 
-            // va_fec_tas
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_fec_tas.DefaultCellStyle = dataGridViewCellStyle3;
-            this.va_fec_tas.HeaderText = "Fecha Columna (A)";
-            this.va_fec_tas.Name = "va_fec_tas";
-            this.va_fec_tas.ReadOnly = true;
-            this.va_fec_tas.Width = 98;
-            // 
-            // va_tas_cam
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_tas_cam.DefaultCellStyle = dataGridViewCellStyle4;
-            this.va_tas_cam.HeaderText = "Tasa de Cambio Columna (B)";
-            this.va_tas_cam.Name = "va_tas_cam";
-            this.va_tas_cam.ReadOnly = true;
-            this.va_tas_cam.Width = 120;
-            // 
-            // va_obs_reg
-            // 
-            this.va_obs_reg.HeaderText = "Observación";
-            this.va_obs_reg.Name = "va_obs_reg";
-            this.va_obs_reg.ReadOnly = true;
-            this.va_obs_reg.Width = 230;
-            // 
             // ads022_09
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,8 +314,8 @@
             this.MinimizeBox = false;
             this.Name = "ads022_09";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Importa Tasa de Cambio desde Excel";
-            this.Text = "Importa Tasa de Cambio desde Excel";
+            this.Tag = "Importa Tasa de Cambio Bs/Us desde Excel";
+            this.Text = "Importa Tasa de Cambio Bs/Us desde Excel";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -341,7 +334,6 @@
         private System.Windows.Forms.Button bt_can_cel;
         private System.Windows.Forms.Label lb_arc_exc;
         private System.Windows.Forms.TextBox tb_dir_arc;
-        private System.DirectoryServices.DirectorySearcher ds_bus_arc;
         private System.Windows.Forms.Button bt_bus_arc;
         private System.Windows.Forms.DataGridView dg_res_ult;
         private System.Windows.Forms.Button bt_car_dat;

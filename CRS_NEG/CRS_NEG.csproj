@@ -60,6 +60,7 @@
     <Compile Include="ADP\adp017.cs" />
     <Compile Include="ADS\ads015.cs" />
     <Compile Include="ADS\ads011.cs" />
+    <Compile Include="ADS\ads023.cs" />
     <Compile Include="ADS\ads100.cs" />
     <Compile Include="ADS\ads014.cs" />
     <Compile Include="ADS\ads025.cs" />
@@ -73,7 +74,7 @@
     <Compile Include="ADS\ads005.cs" />
     <Compile Include="ADS\ads004.cs" />
     <Compile Include="ADS\ads012.cs" />
-    <Compile Include="ADS\ads024.cs" />
+    <Compile Include="ADS\ads018.cs" />
     <Compile Include="ADS\ads009.cs" />
     <Compile Include="ADS\ads008.cs" />
     <Compile Include="ADS\ads017.cs" />

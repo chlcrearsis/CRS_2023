@@ -26,7 +26,7 @@ namespace CRS_PRE
         private General general = new General();        
         private ads007 o_ads007 = new ads007();
         private ads013 o_ads013 = new ads013();
-        private ads024 o_ads024 = new ads024();
+        private ads018 o_ads018 = new ads018();
         
 
 
@@ -165,7 +165,7 @@ namespace CRS_PRE
                     }
 
                     // Inserta Bitacora de Inicio de Sesion                  
-                    o_ads024.Fe_ini_ses(ide_uni, Program.gl_ide_usr, SystemInformation.ComputerName);
+                    o_ads018.Fe_ini_ses(ide_uni, Program.gl_ide_usr, SystemInformation.ComputerName);
 
                     // Abre la ventana del Menu Principal
                     Visible = false;

@@ -7,8 +7,8 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads022 - Tasa de Cambio                               */
-    /*      Opción: Registra Tasa de Cambio p/Rango de Fecha              */
+    /*  Aplicación: ads022 - Tasa de Cambio Bs/Us                         */
+    /*      Opción: Registra Tasa de Cambio Bs/Us p/Rango de Fecha        */
     /*       Autor: JEJR - Crearsis             Fecha: 02-01-2024         */
     /**********************************************************************/
     public partial class ads022_02 : Form
@@ -36,23 +36,9 @@ namespace CRS_PRE
         {
             tb_fec_ini.Text = string.Empty;
             tb_fec_fin.Text = string.Empty;
-            tb_tas_cam.Text = string.Empty;
-            Fi_ini_pan();
-        }
-
-        // Inicializa los campos en pantalla
-        private void Fi_ini_pan()
-        {
-            // Obtiene la fecha inicial y final
-            DateTime fec_ini = DateTime.Parse(general.Fe_fch_act());
-            DateTime fec_fin = fec_ini.AddMonths(1);
-
-            // Establece datos por defectos 
-            tb_fec_ini.Text = fec_ini.ToString();
-            tb_fec_fin.Text = fec_fin.ToString();
             tb_tas_cam.Text = "0.0000";
-            tb_fec_ini.Focus();            
-        }
+            tb_fec_ini.Focus();
+        }      
 
         // Valida los datos proporcionados
         protected string Fi_val_dat()

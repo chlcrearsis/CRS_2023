@@ -1,7 +1,6 @@
 ﻿using CRS_NEG;
 using System;
 using System.Data;
-using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -9,8 +8,8 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads022 - Tasa de Cambio                               */
-    /*      Opción: Exporta T.C a Excel                                   */
+    /*  Aplicación: ads022 - Tasa de Cambio Bs/Us                         */
+    /*      Opción: Exporta Tasa de Cambio Bs/Us a Excel                  */
     /*       Autor: JEJR - Crearsis             Fecha: 03-01-2024         */
     /**********************************************************************/
     public partial class ads022_08 : Form

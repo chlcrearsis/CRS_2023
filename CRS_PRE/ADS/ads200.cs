@@ -139,7 +139,7 @@ namespace CRS_PRE
         // Evento Click: Bitácora de Inicio de Sesión
         private void mn_bit_ses_Click(object sender, EventArgs e)
         {
-            o_frm = new ads024_R01p();
+            o_frm = new ads018_R01p();
             cl_glo_frm.abrir(this, o_frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
         }
 
@@ -337,12 +337,19 @@ namespace CRS_PRE
         {
             o_frm = new ecp001_01();
             cl_glo_frm.abrir(this, o_frm);
-        }
+        }        
 
-        // Evento Click: Tasa de Cambio
-        private void mn_tas_cam_Click(object sender, EventArgs e)
+        // Evento Click: Tasa de Cambio Bs/Us
+        private void mn_tas_uss_Click(object sender, EventArgs e)
         {
             o_frm = new ads022_01();
+            cl_glo_frm.abrir(this, o_frm);
+        }
+
+        // Evento Click: Tasa de Cambio Bs/Ufv
+        private void mn_tas_ufv_Click(object sender, EventArgs e)
+        {
+            o_frm = new ads023_01();
             cl_glo_frm.abrir(this, o_frm);
         }
 
@@ -433,8 +440,6 @@ namespace CRS_PRE
                 if (o_frm.DialogResult == DialogResult.OK)
                     cl_glo_bal.fg_per_mnu(o_frm.tb_ide_usr.Text, frm_pad);
             }
-        }
-
-        
+        }        
     }
 }

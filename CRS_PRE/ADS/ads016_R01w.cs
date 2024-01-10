@@ -33,7 +33,7 @@ namespace CRS_PRE
         private void frm_Load(object sender, EventArgs e)
         {
             // Hacer grande la pantalla
-            this.Dock = DockStyle.Fill;            
+            Dock = DockStyle.Fill;            
             // Castea la descripcion de ordenamiento
             if (vp_ord_dat.CompareTo("P") == 0)
                 vp_ord_dat = "Periodo";

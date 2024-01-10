@@ -9,8 +9,8 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads022 - Tasa de Cambio                               */
-    /*      Opción: Importa T.C desde Excel                               */
+    /*  Aplicación: ads022 - Tasa de Cambio Bs/Us                         */
+    /*      Opción: Importa Tasa de Cambio Bs/Us desde Excel              */
     /*       Autor: JEJR - Crearsis             Fecha: 05-01-2024         */
     /**********************************************************************/
     public partial class ads022_09 : Form

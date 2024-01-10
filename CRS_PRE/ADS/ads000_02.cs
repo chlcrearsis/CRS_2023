@@ -25,7 +25,7 @@ namespace CRS_PRE
         ads007 o_ads007 = new ads007();
         ads013 o_ads013 = new ads013();
         ads008 o_ads008 = new ads008();        
-        ads024 o_ads024 = new ads024();
+        ads018 o_ads018 = new ads018();
         ads100 o_ads100 = new ads100();
         General general = new General();
 
@@ -810,7 +810,7 @@ namespace CRS_PRE
         private void ads000_02_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Registra Finaliza Sesión en Bitacora de Inicio de Sesion            
-            o_ads024.Fe_fin_ses(Program.gl_ide_uni);
+            o_ads018.Fe_fin_ses(Program.gl_ide_uni);
         }        
     }
 }

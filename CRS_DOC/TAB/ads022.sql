@@ -11,7 +11,7 @@ CREATE TABLE ads022
 	--** Llave Primaria
 	va_fec_tas	DATETIME	 NOT NULL,				--** Fecha 
 	--** Atributos     	
-	va_tas_cam	DECIMAL(8,4) NOT NULL DEFAULT(0)	--** T.C (Bs; Us)
+	va_tas_cam	DECIMAL(8,4) NOT NULL DEFAULT(0)	--** Tasa de Cambio Bs/Us
 
 CONSTRAINT pk1_ads022 PRIMARY KEY(va_fec_tas)
 )
