@@ -86,10 +86,8 @@ namespace CRS_PRE
         private void Fi_obt_per()
         {
             // Valida que el Código de Persona sea válido
-            if (tb_ide_per.Text.CompareTo("") == 0 &&
-                tb_ide_per.Text.CompareTo("0") == 0){
-                tb_ide_per.Focus();
-                MessageBox.Show("DEBE proporcionar un codigo de persona valido", "Error", MessageBoxButtons.OK);
+            if (tb_ide_per.Text.Trim().CompareTo("") == 0){
+                tb_ide_per.Text = "0";
             }
 
             // Válida que el Código de Persona sea numerico
@@ -99,18 +97,19 @@ namespace CRS_PRE
             }
 
             // Obtiene los datos del cliente
-            Tabla = new DataTable();
-            Tabla = o_adp002.Fe_con_per(int.Parse(tb_ide_per.Text));
-            if (Tabla.Rows.Count == 0)
+            if (tb_ide_per.Text.Trim().CompareTo("0") != 0)
             {
-                tb_ide_per.Focus();
-                lb_raz_soc.Text = "...";
-                MessageBox.Show("NO existe ningúna Persona con ese código", "Error", MessageBoxButtons.OK);
-            }else {
-                // Despliega los datos de la persona
-                tb_ide_per.Text = Tabla.Rows[0]["va_cod_per"].ToString();
-                lb_raz_soc.Text = Tabla.Rows[0]["va_raz_soc"].ToString();
-            }            
+                Tabla = new DataTable();
+                Tabla = o_adp002.Fe_con_per(int.Parse(tb_ide_per.Text));
+                if (Tabla.Rows.Count == 0){
+                    tb_ide_per.Focus();
+                    lb_raz_soc.Text = "...";
+                    MessageBox.Show("NO existe ningúna Persona con ese código", "Error", MessageBoxButtons.OK);
+                }else{
+                    tb_ide_per.Text = Tabla.Rows[0]["va_cod_per"].ToString();
+                    lb_raz_soc.Text = Tabla.Rows[0]["va_raz_soc"].ToString();
+                }
+            }
         }
 
         // Valida los datos proporcionados

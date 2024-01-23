@@ -47,7 +47,7 @@ namespace CRS_PRE
             if (Tabla.Rows.Count > 0)
                 lb_nom_usr.Text = Tabla.Rows[0]["va_nom_usr"].ToString();
             else
-                lb_nom_usr.Text = "Usuario NO Existe";
+                lb_nom_usr.Text = "NO Existe";
 
             // Busca y Desplega Opcion del Hilo Nivel 1
             fi_bus_hi1();
@@ -230,7 +230,6 @@ namespace CRS_PRE
                     // Si esta tikeado, no deberia tener registro en la BD (permiso permitido)
                     o_ads012.Fe_eli_min(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi2.Name);                                    
                 else { // Denegado
-
                     // Si NO esta tikeado, Deberia tener registro en la BD (permiso denegado)
                     o_ads012.Fe_eli_min(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi2.Name);
                     o_ads012.Fe_nue_reg(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi2.Name);                    
@@ -253,7 +252,6 @@ namespace CRS_PRE
                     // Si esta tikeado, no deberia tener registro en la BD (permiso permitido)
                     o_ads012.Fe_eli_min(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi3.Name);
                 else { // Denegado
-
                     // Si NO esta tikeado, Deberia tener registro en la BD (permiso denegado)
                     o_ads012.Fe_eli_min(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi3.Name);
                     o_ads012.Fe_nue_reg(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi3.Name);
@@ -276,7 +274,6 @@ namespace CRS_PRE
                     // Si esta tikeado, no deberia tener registro en la BD (permiso permitido)
                     o_ads012.Fe_eli_min(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi4.Name);
                 else { // Denegado
-
                     // Si NO esta tikeado, Deberia tener registro en la BD (permiso denegado)
                     o_ads012.Fe_eli_min(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi4.Name);
                     o_ads012.Fe_nue_reg(tb_ide_usr.Text, tb_ide_frm.Text, tnd_hi4.Name);
@@ -344,7 +341,5 @@ namespace CRS_PRE
         {
             cl_glo_frm.Cerrar(this);
         }
-
-
     }
 }

@@ -137,13 +137,13 @@ namespace CRS_PRE
                 MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                 return;
             }
-            msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Name, MessageBoxButtons.OKCancel);
+            msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
             if (msg_res == DialogResult.OK)
             {
                 // Registra Periodo
                 o_ads016.Fe_nue_reg(int.Parse(tb_ges_tio.Text), int.Parse(tb_ges_per.Text), 
                                     tb_nom_per.Text, tb_fec_ini.Text, tb_fec_fin.Text);
-                MessageBox.Show("Los datos se grabaron correctamente", Name, MessageBoxButtons.OK);
+                MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
                 frm_pad.fi_bus_car(int.Parse(tb_ges_tio.Text));
 
                 // Limpia Campos

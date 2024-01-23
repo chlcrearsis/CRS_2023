@@ -270,8 +270,8 @@
             this.MinimizeBox = false;
             this.Name = "ads011_R01w";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Definición de Claves";
-            this.Text = "Definición de Claves";
+            this.Tag = "Informe Definición de Claves";
+            this.Text = "Informe Definición de Claves";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

@@ -122,8 +122,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads011_02b";
-            this.Tag = "Crea Claves por Defectos";
-            this.Text = "Crea Claves por Defectos";
+            this.Tag = "Crea Claves p/Defectos";
+            this.Text = "Crea Claves p/Defectos";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

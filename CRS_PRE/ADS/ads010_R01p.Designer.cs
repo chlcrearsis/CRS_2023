@@ -160,7 +160,7 @@
             this.MinimizeBox = false;
             this.Name = "ads010_R01p";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Informe Módulo del Sistema";
+            this.Tag = "Informe Tipos de Imagen";
             this.Text = "Informe Tipos de Imagen";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

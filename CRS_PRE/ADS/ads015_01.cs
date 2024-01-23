@@ -46,7 +46,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Metodo : Filtra Datos de acuerdo el criterio
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="tex_bus">Texto a buscar</param>
         /// <param name="prm_bus">Parametro a buscar</param>
@@ -81,12 +81,14 @@ namespace CRS_PRE
                 }
                 tb_ide_reg.Text = Tabla.Rows[0]["va_ide_reg"].ToString();
                 lb_nom_reg.Text = Tabla.Rows[0]["va_nom_reg"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
             tb_tex_bus.Focus();
         }
 
         /// <summary>
-        /// Método : Obtiene fila actual seleccionada
+        /// Función: Obtiene fila actual seleccionada
         /// </summary>
         public void fi_fil_act()
         {
@@ -123,7 +125,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Función: Selecciona la fila en el Datagrid del registro que se modifico
+        /// Función: Selecciona la fila en el Datagrid del registro modificado
         /// </summary>
         private void fi_sel_fil(string ide_reg)
         {
@@ -186,7 +188,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion : Actualiza la ventana despues de realizar alguna operación
+        /// Función: Actualiza la ventana despues de realizar alguna operación
         /// </summary>
         public void Fe_act_frm(int ide_reg)
         {
@@ -265,10 +267,16 @@ namespace CRS_PRE
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
                 }
-            }
+            }        
         }
 
-        // Evento Validated: ID. Regional                      
+        // Evento KeyPress: ID. Regional
+        private void tb_ide_reg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cl_glo_bal.NotNumeric(e);
+        }
+
+        // Evento Validated: ID. Regional
         private void tb_ide_reg_Validated(object sender, EventArgs e)
         {
             fi_con_sel();
@@ -295,14 +303,17 @@ namespace CRS_PRE
                 DialogResult = DialogResult.OK;
                 cl_glo_frm.Cerrar(this);
             }
-        }
+        }        
 
-        // Evento Enter: DataGridView
-        private void dg_res_ult_Enter(object sender, EventArgs e)
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                DialogResult = DialogResult.OK;
-                cl_glo_frm.Cerrar(this);
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
@@ -377,7 +388,7 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
-        // Evento Click: Salir
+        // Evento Click: Cerrar Pantalla
         private void mn_cer_rar_Click(object sender, EventArgs e)
         {
             cl_glo_frm.Cerrar(this);
@@ -386,8 +397,10 @@ namespace CRS_PRE
         // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            cl_glo_frm.Cerrar(this);
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
         }
 
         // Evento Click: Button Cancelar
@@ -395,6 +408,6 @@ namespace CRS_PRE
         {
             DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
-        }
+        }        
     }
 }

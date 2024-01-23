@@ -9,8 +9,8 @@ namespace CRS_PRE
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
     /*  Aplicación: ads014 - Clave Usuario p/Global                       */
-    /*      Opción: Actualiza Clave                                       */
-    /*       Autor: JEJR - Crearsis             Fecha: 13-12-2023         */
+    /*      Opción: Verifica Clave Usuario                                */
+    /*       Autor: JEJR - Crearsis             Fecha: 12-01-2024         */
     /**********************************************************************/
     public partial class ads014_02 : Form
     {     
@@ -41,11 +41,11 @@ namespace CRS_PRE
         {
             tb_nom_cla.Text = string.Empty;
             tb_ide_cla.Text = string.Empty;
-            tb_con_act.Text = string.Empty;
-            tb_nue_con.Text = "password";
-            tb_rep_con.Text = "password";
+            tb_cla_act.Text = string.Empty;
+            tb_nue_cla.Text = "password";
+            tb_rep_cla.Text = "password";
             rb_sup_aut.Checked = false;
-            tb_con_act.Enabled = false;
+            tb_cla_act.Enabled = false;
             // Inicializa Campos
             Fi_ini_pan();
         }
@@ -67,7 +67,7 @@ namespace CRS_PRE
             Tabla = o_ads014.Fe_obt_cla(vp_ide_usr, vp_ide_mod, vp_ide_cla);
             if (Tabla.Rows.Count > 0){
                 rb_sup_aut.Enabled = true;
-                tb_con_act.Text = Tabla.Rows[0]["va_cla_usr"].ToString();
+                tb_cla_act.Text = Tabla.Rows[0]["va_cla_usr"].ToString();
             }else {
                 rb_sup_aut.Enabled = false;
             }
@@ -76,35 +76,35 @@ namespace CRS_PRE
         // Valida los datos proporcionados
         protected string Fi_val_dat()
         {
-            // Valida que el campo nueva contraseña no este vacio
+            // Valida que el campo nueva clave no este vacio
             if (!rb_sup_aut.Checked){
-                if (tb_nue_con.Text.Trim() == "" || tb_nue_con.Text.Trim() == "password"){
-                    tb_nue_con.Focus();
-                    return "DEBE proporcionar la nueva contraseña";
+                if (tb_nue_cla.Text.Trim() == "" || tb_nue_cla.Text.Trim() == "password"){
+                    tb_nue_cla.Focus();
+                    return "DEBE proporcionar la nueva clave";
                 }
             }
 
-            // Valida que el campo repetir contraseña no este vacio
+            // Valida que el campo repetir clave no este vacio
             if (!rb_sup_aut.Checked){
-                if (tb_rep_con.Text.Trim() == "" || tb_rep_con.Text.Trim() == "password"){
-                    tb_rep_con.Focus();
-                    return "DEBE repetir la contraseña nueva";
+                if (tb_rep_cla.Text.Trim() == "" || tb_rep_cla.Text.Trim() == "password"){
+                    tb_rep_cla.Focus();
+                    return "DEBE repetir la clave nueva";
                 }
             }
 
-            // Valida que la nueva contraseña sea la misma que repetir contraseña
+            // Valida que la nueva clave sea la misma que repetir contraseña
             if (!rb_sup_aut.Checked){
-                if (tb_nue_con.Text.Trim() != tb_rep_con.Text.Trim()){
-                    tb_rep_con.Focus();
-                    return "La Contraseña NO es la misma que la proporcionada";
+                if (tb_nue_cla.Text.Trim() != tb_rep_cla.Text.Trim()){
+                    tb_rep_cla.Focus();
+                    return "La Clave NO es la misma que la proporcionada";
                 }
             }
 
             // Valida que la contraseña sea MAYOR o IGUAL 3 digitos
             if (!rb_sup_aut.Checked){
-                if (tb_nue_con.Text.Length < 3){
-                    tb_nue_con.Focus();
-                    return "La Contraseña DEBE ser MAYOR o IGUAL a 3 digitos";
+                if (tb_nue_cla.Text.Length < 3){
+                    tb_nue_cla.Focus();
+                    return "La Clave DEBE ser MAYOR o IGUAL a 3 digitos";
                 }
             }
 
@@ -115,47 +115,47 @@ namespace CRS_PRE
                 return "La Clave (" + vp_ide_mod + "-" + vp_ide_cla + ") NO está definido en el sistema";
 
             // Quita caracteres especiales de SQL-Trans
-            tb_con_act.Text = tb_con_act.Text.Replace("'", "");
-            tb_nue_con.Text = tb_nue_con.Text.Replace("'", "");
-            tb_rep_con.Text = tb_rep_con.Text.Replace("'", "");
+            tb_cla_act.Text = tb_cla_act.Text.Replace("'", "");
+            tb_nue_cla.Text = tb_nue_cla.Text.Replace("'", "");
+            tb_rep_cla.Text = tb_rep_cla.Text.Replace("'", "");
 
             return "OK";
         }
 
-        // Evento Enter: Nueva Contraseña
-        private void tb_nue_con_Enter(object sender, EventArgs e)
+        // Evento Enter: Nueva Clave
+        private void tb_nue_cla_Enter(object sender, EventArgs e)
         {
-            if (tb_nue_con.Text == "password")
-                tb_nue_con.Clear();
+            if (tb_nue_cla.Text == "password")
+                tb_nue_cla.Clear();
         }
 
-        // Evento Enter: Repetir Contraseña
-        private void tb_rep_con_Enter(object sender, EventArgs e)
+        // Evento Enter: Repetir Clave
+        private void tb_rep_cla_Enter(object sender, EventArgs e)
         {
-            if (tb_rep_con.Text == "password")
-                tb_rep_con.Clear();
+            if (tb_rep_cla.Text == "password")
+                tb_rep_cla.Clear();
         }
 
-        // Evento Validated: Nueva Contraseña
-        private void tb_nue_con_Validated(object sender, EventArgs e)
+        // Evento Validated: Nueva Clave
+        private void tb_nue_cla_Validated(object sender, EventArgs e)
         {
-            if (tb_nue_con.Text.Trim() == "")
-                tb_nue_con.Text = "password";
+            if (tb_nue_cla.Text.Trim() == "")
+                tb_nue_cla.Text = "password";
         }
 
-        // Evento Validated: Repetir Contraseña
-        private void tb_rep_con_Validated(object sender, EventArgs e)
+        // Evento Validated: Repetir Clave
+        private void tb_rep_cla_Validated(object sender, EventArgs e)
         {
-            if (tb_rep_con.Text.Trim() == "")
-                tb_rep_con.Text = "password";
+            if (tb_rep_cla.Text.Trim() == "")
+                tb_rep_cla.Text = "password";
         }
 
         // Evento CheckedChanged: Suprimir Autorizacion
         private void rb_sup_aut_CheckedChanged(object sender, EventArgs e)
         {
             if (rb_sup_aut.Checked){
-                tb_nue_con.Text = "password";
-                tb_rep_con.Text = "password";
+                tb_nue_cla.Text = "password";
+                tb_rep_cla.Text = "password";
             }
         }
 
@@ -188,10 +188,10 @@ namespace CRS_PRE
                     if (rb_sup_aut.Checked == true){
                         o_ads014.Fe_eli_min(vp_ide_usr, vp_ide_mod, vp_ide_cla);
                     }else{
-                        if (tb_con_act.Enabled == false)
-                            o_ads014.Fe_nue_reg(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_con.Text);
+                        if (tb_cla_act.Enabled == false)
+                            o_ads014.Fe_nue_reg(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_cla.Text);
                         else
-                            o_ads014.Fe_edi_tar(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_con.Text);
+                            o_ads014.Fe_edi_tar(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_cla.Text);
                     }
 
                     // Actualiza el Formulario Principal

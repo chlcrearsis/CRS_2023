@@ -41,28 +41,34 @@ namespace CRS_PRE
         /// Desplega Claves Autorizadas
         /// </summary>
         private void Fe_des_cla() {
-            try {
+            try
+            {
                 dg_res_ult.Rows.Clear();
-                // Obtiene y Desplega Lista de Aplicaciones
+                // Obtiene y Desplega Lista de Claves Autorizadas p/Usuario
                 Tabla = new DataTable();
                 Tabla = o_ads014.Fe_lis_cla(tb_ide_usr.Text);
-                for (int i = 0; i < Tabla.Rows.Count; i++)
+                if (Tabla.Rows.Count > 0)
                 {
-                    dg_res_ult.Rows.Add();
-                    dg_res_ult.Rows[i].Cells["va_ide_mod"].Value = Tabla.Rows[i]["va_ide_mod"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_ide_cla"].Value = Tabla.Rows[i]["va_ide_cla"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_mod_cla"].Value = "(" + Tabla.Rows[i]["va_ide_mod"].ToString().Trim() + " - " +
-                                                                         Tabla.Rows[i]["va_ide_cla"].ToString().Trim() + ")";
-                    dg_res_ult.Rows[i].Cells["va_nom_cla"].Value = Tabla.Rows[i]["va_nom_cla"].ToString().Trim();
-                    dg_res_ult.Rows[i].Cells["va_per_mis"].Value = "...";
-                    if (Tabla.Rows[i]["va_ban_cla"].ToString() == "S")                    
-                        dg_res_ult.Rows[i].DefaultCellStyle.ForeColor = Color.Blue;                    
-                    else                    
-                        dg_res_ult.Rows[i].DefaultCellStyle.ForeColor = Color.Black;                    
+                    for (int i = 0; i < Tabla.Rows.Count; i++)
+                    {
+                        dg_res_ult.Rows.Add();
+                        dg_res_ult.Rows[i].Cells["va_ide_mod"].Value = Tabla.Rows[i]["va_ide_mod"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_ide_cla"].Value = Tabla.Rows[i]["va_ide_cla"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_mod_cla"].Value = "(" + Tabla.Rows[i]["va_ide_mod"].ToString().Trim() + " - " +
+                                                                             Tabla.Rows[i]["va_ide_cla"].ToString().Trim() + ")";
+                        dg_res_ult.Rows[i].Cells["va_nom_cla"].Value = Tabla.Rows[i]["va_nom_cla"].ToString().Trim();
+                        dg_res_ult.Rows[i].Cells["va_per_mis"].Value = "...";
+                        if (Tabla.Rows[i]["va_ban_cla"].ToString() == "S")
+                            dg_res_ult.Rows[i].DefaultCellStyle.ForeColor = Color.Blue;
+                        else
+                            dg_res_ult.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+                    }
+                    dg_res_ult.ClearSelection();
+                }else if (gb_ctr_btn.Enabled == true){
+                    bt_ace_pta.Enabled = false;
                 }
-                dg_res_ult.ClearSelection();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }           
@@ -96,16 +102,20 @@ namespace CRS_PRE
             dg_res_ult.ClearSelection();
         }
 
-
         // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            cl_glo_frm.Cerrar(this);
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
         }
 
         // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
         }                
     }

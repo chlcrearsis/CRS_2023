@@ -181,6 +181,7 @@
             this.tb_ide_tip.TabIndex = 1;
             this.tb_ide_tip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_ide_tip.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fi_pre_tec_KeyDown);
+            this.tb_ide_tip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ide_tip_KeyPress);
             this.tb_ide_tip.Validated += new System.EventHandler(this.tb_ide_tip_Validated);
             // 
             // groupBox2
@@ -204,7 +205,7 @@
             this.mn_cer_rar});
             this.m_frm_hja.Location = new System.Drawing.Point(141, 49);
             this.m_frm_hja.Name = "m_frm_hja";
-            this.m_frm_hja.Size = new System.Drawing.Size(388, 24);
+            this.m_frm_hja.Size = new System.Drawing.Size(268, 24);
             this.m_frm_hja.TabIndex = 5;
             this.m_frm_hja.Visible = false;
             // 
@@ -318,7 +319,7 @@
             this.dg_res_ult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellClick);
             this.dg_res_ult.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellDoubleClick);
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
-            this.dg_res_ult.Enter += new System.EventHandler(this.dg_res_ult_Enter);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_ide_tip
             // 

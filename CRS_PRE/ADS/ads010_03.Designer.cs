@@ -178,7 +178,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads010_03";
-            this.Tag = "Edita Modulo";
+            this.Tag = "Edita Tipo Imagen";
             this.Text = "Edita Tipo Imagen";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

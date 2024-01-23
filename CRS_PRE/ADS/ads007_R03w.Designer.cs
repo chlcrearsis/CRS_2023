@@ -269,8 +269,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads007_R03w";
-            this.Tag = "Autorizaciones del Usuario";
-            this.Text = "Autorizaciones del Usuario";
+            this.Tag = "Informe Autorizaciones del Usuario";
+            this.Text = "Informe Autorizaciones del Usuario";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

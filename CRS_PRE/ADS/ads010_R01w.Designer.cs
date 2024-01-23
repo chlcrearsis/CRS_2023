@@ -270,8 +270,8 @@
             this.MinimizeBox = false;
             this.Name = "ads010_R01w";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Módulo del Sistema";
-            this.Text = "Módulo del Sistema";
+            this.Tag = "Informe Tipo de Imagen";
+            this.Text = "Informe Tipo de Imagen";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

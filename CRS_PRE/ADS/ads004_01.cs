@@ -58,7 +58,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion interna buscar
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="tex_bus">Texto a buscar</param>
         /// <param name="prm_bus">Parametro a buscar</param>
@@ -95,12 +95,14 @@ namespace CRS_PRE
                 tb_ide_doc.Text = Tabla.Rows[0]["va_ide_doc"].ToString();
                 tb_nro_tal.Text = Tabla.Rows[0]["va_nro_tal"].ToString();
                 lb_nom_tal.Text = Tabla.Rows[0]["va_nom_tal"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
             tb_tex_bus.Focus();
         }
 
         /// <summary>
-        /// Método para verificar concurrencia de datos para editar
+        /// Función: Consulta registro seleccionado
         /// </summary>
         private void fi_con_sel()
         {
@@ -118,12 +120,11 @@ namespace CRS_PRE
                 lb_nom_tal.Text = "NO Existe";
                 return;
             }
-
             lb_nom_tal.Text = Tabla.Rows[0]["va_nom_tal"].ToString();
         }
 
         /// <summary>
-        /// Función que selecciona la fila en el Datagrid que el talonario Modificó
+        /// Función: Selecciona la fila en el Datagrid del registro modificado
         /// </summary>
         private void fi_sel_fil(string ide_doc, int nro_tal)
         {
@@ -143,8 +144,8 @@ namespace CRS_PRE
                 {
                     for (int i = 0; i < dg_res_ult.Rows.Count; i++)
                     {
-                        if (dg_res_ult.Rows[i].Cells[0].Value.ToString().ToUpper() == ide_doc.ToUpper() && 
-                            dg_res_ult.Rows[i].Cells[2].Value.ToString().ToUpper() == nro_tal.ToString()){
+                        if (dg_res_ult.Rows[i].Cells["va_ide_doc"].Value.ToString().ToUpper() == ide_doc.ToUpper() && 
+                            dg_res_ult.Rows[i].Cells["va_nro_tal"].Value.ToString().ToUpper() == nro_tal.ToString()){
                             dg_res_ult.Rows[i].Selected = true;
                             dg_res_ult.FirstDisplayedScrollingRowIndex = i;
                             return;
@@ -154,6 +155,87 @@ namespace CRS_PRE
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Función: Selecciona la fila en el Datagrid del registro que se modifico
+        /// </summary>
+        private void fi_fil_act()
+        {
+            if (dg_res_ult.SelectedRows.Count != 0)
+            {
+                if (dg_res_ult.SelectedRows[0].Cells[0].Value == null){
+                    tb_ide_doc.Text = string.Empty;
+                    tb_nro_tal.Text = string.Empty;
+                    lb_nom_tal.Text = string.Empty;
+                }else{
+                    tb_ide_doc.Text = dg_res_ult.SelectedRows[0].Cells["va_ide_doc"].Value.ToString();
+                    tb_nro_tal.Text = dg_res_ult.SelectedRows[0].Cells["va_nro_Tal"].Value.ToString();
+                    lb_nom_tal.Text = dg_res_ult.SelectedRows[0].Cells["va_nom_tal"].Value.ToString();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Función: Verificar concurrencia de datos para editar
+        /// </summary>
+        private bool fi_ver_dat(string ide_doc, int nro_tal)
+        {
+            string res_fun;
+            if (ide_doc.Trim() == ""){
+                res_fun = "El Talonario que desea editar, no se encuentra registrado";
+                MessageBox.Show(res_fun, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tb_ide_doc.Focus();
+                return false;
+            }
+            
+            // Obtiene datos del registro seleccionado
+            tab_dat = new DataTable();
+            tab_dat = o_ads004.Fe_con_tal(ide_doc, nro_tal);
+            if (tab_dat.Rows.Count == 0){
+                res_fun = "El Talonario que desea editar, no se encuentra registrada";
+                MessageBox.Show(res_fun, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tb_nro_tal.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Función: Actualiza la ventana despues de realizar alguna operación
+        /// </summary>
+        public void Fe_act_frm(string ide_doc, int nro_tal)
+        {
+            if (cb_est_bus.SelectedIndex == 0)
+                est_bus = "T";
+            if (cb_est_bus.SelectedIndex == 1)
+                est_bus = "H";
+            if (cb_est_bus.SelectedIndex == 2)
+                est_bus = "N";
+
+            fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex, est_bus);
+
+            if (ide_doc != null)
+            {
+                try
+                {
+                    for (int i = 0; i < dg_res_ult.Rows.Count; i++)
+                    {
+                        if (dg_res_ult.Rows[i].Cells[0].Value.ToString().ToUpper() == ide_doc.ToUpper() &&
+                            dg_res_ult.Rows[i].Cells[2].Value.ToString().ToUpper() == nro_tal.ToString()){
+                            dg_res_ult.Rows[i].Selected = true;
+                            dg_res_ult.FirstDisplayedScrollingRowIndex = i;
+                            return;
+                        }
+                    }
+                    tb_tex_bus.Focus();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
                 }
             }
         }
@@ -210,88 +292,6 @@ namespace CRS_PRE
             }
         }
 
-        /// <summary>
-        /// Método para obtener fila actual seleccionada
-        /// </summary>
-        public void fi_fil_act()
-        {
-            if (dg_res_ult.SelectedRows.Count != 0)
-            {
-                if (dg_res_ult.SelectedRows[0].Cells[0].Value == null){
-                    tb_ide_doc.Text = string.Empty;
-                    tb_nro_tal.Text = string.Empty;
-                    lb_nom_tal.Text = string.Empty;
-                }else{
-                    tb_ide_doc.Text = dg_res_ult.SelectedRows[0].Cells[0].Value.ToString();
-                    tb_nro_tal.Text = dg_res_ult.SelectedRows[0].Cells[2].Value.ToString();
-                    lb_nom_tal.Text = dg_res_ult.SelectedRows[0].Cells[3].Value.ToString();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Método para verificar concurrencia de datos para editar
-        /// </summary>
-        public bool fi_ver_dat(string ide_doc, int nro_tal)
-        {
-            string res_fun;
-            if (ide_doc.Trim() == ""){
-                res_fun = "El Talonario que desea editar, no se encuentra registrado";
-                MessageBox.Show(res_fun, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tb_ide_doc.Focus();
-                return false;
-            }
-            
-
-            // Obtiene datos del registro seleccionado
-            tab_dat = new DataTable();
-            tab_dat = o_ads004.Fe_con_tal(ide_doc, nro_tal);
-            if (tab_dat.Rows.Count == 0){
-                res_fun = "El Talonario que desea editar, no se encuentra registrada";
-                MessageBox.Show(res_fun, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tb_nro_tal.Focus();
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Funcion Externa que actualiza la ventana con los datos que tenga, despues de realizar alguna operacion.
-        /// </summary>
-        public void Fe_act_frm(string ide_doc, int nro_tal)
-        {
-            if (cb_est_bus.SelectedIndex == 0)
-                est_bus = "T";
-            if (cb_est_bus.SelectedIndex == 1)
-                est_bus = "H";
-            if (cb_est_bus.SelectedIndex == 2)
-                est_bus = "N";
-
-            fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex, est_bus);
-
-            if (ide_doc != null)
-            {
-                try
-                {
-                    for (int i = 0; i < dg_res_ult.Rows.Count; i++)
-                    {
-                        if (dg_res_ult.Rows[i].Cells[0].Value.ToString().ToUpper() == ide_doc.ToUpper() &&
-                            dg_res_ult.Rows[i].Cells[2].Value.ToString().ToUpper() == nro_tal.ToString()){
-                            dg_res_ult.Rows[i].Selected = true;
-                            dg_res_ult.FirstDisplayedScrollingRowIndex = i;
-                            return;
-                        }
-                    }
-                    tb_tex_bus.Focus();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
-            }
-        }
-
         // Evento Validated: Nro. Talonario
         private void tb_nro_tal_Validated(object sender, EventArgs e)
         {
@@ -306,37 +306,40 @@ namespace CRS_PRE
             cl_glo_bal.NotNumeric(e);
         }
 
-        // Evento SelectionChanged: DataGridView Resultado
+        // Evento SelectionChanged: DataGridView
         private void dg_res_ult_SelectionChanged(object sender, EventArgs e)
         {
             fi_fil_act();
         }
 
-        // Evento CellClick: DataGridView Resultado
+        // Evento CellClick: DataGridView
         private void dg_res_ult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             fi_fil_act();
         }
 
-        // Evento CellDoubleClick: DataGridView Resultado
+        // Evento CellDoubleClick: DataGridView
         private void dg_res_ult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
                 DialogResult = DialogResult.OK;
                 cl_glo_frm.Cerrar(this);
             }
-        }
+        }        
 
-        // Evento Enter: DataGridView Resultado
-        private void dg_res_ult_Enter(object sender, EventArgs e)
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                DialogResult = DialogResult.OK;
-                cl_glo_frm.Cerrar(this);
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
-        // Evento Click: Buscar
+        // Evento Click: Buscar Datos
         private void bt_bus_car_Click(object sender, EventArgs e)
         {
             if (cb_est_bus.SelectedIndex == 0)
@@ -347,6 +350,102 @@ namespace CRS_PRE
                 est_bus = "N";
 
             fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex, est_bus);            
+        }
+
+        // Evento Click: Nuevo Registro
+        private void mn_nue_reg_Click(object sender, EventArgs e)
+        {
+            ads004_02 frm = new ads004_02();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
+
+        // Evento Click: Nuevo Registro y Talonario
+        private void mn_nue_tal_Click(object sender, EventArgs e)
+        {
+            ads004_02b frm = new ads004_02b();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
+
+        // Evento Click: Registra Talonario Automatico
+        private void mn_nue_aut_Click(object sender, EventArgs e)
+        {
+            ads004_02c frm = new ads004_02c();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
+
+        // Evento Click: Modifica Registro
+        private void mn_mod_ifi_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para modificar
+            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
+                return;
+
+            ads004_03 frm = new ads004_03();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
+        // Evento Click: Habilita/Deshabilita
+        private void mn_hab_des_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para habilitar/deshabilitar
+            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
+                return;
+
+            ads004_04 frm = new ads004_04();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
+        // Evento Click: Consulta Registro
+        private void mn_con_sul_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para consultar
+            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
+                return;
+
+            ads004_05 frm = new ads004_05();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
+        // Evento Click: Elimina Registro
+        private void mn_eli_min_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para consultar
+            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
+                return;
+
+            ads004_06 frm = new ads004_06();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
+        // Evento Click: Autorización Usuario
+        private void mn_aut_usr_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para consultar
+            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
+                return;
+
+            ads004_10 frm = new ads004_10();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
+        // Evento Click: Informe Lista Tolonario
+        private void mn_lis_tal_Click(object sender, EventArgs e)
+        {
+            ads004_R01p frm = new ads004_R01p();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
+
+        // Evento Click: Informe Formatos Firma
+        private void mn_for_fir_Click(object sender, EventArgs e)
+        {
+            ads004_R02p frm = new ads004_R02p();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
+        }
+
+        // Evento Click: Cerrar Pantalla
+        private void mn_cer_rar_Click(object sender, EventArgs e)
+        {
+            cl_glo_frm.Cerrar(this);
         }
 
         // Evento Click: Cambiar Módulo
@@ -382,101 +481,20 @@ namespace CRS_PRE
             }
         }
 
-        private void mn_nue_reg_Click(object sender, EventArgs e)
-        {
-            ads004_02 frm = new ads004_02();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
-        }
-
-        private void mn_nue_tal_Click(object sender, EventArgs e)
-        {
-            ads004_02b frm = new ads004_02b();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
-        }
-
-        private void mn_nue_aut_Click(object sender, EventArgs e)
-        {
-            ads004_02c frm = new ads004_02c();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
-        }
-
-        private void mn_mod_ifi_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para modificar
-            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
-                return;
-
-            ads004_03 frm = new ads004_03();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-       
-        private void mn_hab_des_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para habilitar/deshabilitar
-            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
-                return;
-
-            ads004_04 frm = new ads004_04();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-        private void mn_con_sul_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para consultar
-            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
-                return;
-
-            ads004_05 frm = new ads004_05();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-        private void mn_eli_min_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para consultar
-            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
-                return;
-
-            ads004_06 frm = new ads004_06();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-
-        private void mn_aut_usr_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para consultar
-            if (fi_ver_dat(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text)) == false)
-                return;
-
-            ads004_10 frm = new ads004_10();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-
-        private void mn_lis_tal_Click(object sender, EventArgs e)
-        {
-            ads004_R01p frm = new ads004_R01p();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
-        }
-
-        private void mn_for_fir_Click(object sender, EventArgs e)
-        {
-            ads004_R02p frm = new ads004_R02p();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
-        }
-
-        private void mn_cer_rar_Click(object sender, EventArgs e)
-        {
-            cl_glo_frm.Cerrar(this);
-        }
-
+        // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            cl_glo_frm.Cerrar(this);
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
         }
 
+        // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
-        }
-
-       
+        }        
     }
 }

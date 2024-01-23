@@ -49,7 +49,7 @@
             this.mn_zoo_025 = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_cer_rar = new System.Windows.Forms.ToolStripMenuItem();
             this.cr_rep_ort = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.ads023_R02 = new CRS_PRE.ADS.ads023_R02();
+            this.ads023_R01 = new CRS_PRE.ADS.ads023_R01();
             this.m_frm_hja.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,7 +247,7 @@
             this.cr_rep_ort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cr_rep_ort.Location = new System.Drawing.Point(0, 0);
             this.cr_rep_ort.Name = "cr_rep_ort";
-            this.cr_rep_ort.ReportSource = this.ads023_R02;
+            this.cr_rep_ort.ReportSource = this.ads023_R01;
             this.cr_rep_ort.ShowCloseButton = false;
             this.cr_rep_ort.ShowCopyButton = false;
             this.cr_rep_ort.ShowGroupTreeButton = false;
@@ -269,7 +269,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads023_R01w";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Tasa de Cambio Bs/Ufv";
             this.Text = "Tasa de Cambio Bs/Ufv";
             this.Load += new System.EventHandler(this.frm_Load);
@@ -303,6 +302,6 @@
         private System.Windows.Forms.ToolStripMenuItem mn_sep_uno;
         private System.Windows.Forms.ToolStripMenuItem mn_sep_dos;
         private System.Windows.Forms.ToolStripTextBox mn_nro_pag;
-        private ADS.ads023_R02 ads023_R02;
+        private ADS.ads023_R01 ads023_R01;
     }
 }

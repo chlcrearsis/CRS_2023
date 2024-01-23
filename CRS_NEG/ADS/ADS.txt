@@ -23,13 +23,12 @@ ads014 = Clave Usuario p/Global                                   EJR (OK) (R)
 ads015 = Regional						   	                      EJR (OK) (R)
 ads016 = Gestion Periodos									  	  EJR (OK)
 ads017 = PIN Usuario							                  CHL
-ads018 = Bitacora inicio de sesion                                EJR (OK) (R)
-ads019 =                                                          CHL
-ads020 = 
+ads018 = Bitacora Inicio de Sesion                                EJR (OK) (R)
+ads019 = Bitacora de Operaciones                                  EJR
+ads020 = Bitacora de Documentos                                   EJR
 ads022 = Tasa de cambio Bs/Us									  EJR (OK) (R)
 ads023 = Tasa de cambio Bs/Ufv									  EJR (OK) (R)
-ads025 = Bitacora p/Operaciones	     (pendiente)				  EJR
-ads026 = Bitacora P/Documentos		 (pendiente)				  EJR
+ads025 = Validación Clave Usuario                                 EJR
 ads100 = Licencias					            				  EJR (OK)
 
 

@@ -117,7 +117,7 @@ namespace CRS_NEG
         {
             try
             {
-                ob_con_ecA.fu_exe_sql_img("UPDATE ctb008 SET va_img_qrf = @va_img_qrf " +
+                ob_con_ecA.fe_sql_img("UPDATE ctb008 SET va_img_qrf = @va_img_qrf " +
                 "WHERE va_ide_fac = '" + ide_vta + "'  and va_fec_fac= '" + fec_fac.ToShortDateString() + "'", "@va_img_qrf", img_qrf);
 
             }

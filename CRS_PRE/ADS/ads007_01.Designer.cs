@@ -49,12 +49,15 @@
             this.mn_per_gdp = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_ven = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_cob = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lin_uno = new System.Windows.Forms.ToolStripSeparator();
             this.mn_per_gdb = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_bod = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_lis = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_plv = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lin_dos = new System.Windows.Forms.ToolStripSeparator();
             this.mn_per_tal = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_apl = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lin_tre = new System.Windows.Forms.ToolStripSeparator();
             this.mn_cla_aut = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_rep_ort = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_lis_usr = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,9 +88,6 @@
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.bt_tip_usr = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.mn_lin_uno = new System.Windows.Forms.ToolStripSeparator();
-            this.mn_lin_dos = new System.Windows.Forms.ToolStripSeparator();
-            this.mn_lin_tre = new System.Windows.Forms.ToolStripSeparator();
             this.m_frm_hja.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -109,7 +109,7 @@
             this.mn_cer_rar});
             this.m_frm_hja.Location = new System.Drawing.Point(25, 63);
             this.m_frm_hja.Name = "m_frm_hja";
-            this.m_frm_hja.Size = new System.Drawing.Size(556, 24);
+            this.m_frm_hja.Size = new System.Drawing.Size(436, 24);
             this.m_frm_hja.TabIndex = 5;
             this.m_frm_hja.Visible = false;
             // 
@@ -263,6 +263,11 @@
             this.mn_per_cob.Text = "Permiso de Cobradores";
             this.mn_per_cob.Click += new System.EventHandler(this.mn_per_cob_Click);
             // 
+            // mn_lin_uno
+            // 
+            this.mn_lin_uno.Name = "mn_lin_uno";
+            this.mn_lin_uno.Size = new System.Drawing.Size(227, 6);
+            // 
             // mn_per_gdb
             // 
             this.mn_per_gdb.Name = "mn_per_gdb";
@@ -291,6 +296,11 @@
             this.mn_per_plv.Text = "Permiso de Plantilla de Venta";
             this.mn_per_plv.Click += new System.EventHandler(this.mn_per_plv_Click);
             // 
+            // mn_lin_dos
+            // 
+            this.mn_lin_dos.Name = "mn_lin_dos";
+            this.mn_lin_dos.Size = new System.Drawing.Size(227, 6);
+            // 
             // mn_per_tal
             // 
             this.mn_per_tal.Name = "mn_per_tal";
@@ -304,6 +314,11 @@
             this.mn_per_apl.Size = new System.Drawing.Size(230, 22);
             this.mn_per_apl.Text = "Permiso de Aplicaciones";
             this.mn_per_apl.Click += new System.EventHandler(this.mn_per_apl_Click);
+            // 
+            // mn_lin_tre
+            // 
+            this.mn_lin_tre.Name = "mn_lin_tre";
+            this.mn_lin_tre.Size = new System.Drawing.Size(227, 6);
             // 
             // mn_cla_aut
             // 
@@ -522,7 +537,7 @@
             this.dg_res_ult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellClick);
             this.dg_res_ult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellDoubleClick);
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
-            this.dg_res_ult.Enter += new System.EventHandler(this.dg_res_ult_Enter);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_ide_usr
             // 
@@ -617,7 +632,7 @@
             this.bt_tip_usr.Location = new System.Drawing.Point(4, 10);
             this.bt_tip_usr.Name = "bt_tip_usr";
             this.bt_tip_usr.Size = new System.Drawing.Size(88, 25);
-            this.bt_tip_usr.TabIndex = 1;
+            this.bt_tip_usr.TabIndex = 0;
             this.bt_tip_usr.Text = "&Tipo Usuario";
             this.bt_tip_usr.UseVisualStyleBackColor = false;
             this.bt_tip_usr.Click += new System.EventHandler(this.bt_tip_usr_Click);
@@ -630,21 +645,6 @@
             this.groupBox3.Size = new System.Drawing.Size(96, 40);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            // 
-            // mn_lin_uno
-            // 
-            this.mn_lin_uno.Name = "mn_lin_uno";
-            this.mn_lin_uno.Size = new System.Drawing.Size(227, 6);
-            // 
-            // mn_lin_dos
-            // 
-            this.mn_lin_dos.Name = "mn_lin_dos";
-            this.mn_lin_dos.Size = new System.Drawing.Size(227, 6);
-            // 
-            // mn_lin_tre
-            // 
-            this.mn_lin_tre.Name = "mn_lin_tre";
-            this.mn_lin_tre.Size = new System.Drawing.Size(227, 6);
             // 
             // ads007_01
             // 

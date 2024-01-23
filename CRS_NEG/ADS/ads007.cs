@@ -180,7 +180,7 @@ namespace CRS_NEG
         {            
             try
             {
-                ob_con_ecA.fe_log_usr(ide_uni, ser_bda, ide_usr, pas_usr);
+                ob_con_ecA.fe_arg_cnx(ide_uni, ser_bda, ide_usr, pas_usr);
                 return ob_con_ecA.fe_abr_cnx();
             }
             catch (Exception ex)
@@ -199,7 +199,26 @@ namespace CRS_NEG
         {
             try
             {                
-                return ob_con_ecA.Fe_log_sql(ide_usr, pas_usr);
+                return ob_con_ecA.fe_log_sql(ide_usr, pas_usr);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Función: "Cierra Conexion"
+        /// </summary>
+        /// <param name="ide_usr">ID. Usuario</param>
+        /// <param name="pas_usr">Contraseña</param>
+        /// <returns></returns>
+        public string Fe_cie_cnx()
+        {
+            try
+            {
+                // Cierra Conexion Primaria
+                return ob_con_ecA.fe_cer_cnx();
             }
             catch (Exception ex)
             {
@@ -354,6 +373,36 @@ namespace CRS_NEG
                 cadena.AppendLine(" WHERE ads007.va_ide_tus = ads006.va_ide_tus");
                 if (est_ado.CompareTo("T") != 0)
                     cadena.AppendLine("   AND ads007.va_est_ado = '" + est_ado + "'");
+                return ob_con_ecA.fe_exe_sql(cadena.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Función: "Lista Usuario p/Definicion de Clave"
+        /// </summary>
+        /// <param name="ide_mod">ID. Módulo</param>
+        /// <param name="ide_cla">ID. Clave</param>
+        /// <returns></returns>
+        public DataTable Fe_usr_cla(int ide_mod, int ide_cla)
+        {
+            try
+            {
+                cadena = new StringBuilder();
+                cadena.AppendLine("SELECT ads007.va_ide_usr, ads007.va_nom_usr, ads007.va_tel_usr,");
+                cadena.AppendLine("       ads007.va_car_usr, ads007.va_dir_tra, ads007.va_ema_usr,");
+                cadena.AppendLine("       ads007.va_ven_max, ads007.va_ide_per, ads007.va_ide_tus,");
+                cadena.AppendLine("       ads006.va_nom_tus, ads007.va_est_ado");
+                cadena.AppendLine("  FROM ads007, ads006, ads014");
+                cadena.AppendLine(" WHERE ads007.va_ide_tus = ads006.va_ide_tus");
+                cadena.AppendLine("   AND ads007.va_ide_usr = ads014.va_ide_usr");
+                cadena.AppendLine("   AND ads007.va_est_ado = 'H'");
+                cadena.AppendLine("   AND ads014.va_ide_mod = " + ide_mod + "");
+                cadena.AppendLine("   AND ads014.va_ide_cla = " + ide_cla + "");
+
                 return ob_con_ecA.fe_exe_sql(cadena.ToString());
             }
             catch (Exception ex)

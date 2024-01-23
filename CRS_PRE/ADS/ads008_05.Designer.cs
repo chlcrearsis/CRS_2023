@@ -33,6 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
+            this.va_cod_bod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_nom_bod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_ide_gru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_nom_gru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_per_mis = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_nom_usr = new System.Windows.Forms.Label();
             this.lb_ide_usr = new System.Windows.Forms.Label();
@@ -44,11 +49,6 @@
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bt_cam_gru = new System.Windows.Forms.Button();
-            this.va_cod_bod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_nom_bod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_ide_gru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_nom_gru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_per_mis = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_res_ult)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
@@ -96,6 +96,50 @@
             this.dg_res_ult.Size = new System.Drawing.Size(500, 169);
             this.dg_res_ult.TabIndex = 1;
             this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
+            // 
+            // va_cod_bod
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_cod_bod.DefaultCellStyle = dataGridViewCellStyle2;
+            this.va_cod_bod.HeaderText = "Código";
+            this.va_cod_bod.Name = "va_cod_bod";
+            this.va_cod_bod.ReadOnly = true;
+            this.va_cod_bod.Width = 55;
+            // 
+            // va_nom_bod
+            // 
+            this.va_nom_bod.HeaderText = "Bodega";
+            this.va_nom_bod.Name = "va_nom_bod";
+            this.va_nom_bod.ReadOnly = true;
+            this.va_nom_bod.Width = 200;
+            // 
+            // va_ide_gru
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_ide_gru.DefaultCellStyle = dataGridViewCellStyle3;
+            this.va_ide_gru.HeaderText = "ID.";
+            this.va_ide_gru.Name = "va_ide_gru";
+            this.va_ide_gru.ReadOnly = true;
+            this.va_ide_gru.Width = 35;
+            // 
+            // va_nom_gru
+            // 
+            this.va_nom_gru.HeaderText = "Grupo Bodega";
+            this.va_nom_gru.Name = "va_nom_gru";
+            this.va_nom_gru.ReadOnly = true;
+            this.va_nom_gru.Width = 160;
+            // 
+            // va_per_mis
+            // 
+            this.va_per_mis.FalseValue = "0";
+            this.va_per_mis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.va_per_mis.HeaderText = "✓";
+            this.va_per_mis.Name = "va_per_mis";
+            this.va_per_mis.ReadOnly = true;
+            this.va_per_mis.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.va_per_mis.TrueValue = "1";
+            this.va_per_mis.Width = 30;
             // 
             // groupBox1
             // 
@@ -221,49 +265,6 @@
             this.bt_cam_gru.Text = "&Cambiar Grupo";
             this.bt_cam_gru.UseVisualStyleBackColor = false;
             this.bt_cam_gru.Click += new System.EventHandler(this.bt_cam_gru_Click);
-            // 
-            // va_cod_bod
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_cod_bod.DefaultCellStyle = dataGridViewCellStyle2;
-            this.va_cod_bod.HeaderText = "Código";
-            this.va_cod_bod.Name = "va_cod_bod";
-            this.va_cod_bod.ReadOnly = true;
-            this.va_cod_bod.Width = 55;
-            // 
-            // va_nom_bod
-            // 
-            this.va_nom_bod.HeaderText = "Bodega";
-            this.va_nom_bod.Name = "va_nom_bod";
-            this.va_nom_bod.ReadOnly = true;
-            this.va_nom_bod.Width = 200;
-            // 
-            // va_ide_gru
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_ide_gru.DefaultCellStyle = dataGridViewCellStyle3;
-            this.va_ide_gru.HeaderText = "ID.";
-            this.va_ide_gru.Name = "va_ide_gru";
-            this.va_ide_gru.ReadOnly = true;
-            this.va_ide_gru.Width = 35;
-            // 
-            // va_nom_gru
-            // 
-            this.va_nom_gru.HeaderText = "Grupo Bodega";
-            this.va_nom_gru.Name = "va_nom_gru";
-            this.va_nom_gru.ReadOnly = true;
-            this.va_nom_gru.Width = 160;
-            // 
-            // va_per_mis
-            // 
-            this.va_per_mis.FalseValue = "0";
-            this.va_per_mis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.va_per_mis.HeaderText = "✓";
-            this.va_per_mis.Name = "va_per_mis";
-            this.va_per_mis.ReadOnly = true;
-            this.va_per_mis.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.va_per_mis.TrueValue = "1";
-            this.va_per_mis.Width = 30;
             // 
             // ads008_05
             // 

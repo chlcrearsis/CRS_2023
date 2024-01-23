@@ -48,7 +48,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion interna buscar
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="tex_bus">Texto a buscar</param>
         /// <param name="prm_bus">Parámetros a buscar</param>
@@ -80,7 +80,7 @@ namespace CRS_PRE
                     else
                         dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Deshabilitado";
 
-                    switch (Tabla.Rows[i]["va_ide_tab"].ToString()) {
+                    switch (Tabla.Rows[i]["va_ide_tab"].ToString()){
                         case "adp002":
                             dg_res_ult.Rows[i].Cells["va_ide_tab"].Value = "Persona";
                             break;
@@ -91,11 +91,14 @@ namespace CRS_PRE
                 }
                 tb_ide_tip.Text = Tabla.Rows[0]["va_ide_tip"].ToString();
                 lb_nom_tip.Text = Tabla.Rows[0]["va_nom_tip"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
+            tb_tex_bus.Focus();
         }
 
         /// <summary>
-        /// Método : Obtiene fila actual seleccionada
+        /// Función: Obtiene fila actual seleccionada
         /// </summary>
         public void fi_fil_act()
         {
@@ -111,9 +114,8 @@ namespace CRS_PRE
             }
         }
 
-
         /// <summary>
-        /// Consulta Registro Seleccionado
+        /// Función: Consulta registro seleccionado
         /// </summary>
         private void fi_con_sel()
         {
@@ -133,7 +135,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Función: Selecciona la fila en el Datagrid del registro que se modifico
+        /// Función: Selecciona la fila en el Datagrid del registro modificado
         /// </summary>
         private void fi_sel_fil(string ide_tip)
         {
@@ -198,7 +200,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion : Actualiza la ventana despues de realizar alguna operación
+        /// Función: Actualiza la ventana despues de realizar alguna operación
         /// </summary>
         public void Fe_act_frm(string ide_tip)
         {
@@ -294,14 +296,18 @@ namespace CRS_PRE
             }
         }
 
-        // Evento Validated: ID. Tipo de Imagen  
+        // Evento KeyPress: ID. Tipo de Imagen
+        private void tb_ide_tip_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cl_glo_bal.NotNumeric(e);
+        }
+
+        // Evento Validated: ID. Tipo de Imagen
         private void tb_ide_tip_Validated(object sender, EventArgs e)
         {
             fi_con_sel();
-            if (lb_nom_tip.Text != "NO Existe")
-            {
-                fi_sel_fil(tb_ide_tip.Text);
-            }
+            if (lb_nom_tip.Text != "NO Existe")            
+                fi_sel_fil(tb_ide_tip.Text);            
         }
 
         // Evento SelectionChanged: DataGridView 
@@ -319,23 +325,25 @@ namespace CRS_PRE
         // Evento CellDoubleClick: DataGridView
         private void dg_res_ult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             cl_glo_frm.Cerrar(this);
-        }
+        }       
 
-        // Evento Enter: DataGridView
-        private void dg_res_ult_Enter(object sender, EventArgs e)
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0)
-            {
-                DialogResult = DialogResult.OK;
-                cl_glo_frm.Cerrar(this);
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
         // Evento Click: Button Buscar
         private void bt_bus_car_Click(object sender, EventArgs e)
-        {
+        {            
             if (cb_est_bus.SelectedIndex == 0)
                 est_bus = "T";
             if (cb_est_bus.SelectedIndex == 1)
@@ -370,6 +378,7 @@ namespace CRS_PRE
             ads010_03 frm = new ads010_03();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, Tabla);
         }
+
         // Evento Click: Habilita/Deshabilita
         private void mn_hab_des_Click(object sender, EventArgs e)
         {
@@ -380,6 +389,7 @@ namespace CRS_PRE
             ads010_04 frm = new ads010_04();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, Tabla);
         }
+
         // Evento Click: Consulta Registro
         private void mn_con_sul_Click(object sender, EventArgs e)
         {
@@ -390,6 +400,7 @@ namespace CRS_PRE
             ads010_05 frm = new ads010_05();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, Tabla);
         }
+
         // Evento Click: Elimina Registro
         private void mn_eli_min_Click(object sender, EventArgs e)
         {
@@ -401,14 +412,14 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, Tabla);
         }
 
-        // Evento Click: Lista Módulos
+        // Evento Click: Lista Tipo de Imagenes
         private void mn_lis_tip_Click(object sender, EventArgs e)
         {
             ads010_R01p frm = new ads010_R01p();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
-        // Evento Click: Salir
+        // Evento Click: Cerrar Pantalla
         private void mn_cer_rar_Click(object sender, EventArgs e)
         {
             cl_glo_frm.Cerrar(this);
@@ -417,8 +428,10 @@ namespace CRS_PRE
         // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            cl_glo_frm.Cerrar(this);
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
         }
 
         // Evento Click: Button Cancelar
@@ -426,6 +439,6 @@ namespace CRS_PRE
         {
             DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
-        }
+        }        
     }
 }

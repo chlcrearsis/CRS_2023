@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-
 using CRS_NEG;
 using CRS_PRE.INV;
-using CRS_PRE;
 
 namespace CRS_PRE
 {
@@ -384,23 +382,18 @@ namespace CRS_PRE
         // Evento Click: Globales
         private void mn_glo_bal_Click(object sender, EventArgs e)
         {
-            o_frm = new ads013_01();
-            cl_glo_frm.abrir(this, o_frm);
-
-
-
-            // Abre Formulario PIN de Acceso Usuario
-            /*o_frm = new ads000_07();
+            // Abre Validación Usuario Clave
+            o_frm = new ads025_01();
             o_frm.vp_ide_mod = 1;   // Administracion
-            o_frm.vp_ide_glo = 25;  // Modifica Parámetros Estructurales
+            o_frm.vp_ide_cla = 1;   // Modifica Parámetros Estructurales
             cl_glo_frm.abrir(this, o_frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
 
             if (o_frm.DialogResult == DialogResult.OK){
                 if (o_frm.DialogResult == DialogResult.OK){
-                    o_frm = new ads010_01();
+                    o_frm = new ads013_01();
                     cl_glo_frm.abrir(this, o_frm);
                 }
-            }  */             
+            }  
         }
 
         // Evento Click: Definición de Claves

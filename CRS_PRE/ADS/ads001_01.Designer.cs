@@ -241,6 +241,7 @@
             this.tb_ide_mod.TabIndex = 1;
             this.tb_ide_mod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_ide_mod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fi_pre_tec_KeyDown);
+            this.tb_ide_mod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ide_mod_KeyPress);
             this.tb_ide_mod.Validated += new System.EventHandler(this.tb_ide_mod_Validated);
             // 
             // groupBox2
@@ -295,7 +296,7 @@
             this.dg_res_ult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellClick);
             this.dg_res_ult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellDoubleClick);
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
-            this.dg_res_ult.Enter += new System.EventHandler(this.dg_res_ult_Enter);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_ide_mod
             // 

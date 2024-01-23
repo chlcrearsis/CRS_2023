@@ -34,7 +34,7 @@ namespace CRS_NEG
             {
                 cadena = new StringBuilder();
                 cadena.AppendLine("INSERT INTO adp006 VALUES (" + cod_per + ", '" + ide_tip + "',  @va_img_arc, '" + ext_arc + "', " + tam_arc + ", '" + ide_usr + "', '" + fec_reg + "', '" + nom_equ + "')");
-                ob_con_ecA.fu_exe_sql_img(cadena.ToString(), "@va_img_arc", img_arc);
+                ob_con_ecA.fe_sql_img(cadena.ToString(), "@va_img_arc", img_arc);
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace CRS_NEG
                 cadena.AppendLine("UPDATE adp006 SET va_img_arc = @va_img_arc, va_ext_arc = '" + ext_arc + "', va_tam_arc = " + tam_arc + ", va_ide_usr = '" + ide_usr + "', va_fec_reg = '" + fec_reg + "', va_nom_equ = '" + nom_equ + "'");
                 cadena.AppendLine("            WHERE va_cod_per = " + cod_per + "");
                 cadena.AppendLine("              AND va_ide_tip = '" + ide_tip + "'");
-                ob_con_ecA.fu_exe_sql_img(cadena.ToString(), "@va_img_arc", img_arc);
+                ob_con_ecA.fe_sql_img(cadena.ToString(), "@va_img_arc", img_arc);
             }
             catch (Exception ex)
             {

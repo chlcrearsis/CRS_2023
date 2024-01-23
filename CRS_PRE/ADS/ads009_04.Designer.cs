@@ -141,6 +141,7 @@
             this.dg_res_ult.Size = new System.Drawing.Size(477, 151);
             this.dg_res_ult.TabIndex = 1;
             this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_cod_lis
             // 

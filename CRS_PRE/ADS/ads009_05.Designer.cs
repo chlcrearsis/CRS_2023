@@ -96,6 +96,7 @@
             this.dg_res_ult.Size = new System.Drawing.Size(500, 169);
             this.dg_res_ult.TabIndex = 1;
             this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_cod_bod
             // 
@@ -280,8 +281,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads009_05";
-            this.Tag = "Permiso de Bodega";
-            this.Text = "Permiso de Bodega";
+            this.Tag = "Permiso s/Bodega";
+            this.Text = "Permiso s/Bodega";
             this.Load += new System.EventHandler(this.frm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_res_ult)).EndInit();
             this.groupBox1.ResumeLayout(false);

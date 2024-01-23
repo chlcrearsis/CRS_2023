@@ -196,10 +196,10 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
             if (frm.DialogResult == DialogResult.OK){
                 if (ini_fin == 1){
-                    tb_doc_ini.Text = frm.tb_ide_doc.Text;
+                    tb_doc_ini.Text = frm.vp_ide_doc;
                     Fi_obt_doc(1, tb_doc_ini.Text);
                 }else{
-                    tb_doc_fin.Text = frm.tb_ide_doc.Text;
+                    tb_doc_fin.Text = frm.vp_ide_doc;
                     Fi_obt_doc(2, tb_doc_fin.Text);
                 }
             }

@@ -266,7 +266,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads007_R02p";
-            this.Tag = "Lista de Usuarios";
+            this.Tag = "Lista de Usuarios p/Tipo de Usuario";
             this.Text = "Lista de Usuarios p/Tipo de Usuario";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

@@ -20,7 +20,6 @@ namespace CRS_PRE
         public DataTable tab_dat;
         public dynamic frm_MDI;
         // Instancia
-        adp002 o_adp002 = new adp002();
         ads006 o_ads006 = new ads006();
         ads007 o_ads007 = new ads007();
         DataTable Tabla = new DataTable();
@@ -62,7 +61,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion interna buscar
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="tex_bus">Texto a buscar</param>
         /// <param name="cri_bus">Criterio de Busqueda (0=ID. Usuario; 1=Nombre Usuario; 2=Cargo)</param>
@@ -98,13 +97,31 @@ namespace CRS_PRE
                 }
                 tb_ide_usr.Text = Tabla.Rows[0]["va_ide_usr"].ToString();
                 lb_nom_usr.Text = Tabla.Rows[0]["va_nom_usr"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
             tb_tex_bus.Focus();
+        }        
 
+        /// <summary>
+        /// Función: Obtiene fila actual seleccionada
+        /// </summary>
+        public void fi_fil_act()
+        {
+            if (dg_res_ult.SelectedRows.Count != 0)
+            {
+                if (dg_res_ult.SelectedRows[0].Cells[0].Value == null){
+                    tb_ide_usr.Text = string.Empty;
+                    lb_nom_usr.Text = string.Empty;
+                }else{
+                    tb_ide_usr.Text = dg_res_ult.SelectedRows[0].Cells["va_ide_usr"].Value.ToString();
+                    lb_nom_usr.Text = dg_res_ult.SelectedRows[0].Cells["va_nom_usr"].Value.ToString();
+                }
+            }
         }
 
         /// <summary>
-        /// Método para verificar concurrencia de datos para editar
+        /// Función: Consulta registro seleccionado
         /// </summary>
         private void fi_con_sel()
         {
@@ -121,12 +138,11 @@ namespace CRS_PRE
                 lb_nom_usr.Text = "NO existe";
                 return;
             }
-
             lb_nom_usr.Text = Tabla.Rows[0]["va_nom_usr"].ToString().Trim();
         }
 
         /// <summary>
-        /// - > Función que selecciona la fila en el Datagrid que el Usuario Modificó
+        /// Función: Selecciona la fila en el Datagrid del registro modificado
         /// </summary>
         private void fi_sel_fil(string ide_usr)
         {
@@ -158,28 +174,7 @@ namespace CRS_PRE
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
                 }
             }
-        }
-
-        /// <summary>
-        /// Método para obtener fila actual seleccionada
-        /// </summary>
-        public void fi_fil_act()
-        {
-            if (dg_res_ult.SelectedRows.Count != 0)
-            {
-                if (dg_res_ult.SelectedRows[0].Cells[0].Value == null)
-                {
-                    tb_ide_usr.Text = string.Empty;
-                    lb_nom_usr.Text = string.Empty;
-                }
-                else
-                {
-                    tb_ide_usr.Text = dg_res_ult.SelectedRows[0].Cells["va_ide_usr"].Value.ToString();
-                    lb_nom_usr.Text = dg_res_ult.SelectedRows[0].Cells["va_nom_usr"].Value.ToString();
-                }
-
-            }
-        }
+        }        
 
         // Evento KeyDown: Preciona Tecla
         private void fi_pre_tec_KeyDown(object sender, KeyEventArgs e)
@@ -237,19 +232,19 @@ namespace CRS_PRE
                 fi_sel_fil(tb_ide_usr.Text);            
         }
 
-        // Evento SelectionChanged: DataGridView Resultado
+        // Evento SelectionChanged: DataGridView
         private void dg_res_ult_SelectionChanged(object sender, EventArgs e)
         {
             fi_fil_act();
         }
 
-        // Evento CellClick: DataGridView Resultado
+        // Evento CellClick: DataGridView
         private void dg_res_ult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             fi_fil_act();
         }
 
-        // Evento CellDoubleClick: DataGridView Resultado
+        // Evento CellDoubleClick: DataGridView
         private void dg_res_ult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
@@ -258,16 +253,19 @@ namespace CRS_PRE
             }
         }
 
-        // Evento Enter: DataGridView Resultado
-        private void dg_res_ult_Enter(object sender, EventArgs e)
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                DialogResult = DialogResult.OK;
-                cl_glo_frm.Cerrar(this);
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
-        // Evento Click: Buscar
+        // Evento Click: Buscar Datos
         private void bt_bus_car_Click(object sender, EventArgs e)
         {
             if (cb_est_bus.SelectedIndex == 0)
@@ -309,19 +307,21 @@ namespace CRS_PRE
 
                 fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex, est_bus);
             }
-        }                     
+        }
 
-        // Evento Click: Cancelar
+        // Evento Click: Button Aceptar
+        private void bt_ace_pta_Click(object sender, EventArgs e)
+        {
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
+        }
+
+        // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            cl_glo_frm.Cerrar(this);
-        }
-
-        // Evento Click: Aceptar
-        private void bt_ace_pta_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
             cl_glo_frm.Cerrar(this);
         }        
     }

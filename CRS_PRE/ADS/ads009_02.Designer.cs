@@ -94,6 +94,7 @@
             this.dg_res_ult.Size = new System.Drawing.Size(500, 250);
             this.dg_res_ult.TabIndex = 1;
             this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_ide_doc
             // 
@@ -274,8 +275,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads009_02";
-            this.Tag = "Permiso de Talonarios";
-            this.Text = "Permiso de Talonarios";
+            this.Tag = "Permiso s/Talonarios";
+            this.Text = "Permiso s/Talonarios";
             this.Load += new System.EventHandler(this.frm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_res_ult)).EndInit();
             this.groupBox1.ResumeLayout(false);

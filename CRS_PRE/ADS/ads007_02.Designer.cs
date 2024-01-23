@@ -332,6 +332,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads007_02";
+            this.Tag = "Crea Nuevo Usuario";
             this.Text = "Crea Nuevo Usuario";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

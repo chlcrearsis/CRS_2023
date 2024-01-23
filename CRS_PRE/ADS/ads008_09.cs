@@ -30,25 +30,40 @@ namespace CRS_PRE
       
         private void frm_Load(object sender, EventArgs e)
         {
-            bool per_mis = true;
             // Inicializa Datos
             tb_ide_usr.Text = frm_dat.Rows[0]["va_ide_usr"].ToString().Trim();
-            lb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString().Trim();            
+            lb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString().Trim();
 
-            // Obtiene y Desplega Lista de Aplicaciones
+            // Desplega Lista de Grupo de Bodega
+            Fi_des_gdb();
+        }
+
+        /// <summary>
+        /// Desplega Lista de Grupo de Bodega con y sin permisos
+        /// </summary>
+        private void Fi_des_gdb()
+        {
+            bool per_mis = true;
+            dg_res_ult.Rows.Clear();
+            // Obtiene y Desplega Lista de Grupo de Bodega
             Tabla = new DataTable();
             Tabla = o_ads008.Fe_usr_gdb(tb_ide_usr.Text.Trim());
-            for (int i = 0; i < Tabla.Rows.Count ; i++)
+            if (Tabla.Rows.Count > 0)
             {
-                dg_res_ult.Rows.Add();
-                dg_res_ult.Rows[i].Cells["va_ide_gru"].Value = Tabla.Rows[i]["va_ide_gru"].ToString().Trim();
-                dg_res_ult.Rows[i].Cells["va_nom_gru"].Value = Tabla.Rows[i]["va_nom_gru"].ToString().Trim();
-                if (Tabla.Rows[i]["va_per_mis"].ToString() == "S") { 
-                    dg_res_ult.Rows[i].Cells["va_per_mis"].Value = true;
-                } else {
-                    per_mis = false;
-                    dg_res_ult.Rows[i].Cells["va_per_mis"].Value = false;
+                for (int i = 0; i < Tabla.Rows.Count; i++)
+                {
+                    dg_res_ult.Rows.Add();
+                    dg_res_ult.Rows[i].Cells["va_ide_gru"].Value = Tabla.Rows[i]["va_ide_gru"].ToString().Trim();
+                    dg_res_ult.Rows[i].Cells["va_nom_gru"].Value = Tabla.Rows[i]["va_nom_gru"].ToString().Trim();
+                    if (Tabla.Rows[i]["va_per_mis"].ToString() == "S")
+                        dg_res_ult.Rows[i].Cells["va_per_mis"].Value = true;
+                    else{
+                        per_mis = false;
+                        dg_res_ult.Rows[i].Cells["va_per_mis"].Value = false;
+                    }
                 }
+            }else {
+                bt_ace_pta.Enabled = false;
             }
 
             ch_che_tod.Focus();
@@ -73,7 +88,17 @@ namespace CRS_PRE
                 vp_chk_reg = true;
         }
 
-        // Evento CellContentClick: Lista de Resultado
+        // Evento CheckedChanged: Todos los permisos
+        private void ch_che_tod_CheckedChanged(object sender, EventArgs e)
+        {
+            if (vp_chk_reg){
+                for (int i = 0; i < dg_res_ult.RowCount; i++)
+                    dg_res_ult.Rows[i].Cells["va_per_mis"].Value = ch_che_tod.Checked;
+            }else
+                vp_chk_reg = true;
+        }
+
+        // Evento CellContentClick: DataGridView
         private void dg_res_ult_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 2)
@@ -92,15 +117,21 @@ namespace CRS_PRE
             }
         }
 
-        // Evento CheckedChanged: Todos los permisos
-        private void ch_che_tod_CheckedChanged(object sender, EventArgs e)
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (vp_chk_reg){
-                for (int i = 0; i < dg_res_ult.RowCount; i++){
-                    dg_res_ult.Rows[i].Cells["va_per_mis"].Value = ch_che_tod.Checked;
-                }
-            }else{
-                vp_chk_reg = true;
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Space){
+                if (dg_res_ult.SelectedRows[0].Cells["va_per_mis"].Value == null)
+                    dg_res_ult.SelectedRows[0].Cells["va_per_mis"].Value = false;
+
+                bool chk = (bool)dg_res_ult.SelectedRows[0].Cells["va_per_mis"].Value;
+
+                if (chk == false)
+                    dg_res_ult.SelectedRows[0].Cells["va_per_mis"].Value = true;
+                else
+                    dg_res_ult.SelectedRows[0].Cells["va_per_mis"].Value = false;
+
+                Fi_ver_chk();
             }
         }
 

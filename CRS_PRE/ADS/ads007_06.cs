@@ -21,7 +21,7 @@ namespace CRS_PRE
         adp002 o_adp002 = new adp002();
         ads006 o_ads006 = new ads006();
         ads007 o_ads007 = new ads007();        
-        ads025 o_ads025 = new ads025();        
+        ads019 o_ads019 = new ads019();        
         DataTable Tabla = new DataTable();
 
         public ads007_06()
@@ -99,10 +99,10 @@ namespace CRS_PRE
 
 
             // Valida que NO haya realizado niguna operación en el sistema
-            Tabla = o_ads025.Fe_con_usr(tb_ide_usr.Text.Trim());
+            Tabla = new DataTable();
+            Tabla = o_ads019.Fe_con_usr(tb_ide_usr.Text.Trim());
             if (Tabla.Rows.Count > 0)
                 return "No se puede eliminar Usuarios, tiene operaciones realizadas el el sistema";
-
 
             return "OK";
         }

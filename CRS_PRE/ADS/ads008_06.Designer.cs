@@ -37,12 +37,12 @@
             this.tb_ide_usr = new System.Windows.Forms.TextBox();
             this.ch_che_tod = new System.Windows.Forms.CheckBox();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
-            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
-            this.bt_can_cel = new System.Windows.Forms.Button();
             this.va_cod_gru = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_nom_gru = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_per_mis = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_res_ult)).BeginInit();
             this.gb_ctr_btn.SuspendLayout();
@@ -139,6 +139,34 @@
             this.dg_res_ult.Size = new System.Drawing.Size(426, 151);
             this.dg_res_ult.TabIndex = 1;
             this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
+            // 
+            // va_cod_gru
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_cod_gru.DefaultCellStyle = dataGridViewCellStyle2;
+            this.va_cod_gru.HeaderText = "Código";
+            this.va_cod_gru.Name = "va_cod_gru";
+            this.va_cod_gru.ReadOnly = true;
+            this.va_cod_gru.Width = 55;
+            // 
+            // va_nom_gru
+            // 
+            this.va_nom_gru.HeaderText = "Nombre";
+            this.va_nom_gru.Name = "va_nom_gru";
+            this.va_nom_gru.ReadOnly = true;
+            this.va_nom_gru.Width = 320;
+            // 
+            // va_per_mis
+            // 
+            this.va_per_mis.FalseValue = "0";
+            this.va_per_mis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.va_per_mis.HeaderText = "✓";
+            this.va_per_mis.Name = "va_per_mis";
+            this.va_per_mis.ReadOnly = true;
+            this.va_per_mis.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.va_per_mis.TrueValue = "1";
+            this.va_per_mis.Width = 30;
             // 
             // gb_ctr_btn
             // 
@@ -179,33 +207,6 @@
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
-            // 
-            // va_cod_gru
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_cod_gru.DefaultCellStyle = dataGridViewCellStyle2;
-            this.va_cod_gru.HeaderText = "Código";
-            this.va_cod_gru.Name = "va_cod_gru";
-            this.va_cod_gru.ReadOnly = true;
-            this.va_cod_gru.Width = 55;
-            // 
-            // va_nom_gru
-            // 
-            this.va_nom_gru.HeaderText = "Nombre";
-            this.va_nom_gru.Name = "va_nom_gru";
-            this.va_nom_gru.ReadOnly = true;
-            this.va_nom_gru.Width = 320;
-            // 
-            // va_per_mis
-            // 
-            this.va_per_mis.FalseValue = "0";
-            this.va_per_mis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.va_per_mis.HeaderText = "✓";
-            this.va_per_mis.Name = "va_per_mis";
-            this.va_per_mis.ReadOnly = true;
-            this.va_per_mis.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.va_per_mis.TrueValue = "1";
-            this.va_per_mis.Width = 30;
             // 
             // ads008_06
             // 

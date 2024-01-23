@@ -16,7 +16,6 @@ namespace CRS_PRE
     {
         public dynamic frm_pad;
         public int frm_tip;
-        public DataTable tab_dat;
         public dynamic frm_MDI;
         // Instancia
         ads001 o_ads001 = new ads001();
@@ -36,10 +35,13 @@ namespace CRS_PRE
             fi_ini_frm();
         }
 
+        /// <summary>
+        /// Inicializa Formulario
+        /// </summary>
         private void fi_ini_frm()
         {
-            tb_ide_doc.Text = string.Empty;
             // Obtiene el nombre del módulo a buscar
+            Tabla = new DataTable();
             Tabla = o_ads001.Fe_con_mod(vp_ide_mod);
             if (Tabla.Rows.Count > 0)
                 Text = "Documentos por Módulos : " + Tabla.Rows[0]["va_nom_mod"];
@@ -50,7 +52,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion interna buscar
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="ide_mod">ID. Módulo</param>
         private void fi_bus_car(int ide_mod)
@@ -71,89 +73,123 @@ namespace CRS_PRE
                     dg_res_ult.Rows[i].Cells["va_des_doc"].Value = Tabla.Rows[i]["va_des_doc"].ToString();
                     dg_res_ult.Rows[i].Cells["va_nom_mod"].Value = Tabla.Rows[i]["va_nom_mod"].ToString();
                 }
-                tb_ide_doc.Text = Tabla.Rows[0]["va_ide_doc"].ToString();
+                vp_ide_doc = Tabla.Rows[0]["va_ide_doc"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
-        }        
-
-        private void fi_sub_baj_fil_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
 
         /// <summary>
-        /// Método para obtener fila actual seleccionada
+        /// Función: Obtiene fila actual seleccionada
         /// </summary>
-        public void fi_fil_act()
+        private void fi_fil_act()
         {
             if (dg_res_ult.SelectedRows.Count != 0)
             {
                 if (dg_res_ult.SelectedRows[0].Cells[0].Value == null) {                 
-                    tb_ide_doc.Text = string.Empty;
+                    vp_ide_doc = string.Empty;
                 } else { 
-                    tb_ide_doc.Text = dg_res_ult.SelectedRows[0].Cells[0].Value.ToString();                    
+                    vp_ide_doc = dg_res_ult.SelectedRows[0].Cells["va_ide_doc"].Value.ToString();                    
+                }
+            }
+        }        
+
+        // Evento KeyDown: Preciona Teclado
+        private void fi_pre_tec_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (dg_res_ult.Rows.Count != 0)
+            {
+                try
+                {
+                    dg_res_ult.Show();
+                    /* Verifica que tecla preciono */
+                    switch (e.KeyData)
+                    {
+                        case Keys.Up:     // Flecha Arriba
+                            if (dg_res_ult.SelectedRows[0].Index != 0)
+                            {
+                                // Establece el foco en el Datagrid
+                                dg_res_ult.CurrentCell = dg_res_ult[0, dg_res_ult.SelectedRows[0].Index - 1];
+                                // Llama a función que actualiza datos en Pantalla
+                                fi_fil_act();
+                            }
+                            break;
+                        case Keys.Down:   // Flecha Abajo
+                            if (dg_res_ult.SelectedRows[0].Index != dg_res_ult.Rows.Count - 1)
+                            {
+                                // Establece el foco en el Datagrid
+                                dg_res_ult.CurrentCell = dg_res_ult[0, dg_res_ult.SelectedRows[0].Index + 1];
+                                // Llama a función que actualiza datos en Pantalla
+                                fi_fil_act();
+                            }
+                            break;
+                        case Keys.Enter:  // Tecla Enter
+                            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                                DialogResult = DialogResult.OK;
+                                cl_glo_frm.Cerrar(this);
+                            }
+                            break;
+                        case Keys.Escape: // Tecla Esc
+                            if (bt_ace_pta.Enabled == true){
+                                DialogResult = DialogResult.Cancel;
+                                cl_glo_frm.Cerrar(this);
+                            }
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
                 }
             }
         }
 
+        // Evento SelectionChanged: DataGridView
         private void dg_res_ult_SelectionChanged(object sender, EventArgs e)
         {
             fi_fil_act();
         }
 
+        // Evento CellClick: DataGridView
         private void dg_res_ult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             fi_fil_act();
         }
 
+        // Evento CellDoubleClick: DataGridView
         private void dg_res_ult_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
+        }       
+
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
-        private void dg_res_ult_Enter(object sender, EventArgs e)
-        {
-            /*if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                this.DialogResult = DialogResult.OK;
-            }*/
-        }
-
-        /// <summary>
-        /// Funcion Externa que actualiza la ventana con los datos que tenga, despues de realizar alguna operacion.
-        /// </summary>
-        public void Fe_act_frm(string ide_doc)
-        {
-     
-            if (ide_doc != null)
-            {
-                try
-                {
-                    for (int i = 0; i < dg_res_ult.Rows.Count; i++)
-                    {
-                        if (dg_res_ult.Rows[i].Cells[0].Value.ToString().ToUpper() == ide_doc.ToUpper()){
-                            dg_res_ult.Rows[i].Selected = true;
-                            dg_res_ult.FirstDisplayedScrollingRowIndex = i;
-                            return;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
-            }
-        }        
-
+        // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            cl_glo_frm.Cerrar(this);
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
         }
 
+        // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
         }        
     }

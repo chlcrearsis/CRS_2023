@@ -423,7 +423,7 @@ namespace CRS_NEG
         }
 
         /// <summary>
-        /// Función: "Permiso Tipo de Usuario sobre Plantilla de Venta"
+        /// Función: "Permiso Tipo de Usuario sobre Lista de Precio"
         /// </summary>
         /// <param name="ide_tus">ID. Tipo de Usuario</param>
         /// <returns></returns>

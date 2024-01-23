@@ -44,6 +44,6 @@ INSERT INTO ads013 VALUES (3, 2, 'Productos Farmacia', 2, 0, 0.00000, 'Normal') 
 --** Módulo: Contabilidad
 INSERT INTO ads013 VALUES (4, 1, 'Gestión', 0, 2023, 0.00000, '')
 INSERT INTO ads013 VALUES (4, 2, 'Periodo', 0, 11, 0.00000, '')
+INSERT INTO ads013 VALUES (4, 3, 'Fecha Inicio de Operación', 2, 0, 0.00000, '01/01/2024')
 
-delete ads013
 GO

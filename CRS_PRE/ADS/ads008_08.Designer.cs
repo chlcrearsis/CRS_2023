@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_nom_usr = new System.Windows.Forms.Label();
             this.lb_ide_usr = new System.Windows.Forms.Label();
             this.tb_ide_usr = new System.Windows.Forms.TextBox();
             this.ch_che_tod = new System.Windows.Forms.CheckBox();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
-            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
-            this.bt_can_cel = new System.Windows.Forms.Button();
             this.va_ide_cob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_nom_cob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_pro_ced = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_per_mis = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_res_ult)).BeginInit();
             this.gb_ctr_btn.SuspendLayout();
@@ -108,29 +108,29 @@
             this.dg_res_ult.AllowUserToResizeRows = false;
             this.dg_res_ult.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_res_ult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dg_res_ult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_res_ult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.va_ide_cob,
             this.va_nom_cob,
             this.va_pro_ced,
             this.va_per_mis});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle3;
             this.dg_res_ult.Location = new System.Drawing.Point(3, 40);
             this.dg_res_ult.MultiSelect = false;
             this.dg_res_ult.Name = "dg_res_ult";
@@ -141,6 +141,41 @@
             this.dg_res_ult.Size = new System.Drawing.Size(477, 151);
             this.dg_res_ult.TabIndex = 1;
             this.dg_res_ult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellContentClick);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
+            // 
+            // va_ide_cob
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_ide_cob.DefaultCellStyle = dataGridViewCellStyle2;
+            this.va_ide_cob.HeaderText = "Código";
+            this.va_ide_cob.Name = "va_ide_cob";
+            this.va_ide_cob.ReadOnly = true;
+            this.va_ide_cob.Width = 55;
+            // 
+            // va_nom_cob
+            // 
+            this.va_nom_cob.HeaderText = "Nombre";
+            this.va_nom_cob.Name = "va_nom_cob";
+            this.va_nom_cob.ReadOnly = true;
+            this.va_nom_cob.Width = 280;
+            // 
+            // va_pro_ced
+            // 
+            this.va_pro_ced.HeaderText = "Procedencia";
+            this.va_pro_ced.Name = "va_pro_ced";
+            this.va_pro_ced.ReadOnly = true;
+            this.va_pro_ced.Width = 90;
+            // 
+            // va_per_mis
+            // 
+            this.va_per_mis.FalseValue = "0";
+            this.va_per_mis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.va_per_mis.HeaderText = "✓";
+            this.va_per_mis.Name = "va_per_mis";
+            this.va_per_mis.ReadOnly = true;
+            this.va_per_mis.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.va_per_mis.TrueValue = "1";
+            this.va_per_mis.Width = 30;
             // 
             // gb_ctr_btn
             // 
@@ -181,40 +216,6 @@
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
-            // 
-            // va_ide_cob
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_ide_cob.DefaultCellStyle = dataGridViewCellStyle5;
-            this.va_ide_cob.HeaderText = "Código";
-            this.va_ide_cob.Name = "va_ide_cob";
-            this.va_ide_cob.ReadOnly = true;
-            this.va_ide_cob.Width = 55;
-            // 
-            // va_nom_cob
-            // 
-            this.va_nom_cob.HeaderText = "Nombre";
-            this.va_nom_cob.Name = "va_nom_cob";
-            this.va_nom_cob.ReadOnly = true;
-            this.va_nom_cob.Width = 280;
-            // 
-            // va_pro_ced
-            // 
-            this.va_pro_ced.HeaderText = "Procedencia";
-            this.va_pro_ced.Name = "va_pro_ced";
-            this.va_pro_ced.ReadOnly = true;
-            this.va_pro_ced.Width = 90;
-            // 
-            // va_per_mis
-            // 
-            this.va_per_mis.FalseValue = "0";
-            this.va_per_mis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.va_per_mis.HeaderText = "✓";
-            this.va_per_mis.Name = "va_per_mis";
-            this.va_per_mis.ReadOnly = true;
-            this.va_per_mis.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.va_per_mis.TrueValue = "1";
-            this.va_per_mis.Width = 30;
             // 
             // ads008_08
             // 

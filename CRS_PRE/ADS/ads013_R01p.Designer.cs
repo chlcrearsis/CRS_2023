@@ -238,8 +238,8 @@
             this.MinimizeBox = false;
             this.Name = "ads013_R01p";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Informe Globales";
-            this.Text = "Informe Globales";
+            this.Tag = "Definiciones de Globales";
+            this.Text = "Definiciones de Globales";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

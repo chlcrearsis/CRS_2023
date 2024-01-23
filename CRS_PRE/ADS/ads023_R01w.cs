@@ -9,7 +9,7 @@ namespace CRS_PRE
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
     /*  Aplicación: ads023 - Tasa de Cambio Bs/Ufv                        */
     /*      Opción: Informe R01 - Reporte View                            */
-    /*       Autor: JEJR - Crearsis             Fecha: 09-01-2024         */
+    /*       Autor: JEJR - Crearsis             Fecha: 12-01-2024         */
     /**********************************************************************/
     public partial class ads023_R01w : Form
     {
@@ -20,7 +20,7 @@ namespace CRS_PRE
         ads013 o_ads013 = new ads013();
         DataTable Tabla = new DataTable();
         // Variable
-        string va_nom_emp = "";
+        string va_nom_emp = "";        
         public string vp_fec_ini;
         public string vp_fec_fin;
 
@@ -32,21 +32,19 @@ namespace CRS_PRE
         private void frm_Load(object sender, EventArgs e)
         {
             // Hacer grande la pantalla
-            Dock = DockStyle.Fill;            
-
+            Dock = DockStyle.Fill;                       
             // Obtener nombre de la empresa
             Tabla = o_ads013.Fe_obt_glo(1, 1);
             va_nom_emp = Tabla.Rows[0]["va_glo_car"].ToString().Trim();
             // Logueo Manual el ReportDocument asociado al Crystal Report
-            ads023_R02.SetDatabaseLogon(Program.gl_ide_usr, Program.gl_pas_usr, Program.gl_ser_bdo + "\\" + Program.gl_ins_bdo, Program.gl_nom_bdo);
-
+            ads023_R01.SetDatabaseLogon(Program.gl_ide_usr, Program.gl_pas_usr, Program.gl_ser_bdo + "\\" + Program.gl_ins_bdo, Program.gl_nom_bdo);
             // Paso los datos obtenidos del procedimiento en la anterior ventana
-            ads023_R02.SetDataSource(frm_dat);
+            ads023_R01.SetDataSource(frm_dat);
             // Para enviar parametros directos al reporte (nombre del parametro en crystal report, valor que se enviara)
-            ads023_R02.SetParameterValue("vc_nom_emp", va_nom_emp);
-            ads023_R02.SetParameterValue("vc_fec_ini", vp_fec_ini);
-            ads023_R02.SetParameterValue("vc_fec_fin", vp_fec_fin);
-            ads023_R02.SetParameterValue("vc_ide_usr", Program.gl_ide_usr);
+            ads023_R01.SetParameterValue("vc_nom_emp", va_nom_emp);
+            ads023_R01.SetParameterValue("vc_fec_ini", vp_fec_ini);
+            ads023_R01.SetParameterValue("vc_fec_fin", vp_fec_fin);
+            ads023_R01.SetParameterValue("vc_ide_usr", Program.gl_ide_usr);
         }
 
         private void Mn_imp_rim_Click(object sender, EventArgs e)

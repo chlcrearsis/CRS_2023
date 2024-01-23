@@ -162,7 +162,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads010_05";
-            this.Tag = "Consulta Modulo";
+            this.Tag = "Consulta Tipo Imagen";
             this.Text = "Consulta Tipo Imagen";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

@@ -1,12 +1,12 @@
 /*--**********************************************
-ARCHIVO:	ads026.sql	
+ARCHIVO:	ads020.sql	
 TABLA:		Tabla de "Bitacora p/Documento"
 AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		23-09-2021
 */--**********************************************
 
-PRINT 'ads026 : Bitacora p/Documento'
-CREATE TABLE ads026 
+PRINT 'ads020 : Bitacora p/Documento'
+CREATE TABLE ads020 
 (
 	--** Llave Primaria
 	va_ges_doc  INT          NOT NULL DEFAULT(0),	--** Gestión
@@ -20,6 +20,6 @@ CREATE TABLE ads026
 	va_ide_usr 	VARCHAR(15)  NOT NULL DEFAULT(''),	--** ID. Usuario
 	va_obs_reg  VARCHAR(120) NOT NULL DEFAULT(''),	--** Observación
 
-	CONSTRAINT pk1_ads026 PRIMARY KEY(va_ges_doc, va_ide_doc, va_nro_doc, va_fch_reg)
+	CONSTRAINT pk1_ads020 PRIMARY KEY(va_ges_doc, va_ide_doc, va_nro_doc, va_fch_reg)
 )
 GO

@@ -811,6 +811,8 @@ namespace CRS_PRE
         {
             // Registra Finaliza Sesión en Bitacora de Inicio de Sesion            
             o_ads018.Fe_fin_ses(Program.gl_ide_uni);
+            // Cierra Conexion con SQL-Server
+            o_ads007.Fe_cie_cnx();
         }        
     }
 }

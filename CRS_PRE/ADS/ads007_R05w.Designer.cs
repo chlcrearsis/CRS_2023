@@ -269,8 +269,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads007_R05w";
-            this.Tag = "Aplicaciones Autorizadas p/Rango Usuario";
-            this.Text = "Aplicaciones Autorizadas p/Rango Usuario";
+            this.Tag = "Informe Aplicaciones Autorizadas p/Rango Usuario";
+            this.Text = "Informe Aplicaciones Autorizadas p/Rango Usuario";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

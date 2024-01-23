@@ -269,8 +269,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads006_R01w";
-            this.Tag = "Tipos de Usuario";
-            this.Text = "Tipos de Usuario";
+            this.Tag = "Informe Tipos de Usuario";
+            this.Text = "Informe Tipos de Usuario";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

@@ -45,7 +45,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Metodo : Filtra Datos de acuerdo el criterio
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="tex_bus">Texto a buscar</param>
         /// <param name="prm_bus">Parametro a buscar</param>
@@ -80,15 +80,17 @@ namespace CRS_PRE
                         dg_res_ult.Rows[i].Cells["va_est_ado"].Value = "Deshabilitado";
                 }
                 tb_ide_apl.Text = Tabla.Rows[0]["va_ide_apl"].ToString();
-                lb_nom_apl.Text = Tabla.Rows[0]["va_nom_apl"].ToString();                
+                lb_nom_apl.Text = Tabla.Rows[0]["va_nom_apl"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
             tb_tex_bus.Focus();
         }
 
         /// <summary>
-        /// Método : Obtiene fila actual seleccionada
+        /// Función: Obtiene fila actual seleccionada
         /// </summary>
-        public void fi_fil_act()
+        private void fi_fil_act()
         {
             if (dg_res_ult.SelectedRows.Count != 0)
             {
@@ -123,7 +125,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Función: Selecciona la fila en el Datagrid del registro que se modifico
+        /// Función: Selecciona la fila en el Datagrid del registro modificado
         /// </summary>
         private void fi_sel_fil(string ide_apl)
         {
@@ -158,9 +160,9 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Método para verificar concurrencia de datos para editar
+        /// Función: Verificar concurrencia de datos para editar
         /// </summary>
-        public bool fi_ver_dat(string ide_apl)
+        private bool fi_ver_dat(string ide_apl)
         {
             string res_fun;
             if (ide_apl.Trim() == "")
@@ -301,17 +303,20 @@ namespace CRS_PRE
                 cl_glo_frm.Cerrar(this);
             }
         }
-
-        // Evento Enter: DataGridView
-        private void dg_res_ult_Enter(object sender, EventArgs e)
+        
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                DialogResult = DialogResult.OK;
-                cl_glo_frm.Cerrar(this);
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
-        // Evento Click: Button Buscar
+        // Evento Click: Buscar Datos
         private void bt_bus_car_Click(object sender, EventArgs e)
         {
             if (cb_est_bus.SelectedIndex == 0)
@@ -391,8 +396,10 @@ namespace CRS_PRE
         // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            cl_glo_frm.Cerrar(this);
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
         }
 
         // Evento Click: Button Cancelar
@@ -400,6 +407,6 @@ namespace CRS_PRE
         {
             DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
-        }
+        }        
     }
 }

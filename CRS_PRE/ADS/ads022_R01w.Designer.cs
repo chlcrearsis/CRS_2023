@@ -269,7 +269,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads022_R01w";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Tasa de Cambio Bs/Us";
             this.Text = "Tasa de Cambio Bs/Us";
             this.Load += new System.EventHandler(this.frm_Load);

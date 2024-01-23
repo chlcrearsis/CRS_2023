@@ -60,10 +60,11 @@
     <Compile Include="ADP\adp017.cs" />
     <Compile Include="ADS\ads015.cs" />
     <Compile Include="ADS\ads011.cs" />
+    <Compile Include="ADS\ads025.cs" />
+    <Compile Include="ADS\ads019.cs" />
     <Compile Include="ADS\ads023.cs" />
     <Compile Include="ADS\ads100.cs" />
     <Compile Include="ADS\ads014.cs" />
-    <Compile Include="ADS\ads025.cs" />
     <Compile Include="ADS\ads026.cs" />
     <Compile Include="ADS\ads010.cs" />
     <Compile Include="ADP\adp007.cs" />

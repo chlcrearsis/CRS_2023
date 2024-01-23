@@ -155,7 +155,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads010_02";
-            this.Tag = "Crea Modulo";
+            this.Tag = "Crea Tipo Imagen";
             this.Text = "Crea Tipo Imagen";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

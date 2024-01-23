@@ -36,6 +36,9 @@ namespace CRS_PRE
                 bt_tod_tus.Visible = true;            
         }
 
+        /// <summary>
+        /// Inicializa Formulario
+        /// </summary>
         private void fi_ini_frm()
         {
             tb_ide_tus.Text = "";
@@ -45,7 +48,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion interna buscar
+        /// Función: Filtra Datos de acuerdo el criterio
         /// </summary>
         /// <param name="tex_bus">Texto a buscar</param>
         /// <param name="prm_bus">Parametro a buscar</param>
@@ -81,14 +84,16 @@ namespace CRS_PRE
                 }
                 tb_ide_tus.Text = Tabla.Rows[0]["va_ide_tus"].ToString();
                 lb_nom_tus.Text = Tabla.Rows[0]["va_nom_tus"].ToString();
+            }else if (gb_ctr_btn.Enabled == true){
+                bt_ace_pta.Enabled = false;
             }
             tb_tex_bus.Focus();
         }
 
         /// <summary>
-        /// Método : Obtiene fila actual seleccionada
+        /// Función: Obtiene fila actual seleccionada
         /// </summary>
-        public void fi_fil_act()
+        private void fi_fil_act()
         {
             if (dg_res_ult.SelectedRows.Count != 0)
             {
@@ -123,7 +128,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Función: Selecciona la fila en el Datagrid del registro que se modifico
+        /// Función: Selecciona la fila en el Datagrid del registro modificado
         /// </summary>
         private void fi_sel_fil(string ide_mod)
         {
@@ -160,7 +165,7 @@ namespace CRS_PRE
         /// <summary>
         /// Función: Verificar concurrencia de datos para editar
         /// </summary>
-        public bool fi_ver_dat(string ide_tus)
+        private bool fi_ver_dat(string ide_tus)
         {
             string res_fun;
             if (ide_tus.Trim() == ""){
@@ -184,7 +189,7 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// Funcion : Actualiza la ventana despues de realizar alguna operación
+        /// Función: Actualiza la ventana despues de realizar alguna operación
         /// </summary>
         public void Fe_act_frm(int ide_tus)
         {
@@ -203,8 +208,7 @@ namespace CRS_PRE
                 {
                     for (int i = 0; i < dg_res_ult.Rows.Count; i++)
                     {
-                        if (dg_res_ult.Rows[i].Cells[0].Value.ToString() == ide_tus.ToString())
-                        {
+                        if (dg_res_ult.Rows[i].Cells["va_ide_tus"].Value.ToString() == ide_tus.ToString()){
                             dg_res_ult.Rows[i].Selected = true;
                             dg_res_ult.FirstDisplayedScrollingRowIndex = i;
                             return;
@@ -271,6 +275,12 @@ namespace CRS_PRE
             }
         }
 
+        // Evento Validated: ID. Tipo de Usuario
+        private void tb_ide_tus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cl_glo_bal.NotNumeric(e);
+        }
+
         // Evento Validated: ID. Tipo de Usuario                     
         private void tb_ide_tus_Validated(object sender, EventArgs e)
         {
@@ -299,17 +309,20 @@ namespace CRS_PRE
                 cl_glo_frm.Cerrar(this);
             }
         }
-
-        // Evento Enter: DataGridView
-        private void dg_res_ult_Enter(object sender, EventArgs e)
+       
+        // Evento PreviewKeyDown: DataGridView
+        private void dg_res_ult_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
-                DialogResult = DialogResult.OK;
-                cl_glo_frm.Cerrar(this);
+            if (e.KeyCode == Keys.Enter){
+                if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                    DialogResult = DialogResult.OK;
+                    cl_glo_frm.Cerrar(this);
+                    Dispose();
+                }
             }
         }
 
-        // Evento Click: Button Buscar
+        // Evento Click: Buscar Datos
         private void bt_bus_car_Click(object sender, EventArgs e)
         {
             if (cb_est_bus.SelectedIndex == 0)
@@ -350,13 +363,7 @@ namespace CRS_PRE
             ads006_04 frm = new ads006_04();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
-
-        
-        private void mn_con_sul_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+              
         // Evento Click: Consulta Registro
         private void mn_con_reg_Click(object sender, EventArgs e)
         {
@@ -368,6 +375,7 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
+        // Evento Click: Consulta Autorizaciones Usuario
         private void mn_con_per_Click(object sender, EventArgs e)
         {
             // Verifica concurrencia de datos para informe
@@ -389,40 +397,7 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
-        // Evento Click: Permiso Plantilla de Venta
-        private void mn_per_plv_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para el permiso
-            if (fi_ver_dat(tb_ide_tus.Text) == false)
-                return;
-
-            ads009_03 frm = new ads009_03();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-
-        // Evento Click: Permiso Aplicación
-        private void mn_per_apl_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para el permiso
-            if (fi_ver_dat(tb_ide_tus.Text) == false)
-                return;
-
-            ads009_01 frm = new ads009_01();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-
-        }
-
-        // Evento Click: Permiso Lista de Precio
-        private void mn_per_lis_Click(object sender, EventArgs e)
-        {
-            // Verifica concurrencia de datos para el permiso
-            if (fi_ver_dat(tb_ide_tus.Text) == false)
-                return;
-
-            ads009_04 frm = new ads009_04();
-            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
-        }
-
+        // Evento Click: Permiso Grupo de Persona
         private void mn_per_gdp_Click(object sender, EventArgs e)
         {
             // Verifica concurrencia de datos para el permiso
@@ -433,6 +408,7 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
+        // Evento Click: Permiso Vendedor
         private void mn_per_ven_Click(object sender, EventArgs e)
         {
             // Verifica concurrencia de datos para el permiso
@@ -443,6 +419,7 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
+        // Evento Click: Permiso Cobrador
         private void mn_per_cob_Click(object sender, EventArgs e)
         {
             // Verifica concurrencia de datos para el permiso
@@ -475,6 +452,28 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
+        // Evento Click: Permiso Lista de Precio
+        private void mn_per_lis_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para el permiso
+            if (fi_ver_dat(tb_ide_tus.Text) == false)
+                return;
+
+            ads009_04 frm = new ads009_04();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
+        // Evento Click: Permiso Plantilla de Venta
+        private void mn_per_plv_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para el permiso
+            if (fi_ver_dat(tb_ide_tus.Text) == false)
+                return;
+
+            ads009_03 frm = new ads009_03();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+        }
+
         // Evento Click: Permiso Talonario
         private void mn_per_tal_Click(object sender, EventArgs e)
         {
@@ -486,14 +485,26 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
-        // Evento Click: Lista Tipo de Usuario
+        // Evento Click: Permiso Aplicación
+        private void mn_per_apl_Click(object sender, EventArgs e)
+        {
+            // Verifica concurrencia de datos para el permiso
+            if (fi_ver_dat(tb_ide_tus.Text) == false)
+                return;
+
+            ads009_01 frm = new ads009_01();
+            cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
+
+        }                                          
+
+        // Evento Click: Informe Lista Tipo de Usuario
         private void mn_lis_tus_Click(object sender, EventArgs e)
         {
             ads006_R01p frm = new ads006_R01p();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
 
-        // Evento Click: Autorizaciones Tipo de Usuario
+        // Evento Click: Informe Autorizaciones Tipo de Usuario
         private void mn_lis_atu_Click(object sender, EventArgs e)
         {
             // Verifica concurrencia de datos para el permiso
@@ -504,23 +515,9 @@ namespace CRS_PRE
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
 
-        // Evento Click: Salir
+        // Evento Click: Cerrar Pantalla
         private void mn_cer_rar_Click(object sender, EventArgs e)
         {
-            cl_glo_frm.Cerrar(this);
-        }
-
-        // Evento Click: Button Aceptar
-        private void bt_ace_pta_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            cl_glo_frm.Cerrar(this);
-        }
-
-        // Evento Click: Button Cancelar
-        private void bt_can_cel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
             cl_glo_frm.Cerrar(this);
         }
 
@@ -535,6 +532,20 @@ namespace CRS_PRE
             }
         }
 
-        
+        // Evento Click: Button Aceptar
+        private void bt_ace_pta_Click(object sender, EventArgs e)
+        {
+            if (bt_ace_pta.Enabled == true && dg_res_ult.Rows.Count > 0){
+                DialogResult = DialogResult.OK;
+                cl_glo_frm.Cerrar(this);
+            }
+        }
+
+        // Evento Click: Button Cancelar
+        private void bt_can_cel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            cl_glo_frm.Cerrar(this);
+        }        
     }
 }

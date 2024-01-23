@@ -34,25 +34,25 @@ namespace CRS_PRE
 
         private void frm_Load(object sender, EventArgs e)
         {
-            /* Inicializa Formulario */
+            // Inicializa Formulario
             Fe_ini_frm();            
             vp_ban_aux = 1;
         }
 
-        
+
         /// <summary>
-        /// -> Metodo que inicializa el formulario
+        /// Inicializa Formulario
         /// </summary>
         private void Fe_ini_frm()
         {
-            /* Obtiene el mes y el año actual del servidor */
+            // Obtiene el mes y el año actual del servidor
             cb_mes_tdc.SelectedIndex = o_geneal.Fe_fec_act().Month - 1;            
             tb_año_tdc.Minimum = o_geneal.Fe_fec_act().Year - 5;
             tb_año_tdc.Maximum = o_geneal.Fe_fec_act().Year + 5;
             tb_año_tdc.Value = o_geneal.Fe_fec_act().Year;
-            /* Actualiza Formulario */
+            // Actualiza Formulario
             Fe_act_frm();
-            /* Establece el Tipo de Formulario */
+            // Establece el Tipo de Formulario
             vp_tip_frm = 0;            
         }
 
@@ -68,35 +68,34 @@ namespace CRS_PRE
         }
 
         /// <summary>
-        /// -> Metodo buscar
+        /// Función: Actualiza la ventana despues de realizar alguna operación
         /// </summary>
         public void Fe_act_frm()
         {
             try
             {
-                /* Mes a Buscar */
+                // Mes a Buscar
                 string mes_bus = (cb_mes_tdc.SelectedIndex + 1).ToString();
-                /* Año a Buscar */
+                // Año a Buscar
                 int año_bus = Convert.ToInt32(tb_año_tdc.Value);
-                /* Fecha Inicial */
+                // Fecha Inicial
                 DateTime fec_ini;
-                /* Fecha Final */
+                // Fecha Final
                 DateTime fec_fin;
-                /* Numero de dias del mes */
+                // Numero de dias del mes
                 int nro_dms = 0;
-                /* Nombre del dia */
+                // Nombre del dia
                 int str_dia = 0;
-                /* Limpia el Control del Calendario */
+                // Limpia el Control del Calendario
                 fl_cal_tdc.Controls.Clear();
-                /* Concatena le fecha a buscar */
+                // Concatena le fecha a buscar
                 fec_ini = Convert.ToDateTime("01/" + mes_bus.ToString() + "/" + año_bus.ToString());
                 fec_fin = fec_ini;
                 fec_fin = fec_ini.AddMonths(1);
                 fec_fin = fec_fin.AddDays(-1);
 
                 nro_dms = (fec_fin - fec_ini).Days;
-                nro_dms = nro_dms + 1;
-
+                nro_dms++;
 
                 switch (fec_ini.DayOfWeek)
                 {
@@ -123,7 +122,7 @@ namespace CRS_PRE
                         break;
                 }
 
-                //--** Bucle para dias iniciales deshabilitados 
+                // Bucle para dias iniciales deshabilitados 
                 for (int j = 0; j <= str_dia - 2; j++)
                 {
                     Button bot_val = new Button();
@@ -144,7 +143,7 @@ namespace CRS_PRE
                     fl_cal_tdc.Controls.Add(bot_val);
                 }
 
-                /* Obtiene T.C de todo el mes */
+                // Obtiene T.C de todo el mes
                 Tabla = new DataTable();
                 Tabla = o_ads023.Fe_bus_car(int.Parse(mes_bus), año_bus);
                 for (int i = 1; i <= nro_dms; i++)
@@ -214,6 +213,7 @@ namespace CRS_PRE
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+
         /// <summary>
         /// Metodo activado con el click en el boton de la fecha T.C.
         /// </summary>
@@ -236,65 +236,72 @@ namespace CRS_PRE
                 ads023_03 frm = new ads023_03();
                 cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, Tabla);                
             }
-        }                                
+        }
 
+        // Evento SelectedIndexChanged: Mes
         private void cb_mes_año_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (vp_ban_aux == 1)
                 Fe_act_frm();
         }
 
+        // Evento ValueChanged: Año
         private void tb_val_año_ValueChanged(object sender, EventArgs e)
         {
             if (vp_ban_aux == 1)
                 Fe_act_frm();            
-        }        
-        
-        /* Evento Click: Registra p/Rango Fecha */
+        }
+
+        // Evento Click: Registra p/Rango Fecha
         private void mn_reg_fch_Click(object sender, EventArgs e)
         {
             ads023_02 frm = new ads023_02();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
-        /* Evento Click: Modifica */
+
+        // Evento Click: Modifica Registro
         private void mn_mod_ifi_Click(object sender, EventArgs e)
         {
             ads023_02 frm = new ads023_02();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si, tab_dat);
         }
-        /* Evento Click: Exporta */
+
+        // Evento Click: Exporta T.C
         private void mn_exp_tdc_Click(object sender, EventArgs e)
         {
             ads023_08 frm = new ads023_08();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
-        /* Evento Click: Importa */
+
+        // Evento Click: Importa T.C
         private void mn_imp_tdc_Click(object sender, EventArgs e)
         {
             ads023_09 frm = new ads023_09();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
-        /* Evento Click: Informe */
+
+        // Evento Click: Lista Tasa de Cambio
         private void mn_lis_tdc_Click(object sender, EventArgs e)
         {
             ads023_R01p frm = new ads023_R01p();
             cl_glo_frm.abrir(this, frm, cl_glo_frm.ventana.nada, cl_glo_frm.ctr_btn.si);
         }
-        /* Evento Click: Cerrar */
+
+        // Evento Click: Cerrar Pantalla
         private void mn_cer_rar_Click(object sender, EventArgs e)
         {
             cl_glo_frm.Cerrar(this);
         }
 
-        /* Evento Click: Button Aceptar */
+        // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
             cl_glo_frm.Cerrar(this);
         }
 
-        /* Evento Click: Button Cancelar */
+        // Evento Click: Button Cancelar
         private void bt_can_cel_Click(object sender, EventArgs e)
-        {
+        {            
             cl_glo_frm.Cerrar(this);
         }        
     }

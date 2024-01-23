@@ -270,8 +270,8 @@
             this.MinimizeBox = false;
             this.Name = "ads013_R01w";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "Definición de Globales";
-            this.Text = "Definición de Globales";
+            this.Tag = "Informe Definición de Globales";
+            this.Text = "Informe Definición de Globales";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

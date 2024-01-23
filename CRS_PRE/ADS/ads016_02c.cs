@@ -119,12 +119,12 @@ namespace CRS_PRE
                 MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                 return;
             }
-            msg_res = MessageBox.Show("¿Está seguro de preparar la Siguiente Gestión " + tb_nue_ges.Text + "?", Name, MessageBoxButtons.OKCancel);
+            msg_res = MessageBox.Show("¿Está seguro de preparar la Siguiente Gestión " + tb_nue_ges.Text + "?", Text, MessageBoxButtons.OKCancel);
             if (msg_res == DialogResult.OK)
             {
                 // Registrar usuario
                 o_ads016.Fe_sig_ges(int.Parse(tb_ult_ges.Text), int.Parse(tb_nue_ges.Text));
-                MessageBox.Show("Los datos se grabaron correctamente", Name, MessageBoxButtons.OK);
+                MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
                 frm_pad.fi_bus_car();
             }
         }

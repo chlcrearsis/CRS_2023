@@ -16,14 +16,14 @@ namespace CRS_PRE.ADS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ads023_R02 : ReportClass {
+    public class ads023_R01 : ReportClass {
         
-        public ads023_R02() {
+        public ads023_R01() {
         }
         
         public override string ResourceName {
             get {
-                return "ads023_R02.rpt";
+                return "ads023_R01.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CRS_PRE.ADS {
         
         public override string FullResourceName {
             get {
-                return "CRS_PRE.ADS.ads023_R02.rpt";
+                return "CRS_PRE.ADS.ads023_R01.rpt";
             }
             set {
                 // Do nothing
@@ -138,9 +138,9 @@ namespace CRS_PRE.ADS {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedads023_R02 : Component, ICachedReport {
+    public class Cachedads023_R01 : Component, ICachedReport {
         
-        public Cachedads023_R02() {
+        public Cachedads023_R01() {
         }
         
         [Browsable(false)]
@@ -177,7 +177,7 @@ namespace CRS_PRE.ADS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ads023_R02 rpt = new ads023_R02();
+            ads023_R01 rpt = new ads023_R01();
             rpt.Site = this.Site;
             return rpt;
         }

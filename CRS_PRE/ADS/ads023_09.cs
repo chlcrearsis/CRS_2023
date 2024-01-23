@@ -18,7 +18,6 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancia
-        private DataTable Tabla;
         private ads023 o_ads023 = new ads023();
         private General general = new General();
 

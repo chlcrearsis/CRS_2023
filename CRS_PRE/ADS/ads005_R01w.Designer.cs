@@ -269,8 +269,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads005_R01w";
-            this.Tag = "Informe Formato y Definición de Firmas";
-            this.Text = "Informe Formato y Definición de Firmas";
+            this.Tag = "Informe Numeración de Talonario p/Documento";
+            this.Text = "Informe Numeración de Talonario p/Documento";
             this.Load += new System.EventHandler(this.frm_Load);
             this.m_frm_hja.ResumeLayout(false);
             this.m_frm_hja.PerformLayout();

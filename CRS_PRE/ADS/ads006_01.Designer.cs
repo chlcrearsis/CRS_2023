@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.m_frm_hja = new System.Windows.Forms.MenuStrip();
             this.mn_nue_reg = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_edi_tar = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,14 +37,18 @@
             this.mn_hab_des = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_eli_min = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_con_sul = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_con_reg = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_con_per = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_tus = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_gdp = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_ven = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_cob = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lin_uno = new System.Windows.Forms.ToolStripSeparator();
             this.mn_per_gdb = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_bod = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_lis = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_plv = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_lin_dos = new System.Windows.Forms.ToolStripSeparator();
             this.mn_per_tal = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_per_apl = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_rep_ort = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +74,6 @@
             this.bt_tod_tus = new System.Windows.Forms.Button();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
-            this.mn_con_reg = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_con_per = new System.Windows.Forms.ToolStripMenuItem();
             this.m_frm_hja.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -92,7 +94,7 @@
             this.toolStripMenuItem1});
             this.m_frm_hja.Location = new System.Drawing.Point(141, 49);
             this.m_frm_hja.Name = "m_frm_hja";
-            this.m_frm_hja.Size = new System.Drawing.Size(467, 24);
+            this.m_frm_hja.Size = new System.Drawing.Size(347, 24);
             this.m_frm_hja.TabIndex = 5;
             this.m_frm_hja.Visible = false;
             // 
@@ -143,16 +145,32 @@
             this.mn_con_sul.Size = new System.Drawing.Size(66, 20);
             this.mn_con_sul.Text = "&Consulta";
             // 
+            // mn_con_reg
+            // 
+            this.mn_con_reg.Name = "mn_con_reg";
+            this.mn_con_reg.Size = new System.Drawing.Size(245, 22);
+            this.mn_con_reg.Text = "Con&sulta Registro";
+            this.mn_con_reg.Click += new System.EventHandler(this.mn_con_reg_Click);
+            // 
+            // mn_con_per
+            // 
+            this.mn_con_per.Name = "mn_con_per";
+            this.mn_con_per.Size = new System.Drawing.Size(245, 22);
+            this.mn_con_per.Text = "Consulta &Autorizaciones Usuario";
+            this.mn_con_per.Click += new System.EventHandler(this.mn_con_per_Click);
+            // 
             // mn_per_tus
             // 
             this.mn_per_tus.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_per_gdp,
             this.mn_per_ven,
             this.mn_per_cob,
+            this.mn_lin_uno,
             this.mn_per_gdb,
             this.mn_per_bod,
             this.mn_per_lis,
             this.mn_per_plv,
+            this.mn_lin_dos,
             this.mn_per_tal,
             this.mn_per_apl});
             this.mn_per_tus.Name = "mn_per_tus";
@@ -179,6 +197,11 @@
             this.mn_per_cob.Size = new System.Drawing.Size(230, 22);
             this.mn_per_cob.Text = "Permiso de Cobradores";
             this.mn_per_cob.Click += new System.EventHandler(this.mn_per_cob_Click);
+            // 
+            // mn_lin_uno
+            // 
+            this.mn_lin_uno.Name = "mn_lin_uno";
+            this.mn_lin_uno.Size = new System.Drawing.Size(227, 6);
             // 
             // mn_per_gdb
             // 
@@ -207,6 +230,11 @@
             this.mn_per_plv.Size = new System.Drawing.Size(230, 22);
             this.mn_per_plv.Text = "Permiso de Plantilla de Venta";
             this.mn_per_plv.Click += new System.EventHandler(this.mn_per_plv_Click);
+            // 
+            // mn_lin_dos
+            // 
+            this.mn_lin_dos.Name = "mn_lin_dos";
+            this.mn_lin_dos.Size = new System.Drawing.Size(227, 6);
             // 
             // mn_per_tal
             // 
@@ -292,6 +320,7 @@
             this.tb_ide_tus.Size = new System.Drawing.Size(30, 20);
             this.tb_ide_tus.TabIndex = 1;
             this.tb_ide_tus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fi_pre_tec_KeyDown);
+            this.tb_ide_tus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ide_tus_KeyPress);
             this.tb_ide_tus.Validated += new System.EventHandler(this.tb_ide_tus_Validated);
             // 
             // bt_bus_car
@@ -370,29 +399,29 @@
             this.dg_res_ult.AllowUserToResizeRows = false;
             this.dg_res_ult.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_res_ult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dg_res_ult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_res_ult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.va_ide_tus,
             this.va_nom_tus,
             this.va_des_tus,
             this.va_est_ado});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle2;
             this.dg_res_ult.Location = new System.Drawing.Point(8, 7);
             this.dg_res_ult.MultiSelect = false;
             this.dg_res_ult.Name = "dg_res_ult";
@@ -405,6 +434,7 @@
             this.dg_res_ult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellClick);
             this.dg_res_ult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellDoubleClick);
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_ide_tus
             // 
@@ -489,20 +519,6 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // mn_con_reg
-            // 
-            this.mn_con_reg.Name = "mn_con_reg";
-            this.mn_con_reg.Size = new System.Drawing.Size(245, 22);
-            this.mn_con_reg.Text = "Con&sulta Registro";
-            this.mn_con_reg.Click += new System.EventHandler(this.mn_con_reg_Click);
-            // 
-            // mn_con_per
-            // 
-            this.mn_con_per.Name = "mn_con_per";
-            this.mn_con_per.Size = new System.Drawing.Size(245, 22);
-            this.mn_con_per.Text = "Consulta &Autorizaciones Usuario";
-            this.mn_con_per.Click += new System.EventHandler(this.mn_con_per_Click);
-            // 
             // ads006_01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,5 +595,7 @@
         private System.Windows.Forms.ToolStripMenuItem mn_lis_atu;
         private System.Windows.Forms.ToolStripMenuItem mn_con_reg;
         private System.Windows.Forms.ToolStripMenuItem mn_con_per;
+        private System.Windows.Forms.ToolStripSeparator mn_lin_uno;
+        private System.Windows.Forms.ToolStripSeparator mn_lin_dos;
     }
 }

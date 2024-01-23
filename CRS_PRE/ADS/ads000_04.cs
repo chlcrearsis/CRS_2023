@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Microsoft.Win32;
-using Microsoft.VisualBasic.Devices;
-using System.Management;
-using System.Net.NetworkInformation;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using CRS_NEG;
 
@@ -103,18 +96,12 @@ namespace CRS_PRE
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
             string cla_pin = ob_gen_ral.Fu_obt_pin();
-            if (tb_cla_lic.Text == "Llave123.")
-            {
-                MessageBox.Show("NO ha digitado ninguna clave", "Error");
-            }
-            else if (tb_cla_lic.Text == cla_pin)
-            {
-                DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                MessageBox.Show("La clave digitada es incorrecta", "Error");
-            }
+            if (tb_cla_lic.Text == "Llave123.")            
+                MessageBox.Show("NO ha digitado ninguna clave", "Error");            
+            else if (tb_cla_lic.Text == cla_pin)            
+                DialogResult = DialogResult.OK;            
+            else            
+                MessageBox.Show("La clave digitada es incorrecta", "Error");            
         }
 
         // Evento Click: Button Cancelar

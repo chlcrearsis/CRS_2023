@@ -178,8 +178,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads010_04";
-            this.Tag = "Habilita/deshabilita Modulo";
-            this.Text = "Habilita/deshabilita Tipo Imagen";
+            this.Tag = "Habilita/Deshabilita Tipo Imagen";
+            this.Text = "Habilita/Deshabilita Tipo Imagen";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

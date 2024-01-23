@@ -32,12 +32,12 @@
             this.rb_sup_aut = new System.Windows.Forms.CheckBox();
             this.tb_ide_cla = new System.Windows.Forms.Label();
             this.tb_nom_cla = new System.Windows.Forms.Label();
-            this.lb_rep_con = new System.Windows.Forms.Label();
-            this.tb_rep_con = new System.Windows.Forms.TextBox();
-            this.lb_nue_con = new System.Windows.Forms.Label();
-            this.tb_nue_con = new System.Windows.Forms.TextBox();
-            this.lb_con_act = new System.Windows.Forms.Label();
-            this.tb_con_act = new System.Windows.Forms.TextBox();
+            this.lb_rep_cla = new System.Windows.Forms.Label();
+            this.tb_rep_cla = new System.Windows.Forms.TextBox();
+            this.lb_nue_cla = new System.Windows.Forms.Label();
+            this.tb_nue_cla = new System.Windows.Forms.TextBox();
+            this.lb_cla_act = new System.Windows.Forms.Label();
+            this.tb_cla_act = new System.Windows.Forms.TextBox();
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
@@ -50,12 +50,12 @@
             this.groupBox1.Controls.Add(this.rb_sup_aut);
             this.groupBox1.Controls.Add(this.tb_ide_cla);
             this.groupBox1.Controls.Add(this.tb_nom_cla);
-            this.groupBox1.Controls.Add(this.lb_rep_con);
-            this.groupBox1.Controls.Add(this.tb_rep_con);
-            this.groupBox1.Controls.Add(this.lb_nue_con);
-            this.groupBox1.Controls.Add(this.tb_nue_con);
-            this.groupBox1.Controls.Add(this.lb_con_act);
-            this.groupBox1.Controls.Add(this.tb_con_act);
+            this.groupBox1.Controls.Add(this.lb_rep_cla);
+            this.groupBox1.Controls.Add(this.tb_rep_cla);
+            this.groupBox1.Controls.Add(this.lb_nue_cla);
+            this.groupBox1.Controls.Add(this.tb_nue_cla);
+            this.groupBox1.Controls.Add(this.lb_cla_act);
+            this.groupBox1.Controls.Add(this.tb_cla_act);
             this.groupBox1.Location = new System.Drawing.Point(3, -3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(295, 158);
@@ -100,65 +100,65 @@
             this.tb_nom_cla.Text = "Modifica Parametros Estructurales";
             this.tb_nom_cla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lb_rep_con
+            // lb_rep_cla
             // 
-            this.lb_rep_con.AutoSize = true;
-            this.lb_rep_con.Location = new System.Drawing.Point(21, 111);
-            this.lb_rep_con.Name = "lb_rep_con";
-            this.lb_rep_con.Size = new System.Drawing.Size(98, 13);
-            this.lb_rep_con.TabIndex = 6;
-            this.lb_rep_con.Text = "Repetir Contraseña";
+            this.lb_rep_cla.AutoSize = true;
+            this.lb_rep_cla.Location = new System.Drawing.Point(48, 111);
+            this.lb_rep_cla.Name = "lb_rep_cla";
+            this.lb_rep_cla.Size = new System.Drawing.Size(71, 13);
+            this.lb_rep_cla.TabIndex = 6;
+            this.lb_rep_cla.Text = "Repetir Clave";
             // 
-            // tb_rep_con
+            // tb_rep_cla
             // 
-            this.tb_rep_con.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_rep_con.Location = new System.Drawing.Point(121, 108);
-            this.tb_rep_con.MaxLength = 15;
-            this.tb_rep_con.Name = "tb_rep_con";
-            this.tb_rep_con.Size = new System.Drawing.Size(125, 20);
-            this.tb_rep_con.TabIndex = 7;
-            this.tb_rep_con.UseSystemPasswordChar = true;
-            this.tb_rep_con.Enter += new System.EventHandler(this.tb_rep_con_Enter);
-            this.tb_rep_con.Validated += new System.EventHandler(this.tb_rep_con_Validated);
+            this.tb_rep_cla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_rep_cla.Location = new System.Drawing.Point(121, 108);
+            this.tb_rep_cla.MaxLength = 15;
+            this.tb_rep_cla.Name = "tb_rep_cla";
+            this.tb_rep_cla.Size = new System.Drawing.Size(125, 20);
+            this.tb_rep_cla.TabIndex = 7;
+            this.tb_rep_cla.UseSystemPasswordChar = true;
+            this.tb_rep_cla.Enter += new System.EventHandler(this.tb_rep_cla_Enter);
+            this.tb_rep_cla.Validated += new System.EventHandler(this.tb_rep_cla_Validated);
             // 
-            // lb_nue_con
+            // lb_nue_cla
             // 
-            this.lb_nue_con.AutoSize = true;
-            this.lb_nue_con.Location = new System.Drawing.Point(24, 83);
-            this.lb_nue_con.Name = "lb_nue_con";
-            this.lb_nue_con.Size = new System.Drawing.Size(96, 13);
-            this.lb_nue_con.TabIndex = 4;
-            this.lb_nue_con.Text = "Nueva Contraseña";
+            this.lb_nue_cla.AutoSize = true;
+            this.lb_nue_cla.Location = new System.Drawing.Point(50, 83);
+            this.lb_nue_cla.Name = "lb_nue_cla";
+            this.lb_nue_cla.Size = new System.Drawing.Size(69, 13);
+            this.lb_nue_cla.TabIndex = 4;
+            this.lb_nue_cla.Text = "Nueva Clave";
             // 
-            // tb_nue_con
+            // tb_nue_cla
             // 
-            this.tb_nue_con.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_nue_con.Location = new System.Drawing.Point(121, 80);
-            this.tb_nue_con.MaxLength = 15;
-            this.tb_nue_con.Name = "tb_nue_con";
-            this.tb_nue_con.Size = new System.Drawing.Size(125, 20);
-            this.tb_nue_con.TabIndex = 5;
-            this.tb_nue_con.UseSystemPasswordChar = true;
-            this.tb_nue_con.Enter += new System.EventHandler(this.tb_nue_con_Enter);
-            this.tb_nue_con.Validated += new System.EventHandler(this.tb_nue_con_Validated);
+            this.tb_nue_cla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_nue_cla.Location = new System.Drawing.Point(121, 80);
+            this.tb_nue_cla.MaxLength = 15;
+            this.tb_nue_cla.Name = "tb_nue_cla";
+            this.tb_nue_cla.Size = new System.Drawing.Size(125, 20);
+            this.tb_nue_cla.TabIndex = 5;
+            this.tb_nue_cla.UseSystemPasswordChar = true;
+            this.tb_nue_cla.Enter += new System.EventHandler(this.tb_nue_cla_Enter);
+            this.tb_nue_cla.Validated += new System.EventHandler(this.tb_nue_cla_Validated);
             // 
-            // lb_con_act
+            // lb_cla_act
             // 
-            this.lb_con_act.AutoSize = true;
-            this.lb_con_act.Location = new System.Drawing.Point(25, 56);
-            this.lb_con_act.Name = "lb_con_act";
-            this.lb_con_act.Size = new System.Drawing.Size(94, 13);
-            this.lb_con_act.TabIndex = 2;
-            this.lb_con_act.Text = "Contraseña Actual";
+            this.lb_cla_act.AutoSize = true;
+            this.lb_cla_act.Location = new System.Drawing.Point(52, 56);
+            this.lb_cla_act.Name = "lb_cla_act";
+            this.lb_cla_act.Size = new System.Drawing.Size(67, 13);
+            this.lb_cla_act.TabIndex = 2;
+            this.lb_cla_act.Text = "Clave Actual";
             // 
-            // tb_con_act
+            // tb_cla_act
             // 
-            this.tb_con_act.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_con_act.Location = new System.Drawing.Point(121, 53);
-            this.tb_con_act.MaxLength = 15;
-            this.tb_con_act.Name = "tb_con_act";
-            this.tb_con_act.Size = new System.Drawing.Size(125, 20);
-            this.tb_con_act.TabIndex = 3;
+            this.tb_cla_act.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_cla_act.Location = new System.Drawing.Point(121, 53);
+            this.tb_cla_act.MaxLength = 15;
+            this.tb_cla_act.Name = "tb_cla_act";
+            this.tb_cla_act.Size = new System.Drawing.Size(125, 20);
+            this.tb_cla_act.TabIndex = 3;
             // 
             // gb_ctr_btn
             // 
@@ -223,15 +223,15 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lb_con_act;
-        private System.Windows.Forms.TextBox tb_con_act;
+        private System.Windows.Forms.Label lb_cla_act;
+        private System.Windows.Forms.TextBox tb_cla_act;
         public System.Windows.Forms.GroupBox gb_ctr_btn;
         private System.Windows.Forms.Button bt_ace_pta;
         private System.Windows.Forms.Button bt_can_cel;
-        private System.Windows.Forms.Label lb_nue_con;
-        private System.Windows.Forms.TextBox tb_nue_con;
-        private System.Windows.Forms.Label lb_rep_con;
-        private System.Windows.Forms.TextBox tb_rep_con;
+        private System.Windows.Forms.Label lb_nue_cla;
+        private System.Windows.Forms.TextBox tb_nue_cla;
+        private System.Windows.Forms.Label lb_rep_cla;
+        private System.Windows.Forms.TextBox tb_rep_cla;
         private System.Windows.Forms.Label tb_ide_cla;
         private System.Windows.Forms.Label tb_nom_cla;
         private System.Windows.Forms.CheckBox rb_sup_aut;

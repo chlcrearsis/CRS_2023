@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.m_frm_hja = new System.Windows.Forms.MenuStrip();
             this.mn_nue_reg = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_nue_cla = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +85,7 @@
             this.mn_cer_rar});
             this.m_frm_hja.Location = new System.Drawing.Point(141, 49);
             this.m_frm_hja.Name = "m_frm_hja";
-            this.m_frm_hja.Size = new System.Drawing.Size(388, 24);
+            this.m_frm_hja.Size = new System.Drawing.Size(268, 24);
             this.m_frm_hja.TabIndex = 5;
             this.m_frm_hja.Visible = false;
             // 
@@ -101,7 +101,7 @@
             // mn_nue_cla
             // 
             this.mn_nue_cla.Name = "mn_nue_cla";
-            this.mn_nue_cla.Size = new System.Drawing.Size(219, 22);
+            this.mn_nue_cla.Size = new System.Drawing.Size(214, 22);
             this.mn_nue_cla.Text = "&Nueva Clave";
             this.mn_nue_cla.Click += new System.EventHandler(this.mn_nue_cla_Click);
             // 
@@ -188,8 +188,10 @@
             this.tb_ide_cla.MaxLength = 3;
             this.tb_ide_cla.Name = "tb_ide_cla";
             this.tb_ide_cla.Size = new System.Drawing.Size(30, 20);
-            this.tb_ide_cla.TabIndex = 8;
+            this.tb_ide_cla.TabIndex = 3;
             this.tb_ide_cla.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_ide_cla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ide_cla_KeyPress);
+            this.tb_ide_cla.Validated += new System.EventHandler(this.tb_ide_cla_Validated);
             // 
             // lb_lin_sep
             // 
@@ -197,7 +199,7 @@
             this.lb_lin_sep.Location = new System.Drawing.Point(68, 13);
             this.lb_lin_sep.Name = "lb_lin_sep";
             this.lb_lin_sep.Size = new System.Drawing.Size(10, 13);
-            this.lb_lin_sep.TabIndex = 7;
+            this.lb_lin_sep.TabIndex = 2;
             this.lb_lin_sep.Text = "-";
             // 
             // lb_nom_cla
@@ -206,7 +208,7 @@
             this.lb_nom_cla.Location = new System.Drawing.Point(109, 13);
             this.lb_nom_cla.Name = "lb_nom_cla";
             this.lb_nom_cla.Size = new System.Drawing.Size(16, 13);
-            this.lb_nom_cla.TabIndex = 2;
+            this.lb_nom_cla.TabIndex = 4;
             this.lb_nom_cla.Text = "...";
             // 
             // bt_bus_car
@@ -217,7 +219,7 @@
             this.bt_bus_car.Location = new System.Drawing.Point(423, 34);
             this.bt_bus_car.Name = "bt_bus_car";
             this.bt_bus_car.Size = new System.Drawing.Size(75, 23);
-            this.bt_bus_car.TabIndex = 6;
+            this.bt_bus_car.TabIndex = 7;
             this.bt_bus_car.Text = "&Buscar";
             this.bt_bus_car.UseVisualStyleBackColor = false;
             this.bt_bus_car.Click += new System.EventHandler(this.bt_bus_car_Click);
@@ -232,7 +234,7 @@
             this.cb_prm_bus.Location = new System.Drawing.Point(325, 35);
             this.cb_prm_bus.Name = "cb_prm_bus";
             this.cb_prm_bus.Size = new System.Drawing.Size(95, 21);
-            this.cb_prm_bus.TabIndex = 4;
+            this.cb_prm_bus.TabIndex = 6;
             // 
             // tb_tex_bus
             // 
@@ -240,7 +242,7 @@
             this.tb_tex_bus.Location = new System.Drawing.Point(9, 36);
             this.tb_tex_bus.Name = "tb_tex_bus";
             this.tb_tex_bus.Size = new System.Drawing.Size(311, 20);
-            this.tb_tex_bus.TabIndex = 3;
+            this.tb_tex_bus.TabIndex = 5;
             this.tb_tex_bus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fi_pre_tec_KeyDown);
             // 
             // lb_ide_cla
@@ -262,7 +264,8 @@
             this.tb_ide_mod.TabIndex = 1;
             this.tb_ide_mod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_ide_mod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fi_pre_tec_KeyDown);
-            this.tb_ide_mod.Validated += new System.EventHandler(this.Tb_ide_doc_Validated);
+            this.tb_ide_mod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ide_mod_KeyPress);
+            this.tb_ide_mod.Validated += new System.EventHandler(this.tb_ide_mod_Validated);
             // 
             // groupBox2
             // 
@@ -281,15 +284,15 @@
             this.dg_res_ult.AllowUserToResizeRows = false;
             this.dg_res_ult.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dg_res_ult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_res_ult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dg_res_ult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_res_ult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.va_ide_mod,
@@ -297,14 +300,14 @@
             this.va_ide_cla,
             this.va_nom_cla,
             this.va_cla_req});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_res_ult.DefaultCellStyle = dataGridViewCellStyle15;
             this.dg_res_ult.Location = new System.Drawing.Point(6, 7);
             this.dg_res_ult.MultiSelect = false;
             this.dg_res_ult.Name = "dg_res_ult";
@@ -317,12 +320,12 @@
             this.dg_res_ult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellClick);
             this.dg_res_ult.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_res_ult_CellDoubleClick);
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
-            this.dg_res_ult.Enter += new System.EventHandler(this.dg_res_ult_Enter);
+            this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
             // va_ide_mod
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_ide_mod.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_ide_mod.DefaultCellStyle = dataGridViewCellStyle12;
             this.va_ide_mod.HeaderText = "ID.";
             this.va_ide_mod.Name = "va_ide_mod";
             this.va_ide_mod.ReadOnly = true;
@@ -337,8 +340,8 @@
             // 
             // va_ide_cla
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_ide_cla.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_ide_cla.DefaultCellStyle = dataGridViewCellStyle13;
             this.va_ide_cla.HeaderText = "ID.";
             this.va_ide_cla.Name = "va_ide_cla";
             this.va_ide_cla.ReadOnly = true;
@@ -353,8 +356,8 @@
             // 
             // va_cla_req
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_cla_req.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_cla_req.DefaultCellStyle = dataGridViewCellStyle14;
             this.va_cla_req.HeaderText = "Req.";
             this.va_cla_req.Name = "va_cla_req";
             this.va_cla_req.ReadOnly = true;
