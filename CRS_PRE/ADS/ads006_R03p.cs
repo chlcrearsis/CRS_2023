@@ -17,10 +17,11 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         public DataTable frm_dat;
-        // Instancia
-        private DataTable Tabla;
-        private ads001 o_ads001 = new ads001();
-        private ads006 o_ads006 = new ads006();
+        // Instancia        
+        ads001 o_ads001 = new ads001();
+        ads006 o_ads006 = new ads006();
+        ads019 o_ads019 = new ads019();
+        DataTable Tabla = new DataTable();
 
         public ads006_R03p()
         {
@@ -54,16 +55,14 @@ namespace CRS_PRE
             try
             {
                 // Valida que el Tipo de Usuario no esten vacio
-                if (tb_ide_tus.Text.Trim().CompareTo("") == 0){
-                    return "DEBE proporcionar el Tipo de Usuario";
-                }                
+                if (tb_ide_tus.Text.Trim().CompareTo("") == 0)
+                    return "DEBE proporcionar el Tipo de Usuario";                
 
                 // Verifica si existe el Usuario
                 Tabla = new DataTable();
                 Tabla = o_ads006.Fe_con_tus(int.Parse(tb_ide_tus.Text.Trim()));
-                if (Tabla.Rows.Count == 0){
+                if (Tabla.Rows.Count == 0)
                     return "El Tipo de Usuario NO esta registrado en el sistema";
-                }
 
                 // Valida que el Módulo no esten vacio
                 if (tb_mod_ini.Text.Trim().CompareTo("") == 0){
@@ -182,7 +181,7 @@ namespace CRS_PRE
         // Evento KeyDown: Módulo Final
         private void tb_mod_fin_KeyDown(object sender, KeyEventArgs e)
         {
-            //al presionar tecla para ARRIBA
+            // al presionar tecla para ARRIBA
             if (e.KeyData == Keys.Up)
             {
                 // Abre la ventana Busca Módulo
@@ -228,11 +227,13 @@ namespace CRS_PRE
                 MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                 return;
             }
-
             
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads006.Fe_inf_R02(int.Parse(tb_ide_tus.Text.Trim()), int.Parse(tb_mod_ini.Text), int.Parse(tb_mod_fin.Text));
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads006_R03w frm = new ads006_R03w{

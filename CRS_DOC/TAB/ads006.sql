@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		06-11-2019
 */--**********************************************
 
-PRINT 'ads006 : Tipo de Usuario'
+PRINT 'Crea la Tabla: ads006 - Tipo de Usuario'
 CREATE TABLE ads006
 (
 	--** Llave Primaria

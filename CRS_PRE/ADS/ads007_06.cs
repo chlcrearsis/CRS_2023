@@ -123,10 +123,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar el registro?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina registro
+                    // Elimina Registro
                     o_ads007.Fe_eli_min(tb_ide_usr.Text.Trim());
-                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + tb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_usr.Text.Trim());
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

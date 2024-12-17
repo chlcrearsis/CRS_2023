@@ -19,7 +19,8 @@ namespace CRS_PRE
         public DataTable frm_dat;
         // Instancias
         ads007 o_ads007 = new ads007();
-        ads017 o_ads017 = new ads017();        
+        ads017 o_ads017 = new ads017();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
         private int vp_tip_ope = 0;  // Tipo de Operacion (0=Nuevo; 1=Editar)
 
@@ -35,12 +36,13 @@ namespace CRS_PRE
 
             // Despliega Informacion del Usuario
             tb_ide_usr.Text = frm_dat.Rows[0]["va_ide_usr"].ToString();
-            tb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString();           
+            tb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString();
+            tb_car_usr.Text = frm_dat.Rows[0]["va_car_usr"].ToString();
+            tb_nom_tus.Text = frm_dat.Rows[0]["va_nom_tus"].ToString();
             if (frm_dat.Rows[0]["va_est_ado"].ToString() == "H")
                 tb_est_ado.Text = "Habilitado";
             if (frm_dat.Rows[0]["va_est_ado"].ToString() == "N")
                 tb_est_ado.Text = "Deshabilitado";
-
 
             // Obtiene datos del PIN del Usuario
             Tabla = new DataTable();
@@ -252,12 +254,19 @@ namespace CRS_PRE
                 }
                 msg_res = MessageBox.Show("Está seguro de editar el PIN del Usuario?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
-                {
-                    // Edita el registro
-                    if (vp_tip_ope == 0)
+                {                    
+                    if (vp_tip_ope == 0){
+                        // Graba Registro
                         o_ads017.Fe_nue_reg(tb_ide_usr.Text.Trim(), int.Parse(tb_pin_nue.Text.Trim()), tb_exp_fec.Text.Trim(), cl_glo_bal.glo_ide_usr, SystemInformation.ComputerName);
-                    else
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + tb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
+                    }else{
+                        // Edita Registro
                         o_ads017.Fe_edi_tar(tb_ide_usr.Text.Trim(), int.Parse(tb_pin_nue.Text.Trim()), tb_exp_fec.Text.Trim(), cl_glo_bal.glo_ide_usr, SystemInformation.ComputerName);
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + tb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
+                    }
+                        
                     // Actualiza el Formulario Padre
                     frm_pad.Fe_act_frm(tb_ide_usr.Text.Trim());
                     // Despliega Mensaje

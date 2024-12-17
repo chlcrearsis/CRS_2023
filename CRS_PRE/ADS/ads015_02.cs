@@ -18,6 +18,7 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias 
         ads015 o_ads015 = new ads015();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads015_02()
@@ -136,13 +137,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
-                    o_ads015.Fe_nue_reg(int.Parse(tb_ide_reg.Text), tb_nom_reg.Text.Trim(), tb_nom_cor.Text.Trim());
+                    // Graba Registro
+                    o_ads015.Fe_nue_reg(int.Parse(tb_ide_reg.Text.Trim()), tb_nom_reg.Text.Trim(), tb_nom_cor.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Regional: " + tb_ide_reg.Text.Trim() + " - " + tb_nom_reg.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(int.Parse(tb_ide_reg.Text));
+                    frm_pad.Fe_act_frm(int.Parse(tb_ide_reg.Text.Trim()));
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
-                    // Inicializa Campos
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }

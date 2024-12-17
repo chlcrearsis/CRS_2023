@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads001 o_ads001 = new ads001();
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads003_04()
@@ -112,16 +113,22 @@ namespace CRS_PRE
 
                 if (msg_res == DialogResult.OK)
                 {
-                    if (tb_est_ado.Text == "Habilitado")
-                        o_ads003.Fe_hab_des(int.Parse(tb_ide_mod.Text), tb_ide_doc.Text, "N");
-                    else
-                        o_ads003.Fe_hab_des(int.Parse(tb_ide_mod.Text), tb_ide_doc.Text, "H");
-
+                    if (tb_est_ado.Text == "Habilitado") {
+                        // Deshabilita Registro
+                        o_ads003.Fe_hab_des(int.Parse(tb_ide_mod.Text.Trim()), tb_ide_doc.Text.Trim(), "N");
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "D", "Documento: " + tb_ide_doc.Text.Trim() + " - " + tb_nom_doc.Text.Trim(), SystemInformation.ComputerName);
+                    }else {
+                        // Habilita Registro
+                        o_ads003.Fe_hab_des(int.Parse(tb_ide_mod.Text.Trim()), tb_ide_doc.Text.Trim(), "H");
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "H", "Documento: " + tb_ide_doc.Text.Trim() + " - " + tb_nom_doc.Text.Trim(), SystemInformation.ComputerName);
+                    }
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(tb_ide_doc.Text.Trim());
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Actualiza Ventana Buscar
-                    frm_pad.Fe_act_frm(tb_ide_doc.Text);
-                    // Cierra la Ventana
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

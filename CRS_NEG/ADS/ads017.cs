@@ -1,7 +1,7 @@
-﻿using CRS_DAT;
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
+using CRS_DAT;
 
 namespace CRS_NEG
 {

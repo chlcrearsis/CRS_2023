@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		21-08-2019
 */--**********************************************
 
-PRINT 'ads003 : Definición Documentos'
+PRINT 'Crea la Tabla: ads003 - Definición Documentos'
 CREATE TABLE ads003
 (
 	--** Llave Primaria

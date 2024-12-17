@@ -53,6 +53,10 @@
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
+            this.tb_nom_tus = new System.Windows.Forms.TextBox();
+            this.lb_nom_tus = new System.Windows.Forms.Label();
+            this.lb_car_usr = new System.Windows.Forms.Label();
+            this.tb_car_usr = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.gb_pin_act.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
@@ -60,6 +64,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_nom_tus);
+            this.groupBox1.Controls.Add(this.lb_nom_tus);
+            this.groupBox1.Controls.Add(this.lb_car_usr);
+            this.groupBox1.Controls.Add(this.tb_car_usr);
             this.groupBox1.Controls.Add(this.lb_est_ado);
             this.groupBox1.Controls.Add(this.tb_est_ado);
             this.groupBox1.Controls.Add(this.tb_exp_fec);
@@ -75,14 +83,14 @@
             this.groupBox1.Controls.Add(this.tb_ide_usr);
             this.groupBox1.Location = new System.Drawing.Point(2, -4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(347, 242);
+            this.groupBox1.Size = new System.Drawing.Size(347, 275);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // lb_est_ado
             // 
             this.lb_est_ado.AutoSize = true;
-            this.lb_est_ado.Location = new System.Drawing.Point(186, 16);
+            this.lb_est_ado.Location = new System.Drawing.Point(196, 16);
             this.lb_est_ado.Name = "lb_est_ado";
             this.lb_est_ado.Size = new System.Drawing.Size(40, 13);
             this.lb_est_ado.TabIndex = 2;
@@ -91,11 +99,11 @@
             // tb_est_ado
             // 
             this.tb_est_ado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_est_ado.Location = new System.Drawing.Point(227, 12);
+            this.tb_est_ado.Location = new System.Drawing.Point(238, 12);
             this.tb_est_ado.MaxLength = 15;
             this.tb_est_ado.Name = "tb_est_ado";
             this.tb_est_ado.ReadOnly = true;
-            this.tb_est_ado.Size = new System.Drawing.Size(100, 20);
+            this.tb_est_ado.Size = new System.Drawing.Size(95, 20);
             this.tb_est_ado.TabIndex = 3;
             this.tb_est_ado.TabStop = false;
             this.tb_est_ado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -104,7 +112,7 @@
             // 
             this.tb_exp_fec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_exp_fec.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.tb_exp_fec.Location = new System.Drawing.Point(139, 216);
+            this.tb_exp_fec.Location = new System.Drawing.Point(139, 245);
             this.tb_exp_fec.Mask = "00/00/0000 00:00";
             this.tb_exp_fec.Name = "tb_exp_fec";
             this.tb_exp_fec.Size = new System.Drawing.Size(105, 20);
@@ -115,7 +123,7 @@
             // tb_pin_rep
             // 
             this.tb_pin_rep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_pin_rep.Location = new System.Drawing.Point(87, 191);
+            this.tb_pin_rep.Location = new System.Drawing.Point(87, 220);
             this.tb_pin_rep.MaxLength = 4;
             this.tb_pin_rep.Name = "tb_pin_rep";
             this.tb_pin_rep.PasswordChar = '*';
@@ -131,7 +139,7 @@
             // lb_exp_fec
             // 
             this.lb_exp_fec.AutoSize = true;
-            this.lb_exp_fec.Location = new System.Drawing.Point(43, 219);
+            this.lb_exp_fec.Location = new System.Drawing.Point(43, 248);
             this.lb_exp_fec.Name = "lb_exp_fec";
             this.lb_exp_fec.Size = new System.Drawing.Size(94, 13);
             this.lb_exp_fec.TabIndex = 11;
@@ -140,7 +148,7 @@
             // lb_pin_rep
             // 
             this.lb_pin_rep.AutoSize = true;
-            this.lb_pin_rep.Location = new System.Drawing.Point(10, 194);
+            this.lb_pin_rep.Location = new System.Drawing.Point(10, 223);
             this.lb_pin_rep.Name = "lb_pin_rep";
             this.lb_pin_rep.Size = new System.Drawing.Size(75, 13);
             this.lb_pin_rep.TabIndex = 9;
@@ -150,7 +158,7 @@
             // 
             this.tb_pin_nue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_pin_nue.HideSelection = false;
-            this.tb_pin_nue.Location = new System.Drawing.Point(87, 168);
+            this.tb_pin_nue.Location = new System.Drawing.Point(87, 197);
             this.tb_pin_nue.MaxLength = 4;
             this.tb_pin_nue.Name = "tb_pin_nue";
             this.tb_pin_nue.PasswordChar = '*';
@@ -166,7 +174,7 @@
             // lb_pin_nue
             // 
             this.lb_pin_nue.AutoSize = true;
-            this.lb_pin_nue.Location = new System.Drawing.Point(19, 170);
+            this.lb_pin_nue.Location = new System.Drawing.Point(19, 199);
             this.lb_pin_nue.Name = "lb_pin_nue";
             this.lb_pin_nue.Size = new System.Drawing.Size(66, 13);
             this.lb_pin_nue.TabIndex = 7;
@@ -182,7 +190,7 @@
             this.gb_pin_act.Controls.Add(this.lb_pin_act);
             this.gb_pin_act.Controls.Add(this.tb_pas_usr);
             this.gb_pin_act.Controls.Add(this.lb_pas_usr);
-            this.gb_pin_act.Location = new System.Drawing.Point(6, 56);
+            this.gb_pin_act.Location = new System.Drawing.Point(6, 83);
             this.gb_pin_act.Name = "gb_pin_act";
             this.gb_pin_act.Size = new System.Drawing.Size(335, 108);
             this.gb_pin_act.TabIndex = 6;
@@ -285,12 +293,12 @@
             // tb_nom_usr
             // 
             this.tb_nom_usr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_nom_usr.Location = new System.Drawing.Point(55, 37);
+            this.tb_nom_usr.Location = new System.Drawing.Point(53, 37);
             this.tb_nom_usr.MaxLength = 30;
             this.tb_nom_usr.Multiline = true;
             this.tb_nom_usr.Name = "tb_nom_usr";
             this.tb_nom_usr.ReadOnly = true;
-            this.tb_nom_usr.Size = new System.Drawing.Size(272, 18);
+            this.tb_nom_usr.Size = new System.Drawing.Size(280, 18);
             this.tb_nom_usr.TabIndex = 5;
             this.tb_nom_usr.TabStop = false;
             this.tb_nom_usr.WordWrap = false;
@@ -298,7 +306,7 @@
             // lb_nom_usr
             // 
             this.lb_nom_usr.AutoSize = true;
-            this.lb_nom_usr.Location = new System.Drawing.Point(9, 39);
+            this.lb_nom_usr.Location = new System.Drawing.Point(7, 39);
             this.lb_nom_usr.Name = "lb_nom_usr";
             this.lb_nom_usr.Size = new System.Drawing.Size(44, 13);
             this.lb_nom_usr.TabIndex = 4;
@@ -307,7 +315,7 @@
             // lb_ide_usr
             // 
             this.lb_ide_usr.AutoSize = true;
-            this.lb_ide_usr.Location = new System.Drawing.Point(13, 17);
+            this.lb_ide_usr.Location = new System.Drawing.Point(11, 17);
             this.lb_ide_usr.Name = "lb_ide_usr";
             this.lb_ide_usr.Size = new System.Drawing.Size(40, 13);
             this.lb_ide_usr.TabIndex = 0;
@@ -316,7 +324,7 @@
             // tb_ide_usr
             // 
             this.tb_ide_usr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_ide_usr.Location = new System.Drawing.Point(55, 14);
+            this.tb_ide_usr.Location = new System.Drawing.Point(53, 14);
             this.tb_ide_usr.MaxLength = 15;
             this.tb_ide_usr.Multiline = true;
             this.tb_ide_usr.Name = "tb_ide_usr";
@@ -331,7 +339,7 @@
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
             this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(2, 233);
+            this.gb_ctr_btn.Location = new System.Drawing.Point(2, 266);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
             this.gb_ctr_btn.Size = new System.Drawing.Size(347, 40);
             this.gb_ctr_btn.TabIndex = 1;
@@ -365,11 +373,53 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
+            // tb_nom_tus
+            // 
+            this.tb_nom_tus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_nom_tus.Location = new System.Drawing.Point(238, 61);
+            this.tb_nom_tus.MaxLength = 15;
+            this.tb_nom_tus.Name = "tb_nom_tus";
+            this.tb_nom_tus.ReadOnly = true;
+            this.tb_nom_tus.Size = new System.Drawing.Size(95, 20);
+            this.tb_nom_tus.TabIndex = 20;
+            this.tb_nom_tus.TabStop = false;
+            this.tb_nom_tus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb_nom_tus
+            // 
+            this.lb_nom_tus.AutoSize = true;
+            this.lb_nom_tus.Location = new System.Drawing.Point(154, 64);
+            this.lb_nom_tus.Name = "lb_nom_tus";
+            this.lb_nom_tus.Size = new System.Drawing.Size(82, 13);
+            this.lb_nom_tus.TabIndex = 19;
+            this.lb_nom_tus.Text = "Tipo de Usuario";
+            // 
+            // lb_car_usr
+            // 
+            this.lb_car_usr.AutoSize = true;
+            this.lb_car_usr.Location = new System.Drawing.Point(16, 64);
+            this.lb_car_usr.Name = "lb_car_usr";
+            this.lb_car_usr.Size = new System.Drawing.Size(35, 13);
+            this.lb_car_usr.TabIndex = 17;
+            this.lb_car_usr.Text = "Cargo";
+            // 
+            // tb_car_usr
+            // 
+            this.tb_car_usr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_car_usr.Location = new System.Drawing.Point(53, 60);
+            this.tb_car_usr.MaxLength = 15;
+            this.tb_car_usr.Name = "tb_car_usr";
+            this.tb_car_usr.ReadOnly = true;
+            this.tb_car_usr.Size = new System.Drawing.Size(94, 20);
+            this.tb_car_usr.TabIndex = 18;
+            // 
             // ads007_03f
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 274);
+            this.CancelButton = this.bt_can_cel;
+            this.ClientSize = new System.Drawing.Size(351, 308);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_ctr_btn);
@@ -415,5 +465,9 @@
         public System.Windows.Forms.GroupBox gb_ctr_btn;
         private System.Windows.Forms.Button bt_ace_pta;
         private System.Windows.Forms.Button bt_can_cel;
+        private System.Windows.Forms.TextBox tb_nom_tus;
+        private System.Windows.Forms.Label lb_nom_tus;
+        private System.Windows.Forms.Label lb_car_usr;
+        private System.Windows.Forms.TextBox tb_car_usr;
     }
 }

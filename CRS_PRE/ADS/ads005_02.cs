@@ -22,6 +22,7 @@ namespace CRS_PRE
         ads005 o_ads005 = new ads005();
         ads016 o_ads016 = new ads016();
         ads013 o_ads013 = new ads013();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads005_02()
@@ -102,6 +103,7 @@ namespace CRS_PRE
             if (tb_ide_doc.Text.Trim().CompareTo("") == 0){
                 tb_ide_doc.Focus();
                 MessageBox.Show("DEBE proporcionar el Documento", Text, MessageBoxButtons.OK);
+                return;
             }
 
             // Valida que el Documento este registrada y habilitada
@@ -110,10 +112,12 @@ namespace CRS_PRE
             if (Tabla.Rows.Count == 0){
                 tb_ide_doc.Focus();
                 MessageBox.Show("El Documento NO se encuentra registrado", Text, MessageBoxButtons.OK);
+                return;
             }
             if (Tabla.Rows[0]["va_est_ado"].ToString() == "N"){
                 tb_ide_doc.Focus();
                 MessageBox.Show("El Documento se encuentra Deshabilitado", Text, MessageBoxButtons.OK);
+                return;
             }
 
             ads004_01b frm = new ads004_01b();
@@ -390,11 +394,16 @@ namespace CRS_PRE
                 }
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK){
-                    // Registrar 
-                    o_ads005.Fe_nue_reg(int.Parse(tb_ges_tio.Text), tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text),
-                                            tb_fec_ini.Text.Trim(), tb_fec_fin.Text.Trim(), int.Parse(tb_con_act.Text), 
-                                        int.Parse(tb_con_fin.Text));
+                    // Graba Registro 
+                    o_ads005.Fe_nue_reg(int.Parse(tb_ges_tio.Text.Trim()), tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()),
+                                        tb_fec_ini.Text.Trim(), tb_fec_fin.Text.Trim(), int.Parse(tb_con_act.Text.Trim()), int.Parse(tb_con_fin.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Numeración: " + tb_ges_tio.Text.Trim() + " - " + tb_ide_doc.Text.Trim() + " - " + tb_nro_tal.Text.Trim() + " - " + lb_nom_tal.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(tb_ges_tio.Text.Trim(), tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()));
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }

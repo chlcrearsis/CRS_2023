@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads006 o_ads006 = new ads006();
         ads007 o_ads007 = new ads007();
         ads002 o_ads002 = new ads002();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads006_04()
@@ -100,12 +101,18 @@ namespace CRS_PRE
                 else
                     msg_res = MessageBox.Show("Está seguro de Habilitar el registro?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                if (msg_res == DialogResult.OK){
-                    // Habilita/Deshabilita el registro
-                    if (tb_est_ado.Text == "Habilitado")
+                if (msg_res == DialogResult.OK){                    
+                    if (tb_est_ado.Text == "Habilitado") {
+                        // Deshabilita Registro
                         o_ads006.Fe_hab_des(int.Parse(tb_ide_tus.Text), "N");
-                    else
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "D", "Tipo de Usuario: " + tb_ide_tus.Text.Trim() + " - " + tb_nom_tus.Text.Trim(), SystemInformation.ComputerName);
+                    }else {
+                        // Habilita Registro
                         o_ads006.Fe_hab_des(int.Parse(tb_ide_tus.Text), "H");
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "H", "Tipo de Usuario: " + tb_ide_tus.Text.Trim() + " - " + tb_nom_tus.Text.Trim(), SystemInformation.ComputerName);
+                    }
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(int.Parse(tb_ide_tus.Text));
                     // Despliega Mensaje

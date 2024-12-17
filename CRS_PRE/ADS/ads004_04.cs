@@ -21,6 +21,7 @@ namespace CRS_PRE
         // Instancias
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads004_04()
@@ -140,20 +141,27 @@ namespace CRS_PRE
                 }
 
                 if (tb_est_ado.Text == "Habilitado")
-                    msg_res = MessageBox.Show("Esta seguro de Deshabilitar el Documento?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    msg_res = MessageBox.Show("Esta seguro de Deshabilitar el Talonario?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 else
-                    msg_res = MessageBox.Show("Esta seguro de Habilitar el Documento?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    msg_res = MessageBox.Show("Esta seguro de Habilitar el Talonario?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (msg_res == DialogResult.OK){
-                    if (tb_est_ado.Text == "Habilitado")
-                        o_ads004.Fe_hab_des(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text), "N");
-                    else
-                        o_ads004.Fe_hab_des(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text), "H");
-
-                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Actualiza Ventana Buscar
-                    frm_pad.Fe_act_frm(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text));
-                    // Cierra la Ventana
+                    if (tb_est_ado.Text == "Habilitado") { 
+                        // Deshabilita Registro
+                        o_ads004.Fe_hab_des(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()), "N");
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "D", "Talonario: " + tb_ide_doc.Text.Trim() + " - " + tb_nro_tal.Text.Trim() + " - " + tb_nom_tal.Text.Trim(), SystemInformation.ComputerName);
+                    }else {
+                        // Habilita Registro
+                        o_ads004.Fe_hab_des(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()), "H");
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "H", "Talonario: " + tb_ide_doc.Text.Trim() + " - " + tb_nro_tal.Text.Trim() + " - " + tb_nom_tal.Text.Trim(), SystemInformation.ComputerName);
+                    }
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()));
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

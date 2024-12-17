@@ -19,6 +19,7 @@ namespace CRS_PRE
         // Instancias
         ads001 o_ads001 = new ads001();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads004_R01p()
@@ -46,20 +47,20 @@ namespace CRS_PRE
         {
             try
             {
-                /* Verificar el Módulo sea distinto a cero */
+                // Verificar el Módulo sea distinto a cero
                 if (tb_ide_mod.Text.Trim().CompareTo("") == 0 ||
                     tb_ide_mod.Text.Trim().CompareTo("0") == 0){
                     tb_ide_mod.Focus();
                     return "DEBE proporcionar el Módulo";
                 }
 
-                /* Verifica que el ID. Módulo sea numerico */
+                // Verifica que el ID. Módulo sea numerico
                 if (!cl_glo_bal.IsNumeric(tb_ide_mod.Text.Trim())){
                     tb_ide_mod.Focus();
                     return "El ID. Módulo DEBE ser Numerico";
                 }
 
-                /* Valida que el modulo este registrada */
+                // Valida que el modulo este registrada
                 Tabla = new DataTable();
                 Tabla = o_ads001.Fe_con_mod(int.Parse(tb_ide_mod.Text));
                 if (Tabla.Rows.Count == 0){
@@ -131,7 +132,7 @@ namespace CRS_PRE
             // funcion para validar datos
             string msg_val = Fi_val_dat();
             string est_ado = "";
-            string ide_mod = "";
+            string ide_mod;
 
             if (msg_val != "OK"){
                 MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
@@ -152,6 +153,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads004.Fe_inf_R01(int.Parse(tb_ide_mod.Text.Trim()), est_ado);
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads004_R01w frm = new ads004_R01w{

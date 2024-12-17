@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads001 o_ads001 = new ads001();
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads003_06()
@@ -110,10 +111,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar la información?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina Tipo de Atributo
-                    o_ads003.Fe_eli_min(int.Parse(tb_ide_mod.Text), tb_ide_doc.Text.Trim());
-                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Elimina Registro
+                    o_ads003.Fe_eli_min(int.Parse(tb_ide_mod.Text.Trim()), tb_ide_doc.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Documento: " + tb_ide_doc.Text.Trim() + " - " + tb_nom_doc.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_doc.Text.Trim());
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

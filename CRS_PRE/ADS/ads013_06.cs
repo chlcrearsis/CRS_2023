@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads001 o_ads001 = new ads001();
         ads013 o_ads013 = new ads013();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads013_06()
@@ -121,10 +122,12 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar la información?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina el registro
+                    // Elimina Registro
                     o_ads013.Fe_eli_min(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_glo.Text));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Global: (" + tb_ide_mod.Text.Trim() + "-" + tb_ide_glo.Text.Trim() + ") " + tb_nom_glo.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_mod.Text.Trim(), tb_ide_glo.Text);
+                    frm_pad.Fe_act_frm(tb_ide_mod.Text.Trim(), tb_ide_glo.Text.Trim());
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Cierra Formulario

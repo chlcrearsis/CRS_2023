@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		23-09-2021
 */--**********************************************
 
-PRINT 'ads020 : Bitacora p/Documento'
+PRINT 'Crea la Tabla: ads020 - Bitacora p/Documento'
 CREATE TABLE ads020 
 (
 	--** Llave Primaria

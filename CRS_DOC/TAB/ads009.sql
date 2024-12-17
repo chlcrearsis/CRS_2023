@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		26-07-2021
 */--**********************************************
 
-PRINT 'ads009 : Autorizaciones de Tipo de Usuario sobre el Sistema'
+PRINT 'Crea la Tabla: ads009 - Autorizaciones de Tipo de Usuario sobre el Sistema'
 CREATE TABLE ads009
 (
 	--** Llave Primaria

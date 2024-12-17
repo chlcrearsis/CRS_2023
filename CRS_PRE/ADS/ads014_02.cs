@@ -18,7 +18,8 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias
         ads011 o_ads011 = new ads011();
-        ads014 o_ads014 = new ads014();        
+        ads014 o_ads014 = new ads014(); 
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
         // Variables
         public string vp_ide_usr = ""; // ID. Usuario
@@ -181,17 +182,26 @@ namespace CRS_PRE
                 else
                     msg_res = MessageBox.Show("Esta seguro de grabar la autorización?", Text, MessageBoxButtons.OKCancel);
 
-
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
                     if (rb_sup_aut.Checked == true){
+                        // Elimina Registro
                         o_ads014.Fe_eli_min(vp_ide_usr, vp_ide_mod, vp_ide_cla);
-                    }else{
-                        if (tb_cla_act.Enabled == false)
-                            o_ads014.Fe_nue_reg(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_cla.Text);
-                        else
-                            o_ads014.Fe_edi_tar(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_cla.Text);
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", vp_ide_usr + " Clave: " + tb_ide_cla.Text.Trim() + " " + tb_nom_cla.Text.Trim(), SystemInformation.ComputerName);
+                    }
+                    else{
+                        if (tb_cla_act.Enabled == false){
+                            // Graba Registro
+                            o_ads014.Fe_nue_reg(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_cla.Text.Trim());
+                            // Graba Bitacora de Operaciones
+                            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", vp_ide_usr + " Clave: " + tb_ide_cla.Text.Trim() + " " + tb_nom_cla.Text.Trim(), SystemInformation.ComputerName);
+                        }else{
+                            // Edita Registro
+                            o_ads014.Fe_edi_tar(vp_ide_usr, vp_ide_mod, vp_ide_cla, tb_nue_cla.Text.Trim());
+                            // Graba Bitacora de Operaciones
+                            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", vp_ide_usr + " Clave: " + tb_ide_cla.Text.Trim() + " " + tb_nom_cla.Text.Trim(), SystemInformation.ComputerName);
+                        }
                     }
 
                     // Actualiza el Formulario Principal

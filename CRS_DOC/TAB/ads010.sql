@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		25-08-2021
 */--**********************************************
 
-PRINT 'ads010 : Tipo de Imagenes'
+PRINT 'Crea la Tabla: ads010 - Tipo de Imagenes'
 CREATE TABLE ads010 
 (
 	--** Llave Primaria

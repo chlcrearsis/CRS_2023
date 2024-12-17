@@ -17,11 +17,10 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         public DataTable frm_dat;
-
         // Instancias
-        ads008 o_ads008 = new ads008();
         ads001 o_ads001 = new ads001();
-
+        ads008 o_ads008 = new ads008();
+        ads019 o_ads019 = new ads019();
         // Variables
         DataTable Tabla = new DataTable();
         public int vp_ide_mod = 0;  // TODOS LOS MÓDULOS 
@@ -194,6 +193,11 @@ namespace CRS_PRE
                         if (chk_val == true)
                             o_ads008.Fe_nue_reg(tb_ide_usr.Text.Trim(), "ads004", ide_doc, nro_tal);
                     }
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + lb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

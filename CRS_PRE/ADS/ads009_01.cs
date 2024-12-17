@@ -17,9 +17,9 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         public DataTable frm_dat;
-
-        //Instancias
+        // Instancias
         ads009 o_ads009 = new ads009();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
         bool vp_chk_reg = true;
 
@@ -157,6 +157,11 @@ namespace CRS_PRE
                         if (chk_val == true)
                             o_ads009.Fe_nue_reg(int.Parse(tb_ide_tus.Text.Trim()), "ads002", ide_apl);
                     }
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Tipo Usuario: " + tb_ide_tus.Text.Trim() + " - " + lb_nom_tus.Text.Trim(), SystemInformation.ComputerName);
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

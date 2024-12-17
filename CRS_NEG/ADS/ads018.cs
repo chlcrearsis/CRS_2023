@@ -2,10 +2,11 @@
 using System.Data;
 using System.Text;
 using CRS_DAT;
+
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads018_01                                           ##
+    //##       Tabla: ads018                                              ##
     //##      Nombre: Bitacora de Inicio de Sesion                        ##
     //## Descripcion: Registro de Inicio y Cierre de Sesión               ##         
     //##       Autor: JEJR - (27-02-2021)                                 ##

@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		10-01-2024
 */--**********************************************
 
-PRINT 'ads018 : Bitacora de Inicio de Sesion'
+PRINT 'Crea la Tabla: ads018 - Bitacora de Inicio de Sesion'
 CREATE TABLE ads018 
 (
 	--** Llave Primaria

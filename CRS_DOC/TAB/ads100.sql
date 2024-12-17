@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		21-08-2019
 */--**********************************************
 
-PRINT 'ads100 : Licencia del Sistema'
+PRINT 'Crea la Tabla: ads100 - Licencia del Sistema'
 CREATE TABLE ads100
 (
 	--** Llave Primaria

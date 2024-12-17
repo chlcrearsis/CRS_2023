@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		22-04-2021
 */--**********************************************
 
-PRINT 'ads022 : Tasa de Cambio Bs/Us'
+PRINT 'Crea la Tabla: ads022 - Tasa de Cambio Bs/Us'
 CREATE TABLE ads022
 (
 	--** Llave Primaria

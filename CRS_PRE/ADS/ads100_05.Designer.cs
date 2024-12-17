@@ -30,35 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ads100_05));
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.tb_fch_act = new System.Windows.Forms.Label();
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lb_nom_srv = new System.Windows.Forms.Label();
-            this.tb_mod_ctb = new System.Windows.Forms.Label();
-            this.lb_mod_ctb = new System.Windows.Forms.Label();
-            this.tb_mod_cmr = new System.Windows.Forms.Label();
-            this.lb_mod_cmr = new System.Windows.Forms.Label();
-            this.tb_mod_inv = new System.Windows.Forms.Label();
+            this.gb_mod_lic = new System.Windows.Forms.GroupBox();
             this.lb_mod_inv = new System.Windows.Forms.Label();
-            this.tb_mod_res = new System.Windows.Forms.Label();
-            this.tb_mod_tes = new System.Windows.Forms.Label();
+            this.tb_mod_ctb = new System.Windows.Forms.Label();
+            this.lb_mod_ads = new System.Windows.Forms.Label();
+            this.lb_mod_ctb = new System.Windows.Forms.Label();
+            this.lb_mod_tes = new System.Windows.Forms.Label();
+            this.tb_mod_cmr = new System.Windows.Forms.Label();
+            this.lb_mod_res = new System.Windows.Forms.Label();
+            this.lb_mod_cmr = new System.Windows.Forms.Label();
             this.tb_mod_ads = new System.Windows.Forms.Label();
+            this.tb_mod_inv = new System.Windows.Forms.Label();
+            this.tb_mod_tes = new System.Windows.Forms.Label();
+            this.tb_mod_res = new System.Windows.Forms.Label();
+            this.lb_nom_srv = new System.Windows.Forms.Label();
             this.tb_fch_exp = new System.Windows.Forms.Label();
             this.tb_nro_usr = new System.Windows.Forms.Label();
             this.tb_nom_bda = new System.Windows.Forms.Label();
             this.tb_nom_srv = new System.Windows.Forms.Label();
             this.pb_nom_srv = new System.Windows.Forms.PictureBox();
-            this.lb_mod_res = new System.Windows.Forms.Label();
-            this.lb_mod_tes = new System.Windows.Forms.Label();
-            this.lb_mod_ads = new System.Windows.Forms.Label();
             this.lb_fch_exp = new System.Windows.Forms.Label();
             this.lb_nro_usr = new System.Windows.Forms.Label();
             this.lb_nom_bda = new System.Windows.Forms.Label();
-            this.gb_mod_lic = new System.Windows.Forms.GroupBox();
-            this.tb_fch_act = new System.Windows.Forms.Label();
             this.gb_ctr_btn.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_nom_srv)).BeginInit();
             this.gb_mod_lic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_nom_srv)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_ctr_btn
@@ -71,6 +71,16 @@
             this.gb_ctr_btn.Size = new System.Drawing.Size(456, 40);
             this.gb_ctr_btn.TabIndex = 1;
             this.gb_ctr_btn.TabStop = false;
+            // 
+            // tb_fch_act
+            // 
+            this.tb_fch_act.AutoSize = true;
+            this.tb_fch_act.Font = new System.Drawing.Font("HP Simplified", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_fch_act.Location = new System.Drawing.Point(4, 16);
+            this.tb_fch_act.Name = "tb_fch_act";
+            this.tb_fch_act.Size = new System.Drawing.Size(112, 14);
+            this.tb_fch_act.TabIndex = 0;
+            this.tb_fch_act.Text = "04/12/2023  10:24 am";
             // 
             // bt_can_cel
             // 
@@ -104,16 +114,36 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // lb_nom_srv
+            // gb_mod_lic
             // 
-            this.lb_nom_srv.AutoSize = true;
-            this.lb_nom_srv.Font = new System.Drawing.Font("HP Simplified", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nom_srv.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lb_nom_srv.Location = new System.Drawing.Point(31, 130);
-            this.lb_nom_srv.Name = "lb_nom_srv";
-            this.lb_nom_srv.Size = new System.Drawing.Size(88, 14);
-            this.lb_nom_srv.TabIndex = 0;
-            this.lb_nom_srv.Text = "Nombre Servidor";
+            this.gb_mod_lic.Controls.Add(this.lb_mod_inv);
+            this.gb_mod_lic.Controls.Add(this.tb_mod_ctb);
+            this.gb_mod_lic.Controls.Add(this.lb_mod_ads);
+            this.gb_mod_lic.Controls.Add(this.lb_mod_ctb);
+            this.gb_mod_lic.Controls.Add(this.lb_mod_tes);
+            this.gb_mod_lic.Controls.Add(this.tb_mod_cmr);
+            this.gb_mod_lic.Controls.Add(this.lb_mod_res);
+            this.gb_mod_lic.Controls.Add(this.lb_mod_cmr);
+            this.gb_mod_lic.Controls.Add(this.tb_mod_ads);
+            this.gb_mod_lic.Controls.Add(this.tb_mod_inv);
+            this.gb_mod_lic.Controls.Add(this.tb_mod_tes);
+            this.gb_mod_lic.Controls.Add(this.tb_mod_res);
+            this.gb_mod_lic.Location = new System.Drawing.Point(149, 80);
+            this.gb_mod_lic.Name = "gb_mod_lic";
+            this.gb_mod_lic.Size = new System.Drawing.Size(302, 138);
+            this.gb_mod_lic.TabIndex = 8;
+            this.gb_mod_lic.TabStop = false;
+            this.gb_mod_lic.Text = "Módulos";
+            // 
+            // lb_mod_inv
+            // 
+            this.lb_mod_inv.AutoSize = true;
+            this.lb_mod_inv.Font = new System.Drawing.Font("HP Simplified", 9F);
+            this.lb_mod_inv.Location = new System.Drawing.Point(6, 36);
+            this.lb_mod_inv.Name = "lb_mod_inv";
+            this.lb_mod_inv.Size = new System.Drawing.Size(109, 14);
+            this.lb_mod_inv.TabIndex = 2;
+            this.lb_mod_inv.Text = "Módulo de Inventario:";
             // 
             // tb_mod_ctb
             // 
@@ -126,6 +156,16 @@
             this.tb_mod_ctb.TabIndex = 7;
             this.tb_mod_ctb.Text = "Aplicado";
             // 
+            // lb_mod_ads
+            // 
+            this.lb_mod_ads.AutoSize = true;
+            this.lb_mod_ads.Font = new System.Drawing.Font("HP Simplified", 9F);
+            this.lb_mod_ads.Location = new System.Drawing.Point(6, 16);
+            this.lb_mod_ads.Name = "lb_mod_ads";
+            this.lb_mod_ads.Size = new System.Drawing.Size(109, 14);
+            this.lb_mod_ads.TabIndex = 0;
+            this.lb_mod_ads.Text = "Módulo de Seguridad:";
+            // 
             // lb_mod_ctb
             // 
             this.lb_mod_ctb.AutoSize = true;
@@ -135,6 +175,16 @@
             this.lb_mod_ctb.Size = new System.Drawing.Size(119, 14);
             this.lb_mod_ctb.TabIndex = 6;
             this.lb_mod_ctb.Text = "Módulo de Contabilidad:";
+            // 
+            // lb_mod_tes
+            // 
+            this.lb_mod_tes.AutoSize = true;
+            this.lb_mod_tes.Font = new System.Drawing.Font("HP Simplified", 9F);
+            this.lb_mod_tes.Location = new System.Drawing.Point(6, 96);
+            this.lb_mod_tes.Name = "lb_mod_tes";
+            this.lb_mod_tes.Size = new System.Drawing.Size(105, 14);
+            this.lb_mod_tes.TabIndex = 8;
+            this.lb_mod_tes.Text = "Módulo de Tesorería:";
             // 
             // tb_mod_cmr
             // 
@@ -147,6 +197,16 @@
             this.tb_mod_cmr.TabIndex = 5;
             this.tb_mod_cmr.Text = "Aplicado";
             // 
+            // lb_mod_res
+            // 
+            this.lb_mod_res.AutoSize = true;
+            this.lb_mod_res.Font = new System.Drawing.Font("HP Simplified", 9F);
+            this.lb_mod_res.Location = new System.Drawing.Point(6, 116);
+            this.lb_mod_res.Name = "lb_mod_res";
+            this.lb_mod_res.Size = new System.Drawing.Size(115, 14);
+            this.lb_mod_res.TabIndex = 10;
+            this.lb_mod_res.Text = "Módulo de Restaurant:";
+            // 
             // lb_mod_cmr
             // 
             this.lb_mod_cmr.AutoSize = true;
@@ -156,6 +216,17 @@
             this.lb_mod_cmr.Size = new System.Drawing.Size(140, 14);
             this.lb_mod_cmr.TabIndex = 4;
             this.lb_mod_cmr.Text = "Módulo de Comercialización:";
+            // 
+            // tb_mod_ads
+            // 
+            this.tb_mod_ads.AutoSize = true;
+            this.tb_mod_ads.Font = new System.Drawing.Font("HP Simplified", 9F);
+            this.tb_mod_ads.ForeColor = System.Drawing.Color.Gray;
+            this.tb_mod_ads.Location = new System.Drawing.Point(152, 16);
+            this.tb_mod_ads.Name = "tb_mod_ads";
+            this.tb_mod_ads.Size = new System.Drawing.Size(47, 14);
+            this.tb_mod_ads.TabIndex = 1;
+            this.tb_mod_ads.Text = "Aplicado";
             // 
             // tb_mod_inv
             // 
@@ -168,15 +239,16 @@
             this.tb_mod_inv.TabIndex = 3;
             this.tb_mod_inv.Text = "Aplicado";
             // 
-            // lb_mod_inv
+            // tb_mod_tes
             // 
-            this.lb_mod_inv.AutoSize = true;
-            this.lb_mod_inv.Font = new System.Drawing.Font("HP Simplified", 9F);
-            this.lb_mod_inv.Location = new System.Drawing.Point(6, 36);
-            this.lb_mod_inv.Name = "lb_mod_inv";
-            this.lb_mod_inv.Size = new System.Drawing.Size(109, 14);
-            this.lb_mod_inv.TabIndex = 2;
-            this.lb_mod_inv.Text = "Módulo de Inventario:";
+            this.tb_mod_tes.AutoSize = true;
+            this.tb_mod_tes.Font = new System.Drawing.Font("HP Simplified", 9F);
+            this.tb_mod_tes.ForeColor = System.Drawing.Color.Gray;
+            this.tb_mod_tes.Location = new System.Drawing.Point(152, 96);
+            this.tb_mod_tes.Name = "tb_mod_tes";
+            this.tb_mod_tes.Size = new System.Drawing.Size(47, 14);
+            this.tb_mod_tes.TabIndex = 9;
+            this.tb_mod_tes.Text = "Aplicado";
             // 
             // tb_mod_res
             // 
@@ -189,27 +261,16 @@
             this.tb_mod_res.TabIndex = 11;
             this.tb_mod_res.Text = "Aplicado";
             // 
-            // tb_mod_tes
+            // lb_nom_srv
             // 
-            this.tb_mod_tes.AutoSize = true;
-            this.tb_mod_tes.Font = new System.Drawing.Font("HP Simplified", 9F);
-            this.tb_mod_tes.ForeColor = System.Drawing.Color.Gray;
-            this.tb_mod_tes.Location = new System.Drawing.Point(152, 96);
-            this.tb_mod_tes.Name = "tb_mod_tes";
-            this.tb_mod_tes.Size = new System.Drawing.Size(47, 14);
-            this.tb_mod_tes.TabIndex = 9;
-            this.tb_mod_tes.Text = "Aplicado";
-            // 
-            // tb_mod_ads
-            // 
-            this.tb_mod_ads.AutoSize = true;
-            this.tb_mod_ads.Font = new System.Drawing.Font("HP Simplified", 9F);
-            this.tb_mod_ads.ForeColor = System.Drawing.Color.Gray;
-            this.tb_mod_ads.Location = new System.Drawing.Point(152, 16);
-            this.tb_mod_ads.Name = "tb_mod_ads";
-            this.tb_mod_ads.Size = new System.Drawing.Size(47, 14);
-            this.tb_mod_ads.TabIndex = 1;
-            this.tb_mod_ads.Text = "Aplicado";
+            this.lb_nom_srv.AutoSize = true;
+            this.lb_nom_srv.Font = new System.Drawing.Font("HP Simplified", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_nom_srv.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lb_nom_srv.Location = new System.Drawing.Point(31, 130);
+            this.lb_nom_srv.Name = "lb_nom_srv";
+            this.lb_nom_srv.Size = new System.Drawing.Size(88, 14);
+            this.lb_nom_srv.TabIndex = 0;
+            this.lb_nom_srv.Text = "Nombre Servidor";
             // 
             // tb_fch_exp
             // 
@@ -266,36 +327,6 @@
             this.pb_nom_srv.TabIndex = 33;
             this.pb_nom_srv.TabStop = false;
             // 
-            // lb_mod_res
-            // 
-            this.lb_mod_res.AutoSize = true;
-            this.lb_mod_res.Font = new System.Drawing.Font("HP Simplified", 9F);
-            this.lb_mod_res.Location = new System.Drawing.Point(6, 116);
-            this.lb_mod_res.Name = "lb_mod_res";
-            this.lb_mod_res.Size = new System.Drawing.Size(115, 14);
-            this.lb_mod_res.TabIndex = 10;
-            this.lb_mod_res.Text = "Módulo de Restaurant:";
-            // 
-            // lb_mod_tes
-            // 
-            this.lb_mod_tes.AutoSize = true;
-            this.lb_mod_tes.Font = new System.Drawing.Font("HP Simplified", 9F);
-            this.lb_mod_tes.Location = new System.Drawing.Point(6, 96);
-            this.lb_mod_tes.Name = "lb_mod_tes";
-            this.lb_mod_tes.Size = new System.Drawing.Size(105, 14);
-            this.lb_mod_tes.TabIndex = 8;
-            this.lb_mod_tes.Text = "Módulo de Tesorería:";
-            // 
-            // lb_mod_ads
-            // 
-            this.lb_mod_ads.AutoSize = true;
-            this.lb_mod_ads.Font = new System.Drawing.Font("HP Simplified", 9F);
-            this.lb_mod_ads.Location = new System.Drawing.Point(6, 16);
-            this.lb_mod_ads.Name = "lb_mod_ads";
-            this.lb_mod_ads.Size = new System.Drawing.Size(109, 14);
-            this.lb_mod_ads.TabIndex = 0;
-            this.lb_mod_ads.Text = "Módulo de Seguridad:";
-            // 
             // lb_fch_exp
             // 
             this.lb_fch_exp.AutoSize = true;
@@ -326,41 +357,11 @@
             this.lb_nom_bda.TabIndex = 2;
             this.lb_nom_bda.Text = "Base de Datos:";
             // 
-            // gb_mod_lic
-            // 
-            this.gb_mod_lic.Controls.Add(this.lb_mod_inv);
-            this.gb_mod_lic.Controls.Add(this.tb_mod_ctb);
-            this.gb_mod_lic.Controls.Add(this.lb_mod_ads);
-            this.gb_mod_lic.Controls.Add(this.lb_mod_ctb);
-            this.gb_mod_lic.Controls.Add(this.lb_mod_tes);
-            this.gb_mod_lic.Controls.Add(this.tb_mod_cmr);
-            this.gb_mod_lic.Controls.Add(this.lb_mod_res);
-            this.gb_mod_lic.Controls.Add(this.lb_mod_cmr);
-            this.gb_mod_lic.Controls.Add(this.tb_mod_ads);
-            this.gb_mod_lic.Controls.Add(this.tb_mod_inv);
-            this.gb_mod_lic.Controls.Add(this.tb_mod_tes);
-            this.gb_mod_lic.Controls.Add(this.tb_mod_res);
-            this.gb_mod_lic.Location = new System.Drawing.Point(149, 80);
-            this.gb_mod_lic.Name = "gb_mod_lic";
-            this.gb_mod_lic.Size = new System.Drawing.Size(302, 138);
-            this.gb_mod_lic.TabIndex = 8;
-            this.gb_mod_lic.TabStop = false;
-            this.gb_mod_lic.Text = "Módulos";
-            // 
-            // tb_fch_act
-            // 
-            this.tb_fch_act.AutoSize = true;
-            this.tb_fch_act.Font = new System.Drawing.Font("HP Simplified", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_fch_act.Location = new System.Drawing.Point(4, 16);
-            this.tb_fch_act.Name = "tb_fch_act";
-            this.tb_fch_act.Size = new System.Drawing.Size(112, 14);
-            this.tb_fch_act.TabIndex = 0;
-            this.tb_fch_act.Text = "04/12/2023  10:24 am";
-            // 
             // ads100_05
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(462, 257);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -376,9 +377,9 @@
             this.gb_ctr_btn.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_nom_srv)).EndInit();
             this.gb_mod_lic.ResumeLayout(false);
             this.gb_mod_lic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_nom_srv)).EndInit();
             this.ResumeLayout(false);
 
         }

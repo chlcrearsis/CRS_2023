@@ -205,10 +205,12 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // ads016_02c
+            // ads016_02
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(300, 149);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -216,7 +218,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ads016_02c";
+            this.Name = "ads016_02";
             this.Text = "Crea Periodo";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);

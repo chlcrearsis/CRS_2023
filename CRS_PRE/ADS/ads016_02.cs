@@ -18,6 +18,7 @@ namespace CRS_PRE
         public int frm_tip;
         //Instancias
         ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads016_02()
@@ -70,15 +71,14 @@ namespace CRS_PRE
 
             // Valida que el Periodo sea un periodo valido            
             int.TryParse(tb_ges_per.Text.Trim(), out int ges_per);
-            if (ges_per <= 0 || ges_per > 12)
-            {
+            if (ges_per <= 0 || ges_per > 12){
+                tb_ges_per.Focus();
                 return "DEBE proporcionar un Periodo Válido (1-12)";
             }
 
             // Valida que la Gestion sea una Gestion valida
             int.TryParse(tb_ges_tio.Text.Trim(), out int ges_tio);
-            if (ges_tio < 1900 && ges_tio > 2900)
-            {
+            if (ges_tio < 1900 && ges_tio > 2900){
                 tb_ges_tio.Focus();
                 return "DEBE proporcionar una Gestión Válida";
             }
@@ -91,8 +91,7 @@ namespace CRS_PRE
             }
             // Valida que la fecha final sea una fecha valida
             DateTime.TryParse(tb_fec_fin.Text, out DateTime fec_fin);
-            if (fec_fin == DateTime.Parse("01/01/0001"))
-            {
+            if (fec_fin == DateTime.Parse("01/01/0001")){
                 tb_fec_fin.Focus();
                 return "DEBE proporcionar una Fecha Final Válida";
             }
@@ -109,6 +108,12 @@ namespace CRS_PRE
             if (Tabla.Rows.Count > 0)
                 return "El Periodo que intenta crear YA está registrado";
 
+            // Quita caracteres especiales de SQL-Trans
+            tb_ges_per.Text = tb_ges_per.Text.Replace("'", "");
+            tb_ges_tio.Text = tb_ges_tio.Text.Replace("'", "");
+            tb_nom_per.Text = tb_nom_per.Text.Replace("'", "");
+            tb_fec_ini.Text = tb_fec_ini.Text.Replace("'", "");
+            tb_fec_fin.Text = tb_fec_fin.Text.Replace("'", "");
 
             return "OK";
         }
@@ -140,12 +145,14 @@ namespace CRS_PRE
             msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
             if (msg_res == DialogResult.OK)
             {
-                // Registra Periodo
-                o_ads016.Fe_nue_reg(int.Parse(tb_ges_tio.Text), int.Parse(tb_ges_per.Text), 
-                                    tb_nom_per.Text, tb_fec_ini.Text, tb_fec_fin.Text);
-                MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
-                frm_pad.fi_bus_car(int.Parse(tb_ges_tio.Text));
-
+                // Graba Registro
+                o_ads016.Fe_nue_reg(int.Parse(tb_ges_tio.Text.Trim()), int.Parse(tb_ges_per.Text.Trim()), tb_nom_per.Text.Trim(), tb_fec_ini.Text.Trim(), tb_fec_fin.Text.Trim());
+                // Graba Bitacora de Operaciones
+                o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Periodo: " + tb_ges_per.Text.Trim() + " / " + tb_ges_tio.Text.Trim() + "  " + tb_nom_per.Text.Trim(), SystemInformation.ComputerName);
+                // Actualiza el Formulario Principal
+                frm_pad.fi_bus_car(int.Parse(tb_ges_tio.Text.Trim()), int.Parse(tb_ges_per.Text.Trim()));
+                // Despliega Mensaje
+                MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);               
                 // Limpia Campos
                 Fi_lim_pia();
             }

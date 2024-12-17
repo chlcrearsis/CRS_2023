@@ -17,8 +17,8 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias
         ads023 o_ads023 = new ads023();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
-        General general = new General();        
 
         public ads023_02()
         {
@@ -132,8 +132,10 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
-                    o_ads023.Fe_nue_reg(tb_fec_ini.Text, tb_fec_fin.Text, double.Parse(tb_tas_cam.Text));
+                    // Graba Registro
+                    o_ads023.Fe_nue_reg(tb_fec_ini.Text.Trim(), tb_fec_fin.Text.Trim(), double.Parse(tb_tas_cam.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "T.C. Del: " + tb_fec_ini.Text.Trim() + " Al: " + tb_fec_fin.Text.Trim() + " - " + tb_tas_cam.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm();
                     // Despliega Mensaje

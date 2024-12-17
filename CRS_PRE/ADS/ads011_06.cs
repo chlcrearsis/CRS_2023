@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads001 o_ads001 = new ads001();
         ads011 o_ads011 = new ads011();
         ads014 o_ads014 = new ads014();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads011_06()
@@ -115,11 +116,13 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar la información?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina el registro
-                    o_ads011.Fe_eli_min(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_cla.Text));                    
-                    o_ads014.Fe_eli_min(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_cla.Text));
+                    // Elimina Registro
+                    o_ads011.Fe_eli_min(int.Parse(tb_ide_mod.Text.Trim()), int.Parse(tb_ide_cla.Text.Trim()));                    
+                    o_ads014.Fe_eli_min(int.Parse(tb_ide_mod.Text.Trim()), int.Parse(tb_ide_cla.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Clave: (" + tb_ide_mod.Text.Trim() + "-" + tb_ide_cla.Text.Trim() + ") " + tb_nom_cla.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_mod.Text.Trim(), tb_ide_cla.Text);
+                    frm_pad.Fe_act_frm(tb_ide_mod.Text.Trim(), tb_ide_cla.Text.Trim());
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Cierra Formulario

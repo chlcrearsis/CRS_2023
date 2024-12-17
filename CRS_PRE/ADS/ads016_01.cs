@@ -222,6 +222,36 @@ namespace CRS_PRE
             return true;
         }
 
+        /// <summary>
+        /// Funcion Externa que actualiza la ventana con los datos que tenga, despues de realizar alguna operacion.
+        /// </summary>
+        public void Fe_act_frm(int ges_tio, int ges_per)
+        {
+            fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex);
+
+            if (ges_tio.ToString() != null || ges_per.ToString() != null)
+            {
+                try
+                {
+                    for (int i = 0; i < dg_res_ult.Rows.Count; i++)
+                    {
+                        if (dg_res_ult.Rows[i].Cells["va_ges_tio"].Value.ToString() == ges_tio.ToString() &&
+                            dg_res_ult.Rows[i].Cells["va_ges_per"].Value.ToString() == ges_per.ToString())
+                        {
+                            dg_res_ult.Rows[i].Selected = true;
+                            dg_res_ult.FirstDisplayedScrollingRowIndex = i;
+                            return;
+                        }
+                    }
+                    tb_tex_bus.Focus();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
+            }
+        }
+
         // Evento Validated : Periodo
         private void tb_ges_per_Validated(object sender, EventArgs e)
         {
@@ -283,37 +313,7 @@ namespace CRS_PRE
         private void bt_bus_car_Click(object sender, EventArgs e)
         {           
             fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex);
-        }
-
-
-        /// <summary>
-        /// Funcion Externa que actualiza la ventana con los datos que tenga, despues de realizar alguna operacion.
-        /// </summary>
-        public void Fe_act_frm(int ges_tio, int ges_per)
-        {         
-            fi_bus_car(tb_tex_bus.Text, cb_prm_bus.SelectedIndex);
-
-            if (ges_tio.ToString() != null || ges_per.ToString() != null)
-            {
-                try
-                {
-                    for (int i = 0; i < dg_res_ult.Rows.Count; i++)
-                    {
-                        if (dg_res_ult.Rows[i].Cells["va_ges_tio"].Value.ToString() == ges_tio.ToString() &&
-                            dg_res_ult.Rows[i].Cells["va_ges_per"].Value.ToString() == ges_per.ToString()){
-                            dg_res_ult.Rows[i].Selected = true;
-                            dg_res_ult.FirstDisplayedScrollingRowIndex = i;
-                            return;
-                        }
-                    }
-                    tb_tex_bus.Focus();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
-            }
-        }
+        }        
         
         private void mn_nue_per_Click(object sender, EventArgs e)
         {

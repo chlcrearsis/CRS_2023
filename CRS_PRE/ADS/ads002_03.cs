@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads001 o_ads001 = new ads001();
         ads002 o_ads002 = new ads002();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads002_03()
@@ -131,10 +132,12 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de editar la informacion?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Edita el registro
-                    o_ads002.Fe_edi_tar(int.Parse(tb_ide_mod.Text), tb_ide_apl.Text, tb_nom_apl.Text);
+                    // Edita Registro
+                    o_ads002.Fe_edi_tar(int.Parse(tb_ide_mod.Text.Trim()), tb_ide_apl.Text.Trim(), tb_nom_apl.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Aplicación: " + tb_ide_apl.Text.Trim() + " - " + tb_nom_apl.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_apl.Text);
+                    frm_pad.Fe_act_frm(tb_ide_apl.Text.Trim());
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Cierra Formulario

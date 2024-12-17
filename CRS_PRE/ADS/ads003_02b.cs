@@ -17,7 +17,8 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancias
-        ads003 o_ads003 = new ads003();        
+        ads003 o_ads003 = new ads003();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads003_02b()
@@ -61,10 +62,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Registrar 
+                    // Graba Registro p/Defectos 
                     o_ads003.Fe_reg_doc();
-                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Documentos p/Defectos", SystemInformation.ComputerName);
+                    // Inicializa el Formulario Principal
                     frm_pad.fi_ini_frm();
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

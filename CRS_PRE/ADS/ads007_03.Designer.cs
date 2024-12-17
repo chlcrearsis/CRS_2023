@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_tip_usr = new System.Windows.Forms.ComboBox();
             this.lb_raz_soc = new System.Windows.Forms.Label();
             this.lb_ven_max = new System.Windows.Forms.Label();
             this.lb_est_ado = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
-            this.cb_tip_usr = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,17 @@
             this.groupBox1.Size = new System.Drawing.Size(416, 168);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
+            // 
+            // cb_tip_usr
+            // 
+            this.cb_tip_usr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_tip_usr.FormattingEnabled = true;
+            this.cb_tip_usr.Items.AddRange(new object[] {
+            "Todos"});
+            this.cb_tip_usr.Location = new System.Drawing.Point(157, 17);
+            this.cb_tip_usr.Name = "cb_tip_usr";
+            this.cb_tip_usr.Size = new System.Drawing.Size(114, 21);
+            this.cb_tip_usr.TabIndex = 94;
             // 
             // lb_raz_soc
             // 
@@ -318,21 +329,12 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // cb_tip_usr
-            // 
-            this.cb_tip_usr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_tip_usr.FormattingEnabled = true;
-            this.cb_tip_usr.Items.AddRange(new object[] {
-            "Todos"});
-            this.cb_tip_usr.Location = new System.Drawing.Point(157, 17);
-            this.cb_tip_usr.Name = "cb_tip_usr";
-            this.cb_tip_usr.Size = new System.Drawing.Size(114, 21);
-            this.cb_tip_usr.TabIndex = 94;
-            // 
             // ads007_03
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(422, 201);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

@@ -18,7 +18,8 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias
         ads001 o_ads001 = new ads001();
-        ads013 o_ads013 = new ads013();        
+        ads013 o_ads013 = new ads013();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads013_02()
@@ -293,10 +294,10 @@ namespace CRS_PRE
         {
             try
             {
+                // Obtiene datos de pantalla
                 string glo_ent = tb_glo_ent.Text == "" ? "0" : tb_glo_ent.Text;
                 string glo_dec = tb_glo_dec.Text == "" ? "0.00" : tb_glo_dec.Text;
                 string glo_car = tb_glo_car.Text == "" ? "" : tb_glo_car.Text;
-
                 DialogResult msg_res;
 
                 // funcion para validar datos
@@ -309,13 +310,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
-                    o_ads013.Fe_nue_reg(int.Parse(tb_ide_mod.Text), int.Parse(tb_ide_glo.Text), tb_nom_glo.Text, cb_tip_glo.SelectedIndex, int.Parse(glo_ent), decimal.Parse(glo_dec), glo_car);
+                    // Graba Registro
+                    o_ads013.Fe_nue_reg(int.Parse(tb_ide_mod.Text.Trim()), int.Parse(tb_ide_glo.Text.Trim()), tb_nom_glo.Text.Trim(), cb_tip_glo.SelectedIndex, int.Parse(glo_ent), decimal.Parse(glo_dec), glo_car);
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Global: (" + tb_ide_mod.Text.Trim() + "-" + tb_ide_glo.Text.Trim() + ") " + tb_nom_glo.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_mod.Text, tb_ide_glo.Text);
+                    frm_pad.Fe_act_frm(tb_ide_mod.Text.Trim(), tb_ide_glo.Text.Trim());
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
-                    // Inicializa Campos
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }

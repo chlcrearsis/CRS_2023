@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		23-03-2020
 */--**********************************************
 
-PRINT 'ads016 : Gestión Periodos'
+PRINT 'Crea la Tabla: ads016 - Gestión Periodos'
 CREATE TABLE ads016
 (
 	--** Llave Primaria

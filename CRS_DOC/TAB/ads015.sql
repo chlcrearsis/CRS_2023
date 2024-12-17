@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		06-11-2029
 */--**********************************************
 
-PRINT 'ads015 : Regional'
+PRINT 'Crea la Tabla: ads015 - Regional'
 CREATE TABLE ads015
 (
 	--** Llave Primaria

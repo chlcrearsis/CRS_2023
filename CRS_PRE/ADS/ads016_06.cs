@@ -18,8 +18,9 @@ namespace CRS_PRE
         public int frm_tip;
         public DataTable frm_dat;
         // Instancias
-        ads016 o_ads016 = new ads016();
         ads002 o_ads002 = new ads002();
+        ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads016_06()
@@ -78,10 +79,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar la información?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina Tipo de Atributo
-                    o_ads016.Fe_eli_min(int.Parse(tb_ges_tio.Text), int.Parse(tb_ges_per.Text));
+                    // Elimina Registro
+                    o_ads016.Fe_eli_min(int.Parse(tb_ges_tio.Text.Trim()), int.Parse(tb_ges_per.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Periodo: " + tb_ges_per.Text.Trim() + " / " + tb_ges_tio.Text.Trim() + "  " + tb_nom_per.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(int.Parse(tb_ges_tio.Text.Trim()), int.Parse(tb_ges_per.Text.Trim()));
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frm_pad.Fe_act_frm(int.Parse(tb_ges_tio.Text), int.Parse(tb_ges_per.Text));
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads006 o_ads006 = new ads006();
         ads007 o_ads007 = new ads007();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
         private int vp_ide_tus = 0;  // ID. Tipo de Usuario
 
@@ -38,6 +39,8 @@ namespace CRS_PRE
             tb_ide_usr.Text = frm_dat.Rows[0]["va_ide_usr"].ToString();
             tb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString();
             tb_tip_usr.Text = frm_dat.Rows[0]["va_nom_tus"].ToString();
+            tb_car_usr.Text = frm_dat.Rows[0]["va_car_usr"].ToString();
+            tb_nom_tus.Text = frm_dat.Rows[0]["va_nom_tus"].ToString();
             if (frm_dat.Rows[0]["va_est_ado"].ToString() == "H")
                 tb_est_ado.Text = "Habilitado";
             if (frm_dat.Rows[0]["va_est_ado"].ToString() == "N")
@@ -102,8 +105,10 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de restablecer los permisos del Usuario?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Edita el registro
+                    // Edita Registro
                     o_ads007.Fe_rei_per(tb_ide_usr.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + tb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Padre
                     frm_pad.Fe_act_frm(tb_ide_usr.Text.Trim());
                     // Despliega Mensaje

@@ -151,6 +151,7 @@
             // bt_can_cel
             // 
             this.bt_can_cel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_can_cel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_can_cel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_can_cel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_can_cel.Location = new System.Drawing.Point(213, 10);
@@ -163,8 +164,10 @@
             // 
             // ads014_02b
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(303, 154);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

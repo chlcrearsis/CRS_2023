@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		13-01-2024
 */--**********************************************
 
-PRINT 'ads025 : Validación Clave Usuario'
+PRINT 'Crea la Tabla: ads025 - Validación Clave Usuario'
 CREATE TABLE ads025 
 (
 	--** Llave Primaria

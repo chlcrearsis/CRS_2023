@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		21-08-2019
 */--**********************************************
 
-PRINT 'ads001 : Módulo'
+PRINT 'Crea la Tabla: ads001 - Módulo'
 CREATE TABLE ads001
 (
 	--** Llave Primaria

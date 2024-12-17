@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using CRS_DAT;
@@ -7,15 +6,14 @@ using CRS_DAT;
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads008_01                                           ##
+    //##       Tabla: ads008                                              ##
     //##      Nombre: Autorizaciones Usuarios                             ##
     //## Descripcion: Permiso Usuarios sobre el sistema                   ##         
     //##       Autor: JEJR - (05-01-2019)                                 ##
     //######################################################################
     public class ads008
     {        
-        conexion_a ob_con_ecA = new conexion_a();
-        General general = new General();
+        conexion_a ob_con_ecA = new conexion_a();        
         StringBuilder cadena;
 
         /// <summary>

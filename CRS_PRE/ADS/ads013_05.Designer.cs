@@ -31,6 +31,7 @@
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_tip_glo = new System.Windows.Forms.TextBox();
             this.lb_glo_car = new System.Windows.Forms.Label();
             this.tb_glo_car = new System.Windows.Forms.TextBox();
             this.lb_glo_dec = new System.Windows.Forms.Label();
@@ -41,10 +42,9 @@
             this.lb_nom_mod = new System.Windows.Forms.Label();
             this.lb_ide_glo = new System.Windows.Forms.Label();
             this.lb_ide_mod = new System.Windows.Forms.Label();
+            this.tb_nom_glo = new System.Windows.Forms.TextBox();
             this.tb_ide_glo = new System.Windows.Forms.TextBox();
             this.tb_ide_mod = new System.Windows.Forms.TextBox();
-            this.tb_nom_glo = new System.Windows.Forms.TextBox();
-            this.tb_tip_glo = new System.Windows.Forms.TextBox();
             this.gb_ctr_btn.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +94,17 @@
             this.groupBox1.Size = new System.Drawing.Size(361, 152);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // tb_tip_glo
+            // 
+            this.tb_tip_glo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_tip_glo.Location = new System.Drawing.Point(66, 63);
+            this.tb_tip_glo.MaxLength = 22;
+            this.tb_tip_glo.Name = "tb_tip_glo";
+            this.tb_tip_glo.ReadOnly = true;
+            this.tb_tip_glo.Size = new System.Drawing.Size(80, 20);
+            this.tb_tip_glo.TabIndex = 7;
+            this.tb_tip_glo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_glo_car
             // 
@@ -190,6 +201,16 @@
             this.lb_ide_mod.TabIndex = 0;
             this.lb_ide_mod.Text = "Módulo";
             // 
+            // tb_nom_glo
+            // 
+            this.tb_nom_glo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_nom_glo.Location = new System.Drawing.Point(100, 38);
+            this.tb_nom_glo.MaxLength = 60;
+            this.tb_nom_glo.Name = "tb_nom_glo";
+            this.tb_nom_glo.ReadOnly = true;
+            this.tb_nom_glo.Size = new System.Drawing.Size(242, 20);
+            this.tb_nom_glo.TabIndex = 5;
+            // 
             // tb_ide_glo
             // 
             this.tb_ide_glo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -213,31 +234,11 @@
             this.tb_ide_mod.TabIndex = 1;
             this.tb_ide_mod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tb_nom_glo
-            // 
-            this.tb_nom_glo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_nom_glo.Location = new System.Drawing.Point(100, 38);
-            this.tb_nom_glo.MaxLength = 60;
-            this.tb_nom_glo.Name = "tb_nom_glo";
-            this.tb_nom_glo.ReadOnly = true;
-            this.tb_nom_glo.Size = new System.Drawing.Size(242, 20);
-            this.tb_nom_glo.TabIndex = 5;
-            // 
-            // tb_tip_glo
-            // 
-            this.tb_tip_glo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_tip_glo.Location = new System.Drawing.Point(66, 63);
-            this.tb_tip_glo.MaxLength = 22;
-            this.tb_tip_glo.Name = "tb_tip_glo";
-            this.tb_tip_glo.ReadOnly = true;
-            this.tb_tip_glo.Size = new System.Drawing.Size(80, 20);
-            this.tb_tip_glo.TabIndex = 7;
-            this.tb_tip_glo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ads013_05
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(367, 186);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

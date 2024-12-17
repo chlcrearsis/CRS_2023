@@ -207,8 +207,10 @@
             // 
             // ads016_03
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(302, 151);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -217,8 +219,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ads016_03";
-            this.Tag = "Actualiza Periodo";
-            this.Text = "Actualiza Periodo";
+            this.Tag = "Edita Periodo";
+            this.Text = "Edita Periodo";
             this.Load += new System.EventHandler(this.frm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

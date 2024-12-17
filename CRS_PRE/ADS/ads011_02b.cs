@@ -17,7 +17,8 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancias
-        ads011 o_ads011 = new ads011();        
+        ads011 o_ads011 = new ads011(); 
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads011_02b()
@@ -38,7 +39,7 @@ namespace CRS_PRE
             Tabla = new DataTable();
             Tabla = o_ads011.Fe_bus_car("", 0, 0);
             if (Tabla.Rows.Count > 0)
-                return "NO se puede usar esta operación, ya que existe claves registradas";
+                return "NO se puede usar esta operación. Ya que existe claves registradas";
 
             return "OK";
         }
@@ -61,10 +62,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Registrar 
+                    // Graba Registro
                     o_ads011.Fe_reg_cla();
-                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Graba Registro p/Defecto", SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
                     frm_pad.fi_ini_frm();
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

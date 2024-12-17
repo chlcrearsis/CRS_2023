@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		06-11-2029
 */--**********************************************
 
-PRINT 'ads013 : Globales'
+PRINT 'Crea la Tabla: ads013 -  Globales'
 CREATE TABLE ads013
 (
 	--** Llave Primaria

@@ -17,8 +17,9 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancias
-        ads002 o_ads002 = new ads002();
         ads001 o_ads001 = new ads001();
+        ads002 o_ads002 = new ads002();        
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads002_02()
@@ -156,7 +157,7 @@ namespace CRS_PRE
         }
 
         // Evento KeyDown : ID. Módulo
-        private void Tb_ide_mod_KeyDown(object sender, KeyEventArgs e)
+        private void tb_ide_mod_KeyDown(object sender, KeyEventArgs e)
         {
             //al presionar tecla para ARRIBA
             if (e.KeyData == Keys.Up)
@@ -190,13 +191,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
-                    o_ads002.Fe_nue_reg(int.Parse(tb_ide_mod.Text), tb_ide_apl.Text, tb_nom_apl.Text);
+                    // Graba Registro
+                    o_ads002.Fe_nue_reg(int.Parse(tb_ide_mod.Text.Trim()), tb_ide_apl.Text.Trim(), tb_nom_apl.Text.Trim());                    
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Aplicación: " + tb_ide_apl.Text.Trim() + " - " + tb_nom_apl.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_apl.Text);
+                    frm_pad.Fe_act_frm(tb_ide_apl.Text.Trim());
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
-                    // Inicializa Campos
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }

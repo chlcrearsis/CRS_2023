@@ -19,6 +19,7 @@ namespace CRS_PRE
         public DataTable frm_dat;
         // Instancias
         ads015 o_ads015 = new ads015();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads015_03()
@@ -134,8 +135,10 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de editar la informacion?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Edita el registro
-                    o_ads015.Fe_edi_tar(int.Parse(tb_ide_reg.Text), tb_nom_reg.Text.Trim(), tb_nom_cor.Text.Trim());
+                    // Edita Registro
+                    o_ads015.Fe_edi_tar(int.Parse(tb_ide_reg.Text.Trim()), tb_nom_reg.Text.Trim(), tb_nom_cor.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Regional: " + tb_ide_reg.Text.Trim() + " - " + tb_nom_reg.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(int.Parse(tb_ide_reg.Text));
                     // Despliega Mensaje

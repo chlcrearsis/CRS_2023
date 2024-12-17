@@ -17,10 +17,10 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancia
-        private DataTable Tabla;
-        private ads007 o_ads007 = new ads007();
-        private ads023 o_ads023 = new ads023();
-        private General general = new General();
+        DataTable Tabla;
+        ads007 o_ads007 = new ads007();
+        ads019 o_ads019 = new ads019();
+        ads023 o_ads023 = new ads023();
 
         public ads023_08()
         {
@@ -147,6 +147,8 @@ namespace CRS_PRE
                                    Missing.Value, Missing.Value, Missing.Value);
                     lib_tra.Close(true);
                     apl_exc.Quit();
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "X", "T.C. Del: " + tb_fec_ini.Text.Trim() + " Al: " + tb_fec_ini.Text.Trim(), SystemInformation.ComputerName);
                     // Despliega Mensaje
                     MessageBox.Show("Se exporto exitosamente los registros a Excel", Text);
                     // Cierra Formulario

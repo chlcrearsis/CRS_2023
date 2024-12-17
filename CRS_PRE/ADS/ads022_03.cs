@@ -19,8 +19,8 @@ namespace CRS_PRE
         public DataTable frm_dat;
         // Instancias
         ads022 o_ads022 = new ads022();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
-        General general = new General();
         // Variable
         private string va_tip_ope;    // Tipo de Operación (N=Nuevo; E=Edita)
 
@@ -128,16 +128,22 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    /* Graba registro */
-                    if (va_tip_ope.CompareTo("N") == 0)
-                        o_ads022.Fe_nue_reg(tb_fec_tas.Text, double.Parse(tb_tas_cam.Text));
-                    else
+                    if (va_tip_ope.CompareTo("N") == 0) { 
+                        // Graba Registro
+                        o_ads022.Fe_nue_reg(tb_fec_tas.Text.Trim(), double.Parse(tb_tas_cam.Text.Trim()));
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "T.C.: " + tb_fec_tas.Text.Trim() + " - " + tb_tas_cam.Text.Trim(), SystemInformation.ComputerName);
+                    }else { 
+                        // Edita Registro
                         o_ads022.Fe_edi_tar(tb_fec_tas.Text, double.Parse(tb_tas_cam.Text));
-                    /* Actualiza el Formulario Principal */
+                        // Graba Bitacora de Operaciones
+                        o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "T.C.: " + tb_fec_tas.Text.Trim() + " - " + tb_tas_cam.Text.Trim(), SystemInformation.ComputerName);
+                    }
+                    // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm();
-                    /* Despliega Mensaje */
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);                    
-                    /* Cierra Formulario */
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

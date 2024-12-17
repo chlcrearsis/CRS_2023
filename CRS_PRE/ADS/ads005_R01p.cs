@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads005 o_ads005 = new ads005();
         ads013 o_ads013 = new ads013();
         ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads005_R01p()
@@ -30,25 +31,25 @@ namespace CRS_PRE
       
         private void frm_Load(object sender, EventArgs e)
         {
-            /* Desplega Información inicial */
+            // Desplega Información inicial
             tb_ges_tio.Text = string.Empty;
             tb_doc_ini.Text = string.Empty;
             tb_doc_fin.Text = string.Empty;
 
-            /* Inicializa Campos en Pantalla */
+            // Inicializa Campos en Pantalla
             tb_ges_tio.Text = "0";
             tb_doc_ini.Text = "AAA";
             lb_ndo_ini.Text = "...";
             tb_doc_fin.Text = "ZZZ";
             lb_ndo_fin.Text = "...";
 
-            /* Obtiene la Gestion Actual */
+            // Obtiene la Gestion Actual
             Tabla = new DataTable();
             Tabla = o_ads013.Fe_obt_glo(1, 30);
             if (Tabla.Rows.Count > 0)
                 tb_ges_tio.Text = Tabla.Rows[0]["va_glo_ent"].ToString();
 
-            /* Obtiene el Documento Incial y Final */
+            // Obtiene el Documento Incial y Final
             Tabla = new DataTable();
             Tabla = o_ads003.Fe_lis_doc("1");
             if (Tabla.Rows.Count > 0){
@@ -67,21 +68,21 @@ namespace CRS_PRE
         {
             try
             {
-                /* Verificar la Gestión sea distinto a cero */
+                // Verificar la Gestión sea distinto a cero
                 if (tb_ges_tio.Text.Trim().CompareTo("") == 0 ||
                     tb_ges_tio.Text.Trim().CompareTo("0") == 0){
                     tb_ges_tio.Focus();
                     return "DEBE proporcionar la Gestión";
                 }
 
-                /* Verifica que la Gestión sea numerico */
+                // Verifica que la Gestión sea numerico
                 int.TryParse(tb_ges_tio.Text.Trim(), out int ges_tio);
                 if (ges_tio == 0){
                     tb_ges_tio.Focus();
                     return "La Gestión DEBE ser Numerico";
                 }
 
-                /* Valida que la Gestión este registrada y habilitada */
+                // Valida que la Gestión este registrada y habilitada
                 Tabla = new DataTable();
                 Tabla = o_ads016.Fe_con_ges(int.Parse(tb_ges_tio.Text));
                 if (Tabla.Rows.Count == 0){
@@ -89,13 +90,13 @@ namespace CRS_PRE
                     return "La Gestión NO se encuentra registrado";
                 }
 
-                /* Valida que se proporcione el ID. Documento Inicial */
+                // Valida que se proporcione el ID. Documento Inicial
                 if (tb_doc_ini.Text.Trim() == ""){
                     tb_doc_ini.Focus();
                     return "DEBE proporcionar el ID. Documento Inicial";
                 }
 
-                /* Valida si es que existe el documento Inicial */
+                // Valida si es que existe el documento Inicial
                 Tabla = new DataTable();
                 Tabla = o_ads003.Fe_con_doc(tb_doc_ini.Text.Trim());
                 if (Tabla.Rows.Count == 0){
@@ -103,13 +104,13 @@ namespace CRS_PRE
                     return "El Documento Inicial NO se encuentra registrado";
                 }
 
-                /* Valida que se proporcione el ID. Documento Final */
+                // Valida que se proporcione el ID. Documento Final
                 if (tb_doc_fin.Text.Trim() == "") {
                     tb_doc_fin.Focus();
                     return "DEBE proporcionar el ID. Documento Final";
                 }
 
-                /* Valida si es que existe el documento Final */
+                // Valida si es que existe el documento Final
                 Tabla = new DataTable();
                 Tabla = o_ads003.Fe_con_doc(tb_doc_fin.Text.Trim());
                 if (Tabla.Rows.Count == 0){
@@ -117,7 +118,7 @@ namespace CRS_PRE
                     return "El Documento Final NO se encuentra registrado";
                 }
 
-                /* Valida que el Documento Inicial sea MENOR al documento Final */
+                // Valida que el Documento Inicial sea MENOR al documento Final
                 if (tb_doc_fin.Text.Trim().CompareTo(tb_doc_ini.Text.Trim()) < 0) {
                     tb_doc_ini.Focus();
                     return "El ID. Documento Inicial DEBE ser menor al ID. Documento Final";
@@ -250,6 +251,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads005.Fe_inf_R01(ges_tio, doc_ini, doc_fin);
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads005_R01w frm = new ads005_R01w{

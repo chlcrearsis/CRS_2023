@@ -14,9 +14,7 @@ namespace CRS_NEG
     public class ads100
     {
         conexion_a ob_con_ecA = new conexion_a();
-        StringBuilder cadena;
-
-       
+        StringBuilder cadena;       
        
         /// <summary>
         /// Funcion "OBTIENE LICENCIA DEL SISTEMA"
@@ -35,7 +33,6 @@ namespace CRS_NEG
                 throw ex;
             }
         }
-
 
         /// <summary>
         /// Funcion "Registra Licencia"

@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
         ads005 o_ads005 = new ads005();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads004_06()
@@ -140,10 +141,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar la información?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina Tipo de Atributo
-                    o_ads004.Fe_eli_min(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text));
+                    // Elimina Registro
+                    o_ads004.Fe_eli_min(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Talonario: " + tb_ide_doc.Text.Trim() + " - " + tb_nro_tal.Text.Trim() + " - " + tb_nom_tal.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()));
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frm_pad.Fe_act_frm(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text));
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

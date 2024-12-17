@@ -18,6 +18,7 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias 
         ads001 o_ads001 = new ads001();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads001_02()
@@ -136,10 +137,12 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
-                    o_ads001.Fe_nue_reg(int.Parse(tb_ide_mod.Text), tb_nom_mod.Text.Trim(), tb_abr_mod.Text.Trim());
+                    // Graba Registro
+                    o_ads001.Fe_nue_reg(int.Parse(tb_ide_mod.Text.Trim()), tb_nom_mod.Text.Trim(), tb_abr_mod.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Módulo: " + tb_abr_mod.Text.Trim() + " - " + tb_nom_mod.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(int.Parse(tb_ide_mod.Text));
+                    frm_pad.Fe_act_frm(int.Parse(tb_ide_mod.Text.Trim()));
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
                     // Inicializa Campos

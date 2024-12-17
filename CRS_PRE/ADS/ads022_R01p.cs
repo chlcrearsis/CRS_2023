@@ -16,8 +16,9 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancia
-        private DataTable Tabla;
-        private ads022 o_ads022 = new ads022();
+        ads019 o_ads019 = new ads019();
+        ads022 o_ads022 = new ads022();
+        DataTable Tabla = new DataTable();
 
         public ads022_R01p()
         {
@@ -93,6 +94,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads022.Fe_inf_R01(fec_ini, fec_fin);
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads022_R01w frm = new ads022_R01w{

@@ -19,6 +19,7 @@ namespace CRS_PRE
         ads001 o_ads001 = new ads001();
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         // Variables
         public int vp_ide_mod = 0;  // TODOS LOS MÓDULOS
 
@@ -161,8 +162,7 @@ namespace CRS_PRE
 
         // Evento Click : Button Buscar Modulo
         private void bt_bus_mod_Click(object sender, EventArgs e)
-        {
-            // Abre la ventana Busca Modulo
+        {            
             Fi_bus_mod();
         }
 
@@ -209,9 +209,11 @@ namespace CRS_PRE
                     else
                         tal_men = "N";
 
-                    // Graba registro
+                    // Graba Registro
                     o_ads004.Fe_nue_aut(ide_doc, tal_anu, tal_men);
                 }
+                // Graba Bitacora de Operaciones
+                o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Registro Talonario Automaticos", SystemInformation.ComputerName);
                 // Despliega Mensaje
                 MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
                 // Cierra Fomulario

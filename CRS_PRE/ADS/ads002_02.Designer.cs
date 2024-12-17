@@ -114,7 +114,7 @@
             this.tb_ide_mod.Size = new System.Drawing.Size(30, 20);
             this.tb_ide_mod.TabIndex = 1;
             this.tb_ide_mod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_ide_mod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tb_ide_mod_KeyDown);
+            this.tb_ide_mod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_ide_mod_KeyDown);
             this.tb_ide_mod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ide_mod_KeyPress);
             this.tb_ide_mod.Validated += new System.EventHandler(this.tb_ide_mod_Validated);
             // 
@@ -173,8 +173,10 @@
             // 
             // ads002_02
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(367, 102);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

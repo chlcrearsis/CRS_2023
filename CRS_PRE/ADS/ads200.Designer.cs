@@ -37,6 +37,7 @@
             this.mn_num_tal = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_inf_bit = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_bit_ope = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_ope_fch = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_bit_doc = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_bit_ses = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_def_par = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,11 +176,20 @@
             // 
             // mn_bit_ope
             // 
+            this.mn_bit_ope.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mn_ope_fch});
             this.mn_bit_ope.Name = "mn_bit_ope";
             this.mn_bit_ope.Size = new System.Drawing.Size(218, 22);
             this.mn_bit_ope.Tag = "Bitácora de Operaciones";
             this.mn_bit_ope.Text = "Bitácora de Operaciones";
             this.mn_bit_ope.Click += new System.EventHandler(this.mn_bit_ope_Click);
+            // 
+            // mn_ope_fch
+            // 
+            this.mn_ope_fch.Name = "mn_ope_fch";
+            this.mn_ope_fch.Size = new System.Drawing.Size(228, 22);
+            this.mn_ope_fch.Text = "Operación p/Rango de Fecha";
+            this.mn_ope_fch.Click += new System.EventHandler(this.mn_ope_fch_Click);
             // 
             // mn_bit_doc
             // 
@@ -763,5 +773,6 @@
         private System.Windows.Forms.ToolStripMenuItem mn_def_reg;
         private System.Windows.Forms.ToolStripMenuItem mn_tas_uss;
         private System.Windows.Forms.ToolStripMenuItem mn_tas_ufv;
+        private System.Windows.Forms.ToolStripMenuItem mn_ope_fch;
     }
 }

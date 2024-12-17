@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lb_ult_ges = new System.Windows.Forms.Label();
+            this.tb_ult_ges = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lb_nue_ges = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,8 +38,6 @@
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
-            this.lb_ult_ges = new System.Windows.Forms.Label();
-            this.tb_ult_ges = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,26 @@
             this.groupBox1.Size = new System.Drawing.Size(286, 148);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // lb_ult_ges
+            // 
+            this.lb_ult_ges.AutoSize = true;
+            this.lb_ult_ges.Location = new System.Drawing.Point(49, 87);
+            this.lb_ult_ges.Name = "lb_ult_ges";
+            this.lb_ult_ges.Size = new System.Drawing.Size(75, 13);
+            this.lb_ult_ges.TabIndex = 2;
+            this.lb_ult_ges.Text = "Última Gestión";
+            // 
+            // tb_ult_ges
+            // 
+            this.tb_ult_ges.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_ult_ges.Location = new System.Drawing.Point(126, 85);
+            this.tb_ult_ges.MaxLength = 4;
+            this.tb_ult_ges.Multiline = true;
+            this.tb_ult_ges.Name = "tb_ult_ges";
+            this.tb_ult_ges.ReadOnly = true;
+            this.tb_ult_ges.Size = new System.Drawing.Size(50, 18);
+            this.tb_ult_ges.TabIndex = 3;
             // 
             // label3
             // 
@@ -137,30 +157,12 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // lb_ult_ges
-            // 
-            this.lb_ult_ges.AutoSize = true;
-            this.lb_ult_ges.Location = new System.Drawing.Point(49, 87);
-            this.lb_ult_ges.Name = "lb_ult_ges";
-            this.lb_ult_ges.Size = new System.Drawing.Size(75, 13);
-            this.lb_ult_ges.TabIndex = 2;
-            this.lb_ult_ges.Text = "Última Gestión";
-            // 
-            // tb_ult_ges
-            // 
-            this.tb_ult_ges.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_ult_ges.Location = new System.Drawing.Point(126, 85);
-            this.tb_ult_ges.MaxLength = 4;
-            this.tb_ult_ges.Multiline = true;
-            this.tb_ult_ges.Name = "tb_ult_ges";
-            this.tb_ult_ges.ReadOnly = true;
-            this.tb_ult_ges.Size = new System.Drawing.Size(50, 18);
-            this.tb_ult_ges.TabIndex = 3;
-            // 
             // ads016_02c
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(293, 181);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		06-11-2029
 */--**********************************************
 
-PRINT 'ads014 : Clave Usuario p/Global'
+PRINT 'Crea la Tabla: ads014 - Clave Usuario p/Global'
 CREATE TABLE ads014
 (
 	--** Llave Primaria

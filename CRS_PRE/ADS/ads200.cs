@@ -128,6 +128,13 @@ namespace CRS_PRE
 
         }
 
+        // Evento Click: Bitácora de Operaciones p/Rango de Fecha
+        private void mn_ope_fch_Click(object sender, EventArgs e)
+        {
+            o_frm = new ads019_R01p();
+            cl_glo_frm.abrir(this, o_frm, cl_glo_frm.ventana.modal, cl_glo_frm.ctr_btn.si);
+        }
+
         // Evento Click: Bitácora de Documento
         private void mn_bit_doc_Click(object sender, EventArgs e)
         {
@@ -433,6 +440,8 @@ namespace CRS_PRE
                 if (o_frm.DialogResult == DialogResult.OK)
                     cl_glo_bal.fg_per_mnu(o_frm.tb_ide_usr.Text, frm_pad);
             }
-        }        
+        }
+
+        
     }
 }

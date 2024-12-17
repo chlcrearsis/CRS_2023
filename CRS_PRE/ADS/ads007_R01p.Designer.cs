@@ -35,8 +35,8 @@
             this.rb_ord_nom = new System.Windows.Forms.RadioButton();
             this.rb_ord_cod = new System.Windows.Forms.RadioButton();
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gb_ord_por.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
@@ -119,20 +119,6 @@
             this.gb_ctr_btn.TabIndex = 3;
             this.gb_ctr_btn.TabStop = false;
             // 
-            // bt_ace_pta
-            // 
-            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
-            this.bt_ace_pta.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_ace_pta.Location = new System.Drawing.Point(110, 10);
-            this.bt_ace_pta.Name = "bt_ace_pta";
-            this.bt_ace_pta.Size = new System.Drawing.Size(75, 25);
-            this.bt_ace_pta.TabIndex = 0;
-            this.bt_ace_pta.Text = "&Aceptar";
-            this.bt_ace_pta.UseVisualStyleBackColor = false;
-            this.bt_ace_pta.Enter += new System.EventHandler(this.bt_ace_pta_Click);
-            // 
             // bt_can_cel
             // 
             this.bt_can_cel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
@@ -145,11 +131,28 @@
             this.bt_can_cel.TabIndex = 1;
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
+            this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
+            // 
+            // bt_ace_pta
+            // 
+            this.bt_ace_pta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(43)))), ((int)(((byte)(76)))));
+            this.bt_ace_pta.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bt_ace_pta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_ace_pta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_ace_pta.Location = new System.Drawing.Point(109, 10);
+            this.bt_ace_pta.Name = "bt_ace_pta";
+            this.bt_ace_pta.Size = new System.Drawing.Size(75, 25);
+            this.bt_ace_pta.TabIndex = 2;
+            this.bt_ace_pta.Text = "&Aceptar";
+            this.bt_ace_pta.UseVisualStyleBackColor = false;
+            this.bt_ace_pta.Click += new System.EventHandler(this.bt_ace_pta_Click);
             // 
             // ads007_R01p
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(272, 132);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -179,7 +182,7 @@
         private System.Windows.Forms.RadioButton rb_ord_nom;
         private System.Windows.Forms.RadioButton rb_ord_cod;
         public System.Windows.Forms.GroupBox gb_ctr_btn;
-        private System.Windows.Forms.Button bt_ace_pta;
         private System.Windows.Forms.Button bt_can_cel;
+        private System.Windows.Forms.Button bt_ace_pta;
     }
 }

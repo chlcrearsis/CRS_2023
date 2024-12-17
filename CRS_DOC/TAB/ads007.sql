@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		06-11-2019
 */--**********************************************
 
-PRINT 'ads007 : Usuario'
+PRINT 'Crea la Tabla: ads007 - Usuario'
 CREATE TABLE ads007
 (
 	--** Llave Primaria

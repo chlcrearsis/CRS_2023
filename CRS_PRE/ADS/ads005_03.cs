@@ -22,6 +22,7 @@ namespace CRS_PRE
         ads004 o_ads004 = new ads004();
         ads005 o_ads005 = new ads005();
         ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads005_03()
@@ -228,11 +229,16 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de editar la informacion?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Edita Tipo de Atributo
-                    o_ads005.Fe_edi_tar(int.Parse(tb_ges_tio.Text), tb_ide_doc.Text, int.Parse(tb_nro_tal.Text),
-                                        tb_fec_ini.Text, tb_fec_fin.Text, int.Parse(tb_con_act.Text), int.Parse(tb_con_fin.Text));
-                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frm_pad.Fe_act_frm(int.Parse(tb_ges_tio.Text), tb_ide_doc.Text, int.Parse(tb_nro_tal.Text));
+                    // Edita Registro
+                    o_ads005.Fe_edi_tar(int.Parse(tb_ges_tio.Text.Trim()), tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()),
+                                        tb_fec_ini.Text.Trim(), tb_fec_fin.Text.Trim(), int.Parse(tb_con_act.Text.Trim()), int.Parse(tb_con_fin.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Numeración: " + tb_ges_tio.Text.Trim() + " - " + tb_ide_doc.Text.Trim() + " - " + tb_nro_tal.Text.Trim() + " - " + lb_nom_tal.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(int.Parse(tb_ges_tio.Text.Trim()), tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()));
+                    // Despliega Mensaje
+                    MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

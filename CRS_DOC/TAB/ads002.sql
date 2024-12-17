@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		21-08-2019
 */--**********************************************
 
-PRINT 'ads002 : Aplicaciones'
+PRINT 'Crea la Tabla: ads002 - Aplicaciones'
 CREATE TABLE ads002
 (
 	--** Llave Primaria

@@ -18,6 +18,7 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias 
         ads006 o_ads006 = new ads006();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads006_02()
@@ -69,13 +70,7 @@ namespace CRS_PRE
             if (tb_nom_tus.Text.Trim() == ""){
                 tb_nom_tus.Focus();
                 return "DEBE proporcionar el Nombre del Tipo de Usuario";
-            }
-
-            // Valida que el campo Nombre del Grupo Persona NO este vacio
-            if (tb_des_tus.Text.Trim() == ""){
-                tb_des_tus.Focus();
-                return "DEBE proporcionar la Descripción del Tipo de Usuario";
-            }
+            }            
 
             // Verifica SI existe otro registro con el mismo Código
             Tabla = new DataTable();
@@ -124,13 +119,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Graba registro
-                    o_ads006.Fe_nue_reg(int.Parse(tb_ide_tus.Text), tb_nom_tus.Text.Trim(), tb_des_tus.Text.Trim());
+                    // Graba Registro
+                    o_ads006.Fe_nue_reg(int.Parse(tb_ide_tus.Text.Trim()), tb_nom_tus.Text.Trim(), tb_des_tus.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Tipo de Usuario: " + tb_ide_tus.Text.Trim() + " - " + tb_nom_tus.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(int.Parse(tb_ide_tus.Text));
+                    frm_pad.Fe_act_frm(int.Parse(tb_ide_tus.Text.Trim()));
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
-                    // Inicializa Campos
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }

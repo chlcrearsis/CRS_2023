@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		21-10-2020
 */--**********************************************
 
-PRINT 'ads008 : Autorizaciones Usuario'
+PRINT 'Crea la Tabla: ads008 - Autorizaciones Usuario'
 CREATE TABLE ads008
 (
 	--** Llave Primaria

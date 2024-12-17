@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (CHL)
 FECHA:		21-08-2019
 */--**********************************************
 
-PRINT 'ads005 : Numerador de Talonario'
+PRINT 'Crea la Tabla: ads005 - Numerador de Talonario'
 CREATE TABLE ads005
 (
 	--** Llave Primaria

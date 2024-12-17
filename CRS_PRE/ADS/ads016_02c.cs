@@ -16,8 +16,9 @@ namespace CRS_PRE
     {
         public dynamic frm_pad;
         public int frm_tip;
-        //Instancias
+        // Instancias
         ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads016_02c()
@@ -62,20 +63,17 @@ namespace CRS_PRE
         protected string Fi_val_dat()
         {
             // Valida que se haya proporcionado una Gestión válida
-            if (!cl_glo_bal.IsNumeric(tb_nue_ges.Text))
-            {
+            if (!cl_glo_bal.IsNumeric(tb_nue_ges.Text)){
                 tb_nue_ges.Focus();
                 return "Proporcione la Gestión";
             }
             int ges_tio = int.Parse(tb_nue_ges.Text);
-            if (ges_tio < 1900 && ges_tio > 2900)
-            {
+            if (ges_tio < 1900 && ges_tio > 2900){
                 tb_nue_ges.Focus();
                 return "DEBE proporcionar una Gestión Valida";
             }
             // Valida que la Nueva Gestion sea mayor al ultima gestion
-            if (int.Parse(tb_ult_ges.Text) > int.Parse(tb_nue_ges.Text))
-            {
+            if (int.Parse(tb_ult_ges.Text) > int.Parse(tb_nue_ges.Text)){
                 tb_nue_ges.Focus();
                 return "La Nueva Gestión DEBE ser MAYOR a la última Gestión";
             }
@@ -83,8 +81,7 @@ namespace CRS_PRE
             // Verifica si ya existe una Gestión en el Sistema
             Tabla = new DataTable();
             Tabla = o_ads016.Fe_lis_ges();
-            if (Tabla.Rows.Count == 0)
-            {
+            if (Tabla.Rows.Count == 0){
                 tb_nue_ges.Focus();
                 return "NO puede usar esta Opción por que NO hay gestiones creadas, DEBE usar la opción: 'Crea Gestión Inicial'";
             }
@@ -92,11 +89,14 @@ namespace CRS_PRE
             // Verifica si la Gestión YA eta creada en el sistema
             Tabla = new DataTable();
             Tabla = o_ads016.Fe_con_ges(int.Parse(tb_nue_ges.Text));
-            if (Tabla.Rows.Count > 0)
-            {
+            if (Tabla.Rows.Count > 0){
                 tb_nue_ges.Focus();
                 return "La Gestión YA se encuentra creada";
             }
+
+            // Quita caracteres especiales de SQL-Trans            
+            tb_ult_ges.Text = tb_ult_ges.Text.Replace("'", "");
+            tb_nue_ges.Text = tb_nue_ges.Text.Replace("'", "");
 
             return "OK";
         }
@@ -122,9 +122,15 @@ namespace CRS_PRE
             msg_res = MessageBox.Show("¿Está seguro de preparar la Siguiente Gestión " + tb_nue_ges.Text + "?", Text, MessageBoxButtons.OKCancel);
             if (msg_res == DialogResult.OK)
             {
-                // Registrar usuario
+                // Graba Registro
                 o_ads016.Fe_sig_ges(int.Parse(tb_ult_ges.Text), int.Parse(tb_nue_ges.Text));
+                // Graba Bitacora de Operaciones
+                o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Gestión: " + tb_nue_ges.Text.Trim(), SystemInformation.ComputerName);
+                // Actualiza el Formulario Principal
+                frm_pad.fi_bus_car(int.Parse(tb_nue_ges.Text.Trim()), 1);
+                // Despliega Mensaje
                 MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                // Limpia Campos
                 frm_pad.fi_bus_car();
             }
         }

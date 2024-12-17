@@ -20,6 +20,7 @@ namespace CRS_PRE
         ads001 o_ads001 = new ads001();
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads004_R02p()
@@ -275,6 +276,7 @@ namespace CRS_PRE
             Fi_obt_doc(2, tb_doc_ini.Text.Trim());
         }
 
+        // Evento Click : Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
             // funcion para validar datos
@@ -296,6 +298,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads004.Fe_inf_R02(ide_mod, doc_ini, doc_fin);
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads004_R02w frm = new ads004_R02w{

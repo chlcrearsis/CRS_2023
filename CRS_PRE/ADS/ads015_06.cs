@@ -18,8 +18,9 @@ namespace CRS_PRE
         public int frm_tip;
         public DataTable frm_dat;
         // Instancias
-        ads015 o_ads015 = new ads015();
         ads002 o_ads002 = new ads002();
+        ads015 o_ads015 = new ads015();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads015_06()
@@ -98,8 +99,10 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de eliminar el registro?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Elimina el registro
+                    // Elimina Registro
                     o_ads015.Fe_eli_min(int.Parse(tb_ide_reg.Text));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Regional: " + tb_ide_reg.Text.Trim() + " - " + tb_nom_reg.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(int.Parse(tb_ide_reg.Text));
                     // Despliega Mensaje

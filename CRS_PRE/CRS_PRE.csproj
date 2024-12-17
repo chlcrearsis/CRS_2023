@@ -759,11 +759,29 @@
     <Compile Include="ADS\ads014_02.Designer.cs">
       <DependentUpon>ads014_02.cs</DependentUpon>
     </Compile>
+    <Compile Include="ADS\ads019_R01w.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads019_R01w.Designer.cs">
+      <DependentUpon>ads019_R01w.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADS\ads019_R01.cs">
+      <DependentUpon>ads019_R01.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ADS\ads016_R02.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ads016_R02.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ADS\ads019_R01p.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADS\ads019_R01p.Designer.cs">
+      <DependentUpon>ads019_R01p.cs</DependentUpon>
     </Compile>
     <Compile Include="ADS\ads023_R01w.cs">
       <SubType>Form</SubType>
@@ -3498,12 +3516,22 @@
     <EmbeddedResource Include="ADS\ads014_02.resx">
       <DependentUpon>ads014_02.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads019_R01w.resx">
+      <DependentUpon>ads019_R01w.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads019_R01.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ads019_R01.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads016_R02.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ads016_R02.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads016_R02w.resx">
       <DependentUpon>ads016_R02w.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADS\ads019_R01p.resx">
+      <DependentUpon>ads019_R01p.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADS\ads018_R01p.resx">
       <DependentUpon>ads018_R01p.cs</DependentUpon>

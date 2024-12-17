@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (JEJR)
 FECHA:		19-08-2022
 */--**********************************************
 
-PRINT 'ads012 : Restriccion Menú al Usuario'
+PRINT 'Crea la Tabla: ads012 - Restriccion Menú al Usuario'
 CREATE TABLE ads012
 (
 	--** Llave Primaria

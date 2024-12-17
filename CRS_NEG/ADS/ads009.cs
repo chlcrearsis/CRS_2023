@@ -2,10 +2,11 @@
 using System.Data;
 using System.Text;
 using CRS_DAT;
+
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads008_01                                           ##
+    //##       Tabla: ads009                                              ##
     //##      Nombre: Autorizaciones Tipo de Usuarios                     ##
     //## Descripcion: Permiso Usuarios sobre el sistema                   ##         
     //##       Autor: JEJR - (29-08-2023)                                 ##

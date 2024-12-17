@@ -1,12 +1,12 @@
-﻿using CRS_DAT;
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
+using CRS_DAT;
 
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads010                                              ##
+    //##       Tabla: ads012                                              ##
     //##      Nombre: Autorixación del Menú p/Usuario                     ##
     //## Descripcion: Autorixación del Menú p/Usuario                     ##         
     //##       Autor: EJER - (30-09-2023)                                 ##

@@ -70,7 +70,6 @@
             // tb_nom_tus
             // 
             this.tb_nom_tus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_nom_tus.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_nom_tus.Location = new System.Drawing.Point(137, 17);
             this.tb_nom_tus.MaxLength = 30;
             this.tb_nom_tus.Name = "tb_nom_tus";
@@ -167,8 +166,10 @@
             // 
             // ads006_03
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(344, 135);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

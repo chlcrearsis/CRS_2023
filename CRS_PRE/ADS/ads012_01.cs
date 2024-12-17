@@ -8,7 +8,7 @@ namespace CRS_PRE
 {
     /**********************************************************************/
     /*      Módulo: ADS - ADMINISTRACIÓN Y SEGURIDAD                      */
-    /*  Aplicación: ads012 - Autorixación del Menú p/Usuario              */
+    /*  Aplicación: ads012 - Autorización del Menú p/Usuario              */
     /* Descripción: Registra Autorización                                 */
     /*       Autor: JEJR - Crearsis             Fecha: 30-09-2023         */
     /**********************************************************************/
@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads007 o_ads007 = new ads007();
         ads012 o_ads012 = new ads012();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
         // Variables 
         bool vp_chk_reg = true;
@@ -324,6 +325,8 @@ namespace CRS_PRE
             {
                 // Graba Permisos del Menu al Usuario
                 fi_gra_hi1();
+                // Graba Bitacora de Operaciones
+                o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Usuario: " + tb_ide_usr.Text.Trim() + "-" + lb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
                 // Despliega Mensaje
                 MessageBox.Show("Operación completada exitosamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Cierra Formulario

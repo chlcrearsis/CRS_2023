@@ -5,7 +5,7 @@ AUTOR:		CREARSIS 3.0.0 (EJR)
 FECHA:		20-10-2023
 */--**********************************************
 
-PRINT 'ads011 : Definicion Claves'
+PRINT 'Crea la Tabla: ads011 - Definicion Claves'
 CREATE TABLE ads011 
 (
 	--** Llave Primaria

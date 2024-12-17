@@ -2,10 +2,11 @@
 using System.Data;
 using System.Text;
 using CRS_DAT;
+
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads025_01                                           ##
+    //##       Tabla: ads025                                              ##
     //##      Nombre: Validación Clave Usuario                            ##
     //## Descripcion: Registro de Validación Clave Usuario                ##         
     //##       Autor: JEJR - (13-01-2024)                                 ##

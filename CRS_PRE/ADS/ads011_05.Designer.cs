@@ -31,6 +31,7 @@
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_can_cel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_cla_req = new System.Windows.Forms.TextBox();
             this.lb_obs_cla = new System.Windows.Forms.Label();
             this.tb_obs_cla = new System.Windows.Forms.TextBox();
             this.lb_cla_req = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.tb_nom_cla = new System.Windows.Forms.TextBox();
             this.tb_ide_cla = new System.Windows.Forms.TextBox();
             this.tb_ide_mod = new System.Windows.Forms.TextBox();
-            this.tb_cla_req = new System.Windows.Forms.TextBox();
             this.gb_ctr_btn.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,18 @@
             this.groupBox1.Size = new System.Drawing.Size(361, 142);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // tb_cla_req
+            // 
+            this.tb_cla_req.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_cla_req.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_cla_req.Location = new System.Drawing.Point(75, 64);
+            this.tb_cla_req.MaxLength = 2;
+            this.tb_cla_req.Name = "tb_cla_req";
+            this.tb_cla_req.ReadOnly = true;
+            this.tb_cla_req.Size = new System.Drawing.Size(30, 20);
+            this.tb_cla_req.TabIndex = 7;
+            this.tb_cla_req.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_obs_cla
             // 
@@ -176,22 +188,11 @@
             this.tb_ide_mod.TabIndex = 1;
             this.tb_ide_mod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tb_cla_req
-            // 
-            this.tb_cla_req.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_cla_req.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_cla_req.Location = new System.Drawing.Point(75, 64);
-            this.tb_cla_req.MaxLength = 2;
-            this.tb_cla_req.Name = "tb_cla_req";
-            this.tb_cla_req.ReadOnly = true;
-            this.tb_cla_req.Size = new System.Drawing.Size(30, 20);
-            this.tb_cla_req.TabIndex = 7;
-            this.tb_cla_req.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ads011_05
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(367, 176);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

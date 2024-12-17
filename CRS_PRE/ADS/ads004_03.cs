@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads003 o_ads003 = new ads003();
         ads004 o_ads004 = new ads004();
+        ads019 o_ads019 = new ads019();
         ctb007 o_ctb007 = new ctb007();
         DataTable Tabla = new DataTable();
 
@@ -245,11 +246,16 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de editar la informacion?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK){
                     // Edita Registra
-                    o_ads004.Fe_edi_tar(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text), tb_nom_tal.Text, cb_tip_tal.SelectedIndex, int.Parse(tb_nro_aut.Text), 
-                                        int.Parse(tb_for_mat.Text), int.Parse(tb_nro_cop.Text), tb_fir_ma1.Text, tb_fir_ma2.Text, 
-                                        tb_fir_ma3.Text, tb_fir_ma4.Text, cb_for_log.SelectedIndex, tb_obs_uno.Text, tb_obs_dos.Text);
+                    o_ads004.Fe_edi_tar(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()), tb_nom_tal.Text.Trim(), cb_tip_tal.SelectedIndex, int.Parse(tb_nro_aut.Text.Trim()), 
+                                        int.Parse(tb_for_mat.Text.Trim()), int.Parse(tb_nro_cop.Text.Trim()), tb_fir_ma1.Text.Trim(), tb_fir_ma2.Text.Trim(), 
+                                        tb_fir_ma3.Text.Trim(), tb_fir_ma4.Text.Trim(), cb_for_log.SelectedIndex, tb_obs_uno.Text.Trim(), tb_obs_dos.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Talonario: " + tb_ide_doc.Text.Trim() + " - " + tb_nro_tal.Text.Trim() + " - " + tb_nom_tal.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(tb_ide_doc.Text.Trim(), int.Parse(tb_nro_tal.Text.Trim()));
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frm_pad.Fe_act_frm(tb_ide_doc.Text, int.Parse(tb_nro_tal.Text));
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

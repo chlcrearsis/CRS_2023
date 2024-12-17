@@ -16,8 +16,9 @@ namespace CRS_PRE
     {
         public dynamic frm_pad;
         public int frm_tip;
-        //Instancias
+        // Instancias
         ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads016_02b()
@@ -68,6 +69,9 @@ namespace CRS_PRE
                 return "NO puede usar esta Opción por que ya hay gestiones creadas, DEBE usar la opción: 'Prepara Siguiente Gestion'";
             }
 
+            // Quita caracteres especiales de SQL-Trans            
+            tb_ges_tio.Text = tb_ges_tio.Text.Replace("'", "");
+
             return "OK";
         }
 
@@ -92,10 +96,16 @@ namespace CRS_PRE
             msg_res = MessageBox.Show("Esta seguro de Crear la Gestión?", "Nueva Gestión", MessageBoxButtons.OKCancel);
             if (msg_res == DialogResult.OK)
             {
-                // Registra
+                // Graba Registro
                 o_ads016.Fe_nue_ges(int.Parse(tb_ges_tio.Text), cb_ges_per.SelectedIndex + 1);
+                // Graba Bitacora de Operaciones
+                o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Periodo: " + tb_ges_tio.Text.Trim() + " - " + cb_ges_per.Text.Trim(), SystemInformation.ComputerName);
+                // Actualiza el Formulario Principal
+                frm_pad.fi_bus_car(int.Parse(tb_ges_tio.Text.Trim()), cb_ges_per.SelectedIndex + 1);
+                // Despliega Mensaje
                 MessageBox.Show("Los datos se grabaron correctamente", "Nueva Gestión", MessageBoxButtons.OK);
-                frm_pad.fi_bus_car(0);
+                // Cierra Formulario
+                cl_glo_frm.Cerrar(this);
             }
         }
 

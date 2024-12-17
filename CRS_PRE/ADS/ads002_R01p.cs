@@ -19,6 +19,7 @@ namespace CRS_PRE
         // Instancias
         ads001 o_ads001 = new ads001();
         ads002 o_ads002 = new ads002();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads002_R01p()
@@ -63,19 +64,19 @@ namespace CRS_PRE
         {
             try
             {
-                /* Verificar el Módulo Inicial sea distinto a vacio */
+                // Verificar el Módulo Inicial sea distinto a vacio
                 if (tb_mod_ini.Text.Trim().CompareTo("") == 0){
                     tb_mod_ini.Focus();
                     return "DEBE proporcionar el Módulo Inicial";
                 }
 
-                /* Verifica que el ID. Módulo Inicial sea numerico */
+                // Verifica que el ID. Módulo Inicial sea numerico
                 if (!cl_glo_bal.IsNumeric(tb_mod_ini.Text.Trim())){
                     tb_mod_ini.Focus();
                     return "El ID. Módulo Inicial DEBE ser Numerico";
                 }
 
-                /* Valida que el modulo Inicial este registrada */
+                // Valida que el modulo Inicial este registrada
                 if (tb_mod_ini.Text.Trim().CompareTo("0") != 0){
                     Tabla = new DataTable();
                     Tabla = o_ads001.Fe_con_mod(int.Parse(tb_mod_ini.Text));
@@ -85,19 +86,19 @@ namespace CRS_PRE
                     }
                 }
 
-                /* Verificar el Módulo Final sea distinto a vacio */
+                // Verificar el Módulo Final sea distinto a vacio
                 if (tb_mod_fin.Text.Trim().CompareTo("") == 0){
                     tb_mod_fin.Focus();
                     return "DEBE proporcionar el Módulo Final";
                 }
 
-                /* Verifica que el ID. Módulo Final sea numerico */
+                // Verifica que el ID. Módulo Final sea numerico
                 if (!cl_glo_bal.IsNumeric(tb_mod_fin.Text.Trim())){
                     tb_mod_fin.Focus();
                     return "El ID. Módulo Final DEBE ser Numerico";
                 }
 
-                /* Valida que el modulo Final este registrada */
+                // Valida que el modulo Final este registrada
                 if (tb_mod_fin.Text.Trim().CompareTo("0") != 0){
                     Tabla = new DataTable();
                     Tabla = o_ads001.Fe_con_mod(int.Parse(tb_mod_fin.Text));
@@ -107,7 +108,7 @@ namespace CRS_PRE
                     }
                 }
 
-                /* Valida que el Módulo Inicial sea MENOR que el Módulo Final */
+                // Valida que el Módulo Inicial sea MENOR que el Módulo Final
                 if (int.Parse(tb_mod_ini.Text) > int.Parse(tb_mod_fin.Text)) {
                     tb_mod_ini.Focus();
                     return "El Módulo Inicial DEBE ser menor al Módulo Final";
@@ -241,6 +242,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads002.Fe_inf_R01(est_ado, mod_ini, mod_fin);
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads002_R01w frm = new ads002_R01w{

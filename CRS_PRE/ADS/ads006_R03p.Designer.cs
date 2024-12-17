@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_ide_tus = new System.Windows.Forms.TextBox();
             this.lb_nom_tus = new System.Windows.Forms.Label();
             this.lb_ide_tus = new System.Windows.Forms.Label();
-            this.tb_ide_tus = new System.Windows.Forms.TextBox();
             this.lb_nmo_fin = new System.Windows.Forms.Label();
             this.lb_nmo_ini = new System.Windows.Forms.Label();
             this.lb_mod_fin = new System.Windows.Forms.Label();
@@ -66,6 +66,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // tb_ide_tus
+            // 
+            this.tb_ide_tus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_ide_tus.Location = new System.Drawing.Point(87, 16);
+            this.tb_ide_tus.Name = "tb_ide_tus";
+            this.tb_ide_tus.ReadOnly = true;
+            this.tb_ide_tus.Size = new System.Drawing.Size(37, 20);
+            this.tb_ide_tus.TabIndex = 1;
+            this.tb_ide_tus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lb_nom_tus
             // 
             this.lb_nom_tus.AutoSize = true;
@@ -83,16 +93,6 @@
             this.lb_ide_tus.Size = new System.Drawing.Size(82, 13);
             this.lb_ide_tus.TabIndex = 0;
             this.lb_ide_tus.Text = "Tipo de Usuario";
-            // 
-            // tb_ide_tus
-            // 
-            this.tb_ide_tus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_ide_tus.Location = new System.Drawing.Point(87, 16);
-            this.tb_ide_tus.Name = "tb_ide_tus";
-            this.tb_ide_tus.ReadOnly = true;
-            this.tb_ide_tus.Size = new System.Drawing.Size(37, 20);
-            this.tb_ide_tus.TabIndex = 1;
-            this.tb_ide_tus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_nmo_fin
             // 
@@ -225,8 +225,10 @@
             // 
             // ads006_R03p
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(337, 131);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

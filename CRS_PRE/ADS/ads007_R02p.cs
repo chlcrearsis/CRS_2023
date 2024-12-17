@@ -14,20 +14,18 @@ namespace CRS_PRE
     /**********************************************************************/
     public partial class ads007_R02p : Form
     {
-
         public dynamic frm_pad;
         public int frm_tip;
-        // Instancia
-        private DataTable Tabla;
-        private ads006 o_ads006 = new ads006();
-        private ads007 o_ads007 = new ads007();
-
+        // Instancia        
+        ads006 o_ads006 = new ads006();
+        ads007 o_ads007 = new ads007();
+        ads019 o_ads019 = new ads019();
+        DataTable Tabla = new DataTable();
 
         public ads007_R02p()
         {
             InitializeComponent();
         }
-
       
         private void frm_Load(object sender, EventArgs e)
         {
@@ -100,15 +98,12 @@ namespace CRS_PRE
             // Obtiene y Desplega datos del Tipo de Usuario
             Tabla = new DataTable();
             Tabla = o_ads006.Fe_con_tus(ide_tus);
-            if (Tabla.Rows.Count == 0)
-            {
+            if (Tabla.Rows.Count == 0){
                 if (ini_fin == 1)
                     lb_ntu_ini.Text = "...";
                 else
                     lb_ntu_fin.Text = "...";
-            }
-            else
-            {
+            }else{
                 if (ini_fin == 1)
                     lb_ntu_ini.Text = Tabla.Rows[0]["va_nom_tus"].ToString();
                 else
@@ -127,13 +122,10 @@ namespace CRS_PRE
 
             if (frm.DialogResult == DialogResult.OK)
             {
-                if (ini_fin == 1)
-                {
+                if (ini_fin == 1){
                     tb_tus_ini.Text = frm.tb_ide_tus.Text;
                     Fi_obt_tus(1, int.Parse(tb_tus_ini.Text));
-                }
-                else
-                {
+                }else{
                     tb_tus_fin.Text = frm.tb_ide_tus.Text;
                     Fi_obt_tus(2, int.Parse(tb_tus_fin.Text));
                 }
@@ -233,6 +225,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads007.Fe_inf_R01(est_ado, ord_dat);
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads007_R02w frm = new ads007_R02w{

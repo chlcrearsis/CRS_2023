@@ -16,8 +16,9 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancia
-        private DataTable Tabla;
-        private ads016 o_ads016 = new ads016();
+        ads016 o_ads016 = new ads016();
+        ads019 o_ads019 = new ads019();
+        DataTable Tabla = new DataTable();
 
         public ads016_R02p()
         {
@@ -51,7 +52,7 @@ namespace CRS_PRE
             // funcion para validar datos
             string pri_ges = "";    // Primera Gestion
             string ult_ges = "";    // Ultima Gestion
-            string ges_tio = "";    // Ultima Gestion
+            string ges_tio;         // Ultima Gestion
             string msg_val = Fi_val_dat();
             if (msg_val != "OK")
             {
@@ -79,6 +80,9 @@ namespace CRS_PRE
             // Obtiene Datos
             Tabla = new DataTable();
             Tabla = o_ads016.Fe_inf_R02();
+
+            // Graba Bitacora de Operaciones
+            o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "I", "", SystemInformation.ComputerName);
 
             // Genera el Informe
             ads016_R02w frm = new ads016_R02w{

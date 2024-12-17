@@ -18,6 +18,7 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias 
         ads010 o_ads010 = new ads010();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads010_02()
@@ -97,13 +98,15 @@ namespace CRS_PRE
                     if (cb_ide_tab.SelectedIndex == 1)
                         ide_tab = "inv004";
 
-                    // Graba el registro en la BD.
-                    o_ads010.Fe_nue_reg(tb_ide_tip.Text, tb_nom_tip.Text, ide_tab);
+                    // Graba Registro
+                    o_ads010.Fe_nue_reg(tb_ide_tip.Text.Trim(), tb_nom_tip.Text.Trim(), ide_tab);
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Tipo Imagen: " + tb_ide_tip.Text.Trim() + " - " + tb_nom_tip.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
-                    frm_pad.Fe_act_frm(tb_ide_tip.Text);
+                    frm_pad.Fe_act_frm(tb_ide_tip.Text.Trim());
                     // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
-                    // Inicializa Campos
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }

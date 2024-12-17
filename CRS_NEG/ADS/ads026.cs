@@ -4,19 +4,14 @@ using CRS_DAT;
 
 namespace CRS_NEG
 {
-    /// <summary>
-    ///  ◘◘◘◘◘◘◘◘◘◘◘◘◘◘
-    ///  Clase BITACORA P/DOCUMENTO
-    ///  ◘◘◘◘◘◘◘◘◘◘◘◘◘◘
-    /// </summary>
+    //######################################################################
+    //##       Tabla: ads026                                              ##
+    //##      Nombre: BITACORA P/DOCUMENTO                                ##
+    //## Descripcion: Informe Bitacora p/Documento                        ##         
+    //##       Autor: JEJR  - (22-09-2021)                                ##
+    //######################################################################
     public class ads026
-    {
-        //######################################################################
-        //##       Tabla: ads026                                              ##
-        //##      Nombre: BITACORA P/DOCUMENTO                                ##
-        //## Descripcion: Informe Bitacora p/Documento                        ##         
-        //##       Autor: JEJR  - (22-09-2021)                                ##
-        //######################################################################
+    {        
         conexion_a ob_con_ecA = new conexion_a();
         StringBuilder cadena;
 

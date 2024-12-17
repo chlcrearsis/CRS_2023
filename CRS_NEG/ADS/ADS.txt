@@ -28,7 +28,7 @@ ads019 = Bitacora de Operaciones                                  EJR
 ads020 = Bitacora de Documentos                                   EJR
 ads022 = Tasa de cambio Bs/Us									  EJR (OK) (R)
 ads023 = Tasa de cambio Bs/Ufv									  EJR (OK) (R)
-ads025 = Validación Clave Usuario                                 EJR
+ads025 = Validación Clave Usuario                                 EJR (OK)
 ads100 = Licencias					            				  EJR (OK)
 
 

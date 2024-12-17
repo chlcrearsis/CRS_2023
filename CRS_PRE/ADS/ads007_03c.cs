@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads007 o_ads007 = new ads007();
         ads013 o_ads013 = new ads013();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads007_03c()
@@ -35,6 +36,8 @@ namespace CRS_PRE
             // Despliega Informacion del Usuario
             tb_ide_usr.Text = frm_dat.Rows[0]["va_ide_usr"].ToString();
             tb_nom_usr.Text = frm_dat.Rows[0]["va_nom_usr"].ToString();
+            tb_car_usr.Text = frm_dat.Rows[0]["va_car_usr"].ToString();
+            tb_nom_tus.Text = frm_dat.Rows[0]["va_nom_tus"].ToString();
 
             // Despliega la Contraseña por Defecto
             Tabla = new DataTable();
@@ -92,8 +95,10 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de Inicializar la Contraseña del Usuario?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Edita el registro
-                    o_ads007.Fe_ini_con(tb_ide_usr.Text.Trim());
+                    // Edita Registro
+                    o_ads007.Fe_ini_con(tb_ide_usr.Text.Trim());                    
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + tb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_usr.Text.Trim());
                     // Despliega Mensaje

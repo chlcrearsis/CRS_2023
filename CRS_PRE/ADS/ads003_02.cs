@@ -18,7 +18,8 @@ namespace CRS_PRE
         public int frm_tip;
         // Instancias
         ads001 o_ads001 = new ads001();
-        ads003 o_ads003 = new ads003();        
+        ads003 o_ads003 = new ads003(); 
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads003_02()
@@ -159,6 +160,7 @@ namespace CRS_PRE
             }
         }
 
+        // Evento Leave: Nombre Documento
         private void tb_nom_doc_Leave(object sender, EventArgs e)
         {
             if (tb_nom_doc.Text.Trim().CompareTo("") != 0 &&
@@ -167,9 +169,9 @@ namespace CRS_PRE
             }
         }
 
+        // Evento Click: Busca Modulo
         private void bt_bus_mod_Click(object sender, EventArgs e)
         {
-            // Abre la ventana Busca Modulo
             Fi_bus_mod();
         }
 
@@ -190,10 +192,15 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Esta seguro de registrar la informacion?", Text, MessageBoxButtons.OKCancel);
                 if (msg_res == DialogResult.OK)
                 {
-                    //Registrar 
+                    // Graba Registro
                     o_ads003.Fe_nue_reg(int.Parse(tb_ide_mod.Text), tb_ide_doc.Text.Trim(), tb_nom_doc.Text.Trim(), tb_des_doc.Text.Trim());
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "N", "Documento: " + tb_ide_doc.Text.Trim() + " - " + tb_nom_doc.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_doc.Text.Trim());
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK);
+                    // Limpia Campos
                     Fi_lim_pia();
                 }
             }
@@ -207,8 +214,6 @@ namespace CRS_PRE
         private void bt_can_cel_Click(object sender, EventArgs e)
         {
             cl_glo_frm.Cerrar(this);
-        }
-
-        
+        }        
     }
 }

@@ -157,10 +157,12 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
-            // ads016_02
+            // ads016_02b
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(292, 167);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
@@ -168,7 +170,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ads016_02";
+            this.Name = "ads016_02b";
             this.Tag = "Crea Gestión Inicial";
             this.Text = "Crea Gestión Inicial";
             this.Load += new System.EventHandler(this.frm_Load);

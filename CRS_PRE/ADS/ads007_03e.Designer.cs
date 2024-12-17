@@ -43,6 +43,10 @@
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
+            this.tb_nom_tus = new System.Windows.Forms.TextBox();
+            this.lb_nom_tus = new System.Windows.Forms.Label();
+            this.lb_car_usr = new System.Windows.Forms.Label();
+            this.tb_car_usr = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.gb_tip_usr.SuspendLayout();
             this.gb_ctr_btn.SuspendLayout();
@@ -50,6 +54,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_nom_tus);
+            this.groupBox1.Controls.Add(this.lb_nom_tus);
+            this.groupBox1.Controls.Add(this.lb_car_usr);
+            this.groupBox1.Controls.Add(this.tb_car_usr);
             this.groupBox1.Controls.Add(this.tb_nom_usr);
             this.groupBox1.Controls.Add(this.lb_nom_usr);
             this.groupBox1.Controls.Add(this.lb_ide_usr);
@@ -61,7 +69,7 @@
             this.groupBox1.Controls.Add(this.tb_est_ado);
             this.groupBox1.Location = new System.Drawing.Point(3, -4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 185);
+            this.groupBox1.Size = new System.Drawing.Size(343, 219);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -128,7 +136,7 @@
             // lb_est_ado
             // 
             this.lb_est_ado.AutoSize = true;
-            this.lb_est_ado.Location = new System.Drawing.Point(193, 133);
+            this.lb_est_ado.Location = new System.Drawing.Point(197, 133);
             this.lb_est_ado.Name = "lb_est_ado";
             this.lb_est_ado.Size = new System.Drawing.Size(40, 13);
             this.lb_est_ado.TabIndex = 5;
@@ -168,11 +176,11 @@
             // tb_est_ado
             // 
             this.tb_est_ado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_est_ado.Location = new System.Drawing.Point(234, 129);
+            this.tb_est_ado.Location = new System.Drawing.Point(239, 129);
             this.tb_est_ado.MaxLength = 15;
             this.tb_est_ado.Name = "tb_est_ado";
             this.tb_est_ado.ReadOnly = true;
-            this.tb_est_ado.Size = new System.Drawing.Size(100, 20);
+            this.tb_est_ado.Size = new System.Drawing.Size(95, 20);
             this.tb_est_ado.TabIndex = 6;
             this.tb_est_ado.TabStop = false;
             this.tb_est_ado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -182,7 +190,7 @@
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
             this.gb_ctr_btn.Controls.Add(this.bt_can_cel);
             this.gb_ctr_btn.Enabled = false;
-            this.gb_ctr_btn.Location = new System.Drawing.Point(3, 176);
+            this.gb_ctr_btn.Location = new System.Drawing.Point(3, 209);
             this.gb_ctr_btn.Name = "gb_ctr_btn";
             this.gb_ctr_btn.Size = new System.Drawing.Size(343, 40);
             this.gb_ctr_btn.TabIndex = 1;
@@ -216,11 +224,53 @@
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
             // 
+            // tb_nom_tus
+            // 
+            this.tb_nom_tus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_nom_tus.Location = new System.Drawing.Point(239, 180);
+            this.tb_nom_tus.MaxLength = 15;
+            this.tb_nom_tus.Name = "tb_nom_tus";
+            this.tb_nom_tus.ReadOnly = true;
+            this.tb_nom_tus.Size = new System.Drawing.Size(95, 20);
+            this.tb_nom_tus.TabIndex = 16;
+            this.tb_nom_tus.TabStop = false;
+            this.tb_nom_tus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb_nom_tus
+            // 
+            this.lb_nom_tus.AutoSize = true;
+            this.lb_nom_tus.Location = new System.Drawing.Point(155, 183);
+            this.lb_nom_tus.Name = "lb_nom_tus";
+            this.lb_nom_tus.Size = new System.Drawing.Size(82, 13);
+            this.lb_nom_tus.TabIndex = 15;
+            this.lb_nom_tus.Text = "Tipo de Usuario";
+            // 
+            // lb_car_usr
+            // 
+            this.lb_car_usr.AutoSize = true;
+            this.lb_car_usr.Location = new System.Drawing.Point(17, 183);
+            this.lb_car_usr.Name = "lb_car_usr";
+            this.lb_car_usr.Size = new System.Drawing.Size(35, 13);
+            this.lb_car_usr.TabIndex = 13;
+            this.lb_car_usr.Text = "Cargo";
+            // 
+            // tb_car_usr
+            // 
+            this.tb_car_usr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_car_usr.Location = new System.Drawing.Point(54, 179);
+            this.tb_car_usr.MaxLength = 15;
+            this.tb_car_usr.Name = "tb_car_usr";
+            this.tb_car_usr.ReadOnly = true;
+            this.tb_car_usr.Size = new System.Drawing.Size(94, 20);
+            this.tb_car_usr.TabIndex = 14;
+            // 
             // ads007_03e
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 218);
+            this.CancelButton = this.bt_can_cel;
+            this.ClientSize = new System.Drawing.Size(349, 251);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_ctr_btn);
@@ -257,5 +307,9 @@
         public System.Windows.Forms.GroupBox gb_ctr_btn;
         private System.Windows.Forms.Button bt_ace_pta;
         private System.Windows.Forms.Button bt_can_cel;
+        private System.Windows.Forms.TextBox tb_nom_tus;
+        private System.Windows.Forms.Label lb_nom_tus;
+        private System.Windows.Forms.Label lb_car_usr;
+        private System.Windows.Forms.TextBox tb_car_usr;
     }
 }

@@ -6,7 +6,7 @@ using CRS_DAT;
 namespace CRS_NEG
 {
     //######################################################################
-    //##       Tabla: ads004                                              ##
+    //##       Tabla: ads016                                              ##
     //##      Nombre: Gestión Periodo                                     ##
     //## Descripcion: Gestión Periodo                                     ##         
     //##       Autor: CHL  - (26-03-2020)                                 ##

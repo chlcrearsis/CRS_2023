@@ -20,6 +20,7 @@ namespace CRS_PRE
         // Instancias
         ads006 o_ads006 = new ads006();
         ads007 o_ads007 = new ads007();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads006_06()
@@ -99,9 +100,14 @@ namespace CRS_PRE
                 if (msg_res == DialogResult.OK)
                 {
                     // Elimina registro
-                    o_ads006.Fe_eli_min(int.Parse(tb_ide_tus.Text));
+                    o_ads006.Fe_eli_min(int.Parse(tb_ide_tus.Text.Trim()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "L", "Tipo de Usuario: " + tb_ide_tus.Text.Trim() + " - " + tb_nom_tus.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
+                    frm_pad.Fe_act_frm(int.Parse(tb_ide_tus.Text.Trim()));
+                    // Despliega Mensaje
                     MessageBox.Show("Los datos se grabaron correctamente", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frm_pad.Fe_act_frm(int.Parse(tb_ide_tus.Text));
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }

@@ -21,6 +21,7 @@ namespace CRS_PRE
         ads006 o_ads006 = new ads006();
         ads007 o_ads007 = new ads007();
         adp002 o_adp002 = new adp002();
+        ads019 o_ads019 = new ads019();
         DataTable Tabla = new DataTable();
 
         public ads007_03()
@@ -227,11 +228,11 @@ namespace CRS_PRE
                 msg_res = MessageBox.Show("Está seguro de editar la informacion?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {
-                    // Edita el registro
-                    o_ads007.Fe_edi_tar(tb_ide_usr.Text.Trim(), tb_nom_usr.Text.Trim(), tb_tel_usr.Text.Trim(),
-                                        tb_car_usr.Text.Trim(), tb_dir_tra.Text.Trim(), tb_ema_usr.Text.Trim(),
-                                        int.Parse(tb_ven_max.Text.Trim()), int.Parse(tb_ide_per.Text.Trim()),
-                                        int.Parse(cb_tip_usr.SelectedValue.ToString()));
+                    // Edita Registro
+                    o_ads007.Fe_edi_tar(tb_ide_usr.Text.Trim(), tb_nom_usr.Text.Trim(), tb_tel_usr.Text.Trim(), tb_car_usr.Text.Trim(), tb_dir_tra.Text.Trim(), 
+                        tb_ema_usr.Text.Trim(), int.Parse(tb_ven_max.Text.Trim()), int.Parse(tb_ide_per.Text.Trim()), int.Parse(cb_tip_usr.SelectedValue.ToString()));
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "E", "Usuario: " + tb_ide_usr.Text.Trim() + " - " + tb_nom_usr.Text.Trim(), SystemInformation.ComputerName);
                     // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm(tb_ide_usr.Text.Trim());
                     // Despliega Mensaje

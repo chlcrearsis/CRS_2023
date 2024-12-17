@@ -149,8 +149,10 @@
             // 
             // ads015_R01p
             // 
+            this.AcceptButton = this.bt_ace_pta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bt_can_cel;
             this.ClientSize = new System.Drawing.Size(272, 132);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);

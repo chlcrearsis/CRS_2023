@@ -18,8 +18,9 @@ namespace CRS_PRE
         public dynamic frm_pad;
         public int frm_tip;
         // Instancia
-        private ads022 o_ads022 = new ads022();
-        private General general = new General();
+        ads019 o_ads019 = new ads019();
+        ads022 o_ads022 = new ads022();        
+        DataTable Tabla = new DataTable();
 
         public ads022_09()
         {
@@ -91,14 +92,7 @@ namespace CRS_PRE
                 // Lectura el archivo excel
                 XLWorkbook arc_exc = new XLWorkbook(tb_dir_arc.Text.Trim());
                 // Lectura la Hoja de Trabajo del archivo
-                var hoj_tra = arc_exc.Worksheet(1);
-                // Crea un DataTable para almacenar los datos
-                DataTable mTabla = new DataTable();
-                // Agrega las columnas al DataTable
-                mTabla.Columns.Add("va_nro_reg");
-                mTabla.Columns.Add("va_fec_tas");
-                mTabla.Columns.Add("va_tas_cam");
-                mTabla.Columns.Add("va_obs_reg");
+                var hoj_tra = arc_exc.Worksheet(1);                
                 // Recorre las Filas de la Hoja de Trabajo
                 int nro_fil = 0;
                 int con_err = 0;
@@ -120,10 +114,8 @@ namespace CRS_PRE
                         if (obs_reg.CompareTo("OK") == 0 &&
                             !cl_glo_bal.IsDateTime(fec_tas.Substring(0, 10)))
                             obs_reg = "La Fecha NO es válida";
-                        if (obs_reg.CompareTo("OK") == 0)
-                        {
-                            fec_tas = fec_tas.Substring(0, 10);
-                        }
+                        if (obs_reg.CompareTo("OK") == 0)                        
+                            fec_tas = fec_tas.Substring(0, 10);                        
 
                         // Realiza validaciones de la T.C
                         if (obs_reg.CompareTo("OK") == 0 &&
@@ -139,13 +131,10 @@ namespace CRS_PRE
                             double.Parse(tas_cam) > 100)
                             obs_reg = "La T.C DEBE ser MENOR a cien";
 
-                        if (obs_reg.CompareTo("OK") == 0)
-                        {
+                        if (obs_reg.CompareTo("OK") == 0){
                             sin_err++;
                             tas_cam = string.Format("{0:#,##0.0000}", tas_cam);
-                        }
-                        else
-                        {
+                        }else{
                             con_err++;
                         }
 
@@ -157,15 +146,12 @@ namespace CRS_PRE
                         dg_res_ult.Rows[nro_fil - 1].Cells["va_obs_reg"].Value = obs_reg;
 
                         // Establece el color del Texto
-                        if (obs_reg.CompareTo("OK") == 0)
-                        {
+                        if (obs_reg.CompareTo("OK") == 0){
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_nro_reg"].Style.ForeColor = Color.Black;
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_fec_tas"].Style.ForeColor = Color.Black;
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_tas_cam"].Style.ForeColor = Color.Black;
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_obs_reg"].Style.ForeColor = Color.Black;
-                        }
-                        else
-                        {
+                        }else{
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_nro_reg"].Style.ForeColor = Color.Red;
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_fec_tas"].Style.ForeColor = Color.Red;
                             dg_res_ult.Rows[nro_fil - 1].Cells["va_tas_cam"].Style.ForeColor = Color.Red;
@@ -185,7 +171,6 @@ namespace CRS_PRE
             }
         }
 
-
         // Evento Click: Button Aceptar
         private void bt_ace_pta_Click(object sender, EventArgs e)
         {
@@ -199,23 +184,25 @@ namespace CRS_PRE
                     MessageBox.Show(msg_val, "Error", MessageBoxButtons.OK);
                     return;
                 }
-                /* Despliega Mensaje de Confirmación */
+                // Despliega Mensaje de Confirmación
                 msg_res = MessageBox.Show("Esta seguro de editar la informacion?", Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (msg_res == DialogResult.OK)
                 {                    
-                    /* Recorre los Item del DataGridView */
+                    // Recorre los Item del DataGridView
                     for (int i = 0; i < dg_res_ult.RowCount; i++)
-                    {   /* Obtiene Datos */
+                    {   // Obtiene Datos
                         string fec_tas = dg_res_ult.Rows[i].Cells["va_fec_tas"].Value.ToString();
                         string tas_cam = dg_res_ult.Rows[i].Cells["va_tas_cam"].Value.ToString();
-                        /* Importa Registro */
+                        // Importa Registro
                         o_ads022.Fe_imp_tas(fec_tas, double.Parse(tas_cam));                        
                     }
-                    /* Actualiza el Formulario Principal */
+                    // Graba Bitacora de Operaciones
+                    o_ads019.Fe_nue_reg(cl_glo_bal.glo_ide_usr, 1, Name, Text, "M", "Archivo: " + tb_dir_arc.Text.Trim(), SystemInformation.ComputerName);
+                    // Actualiza el Formulario Principal
                     frm_pad.Fe_act_frm();
-                    /* Despliega Mensaje */
+                    // Despliega Mensaje
                     MessageBox.Show("Se ha importado " + tb_tot_reg.Text + ", registros exitosamente", Text, MessageBoxButtons.OK);
-                    /* Cierra Formulario */
+                    // Cierra Formulario
                     cl_glo_frm.Cerrar(this);
                 }
             }
