@@ -1,5 +1,5 @@
 **********************************************************************
-****                    TABLAS DEL SISTEMA                        ****
+****        CREARSIS :  TABLAS DEL SISTEMA                        ****
 ****  INDENTIFICADOR :  ADS                                       ****
 ****          MODULO :  ADMINISTRACIÓN Y SEGURIDAD                ****
 **********************************************************************

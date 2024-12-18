@@ -83,8 +83,10 @@ namespace CRS_PRE
                 }
                 tb_ide_mod.Text = Tabla.Rows[0]["va_ide_mod"].ToString();
                 lb_nom_mod.Text = Tabla.Rows[0]["va_nom_mod"].ToString();
-            }else if (gb_ctr_btn.Enabled == true) { 
+            }else if (gb_ctr_btn.Enabled == true) {
                 bt_ace_pta.Enabled = false;
+                tb_ide_mod.Text = string.Empty;
+                lb_nom_mod.Text = string.Empty;
             }
             tb_tex_bus.Focus();
         }

@@ -48,7 +48,7 @@ namespace CRS_PRE
             if (vp_ord_dat.CompareTo("N") == 0)
                 vp_ord_dat = "Nombre";
 
-            // Obtener nombre de la empresa
+            // Obtener nombre de la empresaE.JUSTINIANO
             Tabla = o_ads013.Fe_obt_glo(1, 1);
             va_nom_emp = Tabla.Rows[0]["va_glo_car"].ToString().Trim();
             // Logueo Manual el ReportDocument asociado al Crystal Report
@@ -60,7 +60,7 @@ namespace CRS_PRE
             ads007_R02.SetParameterValue("vc_tus_ini", vp_tus_ini);
             ads007_R02.SetParameterValue("vc_tus_fin", vp_tus_fin);
             ads007_R02.SetParameterValue("vc_est_ado", vp_est_ado);
-            ads007_R02.SetParameterValue("vc_ord_dat", vp_ord_dat);
+            //ads007_R02.SetParameterValue("vc_ord_dat", vp_ord_dat);
             ads007_R02.SetParameterValue("vc_ide_usr", Program.gl_ide_usr);
         }
 

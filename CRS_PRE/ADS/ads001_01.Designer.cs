@@ -50,14 +50,14 @@
             this.tb_ide_mod = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
-            this.va_ide_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_nom_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_abr_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.va_est_ado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
             this.bt_tod_mod = new System.Windows.Forms.Button();
             this.bt_ace_pta = new System.Windows.Forms.Button();
             this.bt_can_cel = new System.Windows.Forms.Button();
+            this.va_ide_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_nom_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_abr_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.va_est_ado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.m_frm_hja.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -298,33 +298,6 @@
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
             this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
-            // va_ide_mod
-            // 
-            this.va_ide_mod.HeaderText = "ID.";
-            this.va_ide_mod.Name = "va_ide_mod";
-            this.va_ide_mod.ReadOnly = true;
-            this.va_ide_mod.Width = 40;
-            // 
-            // va_nom_mod
-            // 
-            this.va_nom_mod.HeaderText = "Módulo";
-            this.va_nom_mod.Name = "va_nom_mod";
-            this.va_nom_mod.ReadOnly = true;
-            this.va_nom_mod.Width = 250;
-            // 
-            // va_abr_mod
-            // 
-            this.va_abr_mod.HeaderText = "Nemónico";
-            this.va_abr_mod.Name = "va_abr_mod";
-            this.va_abr_mod.ReadOnly = true;
-            this.va_abr_mod.Width = 70;
-            // 
-            // va_est_ado
-            // 
-            this.va_est_ado.HeaderText = "Estado";
-            this.va_est_ado.Name = "va_est_ado";
-            this.va_est_ado.ReadOnly = true;
-            // 
             // gb_ctr_btn
             // 
             this.gb_ctr_btn.Controls.Add(this.bt_tod_mod);
@@ -379,6 +352,33 @@
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
+            // 
+            // va_ide_mod
+            // 
+            this.va_ide_mod.HeaderText = "Cód.";
+            this.va_ide_mod.Name = "va_ide_mod";
+            this.va_ide_mod.ReadOnly = true;
+            this.va_ide_mod.Width = 40;
+            // 
+            // va_nom_mod
+            // 
+            this.va_nom_mod.HeaderText = "Módulo";
+            this.va_nom_mod.Name = "va_nom_mod";
+            this.va_nom_mod.ReadOnly = true;
+            this.va_nom_mod.Width = 250;
+            // 
+            // va_abr_mod
+            // 
+            this.va_abr_mod.HeaderText = "Nemónico";
+            this.va_abr_mod.Name = "va_abr_mod";
+            this.va_abr_mod.ReadOnly = true;
+            this.va_abr_mod.Width = 70;
+            // 
+            // va_est_ado
+            // 
+            this.va_est_ado.HeaderText = "Estado";
+            this.va_est_ado.Name = "va_est_ado";
+            this.va_est_ado.ReadOnly = true;
             // 
             // ads001_01
             // 
@@ -436,10 +436,10 @@
         public System.Windows.Forms.GroupBox gb_ctr_btn;
         private System.Windows.Forms.Button bt_ace_pta;
         public System.Windows.Forms.Label lb_nom_mod;
+        private System.Windows.Forms.Button bt_tod_mod;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_ide_mod;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_nom_mod;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_abr_mod;
         private System.Windows.Forms.DataGridViewTextBoxColumn va_est_ado;
-        private System.Windows.Forms.Button bt_tod_mod;
     }
 }

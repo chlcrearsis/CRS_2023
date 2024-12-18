@@ -51,14 +51,14 @@
             this.tb_ide_apl = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dg_res_ult = new System.Windows.Forms.DataGridView();
+            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
+            this.bt_ace_pta = new System.Windows.Forms.Button();
+            this.bt_can_cel = new System.Windows.Forms.Button();
             this.va_ide_apl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_nom_apl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_ide_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_nom_mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.va_est_ado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gb_ctr_btn = new System.Windows.Forms.GroupBox();
-            this.bt_ace_pta = new System.Windows.Forms.Button();
-            this.bt_can_cel = new System.Windows.Forms.Button();
             this.m_frm_hja.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -298,43 +298,6 @@
             this.dg_res_ult.SelectionChanged += new System.EventHandler(this.dg_res_ult_SelectionChanged);
             this.dg_res_ult.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dg_res_ult_PreviewKeyDown);
             // 
-            // va_ide_apl
-            // 
-            this.va_ide_apl.HeaderText = "ID. Apl";
-            this.va_ide_apl.Name = "va_ide_apl";
-            this.va_ide_apl.ReadOnly = true;
-            this.va_ide_apl.Width = 70;
-            // 
-            // va_nom_apl
-            // 
-            this.va_nom_apl.HeaderText = "Aplicación";
-            this.va_nom_apl.Name = "va_nom_apl";
-            this.va_nom_apl.ReadOnly = true;
-            this.va_nom_apl.Width = 190;
-            // 
-            // va_ide_mod
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.va_ide_mod.DefaultCellStyle = dataGridViewCellStyle2;
-            this.va_ide_mod.HeaderText = "ID.";
-            this.va_ide_mod.Name = "va_ide_mod";
-            this.va_ide_mod.ReadOnly = true;
-            this.va_ide_mod.Width = 35;
-            // 
-            // va_nom_mod
-            // 
-            this.va_nom_mod.HeaderText = "Módulo";
-            this.va_nom_mod.Name = "va_nom_mod";
-            this.va_nom_mod.ReadOnly = true;
-            this.va_nom_mod.Width = 160;
-            // 
-            // va_est_ado
-            // 
-            this.va_est_ado.HeaderText = "Estado";
-            this.va_est_ado.Name = "va_est_ado";
-            this.va_est_ado.ReadOnly = true;
-            this.va_est_ado.Width = 80;
-            // 
             // gb_ctr_btn
             // 
             this.gb_ctr_btn.Controls.Add(this.bt_ace_pta);
@@ -374,6 +337,43 @@
             this.bt_can_cel.Text = "&Cancelar";
             this.bt_can_cel.UseVisualStyleBackColor = false;
             this.bt_can_cel.Click += new System.EventHandler(this.bt_can_cel_Click);
+            // 
+            // va_ide_apl
+            // 
+            this.va_ide_apl.HeaderText = "ID. Apl";
+            this.va_ide_apl.Name = "va_ide_apl";
+            this.va_ide_apl.ReadOnly = true;
+            this.va_ide_apl.Width = 70;
+            // 
+            // va_nom_apl
+            // 
+            this.va_nom_apl.HeaderText = "Aplicación";
+            this.va_nom_apl.Name = "va_nom_apl";
+            this.va_nom_apl.ReadOnly = true;
+            this.va_nom_apl.Width = 190;
+            // 
+            // va_ide_mod
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.va_ide_mod.DefaultCellStyle = dataGridViewCellStyle2;
+            this.va_ide_mod.HeaderText = "Cód.";
+            this.va_ide_mod.Name = "va_ide_mod";
+            this.va_ide_mod.ReadOnly = true;
+            this.va_ide_mod.Width = 35;
+            // 
+            // va_nom_mod
+            // 
+            this.va_nom_mod.HeaderText = "Módulo";
+            this.va_nom_mod.Name = "va_nom_mod";
+            this.va_nom_mod.ReadOnly = true;
+            this.va_nom_mod.Width = 160;
+            // 
+            // va_est_ado
+            // 
+            this.va_est_ado.HeaderText = "Estado";
+            this.va_est_ado.Name = "va_est_ado";
+            this.va_est_ado.ReadOnly = true;
+            this.va_est_ado.Width = 80;
             // 
             // ads002_01
             // 
